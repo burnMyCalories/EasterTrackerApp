@@ -84,15 +84,15 @@ public class PostActivity extends BaseActivity {
         reply1.setHeadImageUrl("http://img0.imgtn.bdimg.com/it/u=3906463260,2316822376&fm=11&gp=0.jpg");
         replyList.add(reply1);
 
-        replyList.add(reply1);
-        replyList.add(reply1);
-        replyList.add(reply1);
-        replyList.add(reply1);
-        replyList.add(reply1);
-        replyList.add(reply1);
-        replyList.add(reply1);
-        replyList.add(reply1);
-        replyList.add(reply1);
+//        replyList.add(reply1);
+//        replyList.add(reply1);
+//        replyList.add(reply1);
+//        replyList.add(reply1);
+//        replyList.add(reply1);
+//        replyList.add(reply1);
+//        replyList.add(reply1);
+//        replyList.add(reply1);
+//        replyList.add(reply1);
 
     }
 }

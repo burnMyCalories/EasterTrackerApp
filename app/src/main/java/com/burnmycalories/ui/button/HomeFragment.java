@@ -60,7 +60,7 @@ public class HomeFragment extends BaseFragment {
         tabLayout = (TabLayout) getActivity().findViewById(R.id.tablayout);
         viewPager = (ViewPager) getActivity().findViewById(R.id.view_pager);
 
-        String[] tabNames={"Recommended","Hot Blog","Hot Comment"};
+        String[] tabNames={"Recommended","Hot Blog"};
 
 
         // 添加 tab item
@@ -70,8 +70,8 @@ public class HomeFragment extends BaseFragment {
         fragments.add(new com.burnmycalories.ui.button.HotPostHomeFragment());
         tabLayout.addTab(tabLayout.newTab());
 
-        fragments.add(new com.burnmycalories.ui.button.HotDanmakuHomeFragment());
-        tabLayout.addTab(tabLayout.newTab());
+//        fragments.add(new com.burnmycalories.ui.button.HotDanmakuHomeFragment());
+//        tabLayout.addTab(tabLayout.newTab());
 
         tabLayout.setupWithViewPager(viewPager,false);
         pagerAdapter = new FmPagerAdapter(getActivity().getSupportFragmentManager(),fragments);

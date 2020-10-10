@@ -59,7 +59,7 @@ public class ArticleActivity extends BaseAppCompatActivity {
             //
 
             articleTitle.setText("ArticleTitle");
-            articleContent.setText("Article Content" );
+            articleContent.setText("Article Content");
 
             author.setText("aticleAuthor");
 

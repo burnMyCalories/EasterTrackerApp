@@ -12,7 +12,7 @@
         android:enabled="true"
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_local"
-        android:title="@string/bottom_nav_local_text" />
+        android:title="@string/bottom_nav_map_text" />
     <item
         android:id="@+id/bbs"
         android:enabled="true"

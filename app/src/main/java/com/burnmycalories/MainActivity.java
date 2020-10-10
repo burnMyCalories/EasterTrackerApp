@@ -2,7 +2,6 @@ package com.burnmycalories;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -18,7 +17,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -27,13 +25,9 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.burnmycalories.base.BaseActivity;
 import com.burnmycalories.base.BaseAppCompatActivity;
-import com.burnmycalories.model.Article;
-import com.burnmycalories.ui.activities.ArticleActivity;
-import com.burnmycalories.ui.activities.LoginActivity;
 import com.burnmycalories.ui.button.BBSFragment;
-import com.burnmycalories.ui.button.LocalFragment;
+import com.burnmycalories.ui.button.MapFragment;
 import com.burnmycalories.ui.button.HomeFragment;
 import com.burnmycalories.util.LoginUtil;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -49,7 +43,7 @@ public class MainActivity extends BaseAppCompatActivity {
     private FragmentManager fragmentManager = getSupportFragmentManager();
 
     private Fragment homeFragment= new HomeFragment();
-    private Fragment localFragment= new LocalFragment();
+    private Fragment mapFragment = new MapFragment();
     private Fragment bbsFragment=new BBSFragment();
 
     private Fragment currentFragment=homeFragment;
@@ -83,8 +77,8 @@ private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemS
                 return true;
             case R.id.local:
 //                showFragment(localFragment,fragmentManager,currentFragment);
-                topToolBarText.setText("Local");
-                showFragment(localFragment);
+                topToolBarText.setText("Map");
+                showFragment(mapFragment);
                 return true;
             case R.id.bbs:
 //                showFragment(bbsFragment,fragmentManager,currentFragment);
@@ -151,23 +145,23 @@ private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemS
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
 //                mDrawerLayout.closeDrawers();
-                switch (menuItem.getItemId()){
-                    case R.id.draw_star:
-                        Toast.makeText(getApplicationContext(),"Star clicked",Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.draw_history:
-                        Toast.makeText(getApplicationContext(),"Local clicked",Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.draw_post:
-                        Toast.makeText(getApplicationContext(),"Post clicked",Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.draw_reply:
-                        Toast.makeText(getApplicationContext(),"Histroy clicked",Toast.LENGTH_SHORT).show();
-                        break;
-                    case R.id.logout:
-                        LoginUtil.logOut(MainActivity.this);
-
-                }
+//                switch (menuItem.getItemId()){
+//                    case R.id.draw_star:
+//                        Toast.makeText(getApplicationContext(),"Star clicked",Toast.LENGTH_SHORT).show();
+//                        break;
+//                    case R.id.draw_history:
+//                        Toast.makeText(getApplicationContext(),"Map clicked",Toast.LENGTH_SHORT).show();
+//                        break;
+//                    case R.id.draw_post:
+//                        Toast.makeText(getApplicationContext(),"Post clicked",Toast.LENGTH_SHORT).show();
+//                        break;
+//                    case R.id.draw_reply:
+//                        Toast.makeText(getApplicationContext(),"Histroy clicked",Toast.LENGTH_SHORT).show();
+//                        break;
+//                    case R.id.logout:
+//                        LoginUtil.logOut(MainActivity.this);
+//
+//                }
 
                 return false;
             }
@@ -199,7 +193,7 @@ private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemS
             circleImageViewHeadView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(getApplicationContext(),"Photo clicked",Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(getApplicationContext(),"Photo clicked",Toast.LENGTH_SHORT).show();
 //                    LoginUtil.userInfoUpdate(MainActivity.this,);
                 }
             });
