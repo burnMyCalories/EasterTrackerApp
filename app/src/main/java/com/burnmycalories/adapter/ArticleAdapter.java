@@ -79,7 +79,8 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
                         .into(holder.articleImage);
 
                 holder.articleTitle.setText(article.getTitle());
-                holder.recommendPoint.setText(String.valueOf(article.getRecommendPoint()));
+//                holder.recommendPoint.setText(String.valueOf(article.getRecommendPoint()));
+
     }
 
     @Override
@@ -92,14 +93,14 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         View articleView;
         ImageView articleImage;
         TextView articleTitle;
-        TextView recommendPoint;
+//        TextView recommendPoint;
 
         public ViewHolder(View view){
             super(view);
             articleView=view;
             articleImage=(ImageView)view.findViewById(R.id.article_image);
             articleTitle=(TextView)view.findViewById(R.id.article_title);
-            recommendPoint=(TextView)view.findViewById(R.id.article_recommend_point);
+//            recommendPoint=(TextView)view.findViewById(R.id.article_recommend_point);
         }
     }
 
