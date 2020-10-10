@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_bbs"
+        android:title="@string/bottom_nav_home_text" />
+    <item
+        android:id="@+id/local"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_local"
+        android:title="@string/bottom_nav_local_text" />
+    <item
+        android:id="@+id/bbs"
+        android:enabled="true"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_bbs"
+        android:title="@string/bottom_nav_bbs_text" />
+
+
+<!--<item-->
+<!--    android:id="@+id/more"-->
+<!--    android:enabled="true"-->
+<!--    app:showAsAction="ifRoom"-->
+<!--    android:icon="@drawable/more"-->
+<!--    android:title="其他设置" />-->
+
+</menu>
