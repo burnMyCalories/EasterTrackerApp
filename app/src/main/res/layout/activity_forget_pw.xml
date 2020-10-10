@@ -93,7 +93,7 @@
                 android:layout_marginRight="40dp"
                 android:layout_weight="1"
                 android:background="@drawable/buttonstyle"
-                android:text="提交"/>
+                android:text="Confirm"/>
 
         </LinearLayout>
 

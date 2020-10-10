@@ -43,7 +43,7 @@
                 android:layout_marginLeft="50dp"
                 android:layout_marginRight="50dp"
                 android:background="@null"
-                android:hint="your username"
+                android:hint="username"
                 android:textColor="#9F9FA0"
                 android:textColorHint="#9F9FA0" />
 
@@ -64,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:background="@null"
                 android:layout_gravity="center"
-                android:hint="your password"
+                android:hint="password"
                 android:textColor="#9F9FA0"
                 android:textColorHint="#9F9FA0"
                 android:layout_marginLeft="50dp"
@@ -80,20 +80,20 @@
             android:paddingTop="20dp"
             android:paddingBottom="30dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Forget Password?"
-                android:textColor="#DDDDDD"
-                android:textSize="15sp" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:text="Forget Password?"-->
+<!--                android:textColor="#DDDDDD"-->
+<!--                android:textSize="15sp" />-->
 
             <TextView
                 android:id="@+id/forget_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Tap Here"
+                android:text="Forget Password"
                 android:textColor="#FFFFFF"
                 android:textSize="15sp" />
         </LinearLayout>

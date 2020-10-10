@@ -16,7 +16,7 @@ public class AuthFormatUtil {
         if(userNmae.matches(USER_NAME_REGEX)){
             return true;
         }else {
-            Toast.makeText(context,"用户名必须是6-10位字母、数字、下划线，不能以数字开头",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"Username not valid",Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -27,7 +27,7 @@ public class AuthFormatUtil {
         if(password.matches(PASSWORD_REGEX)){
             return true;
         }else {
-            Toast.makeText(context,"密码必须是6-20位的字母、数字、下划线",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"Password not valid",Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -38,7 +38,7 @@ public class AuthFormatUtil {
         if(emailAdress.matches(EMAIL_ADRESS_REGEX)){
             return true;
         }else {
-            Toast.makeText(context,"邮箱格式不正确",Toast.LENGTH_SHORT).show();
+            Toast.makeText(context,"Email not valid",Toast.LENGTH_SHORT).show();
             return false;
         }
 

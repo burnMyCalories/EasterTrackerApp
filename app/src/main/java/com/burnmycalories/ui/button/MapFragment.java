@@ -26,10 +26,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.burnmycalories.R;
-import com.burnmycalories.adapter.MediaFileAdapter;
+//import com.burnmycalories.adapter.MediaFileAdapter;
 import com.burnmycalories.base.BaseFragment;
 import com.burnmycalories.model.MediaFile;
-import com.burnmycalories.ui.player.DanmkuVideoActivity;
+//import com.burnmycalories.ui.player.DanmkuVideoActivity;
 import com.burnmycalories.util.LoginUtil;
 
 import java.util.ArrayList;

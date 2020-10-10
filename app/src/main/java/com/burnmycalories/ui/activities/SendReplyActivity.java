@@ -16,7 +16,7 @@ import com.burnmycalories.R;
 import com.burnmycalories.base.BaseActivity;
 import com.burnmycalories.base.BaseAppCompatActivity;
 import com.burnmycalories.model.Reply;
-import com.burnmycalories.ui.player.DanmkuVideoActivity;
+//import com.burnmycalories.ui.player.DanmkuVideoActivity;
 
 import java.io.InputStream;
 
@@ -66,19 +66,19 @@ public class SendReplyActivity extends BaseAppCompatActivity {
 
 
 
-            if(replyToType==REPLY_TO_TYPE_POST){
-                PostActivity.actionStart(SendReplyActivity.this,replyToId);
-                Toast.makeText(SendReplyActivity.this,"Sent to post"+replyToId,Toast.LENGTH_SHORT).show();
+//            if(replyToType==REPLY_TO_TYPE_POST){
+            PostActivity.actionStart(SendReplyActivity.this,replyToId);
+            Toast.makeText(SendReplyActivity.this,"Sent to post"+replyToId,Toast.LENGTH_SHORT).show();
 
-            }else if(replyToType==REPLY_TO_TYPE_MEDIA){
-
-                DanmkuVideoActivity.actionStart(SendReplyActivity.this,replyToId,videoUrl);
-                Toast.makeText(SendReplyActivity.this,"Sent to Video"+replyToId,Toast.LENGTH_SHORT).show();
-
-
-            }else {
-                Toast.makeText(SendReplyActivity.this,"Sent Failed",Toast.LENGTH_SHORT).show();
-            }
+//            }else if(replyToType==REPLY_TO_TYPE_MEDIA){
+//
+//                DanmkuVideoActivity.actionStart(SendReplyActivity.this,replyToId,videoUrl);
+//                Toast.makeText(SendReplyActivity.this,"Sent to Video"+replyToId,Toast.LENGTH_SHORT).show();
+//
+//
+//            }else {
+//                Toast.makeText(SendReplyActivity.this,"Sent Failed",Toast.LENGTH_SHORT).show();
+//            }
 
 
 
