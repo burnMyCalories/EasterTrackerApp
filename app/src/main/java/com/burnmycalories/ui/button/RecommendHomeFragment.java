@@ -109,19 +109,19 @@ public class RecommendHomeFragment extends BaseFragment {
         Article article1 =new Article();
         article1.setImageUrl("http://www.hinews.cn/pic/003/010/038/00301003864_672af1eb.jpg");
         article1.setTitle("test1");
-        article1.setRecommendPoint(5);
+//        article1.setRecommendPoint(5);
         articleList.add(article1);
 
         Article article2 =new Article();
         article2.setImageUrl("http://photocdn.sohu.com/20130927/Img387363334.jpg");
         article2.setTitle("test2");
-        article2.setRecommendPoint(5);
+//        article2.setRecommendPoint(5);
         articleList.add(article2);
 
         Article article3 =new Article();
         article3.setImageUrl("http://cms-bucket.nosdn.127.net/2018/07/05/ad362b083a3c446895361eb28dee9495.jpeg");
         article3.setTitle("test3");
-        article3.setRecommendPoint(5);
+//        article3.setRecommendPoint(5);
         articleList.add(article3);
 
 

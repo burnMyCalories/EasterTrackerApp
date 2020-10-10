@@ -11,7 +11,7 @@ public class Article {
     private int userId;
     private Date publishTime;
 
-    private int recommendPoint;
+//    private int recommendPoint;
 
     public String getImageUrl() {
         return imageUrl;
@@ -21,13 +21,13 @@ public class Article {
         this.imageUrl = imageUrl;
     }
 
-    public int getRecommendPoint() {
-        return recommendPoint;
-    }
-
-    public void setRecommendPoint(int recommendPoint) {
-        this.recommendPoint = recommendPoint;
-    }
+//    public int getRecommendPoint() {
+//        return recommendPoint;
+//    }
+//
+//    public void setRecommendPoint(int recommendPoint) {
+//        this.recommendPoint = recommendPoint;
+//    }
 
     public int getId() {
         return id;
