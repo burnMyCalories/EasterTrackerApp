@@ -2,6 +2,7 @@ package com.burnmycalories;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -14,9 +15,11 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -148,24 +151,52 @@ private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemS
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-//                mDrawerLayout.closeDrawers();
-//                switch (menuItem.getItemId()){
+                mDrawerLayout.closeDrawers();
+                switch (menuItem.getItemId()){
 //                    case R.id.draw_star:
 //                        Toast.makeText(getApplicationContext(),"Star clicked",Toast.LENGTH_SHORT).show();
 //                        break;
 //                    case R.id.draw_history:
 //                        Toast.makeText(getApplicationContext(),"Map clicked",Toast.LENGTH_SHORT).show();
 //                        break;
-//                    case R.id.draw_post:
-//                        Toast.makeText(getApplicationContext(),"Post clicked",Toast.LENGTH_SHORT).show();
-//                        break;
-//                    case R.id.draw_reply:
-//                        Toast.makeText(getApplicationContext(),"Histroy clicked",Toast.LENGTH_SHORT).show();
-//                        break;
-//                    case R.id.logout:
-//                        LoginUtil.logOut(MainActivity.this);
-//
-//                }
+                    case R.id.draw_post:
+                        if(!LoginUtil.isLogin(MainActivity.this)){
+                            LoginUtil.login(MainActivity.this);
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(),"Blog clicked",Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+                    case R.id.draw_reply:
+                        if(!LoginUtil.isLogin(MainActivity.this)){
+                            LoginUtil.login(MainActivity.this);
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(),"Reply clicked",Toast.LENGTH_SHORT).show();
+                        }
+                        break;
+                    case R.id.logout:
+                        LoginUtil.logOut(MainActivity.this);
+                        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
+                                .setTitle("Warning")
+                                .setMessage("Are you willing to exit?")
+                                .setIcon(R.mipmap.ic_launcher)
+                                .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {//添加"Yes"按钮
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        System.exit(0);
+                                    }
+                                })
+                                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {//添加取消
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        return;
+                                    }
+                                })
+                                .create();
+                        alertDialog.show();
+                        break;
+                }
 
                 return false;
             }
@@ -220,7 +251,10 @@ private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemS
             });
         }
 
+        if(!LoginUtil.isLogin(MainActivity.this)){
+            LoginUtil.login(MainActivity.this);
 
+        }
 
 
         //初始化目前碎片
@@ -235,6 +269,7 @@ private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemS
 //        }else {
 //            currentFragment=homeFragment;
 //        }
+
         //先把首页添加上
         FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction
@@ -245,6 +280,7 @@ private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemS
 
         //去掉  toolBar 的lable
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
     }
 
     @Override
@@ -274,6 +310,18 @@ private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemS
         super.onSaveInstanceState(outState);
     }
 
+//    @Override
+//    public boolean onKeyDown(int keyCode, KeyEvent event) {
+//        if(!LoginUtil.isLogin(MainActivity.this)){
+//            LoginUtil.login(MainActivity.this);
+//            return true;
+//        }
+//        else{
+//            return super.onKeyDown(keyCode, event);
+//        }
+//
+//
+//    }
 
 
     //Fragment切换展示函数，注意放在activity外会引起重影
