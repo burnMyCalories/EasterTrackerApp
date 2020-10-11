@@ -70,29 +70,30 @@ public class LoginActivity extends BaseActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String stringUserNmae= userName.getText().toString();
+                String stringUserName= userName.getText().toString();
                 String stringPassword= password.getText().toString();
-
+//                System.out.println(stringUserName);
+//                System.out.println(stringPassword);
                 //todo  登陆逻辑处理  用户头像，用户名，token都存到本地
 
 //                StringBuilder url=new StringBuilder();
 //                String urlPart1=getString(R.string.server_url);
                 //登录名密码·等格式检查
 
-                if(AuthFormatUtil.checkUserName(LoginActivity.this,stringUserNmae)
+                if(AuthFormatUtil.checkUserName(LoginActivity.this,stringUserName)
                 &&AuthFormatUtil.checkPassword(LoginActivity.this,stringPassword)){
                     OkHttpClient okHttpClient = new OkHttpClient();
                     RequestBody body = new FormBody.Builder()
                             .build();
 
-//                String url=urlPart1+"/users/login?"+"username="+stringUserNmae+"&password="+stringPassword;
+//                String url=urlPart1+"/users/login?"+"username="+stringUserName+"&password="+stringPassword;
 
                     HttpUrl url2=new HttpUrl.Builder()
                             .scheme("http")
                             .host(getString(R.string.server_host))
                             .port(Integer.parseInt(getString(R.string.server_port)))
                             .addPathSegments("users/login")
-                            .addQueryParameter("username",stringUserNmae)
+                            .addQueryParameter("username",stringUserName)
                             .addQueryParameter("password",stringPassword)
                             .build();
                     String url3=url2.toString();
@@ -205,7 +206,7 @@ public class LoginActivity extends BaseActivity {
 
 
 //                LoginUtil.login(LoginActivity.this);
-//                if(stringUserNmae.equals("yxs")&&stringPassword.equals("997518")){
+//                if(stringUserName.equals("yxs")&&stringPassword.equals("997518")){
 //                    String token="yxs";
 //                    LoginUtil.userInfoUpdate(LoginActivity.this,LoginUtil.TOKEN,"token");
 //
