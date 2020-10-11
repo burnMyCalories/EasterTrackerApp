@@ -66,10 +66,10 @@ public class ArticleActivity extends BaseAppCompatActivity {
 
         }
 
-        Glide.with(ArticleActivity.this)
-                .load("http://img0.imgtn.bdimg.com/it/u=3906463260,2316822376&fm=11&gp=0.jpg")
-                .apply(new RequestOptions().placeholder(R.drawable.mytest).error(R.drawable.mytest).dontAnimate().centerCrop())
-                .into(head);
+//        Glide.with(ArticleActivity.this)
+//                .load("http://img0.imgtn.bdimg.com/it/u=3906463260,2316822376&fm=11&gp=0.jpg")
+//                .apply(new RequestOptions().placeholder(R.drawable.mytest).error(R.drawable.mytest).dontAnimate().centerCrop())
+//                .into(head);
 
 
 

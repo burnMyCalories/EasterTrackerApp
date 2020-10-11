@@ -236,10 +236,10 @@ private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemS
             //未登录提示登录
             //
 
-            Glide.with(MainActivity.this)
-                    .load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589892801763&di=f3cf57800be83ba306518b955613d5f9&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_pic%2F01%2F54%2F05%2F625746fd5b60878.jpg")
-                    .apply(new RequestOptions().placeholder(R.drawable.mytest).error(R.drawable.mytest).dontAnimate().centerCrop())
-                    .into(circleImageViewHeadView);
+//            Glide.with(MainActivity.this)
+//                    .load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1589892801763&di=f3cf57800be83ba306518b955613d5f9&imgtype=0&src=http%3A%2F%2Fbpic.588ku.com%2Felement_pic%2F01%2F54%2F05%2F625746fd5b60878.jpg")
+//                    .apply(new RequestOptions().placeholder(R.drawable.mytest).error(R.drawable.mytest).dontAnimate().centerCrop())
+//                    .into(circleImageViewHeadView);
 
             userNmae.setText("Login");
 

@@ -23,8 +23,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Welcome Login"
-                android:textColor="#FFFFFF"
-                android:textSize="18sp"/>
+                android:textColor="#04E3FF"
+                android:textSize="23sp"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -94,7 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Forget Password"
-                android:textColor="#FFFFFF"
+                android:textColor="#EFB509"
                 android:textSize="15sp" />
         </LinearLayout>
 
