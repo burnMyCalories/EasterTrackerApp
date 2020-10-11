@@ -69,6 +69,10 @@ private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemS
         = new BottomNavigationView.OnNavigationItemSelectedListener() {
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        if(!LoginUtil.isLogin(MainActivity.this)){
+            LoginUtil.login(MainActivity.this);
+            return false;
+        }
         switch (menuItem.getItemId()) {
             case R.id.home:
 //                showFragment(homeFragment,fragmentManager,currentFragment);

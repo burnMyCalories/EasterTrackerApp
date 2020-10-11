@@ -27,7 +27,7 @@ public class SendPostActivity extends BaseAppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if(item.getItemId()==R.id.send_post){
             //发帖事件绑定
-            Toast.makeText(SendPostActivity.this,"send",Toast.LENGTH_SHORT).show();
+            Toast.makeText(SendPostActivity.this,"blog sent",Toast.LENGTH_SHORT).show();
 
 //            Intent intent=new Intent(SendPostActivity.this, BBSFragment.class);
 

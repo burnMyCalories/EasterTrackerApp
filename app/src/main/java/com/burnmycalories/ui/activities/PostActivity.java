@@ -17,6 +17,7 @@ import com.burnmycalories.base.BaseActivity;
 import com.burnmycalories.model.Article;
 import com.burnmycalories.model.Post;
 import com.burnmycalories.model.Reply;
+import com.burnmycalories.util.LoginUtil;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.w3c.dom.Text;
@@ -55,8 +56,12 @@ public class PostActivity extends BaseActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                SendReplyActivity.actionStart(PostActivity.this,SendReplyActivity.REPLY_TO_TYPE_POST,1,"");
+                if(LoginUtil.isLogin(PostActivity.this)){
+                    SendReplyActivity.actionStart(PostActivity.this,SendReplyActivity.REPLY_TO_TYPE_POST,1,"");
+                }else {
+                    LoginUtil.login(PostActivity.this);
+                }
+//                SendReplyActivity.actionStart(PostActivity.this,SendReplyActivity.REPLY_TO_TYPE_POST,1,"");
 
             }
         });

@@ -22,6 +22,7 @@ import com.burnmycalories.base.BaseFragment;
 import com.burnmycalories.model.Post;
 import com.burnmycalories.ui.activities.PostActivity;
 import com.burnmycalories.ui.activities.SendPostActivity;
+import com.burnmycalories.util.LoginUtil;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.SimpleDateFormat;
@@ -55,34 +56,38 @@ public class BBSFragment extends BaseFragment {
         super.onActivityCreated(savedInstanceState);
 
         TextView topPost=(TextView)getActivity().findViewById(R.id.top_post);
-        TextView selectdPost=(TextView)getActivity().findViewById(R.id.select_post);
+//        TextView selectdPost=(TextView)getActivity().findViewById(R.id.select_post);
 
         FloatingActionButton floatingActionButton=(FloatingActionButton)getActivity().findViewById(R.id.send_post);
 
-        topPost.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(),"Top clicked",Toast.LENGTH_SHORT).show();
+//        topPost.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(v.getContext(),"Top clicked",Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
 
-            }
-        });
-
-        selectdPost.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(),"Star clicked",Toast.LENGTH_SHORT).show();
-
-            }
-        });
+//        selectdPost.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Toast.makeText(v.getContext(),"Star clicked",Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
 
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(v.getContext(),"Send blog clicked",Toast.LENGTH_SHORT).show();
-
+//                Toast.makeText(v.getContext(),"Send blog clicked",Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(getActivity(), SendPostActivity.class);
-                startActivity(intent);
+                if(LoginUtil.isLogin(getActivity())){
+                    startActivityForResult(intent, 1);
+                }else {
+                    LoginUtil.login(getActivity());
+                }
+//                startActivity(intent);
             }
         });
 

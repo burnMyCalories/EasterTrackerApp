@@ -64,7 +64,11 @@ public class MapFragment extends BaseFragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
+//        if(LoginUtil.isLogin(getActivity())){
+////                    startActivityForResult(intent, 1);
+//        }else {
+//            LoginUtil.login(getActivity());
+//        }
 //        ImageView seclectFile=(ImageView)getActivity().findViewById(R.id.elect_media_file);
 //        seclectFile.setOnClickListener(new View.OnClickListener() {
 //            @Override
