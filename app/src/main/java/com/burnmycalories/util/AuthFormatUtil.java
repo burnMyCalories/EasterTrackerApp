@@ -11,9 +11,9 @@ public class AuthFormatUtil {
 
 
 
-    public static boolean checkUserName(Context context,String userNmae){
+    public static boolean checkUserName(Context context,String userName){
 
-        if(userNmae.matches(USER_NAME_REGEX)){
+        if(userName.matches(USER_NAME_REGEX)){
             return true;
         }else {
             Toast.makeText(context,"Username not valid",Toast.LENGTH_SHORT).show();

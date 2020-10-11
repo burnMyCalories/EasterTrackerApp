@@ -17,9 +17,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.burnmycalories.MainActivity;
 import com.burnmycalories.R;
 import com.burnmycalories.model.Article;
 import com.burnmycalories.ui.activities.ArticleActivity;
+import com.burnmycalories.util.LoginUtil;
 
 import java.util.List;
 
@@ -42,6 +44,10 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         holder.articleView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!LoginUtil.isLogin(parent.getContext())){
+                    LoginUtil.login(parent.getContext());
+                    return;
+                }
                 int position =holder.getAdapterPosition();
                 Article article=articleList.get(position);
 

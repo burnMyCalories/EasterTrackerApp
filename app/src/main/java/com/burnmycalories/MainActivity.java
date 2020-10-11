@@ -205,7 +205,7 @@ private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemS
         //侧滑栏头本部分
         //todo  侧滑栏登陆等逻辑完成2
         View headview=navigationView.inflateHeaderView(R.layout.layout_draw_header);
-        TextView userNmae=(TextView)headview.findViewById(R.id.username);
+        TextView userName=(TextView)headview.findViewById(R.id.username);
         CircleImageView circleImageViewHeadView =(CircleImageView)headview.findViewById(R.id.circle_image_view_head);
 
 
@@ -223,7 +223,7 @@ private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemS
 
             String T=LoginUtil.getUserInfo(MainActivity.this,LoginUtil.USERNAME_STRING);
 
-            userNmae.setText(LoginUtil.getUserInfo(MainActivity.this,LoginUtil.USERNAME_STRING));
+            userName.setText(LoginUtil.getUserInfo(MainActivity.this,LoginUtil.USERNAME_STRING));
 
             circleImageViewHeadView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -241,7 +241,7 @@ private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemS
 //                    .apply(new RequestOptions().placeholder(R.drawable.mytest).error(R.drawable.mytest).dontAnimate().centerCrop())
 //                    .into(circleImageViewHeadView);
 
-            userNmae.setText("Login");
+            userName.setText("Not Logged in");
 
             circleImageViewHeadView.setOnClickListener(new View.OnClickListener() {
                 @Override
