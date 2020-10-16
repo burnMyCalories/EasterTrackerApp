@@ -20,10 +20,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
 import androidx.activity.OnBackPressedCallback
 import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.observe
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -37,6 +37,7 @@ import com.materialstudies.reply.databinding.FragmentHomeBinding
 import com.materialstudies.reply.ui.MainActivity
 import com.materialstudies.reply.ui.MenuBottomSheetDialogFragment
 import com.materialstudies.reply.ui.nav.NavigationModel
+
 
 /**
  * A [Fragment] that displays a list of emails.
@@ -64,6 +65,7 @@ class HomeFragment : Fragment(), EmailAdapter.EmailAdapterListener {
         enterTransition = MaterialFadeThrough().apply {
             duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
         }
+
     }
 
     override fun onCreateView(
@@ -90,16 +92,25 @@ class HomeFragment : Fragment(), EmailAdapter.EmailAdapterListener {
             nonInboxOnBackCallback
         )
 
-        binding.recyclerView.apply {
-            val itemTouchHelper = ItemTouchHelper(ReboundingSwipeActionCallback())
-            itemTouchHelper.attachToRecyclerView(this)
-            adapter = emailAdapter
-        }
-        binding.recyclerView.adapter = emailAdapter
+//        binding.recyclerView.apply {
+//            val itemTouchHelper = ItemTouchHelper(ReboundingSwipeActionCallback())
+//            itemTouchHelper.attachToRecyclerView(this)
+//            adapter = emailAdapter
+//        }
+//        binding.recyclerView.adapter = emailAdapter
 
-        EmailStore.getEmails(args.mailbox).observe(viewLifecycleOwner) {
-            emailAdapter.submitList(it)
-        }
+//        EmailStore.getEmails(args.mailbox).observe(viewLifecycleOwner) {
+//            emailAdapter.submitList(it)
+//        }
+//        val myWebView: WebView = findViewById(R.id.webview)
+//        myWebView.loadUrl("https://www.google.com/")
+//        val rootView: View = inflater.inflate(R.layout.fragment_main, container, false)
+
+        val url = "https://www.google.com/"
+        val wview = view.findViewById<View>(R.id.webView) as WebView
+        wview.settings.javaScriptEnabled = true
+        wview.loadUrl(url)
+
     }
 
     override fun onEmailClicked(cardView: View, email: Email) {
