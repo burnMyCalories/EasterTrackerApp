@@ -1,0 +1,27 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Android与Js交互</title>
+</head>
+<body>
+
+<!--<script type="text/javascript">-->
+<!--    alert("hello world")-->
+<!--</script>-->
+
+<button type="button" onclick="clickJS()">我是一个按钮</button>
+
+<p id="zi">在这里改变代码</p>
+
+<script type="text/javascript">
+
+            function clickJS(){
+                document.getElementById("zi").innerHTML = "test1"
+            }
+            function clickJS2(){
+                document.getElementById("zi").innerHTML = "test2"
+            }
+
+</script>
+</body>
+</html>

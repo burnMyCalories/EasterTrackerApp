@@ -106,10 +106,16 @@ class HomeFragment : Fragment(), EmailAdapter.EmailAdapterListener {
 //        myWebView.loadUrl("https://www.google.com/")
 //        val rootView: View = inflater.inflate(R.layout.fragment_main, container, false)
 
-        val url = "https://www.google.com/"
+//        val url = "https://www.google.com/"
+        val url = "file:////android_asset/test.html"
         val wview = view.findViewById<View>(R.id.webView) as WebView
         wview.settings.javaScriptEnabled = true
+        wview.settings.javaScriptCanOpenWindowsAutomatically = true
+
         wview.loadUrl(url)
+        wview.post {
+            wview.loadUrl("javascript:clickJS2()")
+        }
 
     }
 
