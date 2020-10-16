@@ -26,6 +26,7 @@ import android.view.ViewGroup
 import android.webkit.GeolocationPermissions
 import android.webkit.WebChromeClient
 import android.webkit.WebView
+import android.webkit.WebViewClient
 import androidx.activity.OnBackPressedCallback
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -112,15 +113,19 @@ class HomeFragment : Fragment(), EmailAdapter.EmailAdapterListener {
 //        myWebView.loadUrl("https://www.google.com/")
 //        val rootView: View = inflater.inflate(R.layout.fragment_main, container, false)
 
-        val url = "https://www.google.com/maps"
-//        val url = "file:////android_asset/test.html"
+//        val url = "https://www.runoob.com/try/try.php?filename=tryhtml_map_first"
+        val url = "file:////android_asset/test.html"
         val wview = view.findViewById<View>(R.id.webView) as WebView
         wview.settings.javaScriptEnabled = true
         wview.settings.javaScriptCanOpenWindowsAutomatically = true
         wview.settings.setGeolocationEnabled(true)
+        wview.settings.databaseEnabled = true
         wview.settings.allowFileAccess = true
         wview.settings.allowFileAccessFromFileURLs = true
+        wview.settings.allowUniversalAccessFromFileURLs = true
         wview.settings.domStorageEnabled = true
+        wview.settings.useWideViewPort = true
+        wview.settings.builtInZoomControls = true
         wview.webChromeClient = object : WebChromeClient() {
             override fun onGeolocationPermissionsShowPrompt(origin: String, callback: GeolocationPermissions.Callback) {
                 callback.invoke(origin, true, false)
@@ -138,8 +143,17 @@ class HomeFragment : Fragment(), EmailAdapter.EmailAdapterListener {
                 println("Success")
             }
         }
-
         wview.loadUrl(url)
+        wview.setWebViewClient(object : WebViewClient() {
+            override fun onPageFinished(view: WebView, url: String) {
+                super.onPageFinished(view, url)
+                println("Test")
+//                wview.post {
+//                    wview.loadUrl("javascript:initialize()")
+//                }
+            }
+        })
+
 //        wview.post {
 //            wview.loadUrl("javascript:clickJS2()")
 //        }
