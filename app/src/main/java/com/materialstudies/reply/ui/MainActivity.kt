@@ -43,6 +43,7 @@ import com.materialstudies.reply.ui.home.HomeFragmentDirections
 import com.materialstudies.reply.ui.home.Mailbox
 import com.materialstudies.reply.ui.nav.*
 import com.materialstudies.reply.ui.search.SearchFragmentDirections
+import com.materialstudies.reply.util.LocationUtils
 import com.materialstudies.reply.util.contentView
 import kotlin.LazyThreadSafetyMode.NONE
 
@@ -74,7 +75,8 @@ class MainActivity : AppCompatActivity(),
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setUpBottomNavigationAndFab()
-
+//        val locationStr= LocationUtils.getLngAndLat(this)
+//        println(locationStr)
 
     }
 

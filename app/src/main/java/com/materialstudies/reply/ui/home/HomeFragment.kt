@@ -16,18 +16,24 @@
 
 package com.materialstudies.reply.ui.home
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.GeolocationPermissions
+import android.webkit.WebChromeClient
 import android.webkit.WebView
 import androidx.activity.OnBackPressedCallback
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.ItemTouchHelper
 import com.google.android.material.transition.MaterialElevationScale
 import com.google.android.material.transition.MaterialFadeThrough
 import com.materialstudies.reply.R
@@ -106,18 +112,41 @@ class HomeFragment : Fragment(), EmailAdapter.EmailAdapterListener {
 //        myWebView.loadUrl("https://www.google.com/")
 //        val rootView: View = inflater.inflate(R.layout.fragment_main, container, false)
 
-//        val url = "https://www.google.com/"
-        val url = "file:////android_asset/test.html"
+        val url = "https://www.google.com/maps"
+//        val url = "file:////android_asset/test.html"
         val wview = view.findViewById<View>(R.id.webView) as WebView
         wview.settings.javaScriptEnabled = true
         wview.settings.javaScriptCanOpenWindowsAutomatically = true
-
-        wview.loadUrl(url)
-        wview.post {
-            wview.loadUrl("javascript:clickJS2()")
+        wview.settings.setGeolocationEnabled(true)
+        wview.settings.allowFileAccess = true
+        wview.settings.allowFileAccessFromFileURLs = true
+        wview.settings.domStorageEnabled = true
+        wview.webChromeClient = object : WebChromeClient() {
+            override fun onGeolocationPermissionsShowPrompt(origin: String, callback: GeolocationPermissions.Callback) {
+                callback.invoke(origin, true, false)
+                super.onGeolocationPermissionsShowPrompt(origin, callback)
+            }
         }
 
+        if (Build.VERSION.SDK_INT >= 23) {
+            val checkPermission = ContextCompat.checkSelfPermission(this.context!!, Manifest.permission.ACCESS_COARSE_LOCATION)
+            if (checkPermission != PackageManager.PERMISSION_GRANTED) {
+                println("Failed")
+                ActivityCompat.requestPermissions(this.activity!!, arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION), 1)
+                ActivityCompat.requestPermissions(this.activity!!, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
+            } else {
+                println("Success")
+            }
+        }
+
+        wview.loadUrl(url)
+//        wview.post {
+//            wview.loadUrl("javascript:clickJS2()")
+//        }
+
+
     }
+
 
     override fun onEmailClicked(cardView: View, email: Email) {
         // Set exit and reenter transitions here as opposed to in onCreate because these transitions
