@@ -24,7 +24,7 @@
             type="com.burnmycalories.eastermap.data.Account" />
         <variable
             name="accountListener"
-            type="com.burnmycalories.eastermap.ui.nav.AccountAdapter.AccountAdapterListener" />
+            type="com.burnmycalories.eastermap.ui.navigation.AccountAdapter.AccountAdapterListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

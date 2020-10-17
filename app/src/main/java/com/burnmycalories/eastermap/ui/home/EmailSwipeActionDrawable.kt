@@ -28,11 +28,10 @@ import android.graphics.drawable.Drawable
 import androidx.annotation.ColorInt
 import androidx.appcompat.content.res.AppCompatResources
 import com.burnmycalories.eastermap.R
-import com.burnmycalories.eastermap.util.themeColor
-import com.burnmycalories.eastermap.util.themeInterpolator
+import com.burnmycalories.eastermap.utils.themeColor
+import com.burnmycalories.eastermap.utils.themeInterpolator
 import kotlin.math.abs
 import kotlin.math.hypot
-import kotlin.math.sin
 
 /**
  * A [Drawable] which handles drawing the background behind an email item preview and responds to

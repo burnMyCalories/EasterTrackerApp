@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.burnmycalories.eastermap.ui.nav
+package com.burnmycalories.eastermap.ui.navigation
 
 import android.animation.ValueAnimator
 import android.content.res.ColorStateList
@@ -37,8 +37,8 @@ import com.burnmycalories.eastermap.R
 import com.burnmycalories.eastermap.data.Account
 import com.burnmycalories.eastermap.data.AccountStore
 import com.burnmycalories.eastermap.databinding.FragmentBottomNavDrawerBinding
-import com.burnmycalories.eastermap.util.themeColor
-import com.burnmycalories.eastermap.util.themeInterpolator
+import com.burnmycalories.eastermap.utils.themeColor
+import com.burnmycalories.eastermap.utils.themeInterpolator
 import kotlin.LazyThreadSafetyMode.NONE
 import kotlin.math.abs
 

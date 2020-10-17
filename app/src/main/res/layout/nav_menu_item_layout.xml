@@ -20,10 +20,10 @@
 
         <variable
             name="navMenuItem"
-            type="com.burnmycalories.eastermap.ui.nav.NavigationModelItem.NavMenuItem" />
+            type="com.burnmycalories.eastermap.ui.navigation.NavigationModelItem.NavMenuItem" />
         <variable
             name="navListener"
-            type="com.burnmycalories.eastermap.ui.nav.NavigationAdapter.NavigationAdapterListener" />
+            type="com.burnmycalories.eastermap.ui.navigation.NavigationAdapter.NavigationAdapterListener" />
     </data>
 
     <CheckedTextView

@@ -18,7 +18,7 @@
     <data>
         <variable
             name="navDivider"
-            type="com.burnmycalories.eastermap.ui.nav.NavigationModelItem.NavDivider" />
+            type="com.burnmycalories.eastermap.ui.navigation.NavigationModelItem.NavDivider" />
     </data>
 
     <TextView

@@ -36,7 +36,7 @@ import com.burnmycalories.eastermap.data.EmailStore
 import com.burnmycalories.eastermap.databinding.FragmentHomeBinding
 import com.burnmycalories.eastermap.ui.MainActivity
 import com.burnmycalories.eastermap.ui.MenuBottomSheetDialogFragment
-import com.burnmycalories.eastermap.ui.nav.NavigationModel
+import com.burnmycalories.eastermap.ui.navigation.NavigationModel
 
 /**
  * A [Fragment] that displays a list of emails.
@@ -118,9 +118,7 @@ class HomeFragment : Fragment(), EmailAdapter.EmailAdapterListener {
     }
 
     override fun onEmailLongPressed(email: Email): Boolean {
-        MenuBottomSheetDialogFragment
-                .newInstance(R.menu.email_bottom_sheet_menu)
-                .show(parentFragmentManager, null)
+
         return true
     }
 

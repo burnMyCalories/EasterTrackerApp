@@ -31,17 +31,14 @@
     </fragment>
     <fragment
         android:id="@+id/emailFragment"
-        android:name="com.burnmycalories.eastermap.ui.email.EmailFragment"
+        android:name="com.burnmycalories.eastermap.ui.elements.EmailFragment"
         android:label="EmailFragment">
         <argument
             android:name="emailId"
             app:argType="long" />
     </fragment>
 
-    <fragment
-        android:id="@+id/searchFragment"
-        android:name="com.burnmycalories.eastermap.ui.search.SearchFragment"
-        android:label="SearchFragment" />
+
     <action
         android:id="@+id/action_global_homeFragment"
         app:destination="@+id/homeFragment"

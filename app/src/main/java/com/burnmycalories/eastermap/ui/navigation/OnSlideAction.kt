@@ -14,13 +14,12 @@
  * limitations under the License.
  */
 
-package com.burnmycalories.eastermap.ui.nav
+package com.burnmycalories.eastermap.ui.navigation
 
 import android.view.View
 import android.widget.ImageView
 import androidx.annotation.FloatRange
 import androidx.core.view.marginTop
-import androidx.core.view.updatePadding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.burnmycalories.eastermap.R

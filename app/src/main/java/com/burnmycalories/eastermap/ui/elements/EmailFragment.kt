@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.burnmycalories.eastermap.ui.email
+package com.burnmycalories.eastermap.ui.elements
 
 import android.graphics.Color
 import android.os.Bundle
@@ -29,7 +29,7 @@ import com.google.android.material.transition.MaterialContainerTransform
 import com.burnmycalories.eastermap.R
 import com.burnmycalories.eastermap.data.EmailStore
 import com.burnmycalories.eastermap.databinding.FragmentEmailBinding
-import com.burnmycalories.eastermap.util.themeColor
+import com.burnmycalories.eastermap.utils.themeColor
 import kotlin.LazyThreadSafetyMode.NONE
 
 private const val MAX_GRID_SPANS = 3

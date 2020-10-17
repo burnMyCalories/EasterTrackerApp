@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.burnmycalories.eastermap.ui.nav
+package com.burnmycalories.eastermap.ui.navigation
 
 import android.annotation.SuppressLint
 import android.view.View

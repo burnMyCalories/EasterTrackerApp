@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.burnmycalories.eastermap.util
+package com.burnmycalories.eastermap.utils
 
 import android.content.Context
 import android.os.Build

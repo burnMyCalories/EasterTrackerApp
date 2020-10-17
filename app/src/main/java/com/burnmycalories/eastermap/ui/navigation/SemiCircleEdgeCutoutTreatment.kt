@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.burnmycalories.eastermap.ui.nav
+package com.burnmycalories.eastermap.ui.navigation
 
 import com.google.android.material.shape.EdgeTreatment
 import com.google.android.material.shape.ShapePath

@@ -22,8 +22,8 @@ import com.burnmycalories.eastermap.R
 import com.burnmycalories.eastermap.data.Email
 import com.burnmycalories.eastermap.databinding.EmailItemLayoutBinding
 
-import com.burnmycalories.eastermap.util.setTextAppearanceCompat
-import com.burnmycalories.eastermap.util.themeStyle
+import com.burnmycalories.eastermap.utils.setTextAppearanceCompat
+import com.burnmycalories.eastermap.utils.themeStyle
 import kotlin.math.abs
 
 class EmailViewHolder(

@@ -36,19 +36,17 @@ import com.google.android.material.transition.MaterialSharedAxis
 import com.burnmycalories.eastermap.R
 import com.burnmycalories.eastermap.data.EmailStore
 import com.burnmycalories.eastermap.databinding.ActivityMainBinding
-import com.burnmycalories.eastermap.ui.email.EmailFragmentArgs
+import com.burnmycalories.eastermap.ui.elements.EmailFragmentArgs
 import com.burnmycalories.eastermap.ui.home.HomeFragmentDirections
 import com.burnmycalories.eastermap.ui.home.Mailbox
-import com.burnmycalories.eastermap.ui.nav.AlphaSlideAction
-import com.burnmycalories.eastermap.ui.nav.BottomNavDrawerFragment
-import com.burnmycalories.eastermap.ui.nav.ChangeSettingsMenuStateAction
-import com.burnmycalories.eastermap.ui.nav.HalfClockwiseRotateSlideAction
-import com.burnmycalories.eastermap.ui.nav.HalfCounterClockwiseRotateSlideAction
-import com.burnmycalories.eastermap.ui.nav.NavigationAdapter
-import com.burnmycalories.eastermap.ui.nav.NavigationModelItem
-import com.burnmycalories.eastermap.ui.nav.ShowHideFabStateAction
-import com.burnmycalories.eastermap.ui.search.SearchFragmentDirections
-import com.burnmycalories.eastermap.util.contentView
+import com.burnmycalories.eastermap.ui.navigation.AlphaSlideAction
+import com.burnmycalories.eastermap.ui.navigation.BottomNavDrawerFragment
+import com.burnmycalories.eastermap.ui.navigation.ChangeSettingsMenuStateAction
+import com.burnmycalories.eastermap.ui.navigation.HalfClockwiseRotateSlideAction
+import com.burnmycalories.eastermap.ui.navigation.HalfCounterClockwiseRotateSlideAction
+import com.burnmycalories.eastermap.ui.navigation.NavigationAdapter
+import com.burnmycalories.eastermap.ui.navigation.NavigationModelItem
+import com.burnmycalories.eastermap.utils.contentView
 import kotlin.LazyThreadSafetyMode.NONE
 
 class MainActivity : AppCompatActivity(),
@@ -101,11 +99,7 @@ class MainActivity : AppCompatActivity(),
             addOnStateChangedAction(ChangeSettingsMenuStateAction { showSettings ->
                 // Toggle between the current destination's BAB menu and the menu which should
                 // be displayed when the BottomNavigationDrawer is open.
-                binding.bottomAppBar.replaceMenu(if (showSettings) {
-                    R.menu.bottom_app_bar_settings_menu
-                } else {
-                    getBottomAppBarMenuForDestination()
-                })
+//                binding.bottomAppBar.replaceMenu(getBottomAppBarMenuForDestination())
             })
 
             addOnSandwichSlideAction(HalfCounterClockwiseRotateSlideAction(binding.bottomAppBarChevron))
@@ -138,12 +132,12 @@ class MainActivity : AppCompatActivity(),
         when (destination.id) {
             R.id.homeFragment -> {
                 currentEmailId = -1
-                setBottomAppBarForHome(getBottomAppBarMenuForDestination(destination))
+//                setBottomAppBarForHome(getBottomAppBarMenuForDestination(destination))
             }
             R.id.emailFragment -> {
                 currentEmailId =
                     if (arguments == null) -1 else EmailFragmentArgs.fromBundle(arguments).emailId
-                setBottomAppBarForEmail(getBottomAppBarMenuForDestination(destination))
+//                setBottomAppBarForEmail(getBottomAppBarMenuForDestination(destination))
             }
             R.id.composeFragment -> {
                 currentEmailId = -1
@@ -164,15 +158,14 @@ class MainActivity : AppCompatActivity(),
      * well as switching between the alternate menu used when the BottomNavigationDrawer is
      * open and closed.
      */
-    @MenuRes
-    private fun getBottomAppBarMenuForDestination(destination: NavDestination? = null): Int {
-        val dest = destination ?: findNavController(R.id.nav_host_fragment).currentDestination
-        return when (dest?.id) {
-            R.id.homeFragment -> R.menu.bottom_app_bar_home_menu
-            R.id.emailFragment -> R.menu.bottom_app_bar_email_menu
-            else -> R.menu.bottom_app_bar_home_menu
-        }
-    }
+//    @MenuRes
+//    private fun getBottomAppBarMenuForDestination(destination: NavDestination? = null): Int {
+//        val dest = destination ?: findNavController(R.id.nav_host_fragment).currentDestination
+//        return when (dest?.id) {
+//            R.id.homeFragment -> R.menu.bottom_app_bar_home_menu
+//            else -> R.menu.bottom_app_bar_home_menu
+//        }
+//    }
 
     private fun setBottomAppBarForHome(@MenuRes menuRes: Int) {
         binding.run {
@@ -237,28 +230,11 @@ class MainActivity : AppCompatActivity(),
 
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {
-        when (item?.itemId) {
-            R.id.menu_settings -> {
-                bottomNavDrawer.close()
-                showDarkThemeMenu()
-            }
-//            R.id.menu_search -> navigateToSearch()
-            R.id.menu_email_star -> {
-                EmailStore.update(currentEmailId) { isStarred = !isStarred }
-            }
-            R.id.menu_email_delete -> {
-                EmailStore.delete(currentEmailId)
-                findNavController(R.id.nav_host_fragment).popBackStack()
-            }
-        }
+
         return true
     }
 
-    private fun showDarkThemeMenu() {
-        MenuBottomSheetDialogFragment
-            .newInstance(R.menu.dark_theme_bottom_sheet_menu)
-            .show(supportFragmentManager, null)
-    }
+
 
     fun navigateToHome(@StringRes titleRes: Int, mailbox: Mailbox) {
         binding.bottomAppBarTitle.text = getString(titleRes)
@@ -292,23 +268,16 @@ class MainActivity : AppCompatActivity(),
                 duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
             }
         }
-        val directions = SearchFragmentDirections.actionGlobalSearchFragment()
-        findNavController(R.id.nav_host_fragment).navigate(directions)
+
     }
 
     /**
      * Set this Activity's night mode based on a user's in-app selection.
      */
     private fun onDarkThemeMenuItemSelected(itemId: Int): Boolean {
-        val nightMode = when (itemId) {
-            R.id.menu_light -> AppCompatDelegate.MODE_NIGHT_NO
-            R.id.menu_dark -> AppCompatDelegate.MODE_NIGHT_YES
-            R.id.menu_battery_saver -> AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY
-            R.id.menu_system_default -> AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM
-            else -> return false
-        }
 
-        delegate.localNightMode = nightMode
+
+
         return true
     }
 

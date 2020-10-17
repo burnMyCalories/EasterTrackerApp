@@ -36,7 +36,7 @@
             android:id="@+id/bottom_nav_drawer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:name="com.burnmycalories.eastermap.ui.nav.BottomNavDrawerFragment"/>
+            android:name="com.burnmycalories.eastermap.ui.navigation.BottomNavDrawerFragment"/>
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottom_app_bar"

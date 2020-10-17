@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-package com.burnmycalories.eastermap.ui.nav
+package com.burnmycalories.eastermap.ui.navigation
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.burnmycalories.eastermap.R
-import com.burnmycalories.eastermap.data.EmailStore
 import com.burnmycalories.eastermap.ui.home.Mailbox
 
 /**
