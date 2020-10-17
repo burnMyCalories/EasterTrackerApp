@@ -100,21 +100,21 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/subject_text_view"/>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/attachment_recycler_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="96dp"
-                    android:layout_marginTop="@dimen/grid_2"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/body_preview_text_view"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="12dp"
-                    android:clipToPadding="false"
-                    android:overScrollMode="never"
-                    app:goneIf="@{!email.hasAttachments}"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    android:orientation="horizontal" />
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:id="@+id/attachment_recycler_view"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="96dp"-->
+<!--                    android:layout_marginTop="@dimen/grid_2"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/body_preview_text_view"-->
+<!--                    android:paddingStart="12dp"-->
+<!--                    android:paddingEnd="12dp"-->
+<!--                    android:clipToPadding="false"-->
+<!--                    android:overScrollMode="never"-->
+<!--                    app:goneIf="@{!email.hasAttachments}"-->
+<!--                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--                    android:orientation="horizontal" />-->
 
                 <ImageView
                     android:id="@+id/sender_profile_image_view"

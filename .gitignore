@@ -1,7 +1,7 @@
 *.iml
 *.lock
 *.bin
-.gradle
+.gradle/*
 /local.properties
 /.idea/caches
 /.idea/libraries

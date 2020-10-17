@@ -43,7 +43,7 @@ class EmailFragment : Fragment() {
     private val emailId: Long by lazy(NONE) { args.emailId }
 
     private lateinit var binding: FragmentEmailBinding
-    private val attachmentAdapter = EmailAttachmentGridAdapter(MAX_GRID_SPANS)
+//    private val attachmentAdapter = EmailAttachmentGridAdapter(MAX_GRID_SPANS)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -88,10 +88,10 @@ class EmailFragment : Fragment() {
                 requireContext(),
                 MAX_GRID_SPANS
             ).apply {
-                spanSizeLookup = attachmentAdapter.variableSpanSizeLookup
+//                spanSizeLookup = attachmentAdapter.variableSpanSizeLookup
             }
-            attachmentRecyclerView.adapter = attachmentAdapter
-            attachmentAdapter.submitList(email.attachments)
+//            attachmentRecyclerView.adapter = attachmentAdapter
+//            attachmentAdapter.submitList(email.attachments)
         }
     }
 

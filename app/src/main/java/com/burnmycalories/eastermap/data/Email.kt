@@ -28,14 +28,14 @@ data class Email(
     val recipients: List<Account> = emptyList(),
     val subject: String = "",
     val body: String = "",
-    val attachments: List<EmailAttachment> = emptyList(),
+//    val attachments: List<EmailAttachment> = emptyList(),
     var isImportant: Boolean = false,
     var isStarred: Boolean = false,
     var mailbox: Mailbox = Mailbox.INBOX
 ) {
     val senderPreview: String = "${sender.fullName} - 4 hrs ago"
     val hasBody: Boolean = body.isNotBlank()
-    val hasAttachments: Boolean = attachments.isNotEmpty()
+//    val hasAttachments: Boolean = attachments.isNotEmpty()
     val recipientsPreview: String = recipients
         .map { it.firstName }
         .fold("") { name, acc -> "$acc, $name" }
