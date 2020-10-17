@@ -35,6 +35,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+//import com.burnmycalories.eastermap.ui.home.HomeFragmentDirections
 import com.google.android.material.transition.MaterialElevationScale
 import com.google.android.material.transition.MaterialFadeThrough
 import com.materialstudies.reply.R
@@ -114,7 +115,7 @@ class HomeFragment : Fragment(), EmailAdapter.EmailAdapterListener {
 //        val rootView: View = inflater.inflate(R.layout.fragment_main, container, false)
 
 //        val url = "https://www.runoob.com/try/try.php?filename=tryhtml_map_first"
-        val url = "file:////android_asset/test.html"
+        val url = "file:////android_asset/homeMap.html"
         val wview = view.findViewById<View>(R.id.webView) as WebView
         wview.settings.javaScriptEnabled = true
         wview.settings.javaScriptCanOpenWindowsAutomatically = true
