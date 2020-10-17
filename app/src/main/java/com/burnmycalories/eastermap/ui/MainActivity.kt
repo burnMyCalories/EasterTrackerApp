@@ -235,9 +235,6 @@ class MainActivity : AppCompatActivity(),
         navigateToHome(item.titleRes, item.mailbox)
     }
 
-    override fun onNavEmailFolderClicked(folder: NavigationModelItem.NavEmailFolder) {
-        // Do nothing
-    }
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {
         when (item?.itemId) {

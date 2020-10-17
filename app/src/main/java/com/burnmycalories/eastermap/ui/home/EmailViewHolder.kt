@@ -21,7 +21,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.burnmycalories.eastermap.R
 import com.burnmycalories.eastermap.data.Email
 import com.burnmycalories.eastermap.databinding.EmailItemLayoutBinding
-import com.burnmycalories.eastermap.ui.common.EmailAttachmentAdapter
 import com.burnmycalories.eastermap.util.setTextAppearanceCompat
 import com.burnmycalories.eastermap.util.themeStyle
 import kotlin.math.abs
@@ -31,10 +30,7 @@ class EmailViewHolder(
     listener: EmailAdapter.EmailAdapterListener
 ): RecyclerView.ViewHolder(binding.root), ReboundingSwipeActionCallback.ReboundableViewHolder {
 
-    private val attachmentAdapter = object : EmailAttachmentAdapter() {
-        override fun getLayoutIdForPosition(position: Int): Int
-            = R.layout.email_attachment_preview_item_layout
-    }
+
 
     private val starredCornerSize =
         itemView.resources.getDimension(R.dimen.reply_small_component_corner_radius)
@@ -44,7 +40,7 @@ class EmailViewHolder(
     init {
         binding.run {
             this.listener = listener
-            attachmentRecyclerView.adapter = attachmentAdapter
+
             root.background = EmailSwipeActionDrawable(root.context)
         }
     }
@@ -66,7 +62,7 @@ class EmailViewHolder(
             textAppearance
         )
 
-        attachmentAdapter.submitList(email.attachments)
+
 
         // Setting interpolation here controls whether or not we draw the top left corner as
         // rounded or squared. Since all other corners are set to 0dp rounded, they are

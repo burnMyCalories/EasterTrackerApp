@@ -20,7 +20,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.burnmycalories.eastermap.databinding.NavDividerItemLayoutBinding
-import com.burnmycalories.eastermap.databinding.NavEmailFolderItemLayoutBinding
+
 import com.burnmycalories.eastermap.databinding.NavMenuItemLayoutBinding
 
 private const val VIEW_TYPE_NAV_MENU_ITEM = 4
@@ -35,14 +35,13 @@ class NavigationAdapter(
 
     interface NavigationAdapterListener {
         fun onNavMenuItemClicked(item: NavigationModelItem.NavMenuItem)
-        fun onNavEmailFolderClicked(folder: NavigationModelItem.NavEmailFolder)
+
     }
 
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position)) {
             is NavigationModelItem.NavMenuItem -> VIEW_TYPE_NAV_MENU_ITEM
             is NavigationModelItem.NavDivider -> VIEW_TYPE_NAV_DIVIDER
-            is NavigationModelItem.NavEmailFolder -> VIEW_TYPE_NAV_EMAIL_FOLDER_ITEM
             else -> throw RuntimeException("Unsupported ItemViewType for obj ${getItem(position)}")
         }
     }
@@ -68,14 +67,7 @@ class NavigationAdapter(
                     false
                 )
             )
-            VIEW_TYPE_NAV_EMAIL_FOLDER_ITEM -> NavigationViewHolder.EmailFolderViewHolder(
-                NavEmailFolderItemLayoutBinding.inflate(
-                    LayoutInflater.from(parent.context),
-                    parent,
-                    false
-                ),
-                listener
-            )
+
             else -> throw RuntimeException("Unsupported view holder type")
         } as NavigationViewHolder<NavigationModelItem>
     }

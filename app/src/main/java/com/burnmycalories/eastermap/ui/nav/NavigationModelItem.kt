@@ -19,8 +19,6 @@ package com.burnmycalories.eastermap.ui.nav
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.recyclerview.widget.DiffUtil
-import com.burnmycalories.eastermap.data.EmailFolder
-import com.burnmycalories.eastermap.data.EmailFolderDiff
 import com.burnmycalories.eastermap.ui.home.Mailbox
 
 /**
@@ -45,10 +43,6 @@ sealed class NavigationModelItem {
      */
     data class NavDivider(val title: String) : NavigationModelItem()
 
-    /**
-     * A class which is used to show an [EmailFolder] in the [NavigationAdapter].
-     */
-    data class NavEmailFolder(val emailFolder: EmailFolder) : NavigationModelItem()
 
     object NavModelItemDiff : DiffUtil.ItemCallback<NavigationModelItem>() {
         override fun areItemsTheSame(
@@ -58,8 +52,6 @@ sealed class NavigationModelItem {
             return when {
                 oldItem is NavMenuItem && newItem is NavMenuItem ->
                     oldItem.id == newItem.id
-                oldItem is NavEmailFolder && newItem is NavEmailFolder ->
-                    EmailFolderDiff.areItemsTheSame(oldItem.emailFolder, newItem.emailFolder)
                 else -> oldItem == newItem
             }
         }
@@ -73,8 +65,6 @@ sealed class NavigationModelItem {
                      oldItem.icon == newItem.icon &&
                      oldItem.titleRes == newItem.titleRes &&
                      oldItem.checked == newItem.checked
-                oldItem is NavEmailFolder && newItem is NavEmailFolder ->
-                    EmailFolderDiff.areContentsTheSame(oldItem.emailFolder, newItem.emailFolder)
                 else -> false
             }
         }

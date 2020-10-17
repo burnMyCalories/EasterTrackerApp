@@ -63,12 +63,7 @@ object EmailStore {
             listOf(AccountStore.getDefaultUserAccount()),
             "Bonjour from Paris",
             "Here are some great shots from my trip...",
-            listOf(
-                EmailAttachment(R.drawable.paris_1, "Bridge in Paris"),
-                EmailAttachment(R.drawable.paris_2, "Bridge in Paris at night"),
-                EmailAttachment(R.drawable.paris_3, "City street in Paris"),
-                EmailAttachment(R.drawable.paris_4, "Street with bike in Paris")
-            ),
+
             true
         ),
         Email(

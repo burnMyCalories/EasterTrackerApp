@@ -19,7 +19,6 @@ package com.burnmycalories.eastermap.ui.nav
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.burnmycalories.eastermap.databinding.NavDividerItemLayoutBinding
-import com.burnmycalories.eastermap.databinding.NavEmailFolderItemLayoutBinding
 import com.burnmycalories.eastermap.databinding.NavMenuItemLayoutBinding
 
 sealed class NavigationViewHolder<T : NavigationModelItem>(
@@ -51,17 +50,5 @@ sealed class NavigationViewHolder<T : NavigationModelItem>(
         }
     }
 
-    class EmailFolderViewHolder(
-        private val binding: NavEmailFolderItemLayoutBinding,
-        private val listener: NavigationAdapter.NavigationAdapterListener
-    ) : NavigationViewHolder<NavigationModelItem.NavEmailFolder>(binding.root) {
-
-        override fun bind(navItem: NavigationModelItem.NavEmailFolder) {
-            binding.run {
-                navEmailFolder = navItem
-                navListener = listener
-                executePendingBindings()
-            }
-        }
-    }
+    
 }
