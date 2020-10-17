@@ -87,18 +87,18 @@ class MainActivity : AppCompatActivity(),
         }
 
         // Set a custom animation for showing and hiding the FAB
-        binding.fab.apply {
-            setShowMotionSpecResource(R.animator.fab_show)
-            setHideMotionSpecResource(R.animator.fab_hide)
-            setOnClickListener {
-                navigateToCompose()
-            }
-        }
+//        binding.fab.apply {
+//            setShowMotionSpecResource(R.animator.fab_show)
+//            setHideMotionSpecResource(R.animator.fab_hide)
+//            setOnClickListener {
+//                navigateToCompose()
+//            }
+//        }
 
         bottomNavDrawer.apply {
             addOnSlideAction(HalfClockwiseRotateSlideAction(binding.bottomAppBarChevron))
             addOnSlideAction(AlphaSlideAction(binding.bottomAppBarTitle, true))
-            addOnStateChangedAction(ShowHideFabStateAction(binding.fab))
+//            addOnStateChangedAction(ShowHideFabStateAction(binding.fab))
             addOnStateChangedAction(ChangeSettingsMenuStateAction { showSettings ->
                 // Toggle between the current destination's BAB menu and the menu which should
                 // be displayed when the BottomNavigationDrawer is open.
@@ -177,25 +177,25 @@ class MainActivity : AppCompatActivity(),
 
     private fun setBottomAppBarForHome(@MenuRes menuRes: Int) {
         binding.run {
-            fab.setImageState(intArrayOf(-android.R.attr.state_activated), true)
+//            fab.setImageState(intArrayOf(-android.R.attr.state_activated), true)
             bottomAppBar.visibility = View.VISIBLE
             bottomAppBar.replaceMenu(menuRes)
-            fab.contentDescription = getString(R.string.fab_compose_email_content_description)
+//            fab.contentDescription = getString(R.string.fab_compose_email_content_description)
             bottomAppBarTitle.visibility = View.VISIBLE
             bottomAppBar.performShow()
-            fab.show()
+//            fab.show()
         }
     }
 
     private fun setBottomAppBarForEmail(@MenuRes menuRes: Int) {
         binding.run {
-            fab.setImageState(intArrayOf(android.R.attr.state_activated), true)
+//            fab.setImageState(intArrayOf(android.R.attr.state_activated), true)
             bottomAppBar.visibility = View.VISIBLE
             bottomAppBar.replaceMenu(menuRes)
-            fab.contentDescription = getString(R.string.fab_reply_email_content_description)
+//            fab.contentDescription = getString(R.string.fab_reply_email_content_description)
             bottomAppBarTitle.visibility = View.INVISIBLE
             bottomAppBar.performShow()
-            fab.show()
+//            fab.show()
         }
     }
 
@@ -205,7 +205,7 @@ class MainActivity : AppCompatActivity(),
 
     private fun setBottomAppBarForSearch() {
         hideBottomAppBar()
-        binding.fab.hide()
+//        binding.fab.hide()
     }
 
     private fun hideBottomAppBar() {
@@ -221,7 +221,7 @@ class MainActivity : AppCompatActivity(),
                     // Hide the BottomAppBar to avoid it showing above the keyboard
                     // when composing a new email.
                     bottomAppBar.visibility = View.GONE
-                    fab.visibility = View.INVISIBLE
+//                    fab.visibility = View.INVISIBLE
                 }
                 override fun onAnimationCancel(animation: Animator?) {
                     isCanceled = true

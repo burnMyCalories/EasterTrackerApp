@@ -50,5 +50,5 @@ sealed class NavigationViewHolder<T : NavigationModelItem>(
         }
     }
 
-    
+
 }
