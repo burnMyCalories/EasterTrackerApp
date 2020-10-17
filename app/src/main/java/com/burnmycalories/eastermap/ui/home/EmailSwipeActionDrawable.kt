@@ -28,8 +28,6 @@ import android.graphics.drawable.Drawable
 import androidx.annotation.ColorInt
 import androidx.appcompat.content.res.AppCompatResources
 import com.burnmycalories.eastermap.R
-import com.burnmycalories.eastermap.util.lerp
-import com.burnmycalories.eastermap.util.lerpArgb
 import com.burnmycalories.eastermap.util.themeColor
 import com.burnmycalories.eastermap.util.themeInterpolator
 import kotlin.math.abs
@@ -134,27 +132,7 @@ class EmailSwipeActionDrawable(context: Context) : Drawable() {
             circlePaint
         )
 
-        // Map our progress range from 0-1 to 0-PI
-        val range = lerp(
-            0F,
-            Math.PI.toFloat(),
-            progress
-        )
-        // Take the sin of our ranged progress * our maxScaleAddition as what we should
-        // increase the icon's scale by.
-        val additive = (sin(range.toDouble()) * iconMaxScaleAddition).coerceIn(0.0, 1.0)
-        val scaleFactor = 1 + additive
-        icon.setBounds(
-            (cx - (iconIntrinsicWidth / 2F) * scaleFactor).toInt(),
-            (circle.centerY() - (iconIntrinsicHeight / 2F) * scaleFactor).toInt(),
-            (cx + (iconIntrinsicWidth / 2F) * scaleFactor).toInt(),
-            (circle.centerY() + (iconIntrinsicHeight / 2F) * scaleFactor).toInt()
-        )
 
-        // Draw/animate the color of the icon
-        icon.setTint(
-            lerpArgb(iconTint, iconTintActive, 0F, 0.15F, progress)
-        )
 
         // Draw the icon
         icon.draw(canvas)

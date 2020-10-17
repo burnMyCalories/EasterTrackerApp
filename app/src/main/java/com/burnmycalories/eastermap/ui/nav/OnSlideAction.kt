@@ -24,7 +24,7 @@ import androidx.core.view.updatePadding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.burnmycalories.eastermap.R
-import com.burnmycalories.eastermap.util.normalize
+
 
 /**
  * An action to be performed when a bottom sheet's slide offset is changed.
@@ -56,12 +56,7 @@ class HalfClockwiseRotateSlideAction(
 ) : OnSlideAction {
 
     override fun onSlide(sheet: View, slideOffset: Float) {
-        view.rotation = slideOffset.normalize(
-            -1F,
-            0F,
-            0F,
-            180F
-        )
+
     }
 }
 
@@ -94,14 +89,6 @@ class ForegroundSheetTransformSlideAction(
     }
 
     override fun onSlide(sheet: View, slideOffset: Float) {
-        val progress = slideOffset.normalize(0F, 0.25F, 1F, 0F)
-        profileImageView.scaleX = progress
-        profileImageView.scaleY = progress
-        foregroundShapeDrawable.interpolation = progress
-
-        foregroundView.translationY = -(1 - progress) * foregroundMarginTop
-        val topPaddingProgress = slideOffset.normalize(0F, 0.9F, 0F, 1F)
-        foregroundView.updatePadding(top = (getPaddingTop() * topPaddingProgress).toInt())
 
         // Modify the z ordering of the profileImage to make it easier to click when half-expanded.
         // Reset the z order if the sheet is expanding so the profile image slides under the
@@ -127,7 +114,6 @@ class AlphaSlideAction(
 ) : OnSlideAction {
 
     override fun onSlide(sheet: View, slideOffset: Float) {
-        val alpha = slideOffset.normalize(-1F, 0F, 0F, 1F)
-        view.alpha = if (!reverse) alpha else 1F - alpha
+
     }
 }

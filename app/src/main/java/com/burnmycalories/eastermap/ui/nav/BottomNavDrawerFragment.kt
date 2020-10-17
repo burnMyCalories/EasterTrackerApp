@@ -37,7 +37,6 @@ import com.burnmycalories.eastermap.R
 import com.burnmycalories.eastermap.data.Account
 import com.burnmycalories.eastermap.data.AccountStore
 import com.burnmycalories.eastermap.databinding.FragmentBottomNavDrawerBinding
-import com.burnmycalories.eastermap.util.lerp
 import com.burnmycalories.eastermap.util.themeColor
 import com.burnmycalories.eastermap.util.themeInterpolator
 import kotlin.LazyThreadSafetyMode.NONE
@@ -325,18 +324,9 @@ class BottomNavDrawerFragment :
      */
     private fun onSandwichProgressChanged(progress: Float) {
         binding.run {
-            val navProgress = lerp(0F, 1F, 0F, 0.5F, progress)
-            val accProgress = lerp(0F, 1F, 0.5F, 1F, progress)
 
-            foregroundContainer.translationY =
-                (binding.foregroundContainer.height * 0.15F) * navProgress
-            profileImageView.scaleX = 1F - navProgress
-            profileImageView.scaleY = 1F - navProgress
-            profileImageView.alpha = 1F - navProgress
-            foregroundContainer.alpha = 1F - navProgress
-            accountRecyclerView.alpha = accProgress
 
-            foregroundShapeDrawable.interpolation = 1F - navProgress
+
 
             // Animate the translationY of the backgroundContainer so just the account picker is
             // peeked above the BottomAppBar.

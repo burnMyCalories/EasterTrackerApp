@@ -18,7 +18,7 @@ package com.burnmycalories.eastermap.ui.nav
 
 import android.view.View
 import androidx.annotation.FloatRange
-import com.burnmycalories.eastermap.util.normalize
+
 
 /**
  * Callback used to run actions when the offset/progress of [BottomNavDrawerFragment]'s account
@@ -48,11 +48,6 @@ class HalfCounterClockwiseRotateSlideAction(
     private val view: View
 ) : OnSandwichSlideAction {
     override fun onSlide(slideOffset: Float) {
-        view.rotation = slideOffset.normalize(
-            0F,
-            1F,
-            180F,
-            0F
-        )
+
     }
 }

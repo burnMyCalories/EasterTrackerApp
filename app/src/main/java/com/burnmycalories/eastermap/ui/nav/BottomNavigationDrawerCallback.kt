@@ -21,7 +21,6 @@ import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import com.google.android.material.R
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.burnmycalories.eastermap.util.normalize
 import kotlin.math.max
 
 /**
@@ -48,13 +47,8 @@ class BottomNavigationDrawerCallback : BottomSheetBehavior.BottomSheetCallback()
 
         lastSlideOffset = slideOffset
         // Correct for the fact that the slideOffset is not zero when half expanded
-        val trueOffset = if (slideOffset <= halfExpandedSlideOffset) {
-            slideOffset.normalize(-1F, halfExpandedSlideOffset, -1F, 0F)
-        } else {
-            slideOffset.normalize(halfExpandedSlideOffset, 1F, 0F, 1F)
-        }
 
-        onSlideActions.forEach { it.onSlide(sheet, trueOffset) }
+
     }
 
     override fun onStateChanged(sheet: View, newState: Int) {
