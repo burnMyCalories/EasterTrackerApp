@@ -10,8 +10,8 @@
         <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
-            <option value="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/COMP90018-Code" />
-            <option value="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/COMP90018-Code/app" />
+            <option value="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp" />
+            <option value="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
