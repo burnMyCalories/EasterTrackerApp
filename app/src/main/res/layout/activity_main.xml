@@ -22,7 +22,7 @@
         android:id="@+id/coordinator_layout"
         android:layout_height="match_parent"
         app:layoutFullscreen="@{true}"
-        tools:context="com.materialstudies.reply.ui.MainActivity">
+        tools:context="com.burnmycalories.eastermap.ui.MainActivity">
 
         <fragment
             android:id="@+id/nav_host_fragment"
@@ -36,7 +36,7 @@
             android:id="@+id/bottom_nav_drawer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:name="com.materialstudies.reply.ui.nav.BottomNavDrawerFragment"/>
+            android:name="com.burnmycalories.eastermap.ui.nav.BottomNavDrawerFragment"/>
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottom_app_bar"
@@ -90,13 +90,13 @@
 
         </com.google.android.material.bottomappbar.BottomAppBar>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_anchor="@id/bottom_app_bar"
-            android:contentDescription="@string/fab_compose_email_content_description"
-            app:srcCompat="@drawable/asl_edit_reply" />
+<!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--            android:id="@+id/fab"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_anchor="@id/bottom_app_bar"-->
+<!--            android:contentDescription="@string/fab_compose_email_content_description"-->
+<!--            app:srcCompat="@drawable/asl_edit_reply" />-->
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

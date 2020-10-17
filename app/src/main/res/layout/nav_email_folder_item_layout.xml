@@ -18,10 +18,10 @@
     <data>
         <variable
             name="navEmailFolder"
-            type="com.materialstudies.reply.ui.nav.NavigationModelItem.NavEmailFolder" />
+            type="com.burnmycalories.eastermap.ui.nav.NavigationModelItem.NavEmailFolder" />
         <variable
             name="navListener"
-            type="com.materialstudies.reply.ui.nav.NavigationAdapter.NavigationAdapterListener" />
+            type="com.burnmycalories.eastermap.ui.nav.NavigationAdapter.NavigationAdapterListener" />
     </data>
 
     <TextView

@@ -21,10 +21,10 @@
     <data>
         <variable
             name="email"
-            type="com.materialstudies.reply.data.Email" />
+            type="com.burnmycalories.eastermap.data.Email" />
         <variable
             name="listener"
-            type="com.materialstudies.reply.ui.home.EmailAdapter.EmailAdapterListener" />
+            type="com.burnmycalories.eastermap.ui.home.EmailAdapter.EmailAdapterListener" />
     </data>
 
     <FrameLayout

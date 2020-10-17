@@ -19,7 +19,7 @@
     <data>
         <variable
             name="email"
-            type="com.materialstudies.reply.data.Email" />
+            type="com.burnmycalories.eastermap.data.Email" />
     </data>
 
     <androidx.core.widget.NestedScrollView

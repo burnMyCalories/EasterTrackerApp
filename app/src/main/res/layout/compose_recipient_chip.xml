@@ -18,7 +18,7 @@
     <data>
         <variable
             name="account"
-            type="com.materialstudies.reply.data.Account" />
+            type="com.burnmycalories.eastermap.data.Account" />
     </data>
 
     <com.google.android.material.chip.Chip
