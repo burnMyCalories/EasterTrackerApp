@@ -18,13 +18,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <import type="com.materialstudies.reply.R"/>
+        <import type="com.burnmycalories.eastermap.R"/>
         <variable
             name="account"
-            type="com.materialstudies.reply.data.Account" />
+            type="com.burnmycalories.eastermap.data.Account" />
         <variable
             name="accountListener"
-            type="com.materialstudies.reply.ui.nav.AccountAdapter.AccountAdapterListener" />
+            type="com.burnmycalories.eastermap.ui.nav.AccountAdapter.AccountAdapterListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

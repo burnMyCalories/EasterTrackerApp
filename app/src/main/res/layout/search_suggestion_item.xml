@@ -18,7 +18,7 @@
     <data>
         <variable
             name="suggestion"
-            type="com.materialstudies.reply.data.SearchSuggestion" />
+            type="com.burnmycalories.eastermap.data.SearchSuggestion" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

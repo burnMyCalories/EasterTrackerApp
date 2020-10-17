@@ -19,7 +19,7 @@
     <data>
         <variable
             name="currentUserAccount"
-            type="com.materialstudies.reply.data.Account" />
+            type="com.burnmycalories.eastermap.data.Account" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

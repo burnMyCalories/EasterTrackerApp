@@ -16,14 +16,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <import type="com.materialstudies.reply.R" />
+        <import type="com.burnmycalories.eastermap.R" />
 
         <variable
             name="navMenuItem"
-            type="com.materialstudies.reply.ui.nav.NavigationModelItem.NavMenuItem" />
+            type="com.burnmycalories.eastermap.ui.nav.NavigationModelItem.NavMenuItem" />
         <variable
             name="navListener"
-            type="com.materialstudies.reply.ui.nav.NavigationAdapter.NavigationAdapterListener" />
+            type="com.burnmycalories.eastermap.ui.nav.NavigationAdapter.NavigationAdapterListener" />
     </data>
 
     <CheckedTextView
