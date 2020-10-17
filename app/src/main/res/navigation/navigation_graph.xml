@@ -37,15 +37,7 @@
             android:name="emailId"
             app:argType="long" />
     </fragment>
-    <fragment
-        android:id="@+id/composeFragment"
-        android:name="com.burnmycalories.eastermap.ui.compose.ComposeFragment"
-        android:label="ComposeFragment">
-        <argument
-            android:name="replyToEmailId"
-            app:argType="long"
-            android:defaultValue="-1L"/>
-    </fragment>
+
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.burnmycalories.eastermap.ui.search.SearchFragment"

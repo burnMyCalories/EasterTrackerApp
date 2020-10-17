@@ -36,7 +36,6 @@ import com.google.android.material.transition.MaterialSharedAxis
 import com.burnmycalories.eastermap.R
 import com.burnmycalories.eastermap.data.EmailStore
 import com.burnmycalories.eastermap.databinding.ActivityMainBinding
-import com.burnmycalories.eastermap.ui.compose.ComposeFragmentDirections
 import com.burnmycalories.eastermap.ui.email.EmailFragmentArgs
 import com.burnmycalories.eastermap.ui.home.HomeFragmentDirections
 import com.burnmycalories.eastermap.ui.home.Mailbox
@@ -235,9 +234,7 @@ class MainActivity : AppCompatActivity(),
         navigateToHome(item.titleRes, item.mailbox)
     }
 
-    override fun onNavEmailFolderClicked(folder: NavigationModelItem.NavEmailFolder) {
-        // Do nothing
-    }
+
 
     override fun onMenuItemClick(item: MenuItem?): Boolean {
         when (item?.itemId) {
@@ -283,8 +280,7 @@ class MainActivity : AppCompatActivity(),
                 duration = resources.getInteger(R.integer.reply_motion_duration_large).toLong()
             }
         }
-        val directions = ComposeFragmentDirections.actionGlobalComposeFragment(currentEmailId)
-        findNavController(R.id.nav_host_fragment).navigate(directions)
+
     }
 
     private fun navigateToSearch() {
