@@ -5,6 +5,9 @@
       <config />
     </shared>
   </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="814a2666-3dab-414d-acc9-bcae1a573fb4" name="Default Changelist" comment="">
       <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" afterDir="false" />
