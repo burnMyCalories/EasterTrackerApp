@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+
+* Author: Xinnan Shen
+* Date: 18-10-2020
+* Usage: Define Application Properties & Request Some Permissions
+
+-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.burnmycalories.eastermap">
