@@ -10,11 +10,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="814a2666-3dab-414d-acc9-bcae1a573fb4" name="Default Changelist" comment="">
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" afterDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/build.gradle" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/build.gradle" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/util/BindingAdapter.kt" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/util/BindingAdapter.kt" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/screenshots/1_home_screen.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/screenshots/2_navigation_drawer.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/screenshots/3_account_sandwich.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/screenshots/4_star_email_action.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/screenshots/5_email_details.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/screenshots/6_email_compose.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/screenshots/collage_header.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/screenshots/color_header.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/screenshots/shape_header.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/screenshots/typography_header.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/util/BindingAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/util/BindingAdapter.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -230,22 +247,22 @@
       <screen x="0" y="28" width="1366" height="740" />
     </state>
     <state x="416" y="144" width="524" height="503" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.28.1366.740@0.28.1366.740" timestamp="1603014253194" />
-    <state width="1312" height="230" key="GridCell.Tab.0.bottom" timestamp="1603014992276">
+    <state width="1312" height="272" key="GridCell.Tab.0.bottom" timestamp="1603028451402">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="230" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1603014992276" />
-    <state width="1312" height="230" key="GridCell.Tab.0.center" timestamp="1603014992275">
+    <state width="1312" height="272" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1603028451402" />
+    <state width="1312" height="272" key="GridCell.Tab.0.center" timestamp="1603028451402">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="230" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1603014992275" />
-    <state width="1312" height="230" key="GridCell.Tab.0.left" timestamp="1603014992275">
+    <state width="1312" height="272" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1603028451402" />
+    <state width="1312" height="272" key="GridCell.Tab.0.left" timestamp="1603028451401">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="230" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1603014992275" />
-    <state width="1312" height="230" key="GridCell.Tab.0.right" timestamp="1603014992275">
+    <state width="1312" height="272" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1603028451401" />
+    <state width="1312" height="272" key="GridCell.Tab.0.right" timestamp="1603028451402">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="230" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1603014992275" />
+    <state width="1312" height="272" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1603028451402" />
     <state x="164" y="33" key="SettingsEditor" timestamp="1603016506639">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
