@@ -1,7 +1,7 @@
 /*
 * Author: Xinnan Shen
 * Date: 18-10-2020
-* Usage: Main Activity of Application
+*
 */
 
 apply plugin: 'com.android.application'
