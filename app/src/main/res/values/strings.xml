@@ -14,7 +14,7 @@
   -->
 <resources>
 
-    <string name="app_name">Reply</string>
+    <string name="app_name">EasterMap</string>
 
     <!--BottomAppBar-->
     <string name="bottom_app_bar_chevron_content_desc">Open or close bottom navigation drawer</string>
