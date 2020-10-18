@@ -11,31 +11,24 @@
   <component name="ChangeListManager">
     <list default="true" id="814a2666-3dab-414d-acc9-bcae1a573fb4" name="Default Changelist" comment="">
       <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/color/color_on_primary_surface_divider.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/color/color_on_primary_surface_emphasis_disabled.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/color/color_on_primary_surface_emphasis_high.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/color/color_on_primary_surface_emphasis_medium.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/color/color_on_surface_divider.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/color/color_on_surface_emphasis_disabled.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/color/color_on_surface_emphasis_high.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/color/color_on_surface_emphasis_medium.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/avatar_none.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/attrs.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/color.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/elevation.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/font_certs.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/ids.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/layout.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/motion.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/shape.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/themes.xml" afterDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/type.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/type.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/color/color_on_primary_surface_divider.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/color/color_on_primary_surface_emphasis_disabled.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/color/color_on_primary_surface_emphasis_high.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/color/color_on_primary_surface_emphasis_medium.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/color/color_on_surface_divider.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/color/color_on_surface_emphasis_disabled.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/color/color_on_surface_emphasis_high.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/color/color_on_surface_emphasis_medium.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_none.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/attrs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/color.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/elevation.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/font_certs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/ids.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/layout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/motion.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/shape.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -252,22 +245,22 @@
       <screen x="0" y="28" width="1366" height="740" />
     </state>
     <state x="416" y="144" width="524" height="503" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.28.1366.740@0.28.1366.740" timestamp="1603014253194" />
-    <state width="1312" height="230" key="GridCell.Tab.0.bottom" timestamp="1603014187978">
+    <state width="1312" height="230" key="GridCell.Tab.0.bottom" timestamp="1603014799248">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="230" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1603014187978" />
-    <state width="1312" height="230" key="GridCell.Tab.0.center" timestamp="1603014187978">
+    <state width="1312" height="230" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1603014799248" />
+    <state width="1312" height="230" key="GridCell.Tab.0.center" timestamp="1603014799248">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="230" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1603014187978" />
-    <state width="1312" height="230" key="GridCell.Tab.0.left" timestamp="1603014187977">
+    <state width="1312" height="230" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1603014799248" />
+    <state width="1312" height="230" key="GridCell.Tab.0.left" timestamp="1603014799247">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="230" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1603014187977" />
-    <state width="1312" height="230" key="GridCell.Tab.0.right" timestamp="1603014187978">
+    <state width="1312" height="230" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1603014799247" />
+    <state width="1312" height="230" key="GridCell.Tab.0.right" timestamp="1603014799248">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="230" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1603014187978" />
+    <state width="1312" height="230" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1603014799248" />
     <state x="100" y="128" width="1166" height="540" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1602985131168">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
