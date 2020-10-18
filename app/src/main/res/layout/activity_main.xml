@@ -29,14 +29,13 @@
             android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:defaultNavHost="true"
-            app:navGraph="@navigation/navigation_graph"/>
+            app:defaultNavHost="true" />
 
-        <fragment
-            android:id="@+id/bottom_nav_drawer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:name="com.burnmycalories.eastermap.ui.nav.BottomNavDrawerFragment"/>
+<!--        <fragment-->
+<!--            android:id="@+id/bottom_nav_drawer"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:name="com.burnmycalories.eastermap.ui.nav.BottomNavDrawerFragment"/>-->
 
 <!--        <com.google.android.material.bottomappbar.BottomAppBar-->
 <!--            android:id="@+id/bottom_app_bar"-->
