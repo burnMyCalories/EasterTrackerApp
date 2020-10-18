@@ -13,7 +13,7 @@
  *   limitations under the License.
  */
 
-package com.materialstudies.reply.util
+package com.burnmycalories.eastermap.util
 
 import android.content.Context
 import android.graphics.drawable.ColorDrawable
@@ -37,7 +37,7 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.google.android.material.chip.Chip
 import com.google.android.material.elevation.ElevationOverlayProvider
-import com.materialstudies.reply.R
+import com.burnmycalories.eastermap.R
 
 @BindingAdapter(
     "popupElevationOverlay"

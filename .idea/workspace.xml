@@ -7,11 +7,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="814a2666-3dab-414d-acc9-bcae1a573fb4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/41154441/COMP90018-Code-app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/41154441/COMP90018-Code-app.iml" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/ui/MainActivity.kt" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/ui/MenuBottomSheetDialogFragment.kt" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/util/AnimationUtils.kt" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/util/ContentViewBindingDelegate.kt" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/util/ViewExtensions.kt" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/layout/menu_bottom_sheet_dialog_layout.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values-v29/color.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/preloaded_fonts.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/ui/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/ui/MenuBottomSheetDialogFragment.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/util/AnimationUtils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/util/ContentViewBindingDelegate.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/util/ViewExtensions.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/menu_bottom_sheet_dialog_layout.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-v29/color.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/preloaded_fonts.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +46,38 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
-        <projects_view />
+        <task path="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="EasterTrackerApp" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="EasterTrackerApp" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="EasterTrackerApp" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="EasterTrackerApp" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="cleanup" type="c8890929:TasksNode$1" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
@@ -39,7 +89,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp" />
   </component>
   <component name="ProjectId" id="1imPTnSswFjVgFhBltNSXRnOYXk" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -55,12 +105,7 @@
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/COMP90018-Code/app/src/main/assets" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Android App.COMP90018-Code-app">
+  <component name="RunManager" selected="Android App.app">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -185,37 +230,37 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="266" y="156" width="824" height="480" key="AndroidCreateResourceDirectoryDialog" timestamp="1602834719947">
+    <state x="349" y="28" width="658" height="736" key="#COMP90018-Code-app" timestamp="1602928663413">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state x="266" y="156" width="824" height="480" key="AndroidCreateResourceDirectoryDialog/0.28.1366.740@0.28.1366.740" timestamp="1602834719947" />
-    <state x="507" y="204" width="341" height="383" key="AndroidCreateXmlResourceDialog" timestamp="1602833382712">
+    <state x="349" y="28" width="658" height="736" key="#COMP90018-Code-app/0.28.1366.740@0.28.1366.740" timestamp="1602928663413" />
+    <state x="416" y="144" width="524" height="503" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602989236762">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state x="507" y="204" width="341" height="383" key="AndroidCreateXmlResourceDialog/0.28.1366.740@0.28.1366.740" timestamp="1602833382712" />
-    <state width="1312" height="182" key="GridCell.Tab.0.bottom" timestamp="1602902632003">
+    <state x="416" y="144" width="524" height="503" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.28.1366.740@0.28.1366.740" timestamp="1602989236762" />
+    <state width="1312" height="179" key="GridCell.Tab.0.bottom" timestamp="1602988884751">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="182" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1602902632003" />
-    <state width="1312" height="182" key="GridCell.Tab.0.center" timestamp="1602902632002">
+    <state width="1312" height="179" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1602988884751" />
+    <state width="1312" height="179" key="GridCell.Tab.0.center" timestamp="1602988884751">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="182" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1602902632002" />
-    <state width="1312" height="182" key="GridCell.Tab.0.left" timestamp="1602902632002">
+    <state width="1312" height="179" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1602988884751" />
+    <state width="1312" height="179" key="GridCell.Tab.0.left" timestamp="1602988884750">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="182" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1602902632002" />
-    <state width="1312" height="182" key="GridCell.Tab.0.right" timestamp="1602902632002">
+    <state width="1312" height="179" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1602988884750" />
+    <state width="1312" height="179" key="GridCell.Tab.0.right" timestamp="1602988884751">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="182" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1602902632002" />
-    <state x="100" y="128" width="1166" height="540" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1602902008278">
+    <state width="1312" height="179" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1602988884751" />
+    <state x="100" y="128" width="1166" height="540" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1602985131168">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state x="100" y="128" width="1166" height="540" key="com.android.tools.idea.avdmanager.AvdListDialog/0.28.1366.740@0.28.1366.740" timestamp="1602902008278" />
-    <state x="212" y="83" width="1154" height="630" key="find.popup" timestamp="1602836399118">
+    <state x="100" y="128" width="1166" height="540" key="com.android.tools.idea.avdmanager.AvdListDialog/0.28.1366.740@0.28.1366.740" timestamp="1602985131168" />
+    <state x="158" y="83" width="1208" height="630" key="find.popup" timestamp="1602989289645">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state x="212" y="83" width="1154" height="630" key="find.popup/0.28.1366.740@0.28.1366.740" timestamp="1602836399118" />
+    <state x="158" y="83" width="1208" height="630" key="find.popup/0.28.1366.740@0.28.1366.740" timestamp="1602989289645" />
   </component>
 </project>

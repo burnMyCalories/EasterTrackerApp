@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.materialstudies.reply.util
+package com.burnmycalories.eastermap.util
 
 import android.annotation.SuppressLint
 import android.content.Context
