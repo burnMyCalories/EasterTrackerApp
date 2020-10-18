@@ -11,15 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Reply.DayNight"
         tools:ignore="AllowBackup">
-        <activity android:name="com.burnmycalories.eastermap.ui.MainActivity">
+        <activity android:name="com.burnmycalories.eastermap.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <meta-data
-            android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
+<!--        <meta-data-->
+<!--            android:name="preloaded_fonts"-->
+<!--            android:resource="@array/preloaded_fonts" />-->
     </application>
     <!-- 网络权限，加载网络网页需要联网 -->
     <uses-permission android:name="android.permission.INTERNET" />

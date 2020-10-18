@@ -22,7 +22,7 @@
         android:id="@+id/coordinator_layout"
         android:layout_height="match_parent"
         app:layoutFullscreen="@{true}"
-        tools:context="com.burnmycalories.eastermap.ui.MainActivity">
+        tools:context="com.burnmycalories.eastermap.activity.MainActivity">
 
         <fragment
             android:id="@+id/nav_host_fragment"
