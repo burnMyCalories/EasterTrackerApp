@@ -47,16 +47,22 @@
 <!--            app:fabCradleMargin="@dimen/bottom_app_bar_fab_cradle_margin"-->
 <!--            app:hideOnScroll="true">-->
 
-<!--            <LinearLayout-->
-<!--                android:id="@+id/bottom_app_bar_content_container"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="@dimen/min_touch_target_size"-->
-<!--                android:layout_marginVertical="@dimen/grid_0_5"-->
-<!--                android:paddingHorizontal="@dimen/grid_0_5"-->
-<!--                android:orientation="horizontal"-->
-<!--                android:gravity="center_vertical"-->
-<!--                android:foreground="@drawable/bottom_app_bar_title_foreground">-->
-
+            <LinearLayout
+                android:id="@+id/bottom_app_bar_content_container"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+        <WebView
+            android:id="@+id/webView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentEnd="false"
+            android:layout_alignParentBottom="false" />
+            </LinearLayout>
 <!--                <ImageView-->
 <!--                    android:id="@+id/bottom_app_bar_chevron"-->
 <!--                    android:layout_width="wrap_content"-->
