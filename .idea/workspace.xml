@@ -7,30 +7,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="814a2666-3dab-414d-acc9-bcae1a573fb4" name="Default Changelist" comment="">
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_launcher.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher.png" afterDir="false" />
       <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/ui/MainActivity.kt" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" afterDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/ui/MenuBottomSheetDialogFragment.kt" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/util/AnimationUtils.kt" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/util/ContentViewBindingDelegate.kt" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/util/ViewExtensions.kt" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/layout/menu_bottom_sheet_dialog_layout.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values-night/themes.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values-v29/color.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/values/preloaded_fonts.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/ic_launcher-web.png" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/ic_launcher-web.png" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/materialstudies/reply/util/LocationUtils.kt" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/avatar_0.jpg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/avatar_1.jpeg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/avatar_10.jpeg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/avatar_2.jpg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/avatar_3.jpg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/avatar_4.jpg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/avatar_5.jpeg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/avatar_6.jpg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/avatar_7.jpeg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/avatar_8.jpeg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/avatar_9.jpg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/avatar_express.png" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/paris_1.jpg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/paris_2.jpg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/paris_3.jpg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/paris_4.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/ui/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/ui/MenuBottomSheetDialogFragment.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/util/AnimationUtils.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/util/ContentViewBindingDelegate.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/util/ViewExtensions.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/menu_bottom_sheet_dialog_layout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-v29/color.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/preloaded_fonts.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/ic_launcher-web.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/ic_launcher-web.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/materialstudies/reply/util/LocationUtils.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_0.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_1.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_10.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_5.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_7.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_8.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/avatar_express.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/paris_1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/paris_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/paris_3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/paris_4.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,13 +110,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp" />
   </component>
   <component name="ProjectId" id="1imPTnSswFjVgFhBltNSXRnOYXk" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/COMP90018-Code/app/src/main/assets" />
     <property name="project.structure.last.edited" value="SDK Location" />
@@ -229,6 +250,9 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="349" y="28" width="658" height="736" key="#COMP90018-Code-app" timestamp="1602928663413">
       <screen x="0" y="28" width="1366" height="740" />
@@ -238,29 +262,29 @@
       <screen x="0" y="28" width="1366" height="740" />
     </state>
     <state x="416" y="144" width="524" height="503" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.28.1366.740@0.28.1366.740" timestamp="1602989236762" />
-    <state width="1312" height="179" key="GridCell.Tab.0.bottom" timestamp="1602988884751">
+    <state width="1312" height="179" key="GridCell.Tab.0.bottom" timestamp="1602994276808">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="179" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1602988884751" />
-    <state width="1312" height="179" key="GridCell.Tab.0.center" timestamp="1602988884751">
+    <state width="1312" height="179" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1602994276808" />
+    <state width="1312" height="179" key="GridCell.Tab.0.center" timestamp="1602994276807">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="179" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1602988884751" />
-    <state width="1312" height="179" key="GridCell.Tab.0.left" timestamp="1602988884750">
+    <state width="1312" height="179" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1602994276807" />
+    <state width="1312" height="179" key="GridCell.Tab.0.left" timestamp="1602994276807">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="179" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1602988884750" />
-    <state width="1312" height="179" key="GridCell.Tab.0.right" timestamp="1602988884751">
+    <state width="1312" height="179" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1602994276807" />
+    <state width="1312" height="179" key="GridCell.Tab.0.right" timestamp="1602994276808">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="179" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1602988884751" />
+    <state width="1312" height="179" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1602994276808" />
     <state x="100" y="128" width="1166" height="540" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1602985131168">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
     <state x="100" y="128" width="1166" height="540" key="com.android.tools.idea.avdmanager.AvdListDialog/0.28.1366.740@0.28.1366.740" timestamp="1602985131168" />
-    <state x="158" y="83" width="1208" height="630" key="find.popup" timestamp="1602989289645">
+    <state x="158" y="83" width="1208" height="630" key="find.popup" timestamp="1602994258311">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state x="158" y="83" width="1208" height="630" key="find.popup/0.28.1366.740@0.28.1366.740" timestamp="1602989289645" />
+    <state x="158" y="83" width="1208" height="630" key="find.popup/0.28.1366.740@0.28.1366.740" timestamp="1602994258311" />
   </component>
 </project>
