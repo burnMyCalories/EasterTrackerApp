@@ -7,80 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="814a2666-3dab-414d-acc9-bcae1a573fb4" name="Default Changelist" comment="">
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/asl_edit_reply.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/avd_edit_to_reply.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/avd_reply_to_edit.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/bottom_app_bar_title_foreground.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/divider.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_archive.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_arrow_back.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_arrow_down.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_arrow_drop_up.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_circle.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_close.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_close_small.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_delete.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_done.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_edit.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_forward.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_home.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_mic.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_reply.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_reply_all.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_reply_logo.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_schedule.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_search.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_settings.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_twotone_add_circle_outline.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_twotone_delete.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_twotone_drafts.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_twotone_error.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_twotone_folder.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_twotone_forward.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_twotone_inbox.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_twotone_send.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_twotone_star.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_twotone_star_on_background.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/ic_twotone_stars.xml" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/drawable/nav_divider_top.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/asl_edit_reply.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/avd_edit_to_reply.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/avd_reply_to_edit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/bottom_app_bar_title_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/divider.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_archive.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_arrow_back.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_arrow_down.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_arrow_drop_up.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_circle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_close.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_close_small.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_delete.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_done.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_edit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_forward.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_home.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_foreground.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_mic.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_reply.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_reply_all.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_reply_logo.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_schedule.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_search.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_twotone_add_circle_outline.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_twotone_delete.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_twotone_drafts.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_twotone_error.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_twotone_folder.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_twotone_forward.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_twotone_inbox.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_twotone_send.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_twotone_star.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_twotone_star_on_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/ic_twotone_stars.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/nav_divider_top.xml" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -294,22 +224,22 @@
       <screen x="0" y="28" width="1366" height="740" />
     </state>
     <state x="416" y="144" width="524" height="503" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.28.1366.740@0.28.1366.740" timestamp="1602989236762" />
-    <state width="1312" height="179" key="GridCell.Tab.0.bottom" timestamp="1602994743531">
+    <state width="1312" height="179" key="GridCell.Tab.0.bottom" timestamp="1602999448411">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="179" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1602994743531" />
-    <state width="1312" height="179" key="GridCell.Tab.0.center" timestamp="1602994743531">
+    <state width="1312" height="179" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1602999448411" />
+    <state width="1312" height="179" key="GridCell.Tab.0.center" timestamp="1602999448411">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="179" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1602994743531" />
-    <state width="1312" height="179" key="GridCell.Tab.0.left" timestamp="1602994743531">
+    <state width="1312" height="179" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1602999448411" />
+    <state width="1312" height="179" key="GridCell.Tab.0.left" timestamp="1602999448411">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="179" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1602994743531" />
-    <state width="1312" height="179" key="GridCell.Tab.0.right" timestamp="1602994743531">
+    <state width="1312" height="179" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1602999448411" />
+    <state width="1312" height="179" key="GridCell.Tab.0.right" timestamp="1602999448411">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="179" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1602994743531" />
+    <state width="1312" height="179" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1602999448411" />
     <state x="100" y="128" width="1166" height="540" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1602985131168">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
