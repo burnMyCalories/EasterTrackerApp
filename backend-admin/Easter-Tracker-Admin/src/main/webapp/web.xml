@@ -10,7 +10,7 @@
   </context-param>
 <!--  <servlet>-->
 <!--    <servlet-name>hello</servlet-name>-->
-<!--    <servlet-class>com.servlet.HelloServlet</servlet-class>-->
+<!--    <servlet-class>com.controller.HelloServlet</servlet-class>-->
 <!--  </servlet>-->
 <!--  <servlet-mapping>-->
 <!--    <servlet-name>hello</servlet-name>-->
@@ -18,7 +18,7 @@
 <!--  </servlet-mapping>-->
 <!--  <servlet>-->
 <!--    <servlet-name>error</servlet-name>-->
-<!--    <servlet-class>com.servlet.ErrorServlet</servlet-class>-->
+<!--    <servlet-class>com.controller.ErrorServlet</servlet-class>-->
 <!--  </servlet>-->
 <!--  <servlet-mapping>-->
 <!--    <servlet-name>error</servlet-name>-->
