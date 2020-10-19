@@ -10,7 +10,7 @@
   </context-param>
 <!--  <servlet>-->
 <!--    <servlet-name>hello</servlet-name>-->
-<!--    <servlet-class>com.controller.HelloServlet</servlet-class>-->
+<!--    <servlet-class>com.controller.LoginController</servlet-class>-->
 <!--  </servlet>-->
 <!--  <servlet-mapping>-->
 <!--    <servlet-name>hello</servlet-name>-->

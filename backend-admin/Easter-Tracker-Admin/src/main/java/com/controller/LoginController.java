@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.util.Arrays;
 
-@WebServlet(name = "web", urlPatterns = "/web")
-public class HelloServlet extends HttpServlet {
+@WebServlet(name = "login", urlPatterns = "/login")
+public class LoginController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
