@@ -115,9 +115,10 @@
 
     $("#regbtn").click(function(){
       if(flagName&&flagPas&&flagPass){
-        localStorage.setItem("name",name);
-        localStorage.setItem("passWord",passWord);
-        location="register.html"
+        // localStorage.setItem("name",name);
+        // localStorage.setItem("passWord",passWord);
+        // location="register.html"
+        alert("Register is not allowed here")
       }else{
         if(!flagName){
           $("#register-username").addClass("form-control is-invalid");
