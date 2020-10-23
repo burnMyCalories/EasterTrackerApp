@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class DBUtils {
+
     private static Connection connection = null;
 
     public static Connection getConnection() {
