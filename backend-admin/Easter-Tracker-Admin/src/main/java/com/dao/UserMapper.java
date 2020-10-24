@@ -4,8 +4,11 @@ import com.model.User;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserMapper {
-    User queryUserById(@Param("id") int id);
-    List<User> queryUser();
+    int addUser(Map<String,Object> map);
+    int delUser(@Param("id") int id);
+    int updateUser(Map<String,Object> map);
+    User queryUser(Map<String,Object> map);
 }

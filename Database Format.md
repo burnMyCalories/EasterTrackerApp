@@ -43,7 +43,7 @@
     | update_time   | datetime     |      |                      |
     | version       | int(50)      |      |                      |
     | is_deleted    | int(1)       |      |                      |
-    |               |              |      |                      |
+    | type          | int(4)       |      |                      |
     |               |              |      |                      |
     |               |              |      |                      |
     |               |              |      |                      |
@@ -56,28 +56,30 @@
     | color         | varchar(50)  |      |                      |
     | latitude      | double(50)   |      |                      |
     | longitude     | double(50)   |      |                      |
-    | isActive      | int(1)       |      |                      |
+    |               |              |      |                      |
     | content       | varchar(255) |      |                      |
     | creation_time | datetime     |      |                      |
     | update_time   | datetime     |      |                      |
     | version       | int(50)      |      |                      |
     | is_deleted    | int(1)       |      |                      |
-    |               |              |      |                      |
-
+    | name          | varchar(255) |      |                      |
+	| expire_time   | datetime     |      |                      |
+	| type          | int(4)       |      |                      |
+	
 -   UserEggAction
 
-    | 字段名称      | 字段类型    | 说明 | 备注                 |
-    | ------------- | ----------- | ---- | -------------------- |
-    | id            | int(50)     |      | not null primary key |
-    | userid        | int(50)     |      | not null foreign key |
-    | eggid         | int(50)     |      | not null foreign key |
-    | action        | varchar(50) |      |                      |
-    | creation_time | datetime    |      |                      |
-    | update_time   | datetime    |      |                      |
-    | version       | int(50)     |      |                      |
-    | is_deleted    | int(1)      |      |                      |
-    |               |             |      |                      |
-    |               |             |      |                      |
-    |               |             |      |                      |
+    | 字段名称      | 字段类型 | 说明 | 备注                 |
+    | ------------- | -------- | ---- | -------------------- |
+    | id            | int(50)  |      | not null primary key |
+    | userid        | int(50)  |      | not null foreign key |
+    | eggid         | int(50)  |      | not null foreign key |
+    | action        | int(4)   |      |                      |
+    | creation_time | datetime |      |                      |
+    | update_time   | datetime |      |                      |
+    | version       | int(50)  |      |                      |
+    | is_deleted    | int(1)   |      |                      |
+    |               |          |      |                      |
+    |               |          |      |                      |
+    |               |          |      |                      |
 
     
