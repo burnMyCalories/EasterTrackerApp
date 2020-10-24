@@ -23,9 +23,9 @@ public class UserMapperImpl implements UserMapper{
     }
 
     @Override
-    public int delUser(int id) {
+    public int delUser(Map<String,Object> map) {
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
-        return mapper.delUser(id);
+        return mapper.delUser(map);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class UserMapperImpl implements UserMapper{
     }
 
     @Override
-    public User queryUser(Map<String, Object> map) {
+    public List<User> queryUser(Map<String, Object> map) {
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         return mapper.queryUser(map);
     }

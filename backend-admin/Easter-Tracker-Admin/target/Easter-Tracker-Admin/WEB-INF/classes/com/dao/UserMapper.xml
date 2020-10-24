@@ -7,8 +7,19 @@
     <insert id="addUser" parameterType="map">
         insert into `User`(`id`,`username`,`password`,`gender`,`nickname`,`contact`,`latitude`,`longitude`,`is_active`) values (#{id},#{username},md5(#{password}),#{gender},#{nickname},#{contact},#{latitude},#{longitude},1);
     </insert>
-    <delete id="delUser" parameterType="int">
-        delete from `User` where id=#{id};
+    <delete id="delUser" parameterType="map">
+        delete from `User`
+        <where>
+            <if test="id!=null">
+                id=#{id}
+            </if>
+            <if test="username!=null">
+                and username=#{username}
+            </if>
+            <if test="nickname!=null">
+                and nickname=#{nickname}
+            </if>
+        </where>
     </delete>
     <update id="updateUser" parameterType="map">
         update `User` set `username`=#{username},`password`=md5(#{password}),`gender`=#{gender},`nickname`=#{nickname},`contact`=#{contact},`latitude`=#{latitude},`longitude`=#{longitude},`is_online`=#{is_online},`update_time`=NOW() where id=#{id};
@@ -27,6 +38,9 @@
             </if>
             <if test="contact!=null">
                 and contact=#{contact}
+            </if>
+            <if test="nickname!=null">
+                and nickname=#{nickname}
             </if>
             <if test="latitude!=null">
                 and latitude=#{latitude}

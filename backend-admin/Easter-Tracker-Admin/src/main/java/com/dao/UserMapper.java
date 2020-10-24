@@ -8,7 +8,7 @@ import java.util.Map;
 
 public interface UserMapper {
     int addUser(Map<String,Object> map);
-    int delUser(@Param("id") int id);
+    int delUser(Map<String,Object> map);
     int updateUser(Map<String,Object> map);
-    User queryUser(Map<String,Object> map);
+    List<User> queryUser(Map<String,Object> map);
 }
