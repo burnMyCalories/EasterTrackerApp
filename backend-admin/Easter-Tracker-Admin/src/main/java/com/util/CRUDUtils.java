@@ -9,7 +9,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.util.*;
 
 public class CRUDUtils {
-
     public static int addUser(String username,String password,String gender,String nickname,String contact,String latitude,String longitude){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         UserMapper mapper = context.getBean("userMapper", UserMapper.class);
@@ -144,4 +143,5 @@ public class CRUDUtils {
         }
         return list;
     }
+
 }
