@@ -29,4 +29,7 @@
     <bean id="messageMapper" class="com.dao.MessageMapperImpl">
         <property name="sqlSession" ref="sqlSession"/>
     </bean>
+    <bean id="eggMapper" class="com.dao.EggMapperImpl">
+        <property name="sqlSession" ref="sqlSession"/>
+    </bean>
 </beans>
