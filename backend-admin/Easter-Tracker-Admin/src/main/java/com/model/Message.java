@@ -17,8 +17,8 @@ public class Message {
     private String content;
     private int version;
     private int is_deleted;
-    private Date creation_time;
-    private Date update_time;
+    private String creation_time;
+    private String update_time;
     public JSONObject toJSON(){
         JSONObject json = new JSONObject();
         json.put("id",this.id);

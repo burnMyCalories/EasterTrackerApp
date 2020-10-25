@@ -1,14 +1,8 @@
 package com.util;
 
 import com.alibaba.fastjson.JSONObject;
-import com.dao.EggMapper;
-import com.dao.FriendshipMapper;
-import com.dao.MessageMapper;
-import com.dao.UserMapper;
-import com.model.Egg;
-import com.model.Friendship;
-import com.model.Message;
-import com.model.User;
+import com.dao.*;
+import com.model.*;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -425,6 +419,97 @@ public class CRUDUtils {
         List<JSONObject> list = new ArrayList<>();
         for (Egg egg : eggs) {
             JSONObject json = egg.toJSON();
+            list.add(json);
+        }
+        return list;
+    }
+    public static int addAction(String user_id,String egg_id,String action){
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+        UserEggActionMapper mapper = context.getBean("userEggActionMapper", UserEggActionMapper.class);
+        Map<String, Object> map = new HashMap<>();
+        Random random = new Random();
+        int i = random.nextInt(Integer.MAX_VALUE);
+        map.put("id",i);
+        map.put("user_id",user_id);
+        map.put("egg_id",egg_id);
+        map.put("action",action);
+        int res = mapper.addAction(map);
+        return res;
+    }
+    public static int delAction(String id,String user_id,String egg_id,String action){
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+        UserEggActionMapper mapper = context.getBean("userEggActionMapper", UserEggActionMapper.class);
+        Map<String, Object> map = new HashMap<>();
+        map.put("id",id);
+        map.put("user_id",user_id);
+        map.put("egg_id",egg_id);
+        map.put("action",action);
+        int res = mapper.delAction(map);
+        return res;
+    }
+    public static int updateAction(String id,String user_id,String egg_id,String action,String is_deleted){
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+        UserEggActionMapper mapper = context.getBean("userEggActionMapper", UserEggActionMapper.class);
+        Map<String, Object> map = new HashMap<>();
+        if(id!=null){
+            List<JSONObject> jsons = queryAction(id, null, null, null);
+            for (JSONObject json : jsons) {
+                if(json!=null){
+                    if(user_id==null){
+                        user_id=json.getString("user_id");
+                    }
+                    if(egg_id==null){
+                        egg_id=json.getString("egg_id");
+                    }
+                    if(action==null){
+                        action=json.getString("action");
+                    }
+                    if(is_deleted==null){
+                        is_deleted=json.getString("is_deleted");
+                    }
+                    break;
+                }
+            }
+            map.put("id",id);
+            map.put("user_id",user_id);
+            map.put("egg_id",egg_id);
+            map.put("action",action);
+            map.put("is_deleted",is_deleted);
+        }
+        else if(user_id!=null&&egg_id!=null&&action!=null){
+            List<JSONObject> jsons = queryAction(null, user_id, egg_id, action);
+            for (JSONObject json : jsons) {
+                if(json!=null){
+                    if(id==null){
+                        id=json.getString("id");
+                    }
+                    if(is_deleted==null){
+                        is_deleted=json.getString("is_deleted");
+                    }
+                    break;
+                }
+            }
+            map.put("id",id);
+            map.put("user_id",user_id);
+            map.put("egg_id",egg_id);
+            map.put("action",action);
+            map.put("is_deleted",is_deleted);
+        }
+        int res = mapper.updateAction(map);
+        return res;
+    }
+    public static List<JSONObject> queryAction(String id,String user_id,String egg_id,String action){
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+        UserEggActionMapper mapper = context.getBean("userEggActionMapper", UserEggActionMapper.class);
+        Map<String, Object> map = new HashMap<>();
+        map.put("id",id);
+        map.put("user_id",user_id);
+        map.put("egg_id",egg_id);
+        map.put("action",action);
+        List<UserEggAction> userEggActions = mapper.queryAction(map);
+        List<JSONObject> list = new ArrayList<>();
+        for (UserEggAction userEggAction : userEggActions) {
+            JSONObject json = userEggAction.toJSON();
             list.add(json);
         }
         return list;

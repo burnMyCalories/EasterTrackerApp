@@ -32,4 +32,7 @@
     <bean id="eggMapper" class="com.dao.EggMapperImpl">
         <property name="sqlSession" ref="sqlSession"/>
     </bean>
+    <bean id="userEggActionMapper" class="com.dao.UserEggActionMapperImpl">
+        <property name="sqlSession" ref="sqlSession"/>
+    </bean>
 </beans>
