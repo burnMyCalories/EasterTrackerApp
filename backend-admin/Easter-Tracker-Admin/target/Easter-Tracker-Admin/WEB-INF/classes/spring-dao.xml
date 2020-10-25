@@ -26,4 +26,7 @@
     <bean id="friendshipMapper" class="com.dao.FriendshipMapperImpl">
         <property name="sqlSession" ref="sqlSession"/>
     </bean>
+    <bean id="messageMapper" class="com.dao.MessageMapperImpl">
+        <property name="sqlSession" ref="sqlSession"/>
+    </bean>
 </beans>

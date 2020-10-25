@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.MessageMapper">
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+    <insert id="addMessage" parameterType="map">
+        insert into `Message`(`id`,`friend_id`,`type`,`content`) values (#{id},#{friend_id},#{type},#{content});
+    </insert>
+    <delete id="delMessage" parameterType="map">
+        delete from `Message`
+        <where>
+            <if test="id!=null">
+                id=#{id}
+            </if>
+            <if test="friend_id!=null">
+                and friend_id=#{friend_id}
+            </if>
+        </where>
+    </delete>
+    <update id="updateMessage" parameterType="map">
+        update `Message` set `update_time`=NOW(),`version`=`version`+1,`is_deleted`=#{is_deleted} where id=#{id};
+    </update>
+    <select id="queryMessage" parameterType="map" resultType="Message">
+        select `id`,`friend_id`,`type`,`content`,`is_deleted` from `Message`
+        <where>
+            <if test="id!=null">
+                id=#{id}
+            </if>
+            <if test="friend_id!=null">
+                and friend_id=#{friend_id}
+            </if>
+        </where>
+    </select>
+</mapper>

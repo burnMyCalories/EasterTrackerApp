@@ -2,8 +2,10 @@ package com.util;
 
 import com.alibaba.fastjson.JSONObject;
 import com.dao.FriendshipMapper;
+import com.dao.MessageMapper;
 import com.dao.UserMapper;
 import com.model.Friendship;
+import com.model.Message;
 import com.model.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -219,5 +221,72 @@ public class CRUDUtils {
         map.put("is_deleted",is_deleted);
         int res = mapper.updateFriendship(map);
         return res;
+    }
+    public static int addMessage(String friend_id,String type,String content){
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+        MessageMapper mapper = context.getBean("messageMapper", MessageMapper.class);
+        Random random = new Random();
+        Map<String, Object> map = new HashMap<>();
+        int i = random.nextInt(Integer.MAX_VALUE);
+        map.put("id",i);
+        map.put("friend_id",friend_id);
+        map.put("type",type);
+        map.put("content",content);
+        int res = mapper.addMessage(map);
+        return res;
+    }
+    public static int delMessage(String id,String friend_id){
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+        MessageMapper mapper = context.getBean("messageMapper", MessageMapper.class);
+        Map<String, Object> map = new HashMap<>();
+        map.put("id",id);
+        map.put("friend_id",friend_id);
+        int res = mapper.delMessage(map);
+        return res;
+    }
+    public static int updateMessage(String id,String friend_id,String is_deleted){
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+        MessageMapper mapper = context.getBean("messageMapper", MessageMapper.class);
+        Map<String, Object> map = new HashMap<>();
+        if(id!=null){
+            List<JSONObject> jsons = queryMessage(id, null);
+            for (JSONObject json : jsons) {
+                if(json!=null){
+                    if(is_deleted==null){
+                        is_deleted=json.getString("is_deleted");
+                    }
+                }
+            }
+        }
+        else if(friend_id!=null){
+            List<JSONObject> jsons = queryMessage(null, friend_id);
+            int count=0;
+            for (JSONObject json : jsons) {
+                if(json!=null){
+                    id = json.getString("id");
+                    updateMessage(id, null, is_deleted);
+                    count++;
+                }
+            }
+            return count;
+        }
+        map.put("id",id);
+        map.put("is_deleted",is_deleted);
+        int res = mapper.updateMessage(map);
+        return res;
+    }
+    public static List<JSONObject> queryMessage(String id,String friend_id){
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+        MessageMapper mapper = context.getBean("messageMapper", MessageMapper.class);
+        Map<String, Object> map = new HashMap<>();
+        map.put("id",id);
+        map.put("friend_id",friend_id);
+        List<Message> messages = mapper.queryMessage(map);
+        List<JSONObject> list = new ArrayList<>();
+        for (Message message : messages) {
+            JSONObject json = message.toJSON();
+            list.add(json);
+        }
+        return list;
     }
 }
