@@ -5,7 +5,7 @@
 <mapper namespace="com.dao.EggMapper">
     <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
     <insert id="addEgg" parameterType="map">
-        insert into `Egg`(`id`,`name`,`color`,`type`,`latitude`,`longitude`,`content`) values (#{id},#{name},#{color},#{type},#{latitude},#{longitude},#{content});
+        insert into `Egg`(`id`,`name`,`color`,`type`,`latitude`,`longitude`,`content`,`expire_time`) values (#{id},#{name},#{color},#{type},#{latitude},#{longitude},#{content},#{expire_time});
     </insert>
     <delete id="delEgg" parameterType="map">
         delete from `Egg`
@@ -19,10 +19,10 @@
         </where>
     </delete>
     <update id="updateEgg" parameterType="map">
-        update `Egg` set `name`=#{name},`color`=#{color},`type`=#{type},`latitude`=#{latitude},`longitude`=#{longitude},`content`=#{content},`update_time`=NOW(),`version`=`version`+1,`is_deleted`=#{is_deleted} where id=#{id};
+        update `Egg` set `name`=#{name},`color`=#{color},`type`=#{type},`latitude`=#{latitude},`longitude`=#{longitude},`content`=#{content},`expire_time`=#{expire_time},`update_time`=NOW(),`version`=`version`+1,`is_deleted`=#{is_deleted} where id=#{id};
     </update>
     <select id="queryEgg" parameterType="map" resultType="Egg">
-        select `id`,`name`,`color`,`type`,`latitude`,`longitude`,`content`,`is_deleted` from `Egg`
+        select `id`,`name`,`color`,`type`,`latitude`,`longitude`,`content`,`expire_time`,`is_deleted` from `Egg`
         <where>
             <if test="id!=null">
                 `id`=#{id}

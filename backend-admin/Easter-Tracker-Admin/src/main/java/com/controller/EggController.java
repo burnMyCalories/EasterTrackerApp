@@ -42,14 +42,15 @@ public class EggController extends HttpServlet {
         String latitude=req.getParameter("latitude");
         String longitude=req.getParameter("longitude");
         String content=req.getParameter("content");
+        String expire_time=req.getParameter("expire_time");
         resp.setCharacterEncoding("utf-8");
         JSONObject json = new JSONObject();
-        if(name==null||color==null||type==null||latitude==null||longitude==null||content==null){
+        if(name==null||color==null||type==null||latitude==null||longitude==null||content==null||expire_time==null){
             resp.setStatus(400);
             json.put("status",1);
         }
         else{
-            int res = CRUDUtils.addEgg(name, color, type, latitude, longitude, content);
+            int res = CRUDUtils.addEgg(name, color, type, latitude, longitude, content, expire_time);
             json.put("status",0);
             json.put("result",res);
         }
@@ -69,6 +70,7 @@ public class EggController extends HttpServlet {
         String latitude=req.getParameter("latitude");
         String longitude=req.getParameter("longitude");
         String content=req.getParameter("content");
+        String expire_time=req.getParameter("expire_time");
         String is_deleted=req.getParameter("is_deleted");
         resp.setCharacterEncoding("utf-8");
         JSONObject json = new JSONObject();
@@ -77,7 +79,7 @@ public class EggController extends HttpServlet {
             json.put("status",1);
         }
         else{
-            int res = CRUDUtils.updateEgg(id, name, color, type, latitude, longitude, content, is_deleted);
+            int res = CRUDUtils.updateEgg(id, name, color, type, latitude, longitude, content, expire_time, is_deleted);
             json.put("status",0);
             json.put("result",res);
         }

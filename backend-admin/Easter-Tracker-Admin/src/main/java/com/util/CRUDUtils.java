@@ -296,7 +296,7 @@ public class CRUDUtils {
         }
         return list;
     }
-    public static int addEgg(String name,String color,String type,String latitude,String longitude,String content){
+    public static int addEgg(String name,String color,String type,String latitude,String longitude,String content,String expire_time){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         EggMapper mapper = context.getBean("eggMapper", EggMapper.class);
         Map<String, Object> map = new HashMap<>();
@@ -309,6 +309,7 @@ public class CRUDUtils {
         map.put("latitude",latitude);
         map.put("longitude",longitude);
         map.put("content",content);
+        map.put("expire_time",expire_time);
         int res = mapper.addEgg(map);
         return res;
     }
@@ -321,7 +322,7 @@ public class CRUDUtils {
         int res = mapper.delEgg(map);
         return res;
     }
-    public static int updateEgg(String id,String name,String color,String type,String latitude,String longitude,String content,String is_deleted){
+    public static int updateEgg(String id,String name,String color,String type,String latitude,String longitude,String content,String expire_time,String is_deleted){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         EggMapper mapper = context.getBean("eggMapper", EggMapper.class);
         Map<String, Object> map = new HashMap<>();
@@ -347,6 +348,9 @@ public class CRUDUtils {
                     if(content==null){
                         content=json.getString("content");
                     }
+                    if(expire_time==null){
+                        expire_time=json.getString("expire_time");
+                    }
                     if(is_deleted==null){
                         is_deleted=json.getString("is_deleted");
                     }
@@ -360,6 +364,7 @@ public class CRUDUtils {
             map.put("latitude",latitude);
             map.put("longitude",longitude);
             map.put("content",content);
+            map.put("expire_time",expire_time);
             map.put("is_deleted",is_deleted);
         }
         else if(name!=null){
@@ -384,6 +389,9 @@ public class CRUDUtils {
                     if(content==null){
                         content=json.getString("content");
                     }
+                    if(expire_time==null){
+                        expire_time=json.getString("expire_time");
+                    }
                     if(is_deleted==null){
                         is_deleted=json.getString("is_deleted");
                     }
@@ -397,6 +405,7 @@ public class CRUDUtils {
             map.put("latitude",latitude);
             map.put("longitude",longitude);
             map.put("content",content);
+            map.put("expire_time",expire_time);
             map.put("is_deleted",is_deleted);
         }
         int res = mapper.updateEgg(map);
