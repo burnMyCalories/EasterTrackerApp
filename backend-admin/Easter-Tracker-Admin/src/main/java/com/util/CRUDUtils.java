@@ -1,7 +1,9 @@
 package com.util;
 
 import com.alibaba.fastjson.JSONObject;
+import com.dao.FriendshipMapper;
 import com.dao.UserMapper;
+import com.model.Friendship;
 import com.model.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -36,7 +38,7 @@ public class CRUDUtils {
         int res = mapper.delUser(map);
         return res;
     }
-    public static int updateUser(String id,String username,String password,String gender,String nickname,String contact,String latitude,String longitude,String is_online){
+    public static int updateUser(String id,String username,String password,String gender,String nickname,String contact,String latitude,String longitude,String is_online,String is_deleted){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         UserMapper mapper = context.getBean("userMapper", UserMapper.class);
         Map<String, Object> map = new HashMap<>();
@@ -69,6 +71,9 @@ public class CRUDUtils {
                     if(is_online==null){
                         is_online=json.getString("is_online");
                     }
+                    if(is_deleted==null){
+                        is_deleted=json.getString("is_deleted");
+                    }
                 }
             }
             map.put("username",username);
@@ -79,6 +84,7 @@ public class CRUDUtils {
             map.put("latitude",latitude);
             map.put("longitude",longitude);
             map.put("is_online",is_online);
+            map.put("is_deleted",is_deleted);
         }
         else if(username!=null){
             map.put("username",username);
@@ -109,6 +115,9 @@ public class CRUDUtils {
                     if(is_online==null){
                         is_online=json.getString("is_online");
                     }
+                    if(is_deleted==null){
+                        is_deleted=json.getString("is_deleted");
+                    }
                 }
             }
             map.put("id",id);
@@ -119,6 +128,7 @@ public class CRUDUtils {
             map.put("latitude",latitude);
             map.put("longitude",longitude);
             map.put("is_online",is_online);
+            map.put("is_deleted",is_deleted);
         }
         int res = mapper.updateUser(map);
         return res;
@@ -143,5 +153,71 @@ public class CRUDUtils {
         }
         return list;
     }
-
+    public static int addFriendship(String userfrom_id,String userto_id){
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+        FriendshipMapper mapper = context.getBean("friendshipMapper", FriendshipMapper.class);
+        Random random = new Random();
+        Map<String, Object> map = new HashMap<>();
+        int i = random.nextInt(Integer.MAX_VALUE);
+        map.put("id",i);
+        map.put("userfrom_id",userfrom_id);
+        map.put("userto_id",userto_id);
+        int res = mapper.addFriendship(map);
+        return res;
+    }
+    public static int delFriendship(String id,String userfrom_id,String userto_id){
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+        FriendshipMapper mapper = context.getBean("friendshipMapper", FriendshipMapper.class);
+        Map<String, Object> map = new HashMap<>();
+        map.put("id",id);
+        map.put("userfrom_id",userfrom_id);
+        map.put("userto_id",userto_id);
+        int res = mapper.delFriendship(map);
+        return res;
+    }
+    public static List<JSONObject> queryFriendship(String id,String userfrom_id,String userto_id){
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+        FriendshipMapper mapper = context.getBean("friendshipMapper", FriendshipMapper.class);
+        Map<String, Object> map = new HashMap<>();;
+        map.put("id",id);
+        map.put("userfrom_id",userfrom_id);
+        map.put("userto_id",userto_id);
+        List<Friendship> friendships = mapper.queryFriendship(map);
+        List<JSONObject> list = new ArrayList<>();
+        for (Friendship friendship : friendships) {
+            JSONObject json = friendship.toJSON();
+            list.add(json);
+        }
+        return list;
+    }
+    public static int updateFriendship(String id,String userfrom_id,String userto_id,String is_deleted){
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+        FriendshipMapper mapper = context.getBean("friendshipMapper", FriendshipMapper.class);
+        Map<String, Object> map = new HashMap<>();
+        if(id!=null) {
+            List<JSONObject> jsons = queryFriendship(id, null, null);
+            for (JSONObject json : jsons) {
+                if(json!=null){
+                    if(is_deleted==null){
+                        is_deleted=json.getString("is_deleted");
+                    }
+                }
+            }
+        }
+        else if(userfrom_id!=null&&userto_id!=null){
+            List<JSONObject> jsons = queryFriendship(null, userfrom_id, userto_id);
+            for (JSONObject json : jsons) {
+                if(json!=null){
+                    id=json.getString("id");
+                    if(is_deleted==null){
+                        is_deleted=json.getString("is_deleted");
+                    }
+                }
+            }
+        }
+        map.put("id",id);
+        map.put("is_deleted",is_deleted);
+        int res = mapper.updateFriendship(map);
+        return res;
+    }
 }

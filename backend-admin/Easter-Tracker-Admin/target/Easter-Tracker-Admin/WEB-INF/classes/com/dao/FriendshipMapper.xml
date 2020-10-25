@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.FriendshipMapper">
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+    <insert id="addFriendship" parameterType="map">
+        insert into `Friendship`(`id`,`userfrom_id`,`userto_id`) values (#{id},#{userfrom_id},#{userto_id});
+    </insert>
+    <delete id="delFriendship" parameterType="map">
+        delete from `Friendship`
+        <where>
+            <if test="id!=null">
+                id=#{id}
+            </if>
+            <if test="userfrom_id!=null">
+                and userfrom_id=#{userfrom_id}
+            </if>
+            <if test="userto_id!=null">
+                and userto_id=#{userto_id}
+            </if>
+        </where>
+    </delete>
+    <update id="updateFriendship" parameterType="map">
+        update `Friendship` set `update_time`=NOW(),`version`=`version`+1,`is_deleted`=#{is_deleted} where id=#{id};
+    </update>
+    <select id="queryFriendship" parameterType="map" resultType="Friendship">
+        select `id`,`userfrom_id`,`userto_id`,`is_deleted` from `Friendship`
+        <where>
+            <if test="id!=null">
+                id=#{id}
+            </if>
+            <if test="userfrom_id!=null">
+                and userfrom_id=#{userfrom_id}
+            </if>
+            <if test="userto_id!=null">
+                and userto_id=#{userto_id}
+            </if>
+        </where>
+    </select>
+</mapper>

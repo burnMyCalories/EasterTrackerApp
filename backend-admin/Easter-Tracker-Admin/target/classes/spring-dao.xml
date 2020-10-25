@@ -23,4 +23,7 @@
     <bean id="userMapper" class="com.dao.UserMapperImpl">
         <property name="sqlSession" ref="sqlSession"/>
     </bean>
+    <bean id="friendshipMapper" class="com.dao.FriendshipMapperImpl">
+        <property name="sqlSession" ref="sqlSession"/>
+    </bean>
 </beans>

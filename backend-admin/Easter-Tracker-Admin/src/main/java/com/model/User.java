@@ -37,10 +37,10 @@ public class User {
         json.put("is_online",this.is_online);
         json.put("latitude",this.latitude);
         json.put("longitude",this.longitude);
-        json.put("version",this.version);
+//        json.put("version",this.version);
         json.put("is_deleted",this.is_deleted);
-        json.put("creation_time",this.creation_time);
-        json.put("update_time",this.update_time);
+//        json.put("creation_time",this.creation_time);
+//        json.put("update_time",this.update_time);
         return json;
     }
 }
