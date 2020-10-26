@@ -21,7 +21,7 @@
     <update id="updateMessage" parameterType="map">
         update `Message` set `update_time`=NOW(),`version`=`version`+1,`is_deleted`=#{is_deleted} where id=#{id};
     </update>
-    <select id="queryMessage" parameterType="map" resultType="Message">
+    <select id="queryMessage" parameterType="map" resultMap="messageQueryMap">
         select `id`,`friend_id`,`type`,`content`,`is_deleted` from `Message`
         <where>
             <if test="id!=null">
@@ -31,5 +31,18 @@
                 and friend_id=#{friend_id}
             </if>
         </where>
+    </select>
+    <resultMap id="messageQueryMap" type="Message">
+        <association property="friend" column="friend_id" javaType="Friendship" select="getFriendInfo"/>
+    </resultMap>
+    <select id="getFriendInfo" resultMap="FriendshipQueryMap">
+        select `id`,`userfrom_id`,`userto_id`,`is_deleted` from `Friendship` where id=#{id};
+    </select>
+    <resultMap id="FriendshipQueryMap" type="Friendship">
+        <association property="userfrom" column="userfrom_id" javaType="User" select="getUserInfo"/>
+        <association property="userto" column="userto_id" javaType="User" select="getUserInfo"/>
+    </resultMap>
+    <select id="getUserInfo" resultType="User">
+        select `id`,`username`,`gender`,`nickname`,`contact`,`latitude`,`longitude`,`is_online`,`is_deleted` from `User` where `id`=#{id};
     </select>
 </mapper>

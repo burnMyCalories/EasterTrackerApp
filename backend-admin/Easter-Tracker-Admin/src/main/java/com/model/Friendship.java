@@ -12,8 +12,8 @@ import java.util.Date;
 @NoArgsConstructor
 public class Friendship {
     private int id;
-    private int userfrom_id;
-    private int userto_id;
+    private User userfrom;
+    private User userto;
     private int version;
     private int is_deleted;
     private String creation_time;
@@ -21,8 +21,8 @@ public class Friendship {
     public JSONObject toJSON(){
         JSONObject json = new JSONObject();
         json.put("id",this.id);
-        json.put("userfrom_id",this.userfrom_id);
-        json.put("userto_id",this.userto_id);
+        json.put("userfrom",userfrom.toJSON());
+        json.put("userto",userto.toJSON());
         json.put("is_deleted",this.is_deleted);
         return json;
     }

@@ -27,7 +27,7 @@
     <update id="updateAction" parameterType="map">
         update `UserEggAction` set `update_time`=NOW(),`version`=`version`+1,`is_deleted`=#{is_deleted} where id=#{id};
     </update>
-    <select id="queryAction" parameterType="map" resultType="UserEggAction">
+    <select id="queryAction" parameterType="map" resultMap="actionQueryMap">
         select `id`,`user_id`,`egg_id`,`action`,`update_time`,`is_deleted` from `UserEggAction`
         <where>
             <if test="id!=null">
@@ -43,5 +43,15 @@
                 and `action`=#{action}
             </if>
         </where>
+    </select>
+    <resultMap id="actionQueryMap" type="UserEggAction">
+        <association property="user" column="user_id" javaType="User" select="getUserInfo"/>
+        <association property="egg" column="egg_id" javaType="Egg" select="getEggInfo"/>
+    </resultMap>
+    <select id="getUserInfo" resultType="User">
+        select `id`,`username`,`gender`,`nickname`,`contact`,`latitude`,`longitude`,`is_online`,`is_deleted` from `User` where `id`=#{id};
+    </select>
+    <select id="getEggInfo" resultType="Egg">
+        select `id`,`name`,`color`,`type`,`latitude`,`longitude`,`content`,`expire_time`,`is_deleted` from `Egg` where id=#{id};
     </select>
 </mapper>

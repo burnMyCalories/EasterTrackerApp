@@ -12,7 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Message {
     private int id;
-    private int friend_id;
+    private Friendship friend;
     private int type;
     private String content;
     private int version;
@@ -22,7 +22,7 @@ public class Message {
     public JSONObject toJSON(){
         JSONObject json = new JSONObject();
         json.put("id",this.id);
-        json.put("friend_id",this.friend_id);
+        json.put("friend",friend.toJSON());
         json.put("type",this.type);
         json.put("content",this.content);
         json.put("is_deleted",this.is_deleted);

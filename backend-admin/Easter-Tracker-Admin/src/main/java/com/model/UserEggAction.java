@@ -12,8 +12,8 @@ import java.util.Date;
 @NoArgsConstructor
 public class UserEggAction {
     private int id;
-    private int user_id;
-    private int egg_id;
+    private User user;
+    private Egg egg;
     private int action;
     private int version;
     private int is_deleted;
@@ -22,8 +22,8 @@ public class UserEggAction {
     public JSONObject toJSON(){
         JSONObject json = new JSONObject();
         json.put("id",this.id);
-        json.put("user_id",this.user_id);
-        json.put("egg_id",this.egg_id);
+        json.put("user",user.toJSON());
+        json.put("egg",egg.toJSON());
         json.put("action",this.action);
         json.put("is_deleted",this.is_deleted);
         json.put("update_time",this.update_time);
