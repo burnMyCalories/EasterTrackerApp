@@ -24,7 +24,7 @@ public class EggController extends HttpServlet {
         String latitude=req.getParameter("latitude");
         String longitude=req.getParameter("longitude");
         resp.setCharacterEncoding("utf-8");
-        List<JSONObject> res = CRUDUtils.queryEgg(id, name, color, type, latitude, longitude);
+        JSONObject res = CRUDUtils.queryEgg(id, name, color, type, latitude, longitude);
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject();
         json.put("status",0);
@@ -50,7 +50,7 @@ public class EggController extends HttpServlet {
             json.put("status",1);
         }
         else{
-            int res = CRUDUtils.addEgg(name, color, type, latitude, longitude, content, expire_time);
+            JSONObject res = CRUDUtils.addEgg(name, color, type, latitude, longitude, content, expire_time);
             json.put("status",0);
             json.put("result",res);
         }
@@ -79,7 +79,7 @@ public class EggController extends HttpServlet {
             json.put("status",1);
         }
         else{
-            int res = CRUDUtils.updateEgg(id, name, color, type, latitude, longitude, content, expire_time, is_deleted);
+            JSONObject res = CRUDUtils.updateEgg(id, name, color, type, latitude, longitude, content, expire_time, is_deleted);
             json.put("status",0);
             json.put("result",res);
         }
@@ -100,7 +100,7 @@ public class EggController extends HttpServlet {
             json.put("status",1);
         }
         else{
-            int res = CRUDUtils.delEgg(id, name);
+            JSONObject res = CRUDUtils.delEgg(id, name);
             json.put("status",0);
             json.put("result",res);
         }

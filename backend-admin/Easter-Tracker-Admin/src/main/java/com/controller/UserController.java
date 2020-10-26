@@ -26,7 +26,7 @@ public class UserController extends HttpServlet {
         String latitude=req.getParameter("latitude");
         String longitude=req.getParameter("longitude");
         resp.setCharacterEncoding("utf-8");
-        List<JSONObject> res = CRUDUtils.queryUser(id,username, password, gender, nickname, contact, latitude, longitude);
+        JSONObject res = CRUDUtils.queryUser(id,username, password, gender, nickname, contact, latitude, longitude);
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject();
         json.put("status",0);
@@ -52,7 +52,7 @@ public class UserController extends HttpServlet {
             json.put("status",1);
         }
         else{
-            int res = CRUDUtils.addUser(username, password, gender, nickname, contact, latitude, longitude);
+            JSONObject res = CRUDUtils.addUser(username, password, gender, nickname, contact, latitude, longitude);
             json.put("status",0);
             json.put("result",res);
         }
@@ -75,7 +75,7 @@ public class UserController extends HttpServlet {
         String is_online=req.getParameter("is_online");
         String is_deleted=req.getParameter("is_deleted");
         resp.setCharacterEncoding("utf-8");
-        int res = CRUDUtils.updateUser(id,username, password, gender, nickname, contact, latitude, longitude, is_online, is_deleted);
+        JSONObject res = CRUDUtils.updateUser(id,username, password, gender, nickname, contact, latitude, longitude, is_online, is_deleted);
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject();
         json.put("status",0);
@@ -97,7 +97,7 @@ public class UserController extends HttpServlet {
             json.put("status",1);
         }
         else{
-            int res = CRUDUtils.delUser(id,username,nickname);
+            JSONObject res = CRUDUtils.delUser(id,username,nickname);
             json.put("status",0);
             json.put("result",res);
         }

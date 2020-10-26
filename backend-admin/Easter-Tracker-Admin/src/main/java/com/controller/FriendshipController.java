@@ -25,7 +25,7 @@ public class FriendshipController extends HttpServlet {
         String userfrom_nickname=req.getParameter("userfrom_nickname");
         String userto_nickname=req.getParameter("userto_nickname");
         resp.setCharacterEncoding("utf-8");
-        List<JSONObject> res = CRUDUtils.queryFriendship(id, userfrom_id, userto_id, userfrom_username, userto_username, userfrom_nickname, userto_nickname);
+        JSONObject res = CRUDUtils.queryFriendship(id, userfrom_id, userto_id, userfrom_username, userto_username, userfrom_nickname, userto_nickname);
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject();
         json.put("status",0);
@@ -46,7 +46,7 @@ public class FriendshipController extends HttpServlet {
             json.put("status",1);
         }
         else{
-            int res = CRUDUtils.addFriendship(userfrom_id, userto_id);
+            JSONObject res = CRUDUtils.addFriendship(userfrom_id, userto_id);
             json.put("status",0);
             json.put("result",res);
         }
@@ -69,7 +69,7 @@ public class FriendshipController extends HttpServlet {
             json.put("status",1);
         }
         else{
-            int res = CRUDUtils.updateFriendship(id,userfrom_id,userto_id,is_deleted);
+            JSONObject res = CRUDUtils.updateFriendship(id,userfrom_id,userto_id,is_deleted);
             json.put("status",0);
             json.put("result",res);
         }
@@ -91,7 +91,7 @@ public class FriendshipController extends HttpServlet {
             json.put("status",1);
         }
         else{
-            int res = CRUDUtils.delFriendship(id,userfrom_id,userto_id);
+            JSONObject res = CRUDUtils.delFriendship(id,userfrom_id,userto_id);
             json.put("status",0);
             json.put("result",res);
         }

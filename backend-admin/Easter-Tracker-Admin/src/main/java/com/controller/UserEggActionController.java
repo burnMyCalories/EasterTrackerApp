@@ -25,7 +25,7 @@ public class UserEggActionController extends HttpServlet {
         String user_nickname=req.getParameter("user_nickname");
         String egg_name=req.getParameter("egg_name");
         resp.setCharacterEncoding("utf-8");
-        List<JSONObject> res = CRUDUtils.queryAction(id, user_id, egg_id, action, user_username, user_nickname, egg_name);
+        JSONObject res = CRUDUtils.queryAction(id, user_id, egg_id, action, user_username, user_nickname, egg_name);
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject();
         json.put("status",0);
@@ -47,7 +47,7 @@ public class UserEggActionController extends HttpServlet {
             json.put("status",1);
         }
         else{
-            int res = CRUDUtils.addAction(user_id, egg_id, action);
+            JSONObject res = CRUDUtils.addAction(user_id, egg_id, action);
             json.put("status",0);
             json.put("result",res);
         }
@@ -71,7 +71,7 @@ public class UserEggActionController extends HttpServlet {
             json.put("status",1);
         }
         else{
-            int res = CRUDUtils.updateAction(id, user_id, egg_id, action, is_deleted);
+            JSONObject res = CRUDUtils.updateAction(id, user_id, egg_id, action, is_deleted);
             json.put("status",0);
             json.put("result",res);
         }
@@ -94,7 +94,7 @@ public class UserEggActionController extends HttpServlet {
             json.put("status",1);
         }
         else{
-            int res = CRUDUtils.delAction(id, user_id, egg_id, action);
+            JSONObject res = CRUDUtils.delAction(id, user_id, egg_id, action);
             json.put("status",0);
             json.put("result",res);
         }

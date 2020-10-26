@@ -26,7 +26,7 @@ public class MessageController extends HttpServlet {
         String userfrom_nickname=req.getParameter("userfrom_nickname");
         String userto_nickname=req.getParameter("userto_nickname");
         resp.setCharacterEncoding("utf-8");
-        List<JSONObject> res = CRUDUtils.queryMessage(id, friend_id, userfrom_id, userto_id, userfrom_username, userto_username, userfrom_nickname, userto_nickname);
+        JSONObject res = CRUDUtils.queryMessage(id, friend_id, userfrom_id, userto_id, userfrom_username, userto_username, userfrom_nickname, userto_nickname);
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject();
         json.put("status",0);
@@ -48,7 +48,7 @@ public class MessageController extends HttpServlet {
             json.put("status",1);
         }
         else{
-            int res = CRUDUtils.addMessage(friend_id, type, content);
+            JSONObject res = CRUDUtils.addMessage(friend_id, type, content);
             json.put("status",0);
             json.put("result",res);
         }
@@ -70,7 +70,7 @@ public class MessageController extends HttpServlet {
             json.put("status",1);
         }
         else{
-            int res = CRUDUtils.updateMessage(id, friend_id, is_deleted);
+            JSONObject res = CRUDUtils.updateMessage(id, friend_id, is_deleted);
             json.put("status",0);
             json.put("result",res);
         }
@@ -91,7 +91,7 @@ public class MessageController extends HttpServlet {
             json.put("status",1);
         }
         else{
-            int res = CRUDUtils.delMessage(id, friend_id);
+            JSONObject res = CRUDUtils.delMessage(id, friend_id);
             json.put("status",0);
             json.put("result",res);
         }

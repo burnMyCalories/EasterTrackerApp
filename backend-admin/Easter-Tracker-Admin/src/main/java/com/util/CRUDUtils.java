@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.util.*;
 
 public class CRUDUtils {
-    public static int addUser(String username,String password,String gender,String nickname,String contact,String latitude,String longitude){
+    public static JSONObject addUser(String username,String password,String gender,String nickname,String contact,String latitude,String longitude){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         UserMapper mapper = context.getBean("userMapper", UserMapper.class);
         Map<String, Object> map = new HashMap<>();
@@ -24,25 +24,31 @@ public class CRUDUtils {
         map.put("latitude",latitude);
         map.put("longitude",longitude);
         int res = mapper.addUser(map);
-        return res;
+        JSONObject json = new JSONObject();
+        json.put("data",queryUser(String.valueOf(i),username,password,gender,nickname,contact,latitude,longitude).get("data"));
+        json.put("rows",res);
+        return json;
     }
-    public static int delUser(String id,String username,String nickname){
+    public static JSONObject delUser(String id,String username,String nickname){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         UserMapper mapper = context.getBean("userMapper", UserMapper.class);
         Map<String, Object> map = new HashMap<>();
         map.put("id",id);
         map.put("username",username);
         map.put("nickname",nickname);
+        JSONObject json = new JSONObject();
+        json.put("data",queryUser(id,username,nickname,null,null,null,null,null).get("data"));
         int res = mapper.delUser(map);
-        return res;
+        json.put("rows",res);
+        return json;
     }
-    public static int updateUser(String id,String username,String password,String gender,String nickname,String contact,String latitude,String longitude,String is_online,String is_deleted){
+    public static JSONObject updateUser(String id,String username,String password,String gender,String nickname,String contact,String latitude,String longitude,String is_online,String is_deleted){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         UserMapper mapper = context.getBean("userMapper", UserMapper.class);
         Map<String, Object> map = new HashMap<>();
         if(id!=null){
             map.put("id",id);
-            List<JSONObject> jsons = queryUser(id, null, null, null, null, null, null, null);
+            List<JSONObject> jsons = (List<JSONObject>) queryUser(id, null, null, null, null, null, null, null).get("data");
             for (JSONObject json : jsons) {
                 if(json!=null){
                     if(username==null){
@@ -87,7 +93,7 @@ public class CRUDUtils {
         }
         else if(username!=null){
             map.put("username",username);
-            List<JSONObject> jsons = queryUser(null, username, null, null, null, null, null, null);
+            List<JSONObject> jsons = (List<JSONObject>) queryUser(null, username, null, null, null, null, null, null).get("data");
             for (JSONObject json : jsons) {
                 if(json!=null){
                     if(id==null){
@@ -131,9 +137,12 @@ public class CRUDUtils {
             map.put("is_deleted",is_deleted);
         }
         int res = mapper.updateUser(map);
-        return res;
+        JSONObject json = new JSONObject();
+        json.put("data",queryUser(id,username,password,gender,nickname,contact,latitude,longitude).get("data"));
+        json.put("rows",res);
+        return json;
     }
-    public static List<JSONObject> queryUser(String id,String username,String password,String gender,String nickname,String contact,String latitude,String longitude){
+    public static JSONObject queryUser(String id,String username,String password,String gender,String nickname,String contact,String latitude,String longitude){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         UserMapper mapper = context.getBean("userMapper", UserMapper.class);
         Map<String, Object> map = new HashMap<>();
@@ -151,9 +160,12 @@ public class CRUDUtils {
             JSONObject json = user.toJSON();
             list.add(json);
         }
-        return list;
+        JSONObject json = new JSONObject();
+        json.put("data",list);
+        json.put("rows",list.size());
+        return json;
     }
-    public static int addFriendship(String userfrom_id,String userto_id){
+    public static JSONObject addFriendship(String userfrom_id,String userto_id){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         FriendshipMapper mapper = context.getBean("friendshipMapper", FriendshipMapper.class);
         Random random = new Random();
@@ -163,19 +175,25 @@ public class CRUDUtils {
         map.put("userfrom_id",userfrom_id);
         map.put("userto_id",userto_id);
         int res = mapper.addFriendship(map);
-        return res;
+        JSONObject json = new JSONObject();
+        json.put("data",queryFriendship(String.valueOf(i),userfrom_id,userto_id,null,null,null,null).get("data"));
+        json.put("rows",res);
+        return json;
     }
-    public static int delFriendship(String id,String userfrom_id,String userto_id){
+    public static JSONObject delFriendship(String id,String userfrom_id,String userto_id){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         FriendshipMapper mapper = context.getBean("friendshipMapper", FriendshipMapper.class);
         Map<String, Object> map = new HashMap<>();
         map.put("id",id);
         map.put("userfrom_id",userfrom_id);
         map.put("userto_id",userto_id);
+        JSONObject json = new JSONObject();
+        json.put("data",queryFriendship(id,userfrom_id,userto_id,null,null,null,null).get("data"));
         int res = mapper.delFriendship(map);
-        return res;
+        json.put("rows",res);
+        return json;
     }
-    public static List<JSONObject> queryFriendship(String id,String userfrom_id,String userto_id,String userfrom_username,String userto_username,String userfrom_nickname,String userto_nickname){
+    public static JSONObject queryFriendship(String id,String userfrom_id,String userto_id,String userfrom_username,String userto_username,String userfrom_nickname,String userto_nickname){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         FriendshipMapper mapper = context.getBean("friendshipMapper", FriendshipMapper.class);
         Map<String, Object> map = new HashMap<>();;
@@ -192,14 +210,17 @@ public class CRUDUtils {
             JSONObject json = friendship.toJSON();
             list.add(json);
         }
-        return list;
+        JSONObject json = new JSONObject();
+        json.put("data",list);
+        json.put("rows",list.size());
+        return json;
     }
-    public static int updateFriendship(String id,String userfrom_id,String userto_id,String is_deleted){
+    public static JSONObject updateFriendship(String id,String userfrom_id,String userto_id,String is_deleted){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         FriendshipMapper mapper = context.getBean("friendshipMapper", FriendshipMapper.class);
         Map<String, Object> map = new HashMap<>();
         if(id!=null) {
-            List<JSONObject> jsons = queryFriendship(id, null, null, null, null, null, null);
+            List<JSONObject> jsons = (List<JSONObject>) queryFriendship(id, null, null, null, null, null, null).get("data");
             for (JSONObject json : jsons) {
                 if(json!=null){
                     if(is_deleted==null){
@@ -210,7 +231,7 @@ public class CRUDUtils {
             }
         }
         else if(userfrom_id!=null&&userto_id!=null){
-            List<JSONObject> jsons = queryFriendship(null, userfrom_id, userto_id, null, null, null,null);
+            List<JSONObject> jsons = (List<JSONObject>) queryFriendship(null, userfrom_id, userto_id, null, null, null,null).get("data");
             for (JSONObject json : jsons) {
                 if(json!=null){
                     id=json.getString("id");
@@ -224,9 +245,12 @@ public class CRUDUtils {
         map.put("id",id);
         map.put("is_deleted",is_deleted);
         int res = mapper.updateFriendship(map);
-        return res;
+        JSONObject json = new JSONObject();
+        json.put("data",queryFriendship(id,userfrom_id,userto_id,null,null,null,null).get("data"));
+        json.put("rows",res);
+        return json;
     }
-    public static int addMessage(String friend_id,String type,String content){
+    public static JSONObject addMessage(String friend_id,String type,String content){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         MessageMapper mapper = context.getBean("messageMapper", MessageMapper.class);
         Random random = new Random();
@@ -237,23 +261,29 @@ public class CRUDUtils {
         map.put("type",type);
         map.put("content",content);
         int res = mapper.addMessage(map);
-        return res;
+        JSONObject json = new JSONObject();
+        json.put("data",queryMessage(String.valueOf(i),friend_id,null,null,null,null,null,null).get("data"));
+        json.put("rows",res);
+        return json;
     }
-    public static int delMessage(String id,String friend_id){
+    public static JSONObject delMessage(String id,String friend_id){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         MessageMapper mapper = context.getBean("messageMapper", MessageMapper.class);
         Map<String, Object> map = new HashMap<>();
         map.put("id",id);
         map.put("friend_id",friend_id);
+        JSONObject json = new JSONObject();
+        json.put("data",queryMessage(id,friend_id,null,null,null,null,null,null).get("data"));
         int res = mapper.delMessage(map);
-        return res;
+        json.put("rows",res);
+        return json;
     }
-    public static int updateMessage(String id,String friend_id,String is_deleted){
+    public static JSONObject updateMessage(String id,String friend_id,String is_deleted){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         MessageMapper mapper = context.getBean("messageMapper", MessageMapper.class);
         Map<String, Object> map = new HashMap<>();
         if(id!=null){
-            List<JSONObject> jsons = queryMessage(id, null,null,null,null,null,null,null);
+            List<JSONObject> jsons = (List<JSONObject>) queryMessage(id, null,null,null,null,null,null,null).get("data");
             for (JSONObject json : jsons) {
                 if(json!=null){
                     if(is_deleted==null){
@@ -264,7 +294,7 @@ public class CRUDUtils {
             }
         }
         else if(friend_id!=null){
-            List<JSONObject> jsons = queryMessage(null, friend_id,null,null,null,null,null,null);
+            List<JSONObject> jsons = (List<JSONObject>) queryMessage(null, friend_id,null,null,null,null,null,null).get("data");
             int count=0;
             for (JSONObject json : jsons) {
                 if(json!=null){
@@ -273,14 +303,19 @@ public class CRUDUtils {
                     count++;
                 }
             }
-            return count;
+            JSONObject json = new JSONObject();
+            json.put("data",queryMessage(null,friend_id,null,null,null,null,null,null).get("data"));
+            json.put("rows",count);
         }
         map.put("id",id);
         map.put("is_deleted",is_deleted);
         int res = mapper.updateMessage(map);
-        return res;
+        JSONObject json = new JSONObject();
+        json.put("data",queryMessage(id,friend_id,null,null,null,null,null,null).get("data"));
+        json.put("rows",res);
+        return json;
     }
-    public static List<JSONObject> queryMessage(String id,String friend_id,String userfrom_id,String userto_id,String userfrom_username,String userto_username,String userfrom_nickname,String userto_nickname){
+    public static JSONObject queryMessage(String id,String friend_id,String userfrom_id,String userto_id,String userfrom_username,String userto_username,String userfrom_nickname,String userto_nickname){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         MessageMapper mapper = context.getBean("messageMapper", MessageMapper.class);
         Map<String, Object> map = new HashMap<>();
@@ -298,9 +333,12 @@ public class CRUDUtils {
             JSONObject json = message.toJSON();
             list.add(json);
         }
-        return list;
+        JSONObject json = new JSONObject();
+        json.put("data",list);
+        json.put("rows",list.size());
+        return json;
     }
-    public static int addEgg(String name,String color,String type,String latitude,String longitude,String content,String expire_time){
+    public static JSONObject addEgg(String name,String color,String type,String latitude,String longitude,String content,String expire_time){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         EggMapper mapper = context.getBean("eggMapper", EggMapper.class);
         Map<String, Object> map = new HashMap<>();
@@ -315,23 +353,29 @@ public class CRUDUtils {
         map.put("content",content);
         map.put("expire_time",expire_time);
         int res = mapper.addEgg(map);
-        return res;
+        JSONObject json = new JSONObject();
+        json.put("data",queryEgg(String.valueOf(i),name,color,type,latitude,longitude).get("data"));
+        json.put("rows",res);
+        return json;
     }
-    public static int delEgg(String id,String name){
+    public static JSONObject delEgg(String id,String name){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         EggMapper mapper = context.getBean("eggMapper", EggMapper.class);
         Map<String, Object> map = new HashMap<>();
         map.put("id",id);
         map.put("name",name);
+        JSONObject json = new JSONObject();
+        json.put("data",queryEgg(id,name,null,null,null,null).get("data"));
         int res = mapper.delEgg(map);
-        return res;
+        json.put("rows",res);
+        return json;
     }
-    public static int updateEgg(String id,String name,String color,String type,String latitude,String longitude,String content,String expire_time,String is_deleted){
+    public static JSONObject updateEgg(String id,String name,String color,String type,String latitude,String longitude,String content,String expire_time,String is_deleted){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         EggMapper mapper = context.getBean("eggMapper", EggMapper.class);
         Map<String, Object> map = new HashMap<>();
         if(id!=null){
-            List<JSONObject> jsons = queryEgg(id, null, null, null, null, null);
+            List<JSONObject> jsons = (List<JSONObject>) queryEgg(id, null, null, null, null, null).get("data");
             for (JSONObject json : jsons) {
                 if(json!=null){
                     if(name==null){
@@ -372,7 +416,7 @@ public class CRUDUtils {
             map.put("is_deleted",is_deleted);
         }
         else if(name!=null){
-            List<JSONObject> jsons = queryEgg(null, name, null, null, null, null);
+            List<JSONObject> jsons = (List<JSONObject>) queryEgg(null, name, null, null, null, null).get("data");
             for (JSONObject json : jsons) {
                 if(json!=null){
                     if(id==null){
@@ -413,9 +457,12 @@ public class CRUDUtils {
             map.put("is_deleted",is_deleted);
         }
         int res = mapper.updateEgg(map);
-        return res;
+        JSONObject json = new JSONObject();
+        json.put("data",queryEgg(id,name,color,type,latitude,longitude).get("data"));
+        json.put("rows",res);
+        return json;
     }
-    public static List<JSONObject> queryEgg(String id,String name,String color,String type,String latitude,String longitude){
+    public static JSONObject queryEgg(String id,String name,String color,String type,String latitude,String longitude){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         EggMapper mapper = context.getBean("eggMapper", EggMapper.class);
         Map<String, Object> map = new HashMap<>();
@@ -431,9 +478,12 @@ public class CRUDUtils {
             JSONObject json = egg.toJSON();
             list.add(json);
         }
-        return list;
+        JSONObject json = new JSONObject();
+        json.put("data",list);
+        json.put("rows",list.size());
+        return json;
     }
-    public static int addAction(String user_id,String egg_id,String action){
+    public static JSONObject addAction(String user_id,String egg_id,String action){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         UserEggActionMapper mapper = context.getBean("userEggActionMapper", UserEggActionMapper.class);
         Map<String, Object> map = new HashMap<>();
@@ -444,9 +494,12 @@ public class CRUDUtils {
         map.put("egg_id",egg_id);
         map.put("action",action);
         int res = mapper.addAction(map);
-        return res;
+        JSONObject json = new JSONObject();
+        json.put("data",queryAction(String.valueOf(i),user_id,egg_id,action,null,null,null).get("data"));
+        json.put("rows",res);
+        return json;
     }
-    public static int delAction(String id,String user_id,String egg_id,String action){
+    public static JSONObject delAction(String id,String user_id,String egg_id,String action){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         UserEggActionMapper mapper = context.getBean("userEggActionMapper", UserEggActionMapper.class);
         Map<String, Object> map = new HashMap<>();
@@ -454,15 +507,18 @@ public class CRUDUtils {
         map.put("user_id",user_id);
         map.put("egg_id",egg_id);
         map.put("action",action);
+        JSONObject json = new JSONObject();
+        json.put("data",queryAction(id,user_id,egg_id,action,null,null,null).get("data"));
         int res = mapper.delAction(map);
-        return res;
+        json.put("rows",res);
+        return json;
     }
-    public static int updateAction(String id,String user_id,String egg_id,String action,String is_deleted){
+    public static JSONObject updateAction(String id,String user_id,String egg_id,String action,String is_deleted){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         UserEggActionMapper mapper = context.getBean("userEggActionMapper", UserEggActionMapper.class);
         Map<String, Object> map = new HashMap<>();
         if(id!=null){
-            List<JSONObject> jsons = queryAction(id, null, null, null, null, null, null);
+            List<JSONObject> jsons = (List<JSONObject>) queryAction(id, null, null, null, null, null, null).get("data");
             for (JSONObject json : jsons) {
                 if(json!=null){
                     if(user_id==null){
@@ -487,7 +543,7 @@ public class CRUDUtils {
             map.put("is_deleted",is_deleted);
         }
         else if(user_id!=null&&egg_id!=null&&action!=null){
-            List<JSONObject> jsons = queryAction(null, user_id, egg_id, action, null, null, null);
+            List<JSONObject> jsons = (List<JSONObject>) queryAction(null, user_id, egg_id, action, null, null, null).get("data");
             for (JSONObject json : jsons) {
                 if(json!=null){
                     if(id==null){
@@ -506,9 +562,12 @@ public class CRUDUtils {
             map.put("is_deleted",is_deleted);
         }
         int res = mapper.updateAction(map);
-        return res;
+        JSONObject json = new JSONObject();
+        json.put("data",queryAction(id,user_id,egg_id,action,null,null,null).get("data"));
+        json.put("rows",res);
+        return json;
     }
-    public static List<JSONObject> queryAction(String id,String user_id,String egg_id,String action,String user_username,String user_nickname,String egg_name){
+    public static JSONObject queryAction(String id,String user_id,String egg_id,String action,String user_username,String user_nickname,String egg_name){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         UserEggActionMapper mapper = context.getBean("userEggActionMapper", UserEggActionMapper.class);
         Map<String, Object> map = new HashMap<>();
@@ -525,6 +584,9 @@ public class CRUDUtils {
             JSONObject json = userEggAction.toJSON();
             list.add(json);
         }
-        return list;
+        JSONObject json = new JSONObject();
+        json.put("data",list);
+        json.put("rows",list.size());
+        return json;
     }
 }
