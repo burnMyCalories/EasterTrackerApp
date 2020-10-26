@@ -46,7 +46,7 @@ public class User {
         json.put("gender",this.gender);
         json.put("nickname",this.nickname);
         json.put("contact",this.contact);
-        json.put("is_active",this.is_active);
+//        json.put("is_active",this.is_active);
         json.put("is_online",this.is_online);
         json.put("latitude",this.latitude);
         json.put("longitude",this.longitude);

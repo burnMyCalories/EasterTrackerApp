@@ -165,6 +165,33 @@ public class CRUDUtils {
         json.put("rows",list.size());
         return json;
     }
+    public static JSONObject queryNearUsers(String id){
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+        UserMapper mapper = context.getBean("userMapper", UserMapper.class);
+        Map<String, Object> map = new HashMap<>();
+        List<JSONObject> temp_list = (List<JSONObject>) queryUser(id, null, null, null, null, null, null, null).get("data");
+        JSONObject source = temp_list.get(0);
+        String source_latitude = source.getString("latitude");
+        String source_longitude = source.getString("longitude");
+        List<JSONObject> target_list = (List<JSONObject>) queryUser(null, null, null, null, null, null, null, null).get("data");
+        List<JSONObject> list = new ArrayList<>();
+        for (JSONObject target : target_list) {
+            String tid = target.getString("id");
+            if(!id.equals(tid)){
+                String target_latitude = target.getString("latitude");
+                String target_longitude = target.getString("longitude");
+//                System.out.println("source lo:"+Double.parseDouble(source_longitude)+" source lat:"+Double.parseDouble(source_latitude)+" target lo:"+Double.parseDouble(target_longitude)+" target lat:"+Double.parseDouble(target_latitude));
+//                System.out.println(DistanceUtils.getDistance(Double.parseDouble(source_latitude), Double.parseDouble(source_longitude), Double.parseDouble(target_latitude), Double.parseDouble(target_longitude)));
+                if(DistanceUtils.getDistance(Double.parseDouble(source_latitude), Double.parseDouble(source_longitude), Double.parseDouble(target_latitude), Double.parseDouble(target_longitude))<=10000){
+                    list.add(target);
+                }
+            }
+        }
+        JSONObject json = new JSONObject(true);
+        json.put("data",list);
+        json.put("rows",list.size());
+        return json;
+    }
     public static JSONObject addFriendship(String userfrom_id,String userto_id){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         FriendshipMapper mapper = context.getBean("friendshipMapper", FriendshipMapper.class);
@@ -477,6 +504,30 @@ public class CRUDUtils {
         for (Egg egg : eggs) {
             JSONObject json = egg.toJSON();
             list.add(json);
+        }
+        JSONObject json = new JSONObject(true);
+        json.put("data",list);
+        json.put("rows",list.size());
+        return json;
+    }
+    public static JSONObject queryNearEggs(String id){
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+        EggMapper mapper = context.getBean("eggMapper", EggMapper.class);
+        Map<String, Object> map = new HashMap<>();
+        List<JSONObject> temp_list = (List<JSONObject>) queryUser(id, null, null, null, null, null, null, null).get("data");
+        JSONObject source = temp_list.get(0);
+        String source_latitude = source.getString("latitude");
+        String source_longitude = source.getString("longitude");
+        List<JSONObject> target_list = (List<JSONObject>) queryEgg(null, null, null, null, null, null).get("data");
+        List<JSONObject> list = new ArrayList<>();
+        for (JSONObject target : target_list) {
+            String target_latitude = target.getString("latitude");
+            String target_longitude = target.getString("longitude");
+            System.out.println("source lo:"+Double.parseDouble(source_longitude)+" source lat:"+Double.parseDouble(source_latitude)+" target lo:"+Double.parseDouble(target_longitude)+" target lat:"+Double.parseDouble(target_latitude));
+            System.out.println(DistanceUtils.getDistance(Double.parseDouble(source_latitude), Double.parseDouble(source_longitude), Double.parseDouble(target_latitude), Double.parseDouble(target_longitude)));
+            if(DistanceUtils.getDistance(Double.parseDouble(source_latitude), Double.parseDouble(source_longitude), Double.parseDouble(target_latitude), Double.parseDouble(target_longitude))<=10000){
+                list.add(target);
+            }
         }
         JSONObject json = new JSONObject(true);
         json.put("data",list);
