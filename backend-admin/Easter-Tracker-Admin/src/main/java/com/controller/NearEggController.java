@@ -27,13 +27,18 @@ public class NearEggController extends HttpServlet {
             json.put("status",0);
             json.put("result",res);
         }
-        else{
+        else if(username!=null||nickname!=null){
             List<JSONObject> temp_list = (List<JSONObject>) CRUDUtils.queryUser(id, username, null, null, nickname, null, null, null).get("data");
             JSONObject temp = temp_list.get(0);
             id = temp.getString("id");
             JSONObject res = CRUDUtils.queryNearEggs(id);
             json.put("status",0);
             json.put("result",res);
+        }
+        else{
+            resp.setStatus(400);
+            json.put("status",1);
+            json.put("result",new JSONObject(true));
         }
         PrintWriter writer = resp.getWriter();
         writer.write(json.toString());
