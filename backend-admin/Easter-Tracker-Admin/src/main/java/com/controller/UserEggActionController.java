@@ -28,7 +28,7 @@ public class UserEggActionController extends HttpServlet {
         resp.setContentType("application/json");
         JSONObject res = CRUDUtils.queryAction(id, user_id, egg_id, action, user_username, user_nickname, egg_name);
         PrintWriter writer = resp.getWriter();
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("status",0);
         json.put("result",res);
         writer.write(json.toString());
@@ -43,11 +43,11 @@ public class UserEggActionController extends HttpServlet {
         String action=req.getParameter("action");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         if(user_id==null||egg_id==null||action==null){
             resp.setStatus(400);
             json.put("status",1);
-            json.put("result",new JSONObject());
+            json.put("result",new JSONObject(true));
         }
         else{
             JSONObject res = CRUDUtils.addAction(user_id, egg_id, action);
@@ -69,11 +69,11 @@ public class UserEggActionController extends HttpServlet {
         String is_deleted=req.getParameter("is_deleted");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         if(id==null&&(user_id==null||egg_id==null||action==null)){
             resp.setStatus(400);
             json.put("status",1);
-            json.put("result",new JSONObject());
+            json.put("result",new JSONObject(true));
         }
         else{
             JSONObject res = CRUDUtils.updateAction(id, user_id, egg_id, action, is_deleted);
@@ -94,11 +94,11 @@ public class UserEggActionController extends HttpServlet {
         String action=req.getParameter("action");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         if(id==null&&(user_id==null||egg_id==null||action==null)){
             resp.setStatus(400);
             json.put("status",1);
-            json.put("result",new JSONObject());
+            json.put("result",new JSONObject(true));
         }
         else{
             JSONObject res = CRUDUtils.delAction(id, user_id, egg_id, action);

@@ -20,7 +20,7 @@ public class Message {
     private String creation_time;
     private String update_time;
     public JSONObject toJSON(){
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("id",this.id);
         json.put("friend",friend!=null?friend.toJSON():null);
         json.put("type",this.type);

@@ -26,10 +26,10 @@ public class User {
     private String creation_time;
     private String update_time;
     public JSONObject toJSON(){
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("id",this.id);
         json.put("username",this.username);
-        json.put("password",this.password);
+//        json.put("password",this.password);
         json.put("gender",this.gender);
         json.put("nickname",this.nickname);
         json.put("contact",this.contact);

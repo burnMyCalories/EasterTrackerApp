@@ -24,7 +24,7 @@ public class CRUDUtils {
         map.put("latitude",latitude);
         map.put("longitude",longitude);
         int res = mapper.addUser(map);
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",queryUser(String.valueOf(i),username,password,gender,nickname,contact,latitude,longitude).get("data"));
         json.put("rows",res);
         return json;
@@ -36,7 +36,7 @@ public class CRUDUtils {
         map.put("id",id);
         map.put("username",username);
         map.put("nickname",nickname);
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",queryUser(id,username,nickname,null,null,null,null,null).get("data"));
         int res = mapper.delUser(map);
         json.put("rows",res);
@@ -137,7 +137,7 @@ public class CRUDUtils {
             map.put("is_deleted",is_deleted);
         }
         int res = mapper.updateUser(map);
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",queryUser(id,username,password,gender,nickname,contact,latitude,longitude).get("data"));
         json.put("rows",res);
         return json;
@@ -160,7 +160,7 @@ public class CRUDUtils {
             JSONObject json = user.toJSON();
             list.add(json);
         }
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",list);
         json.put("rows",list.size());
         return json;
@@ -175,7 +175,7 @@ public class CRUDUtils {
         map.put("userfrom_id",userfrom_id);
         map.put("userto_id",userto_id);
         int res = mapper.addFriendship(map);
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",queryFriendship(String.valueOf(i),userfrom_id,userto_id,null,null,null,null).get("data"));
         json.put("rows",res);
         return json;
@@ -187,7 +187,7 @@ public class CRUDUtils {
         map.put("id",id);
         map.put("userfrom_id",userfrom_id);
         map.put("userto_id",userto_id);
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",queryFriendship(id,userfrom_id,userto_id,null,null,null,null).get("data"));
         int res = mapper.delFriendship(map);
         json.put("rows",res);
@@ -210,7 +210,7 @@ public class CRUDUtils {
             JSONObject json = friendship.toJSON();
             list.add(json);
         }
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",list);
         json.put("rows",list.size());
         return json;
@@ -245,7 +245,7 @@ public class CRUDUtils {
         map.put("id",id);
         map.put("is_deleted",is_deleted);
         int res = mapper.updateFriendship(map);
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",queryFriendship(id,userfrom_id,userto_id,null,null,null,null).get("data"));
         json.put("rows",res);
         return json;
@@ -261,7 +261,7 @@ public class CRUDUtils {
         map.put("type",type);
         map.put("content",content);
         int res = mapper.addMessage(map);
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",queryMessage(String.valueOf(i),friend_id,null,null,null,null,null,null).get("data"));
         json.put("rows",res);
         return json;
@@ -272,7 +272,7 @@ public class CRUDUtils {
         Map<String, Object> map = new HashMap<>();
         map.put("id",id);
         map.put("friend_id",friend_id);
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",queryMessage(id,friend_id,null,null,null,null,null,null).get("data"));
         int res = mapper.delMessage(map);
         json.put("rows",res);
@@ -303,14 +303,14 @@ public class CRUDUtils {
                     count++;
                 }
             }
-            JSONObject json = new JSONObject();
+            JSONObject json = new JSONObject(true);
             json.put("data",queryMessage(null,friend_id,null,null,null,null,null,null).get("data"));
             json.put("rows",count);
         }
         map.put("id",id);
         map.put("is_deleted",is_deleted);
         int res = mapper.updateMessage(map);
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",queryMessage(id,friend_id,null,null,null,null,null,null).get("data"));
         json.put("rows",res);
         return json;
@@ -333,7 +333,7 @@ public class CRUDUtils {
             JSONObject json = message.toJSON();
             list.add(json);
         }
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",list);
         json.put("rows",list.size());
         return json;
@@ -353,7 +353,7 @@ public class CRUDUtils {
         map.put("content",content);
         map.put("expire_time",expire_time);
         int res = mapper.addEgg(map);
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",queryEgg(String.valueOf(i),name,color,type,latitude,longitude).get("data"));
         json.put("rows",res);
         return json;
@@ -364,7 +364,7 @@ public class CRUDUtils {
         Map<String, Object> map = new HashMap<>();
         map.put("id",id);
         map.put("name",name);
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",queryEgg(id,name,null,null,null,null).get("data"));
         int res = mapper.delEgg(map);
         json.put("rows",res);
@@ -457,7 +457,7 @@ public class CRUDUtils {
             map.put("is_deleted",is_deleted);
         }
         int res = mapper.updateEgg(map);
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",queryEgg(id,name,color,type,latitude,longitude).get("data"));
         json.put("rows",res);
         return json;
@@ -478,7 +478,7 @@ public class CRUDUtils {
             JSONObject json = egg.toJSON();
             list.add(json);
         }
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",list);
         json.put("rows",list.size());
         return json;
@@ -494,7 +494,7 @@ public class CRUDUtils {
         map.put("egg_id",egg_id);
         map.put("action",action);
         int res = mapper.addAction(map);
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",queryAction(String.valueOf(i),user_id,egg_id,action,null,null,null).get("data"));
         json.put("rows",res);
         return json;
@@ -507,7 +507,7 @@ public class CRUDUtils {
         map.put("user_id",user_id);
         map.put("egg_id",egg_id);
         map.put("action",action);
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",queryAction(id,user_id,egg_id,action,null,null,null).get("data"));
         int res = mapper.delAction(map);
         json.put("rows",res);
@@ -562,7 +562,7 @@ public class CRUDUtils {
             map.put("is_deleted",is_deleted);
         }
         int res = mapper.updateAction(map);
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",queryAction(id,user_id,egg_id,action,null,null,null).get("data"));
         json.put("rows",res);
         return json;
@@ -584,7 +584,7 @@ public class CRUDUtils {
             JSONObject json = userEggAction.toJSON();
             list.add(json);
         }
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("data",list);
         json.put("rows",list.size());
         return json;

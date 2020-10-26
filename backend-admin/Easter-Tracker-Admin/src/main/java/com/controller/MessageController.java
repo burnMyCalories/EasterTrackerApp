@@ -29,7 +29,7 @@ public class MessageController extends HttpServlet {
         resp.setContentType("application/json");
         JSONObject res = CRUDUtils.queryMessage(id, friend_id, userfrom_id, userto_id, userfrom_username, userto_username, userfrom_nickname, userto_nickname);
         PrintWriter writer = resp.getWriter();
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("status",0);
         json.put("result",res);
         writer.write(json.toString());
@@ -44,11 +44,11 @@ public class MessageController extends HttpServlet {
         String content=req.getParameter("content");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         if(friend_id==null||type==null||content==null){
             resp.setStatus(400);
             json.put("status",1);
-            json.put("result",new JSONObject());
+            json.put("result",new JSONObject(true));
         }
         else{
             JSONObject res = CRUDUtils.addMessage(friend_id, type, content);
@@ -68,11 +68,11 @@ public class MessageController extends HttpServlet {
         String is_deleted=req.getParameter("is_deleted");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         if(id==null&&friend_id==null){
             resp.setStatus(400);
             json.put("status",1);
-            json.put("result",new JSONObject());
+            json.put("result",new JSONObject(true));
         }
         else{
             JSONObject res = CRUDUtils.updateMessage(id, friend_id, is_deleted);
@@ -91,11 +91,11 @@ public class MessageController extends HttpServlet {
         String friend_id=req.getParameter("friend_id");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         if(id==null&&friend_id==null){
             resp.setStatus(400);
             json.put("status",1);
-            json.put("result",new JSONObject());
+            json.put("result",new JSONObject(true));
         }
         else{
             JSONObject res = CRUDUtils.delMessage(id, friend_id);

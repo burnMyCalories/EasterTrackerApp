@@ -29,7 +29,7 @@ public class UserController extends HttpServlet {
         resp.setContentType("application/json");
         JSONObject res = CRUDUtils.queryUser(id,username, password, gender, nickname, contact, latitude, longitude);
         PrintWriter writer = resp.getWriter();
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("status",0);
         json.put("result",res);
         writer.write(json.toString());
@@ -48,11 +48,11 @@ public class UserController extends HttpServlet {
         String longitude=req.getParameter("longitude");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         if(username==null||password==null||gender==null||nickname==null||contact==null||latitude==null||longitude==null){
             resp.setStatus(400);
             json.put("status",1);
-            json.put("result",new JSONObject());
+            json.put("result",new JSONObject(true));
         }
         else{
             JSONObject res = CRUDUtils.addUser(username, password, gender, nickname, contact, latitude, longitude);
@@ -81,7 +81,7 @@ public class UserController extends HttpServlet {
         resp.setContentType("application/json");
         JSONObject res = CRUDUtils.updateUser(id,username, password, gender, nickname, contact, latitude, longitude, is_online, is_deleted);
         PrintWriter writer = resp.getWriter();
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("status",0);
         json.put("result",res);
         writer.write(json.toString());
@@ -96,11 +96,11 @@ public class UserController extends HttpServlet {
         String nickname=req.getParameter("nickname");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         if(id==null&&username==null&&nickname==null){
             resp.setStatus(400);
             json.put("status",1);
-            json.put("result",new JSONObject());
+            json.put("result",new JSONObject(true));
         }
         else{
             JSONObject res = CRUDUtils.delUser(id,username,nickname);

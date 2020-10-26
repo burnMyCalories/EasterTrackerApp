@@ -20,7 +20,7 @@ public class UserEggAction {
     private String creation_time;
     private String update_time;
     public JSONObject toJSON(){
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("id",this.id);
         json.put("user",user.toJSON());
         json.put("egg",egg.toJSON());

@@ -19,7 +19,7 @@ public class Friendship {
     private String creation_time;
     private String update_time;
     public JSONObject toJSON(){
-        JSONObject json = new JSONObject();
+        JSONObject json = new JSONObject(true);
         json.put("id",this.id);
         json.put("userfrom",userfrom!=null?userfrom.toJSON():null);
         json.put("userto",userto!=null?userto.toJSON():null);
