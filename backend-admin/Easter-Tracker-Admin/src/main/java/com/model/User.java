@@ -1,9 +1,12 @@
 package com.model;
 
 import com.alibaba.fastjson.JSONObject;
+import com.dao.UserMapper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Date;
 
@@ -26,6 +29,16 @@ public class User {
     private String creation_time;
     private String update_time;
     public JSONObject toJSON(){
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+        UserMapper mapper = context.getBean("userMapper", UserMapper.class);
+        Integer set_count = mapper.selectSet(this.id);
+        Integer get_count = mapper.selectGet(this.id);
+        if(set_count==null){
+            set_count=0;
+        }
+        if(get_count==null){
+            get_count=0;
+        }
         JSONObject json = new JSONObject(true);
         json.put("id",this.id);
         json.put("username",this.username);
@@ -37,6 +50,8 @@ public class User {
         json.put("is_online",this.is_online);
         json.put("latitude",this.latitude);
         json.put("longitude",this.longitude);
+        json.put("set_count",set_count);
+        json.put("get_count",get_count);
         json.put("is_deleted",this.is_deleted);
         return json;
     }

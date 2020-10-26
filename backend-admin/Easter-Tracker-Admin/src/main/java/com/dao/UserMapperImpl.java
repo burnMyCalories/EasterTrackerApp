@@ -40,5 +40,17 @@ public class UserMapperImpl implements UserMapper{
         return mapper.queryUser(map);
     }
 
+    @Override
+    public Integer selectGet(int id) {
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        return mapper.selectGet(id);
+    }
+
+    @Override
+    public Integer selectSet(int id) {
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        return mapper.selectSet(id);
+    }
+
 
 }
