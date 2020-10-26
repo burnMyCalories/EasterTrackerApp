@@ -21,8 +21,8 @@ public class Friendship {
     public JSONObject toJSON(){
         JSONObject json = new JSONObject();
         json.put("id",this.id);
-        json.put("userfrom",userfrom.toJSON());
-        json.put("userto",userto.toJSON());
+        json.put("userfrom",userfrom!=null?userfrom.toJSON():null);
+        json.put("userto",userto!=null?userto.toJSON():null);
         json.put("is_deleted",this.is_deleted);
         return json;
     }

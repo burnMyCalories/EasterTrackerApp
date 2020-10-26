@@ -175,13 +175,17 @@ public class CRUDUtils {
         int res = mapper.delFriendship(map);
         return res;
     }
-    public static List<JSONObject> queryFriendship(String id,String userfrom_id,String userto_id){
+    public static List<JSONObject> queryFriendship(String id,String userfrom_id,String userto_id,String userfrom_username,String userto_username,String userfrom_nickname,String userto_nickname){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         FriendshipMapper mapper = context.getBean("friendshipMapper", FriendshipMapper.class);
         Map<String, Object> map = new HashMap<>();;
         map.put("id",id);
         map.put("userfrom_id",userfrom_id);
         map.put("userto_id",userto_id);
+        map.put("userfrom_username",userfrom_username);
+        map.put("userto_username",userto_username);
+        map.put("userfrom_nickname",userfrom_nickname);
+        map.put("userto_nickname",userto_nickname);
         List<Friendship> friendships = mapper.queryFriendship(map);
         List<JSONObject> list = new ArrayList<>();
         for (Friendship friendship : friendships) {
@@ -195,7 +199,7 @@ public class CRUDUtils {
         FriendshipMapper mapper = context.getBean("friendshipMapper", FriendshipMapper.class);
         Map<String, Object> map = new HashMap<>();
         if(id!=null) {
-            List<JSONObject> jsons = queryFriendship(id, null, null);
+            List<JSONObject> jsons = queryFriendship(id, null, null, null, null, null, null);
             for (JSONObject json : jsons) {
                 if(json!=null){
                     if(is_deleted==null){
@@ -206,7 +210,7 @@ public class CRUDUtils {
             }
         }
         else if(userfrom_id!=null&&userto_id!=null){
-            List<JSONObject> jsons = queryFriendship(null, userfrom_id, userto_id);
+            List<JSONObject> jsons = queryFriendship(null, userfrom_id, userto_id, null, null, null,null);
             for (JSONObject json : jsons) {
                 if(json!=null){
                     id=json.getString("id");
@@ -249,7 +253,7 @@ public class CRUDUtils {
         MessageMapper mapper = context.getBean("messageMapper", MessageMapper.class);
         Map<String, Object> map = new HashMap<>();
         if(id!=null){
-            List<JSONObject> jsons = queryMessage(id, null);
+            List<JSONObject> jsons = queryMessage(id, null,null,null,null,null,null,null);
             for (JSONObject json : jsons) {
                 if(json!=null){
                     if(is_deleted==null){
@@ -260,7 +264,7 @@ public class CRUDUtils {
             }
         }
         else if(friend_id!=null){
-            List<JSONObject> jsons = queryMessage(null, friend_id);
+            List<JSONObject> jsons = queryMessage(null, friend_id,null,null,null,null,null,null);
             int count=0;
             for (JSONObject json : jsons) {
                 if(json!=null){
@@ -276,12 +280,18 @@ public class CRUDUtils {
         int res = mapper.updateMessage(map);
         return res;
     }
-    public static List<JSONObject> queryMessage(String id,String friend_id){
+    public static List<JSONObject> queryMessage(String id,String friend_id,String userfrom_id,String userto_id,String userfrom_username,String userto_username,String userfrom_nickname,String userto_nickname){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         MessageMapper mapper = context.getBean("messageMapper", MessageMapper.class);
         Map<String, Object> map = new HashMap<>();
         map.put("id",id);
         map.put("friend_id",friend_id);
+        map.put("userfrom_id",userfrom_id);
+        map.put("userto_id",userto_id);
+        map.put("userfrom_username",userfrom_username);
+        map.put("userto_username",userto_username);
+        map.put("userfrom_nickname",userfrom_nickname);
+        map.put("userto_nickname",userto_nickname);
         List<Message> messages = mapper.queryMessage(map);
         List<JSONObject> list = new ArrayList<>();
         for (Message message : messages) {
@@ -452,7 +462,7 @@ public class CRUDUtils {
         UserEggActionMapper mapper = context.getBean("userEggActionMapper", UserEggActionMapper.class);
         Map<String, Object> map = new HashMap<>();
         if(id!=null){
-            List<JSONObject> jsons = queryAction(id, null, null, null);
+            List<JSONObject> jsons = queryAction(id, null, null, null, null, null, null);
             for (JSONObject json : jsons) {
                 if(json!=null){
                     if(user_id==null){
@@ -477,7 +487,7 @@ public class CRUDUtils {
             map.put("is_deleted",is_deleted);
         }
         else if(user_id!=null&&egg_id!=null&&action!=null){
-            List<JSONObject> jsons = queryAction(null, user_id, egg_id, action);
+            List<JSONObject> jsons = queryAction(null, user_id, egg_id, action, null, null, null);
             for (JSONObject json : jsons) {
                 if(json!=null){
                     if(id==null){
@@ -498,7 +508,7 @@ public class CRUDUtils {
         int res = mapper.updateAction(map);
         return res;
     }
-    public static List<JSONObject> queryAction(String id,String user_id,String egg_id,String action){
+    public static List<JSONObject> queryAction(String id,String user_id,String egg_id,String action,String user_username,String user_nickname,String egg_name){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         UserEggActionMapper mapper = context.getBean("userEggActionMapper", UserEggActionMapper.class);
         Map<String, Object> map = new HashMap<>();
@@ -506,6 +516,9 @@ public class CRUDUtils {
         map.put("user_id",user_id);
         map.put("egg_id",egg_id);
         map.put("action",action);
+        map.put("user_username",user_username);
+        map.put("user_nickname",user_nickname);
+        map.put("egg_name",egg_name);
         List<UserEggAction> userEggActions = mapper.queryAction(map);
         List<JSONObject> list = new ArrayList<>();
         for (UserEggAction userEggAction : userEggActions) {

@@ -42,6 +42,24 @@
             <if test="action!=null">
                 and `action`=#{action}
             </if>
+            <if test="user_username!=null">
+                and user_id in
+                (
+                    select `id` from `User` where `username`=#{user_username}
+                )
+            </if>
+            <if test="user_nickname!=null">
+                and user_id in
+                (
+                    select `id` from `User` where `nickname`=#{user_nickname}
+                )
+            </if>
+            <if test="egg_name!=null">
+                and egg_id in
+                (
+                    select `id` from `Egg` where `name`=#{egg_name}
+                )
+            </if>
         </where>
     </select>
     <resultMap id="actionQueryMap" type="UserEggAction">

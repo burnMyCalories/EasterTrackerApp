@@ -22,7 +22,7 @@ public class Message {
     public JSONObject toJSON(){
         JSONObject json = new JSONObject();
         json.put("id",this.id);
-        json.put("friend",friend.toJSON());
+        json.put("friend",friend!=null?friend.toJSON():null);
         json.put("type",this.type);
         json.put("content",this.content);
         json.put("is_deleted",this.is_deleted);

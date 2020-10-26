@@ -19,8 +19,14 @@ public class MessageController extends HttpServlet {
         req.setCharacterEncoding("utf-8");
         String id=req.getParameter("id");
         String friend_id=req.getParameter("friend_id");
+        String userfrom_id=req.getParameter("userfrom_id");
+        String userto_id=req.getParameter("userto_id");
+        String userfrom_username=req.getParameter("userfrom_username");
+        String userto_username=req.getParameter("userto_username");
+        String userfrom_nickname=req.getParameter("userfrom_nickname");
+        String userto_nickname=req.getParameter("userto_nickname");
         resp.setCharacterEncoding("utf-8");
-        List<JSONObject> res = CRUDUtils.queryMessage(id, friend_id);
+        List<JSONObject> res = CRUDUtils.queryMessage(id, friend_id, userfrom_id, userto_id, userfrom_username, userto_username, userfrom_nickname, userto_nickname);
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject();
         json.put("status",0);

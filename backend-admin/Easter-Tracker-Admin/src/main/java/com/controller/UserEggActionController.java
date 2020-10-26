@@ -21,8 +21,11 @@ public class UserEggActionController extends HttpServlet {
         String user_id=req.getParameter("user_id");
         String egg_id=req.getParameter("egg_id");
         String action=req.getParameter("action");
+        String user_username=req.getParameter("user_username");
+        String user_nickname=req.getParameter("user_nickname");
+        String egg_name=req.getParameter("egg_name");
         resp.setCharacterEncoding("utf-8");
-        List<JSONObject> res = CRUDUtils.queryAction(id, user_id, egg_id, action);
+        List<JSONObject> res = CRUDUtils.queryAction(id, user_id, egg_id, action, user_username, user_nickname, egg_name);
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject();
         json.put("status",0);

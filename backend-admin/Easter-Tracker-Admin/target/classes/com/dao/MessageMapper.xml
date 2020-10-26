@@ -30,6 +30,54 @@
             <if test="friend_id!=null">
                 and friend_id=#{friend_id}
             </if>
+            <if test="userfrom_id!=null">
+                and friend_id in
+                (
+                    select `id` from `Friendship` where `userfrom_id`=#{userfrom_id}
+                )
+            </if>
+            <if test="userto_id!=null">
+                and friend_id in
+                (
+                    select `id` from `Friendship` where `userto_id`=#{userto_id}
+                )
+            </if>
+            <if test="userfrom_username!=null">
+                and friend_id in
+                (
+                    select `id` from `Friendship` where userfrom_id in
+                    (
+                        select `id` from `User` where `username`=#{userfrom_username}
+                    )
+                )
+            </if>
+            <if test="userto_username!=null">
+                and friend_id in
+                (
+                    select `id` from `Friendship` where userto_id in
+                    (
+                        select `id` from `User` where `username`=#{userto_username}
+                    )
+                )
+            </if>
+            <if test="userfrom_nickname!=null">
+                and friend_id in
+                (
+                    select `id` from `Friendship` where userfrom_id in
+                    (
+                        select `id` from `User` where `nickname`=#{userfrom_nickname}
+                    )
+                )
+            </if>
+            <if test="userto_nickname!=null">
+                and friend_id in
+                (
+                    select `id` from `Friendship` where userto_id in
+                    (
+                        select `id` from `User` where `nickname`=#{userto_nickname}
+                    )
+                )
+            </if>
         </where>
     </select>
     <resultMap id="messageQueryMap" type="Message">
