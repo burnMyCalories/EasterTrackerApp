@@ -24,6 +24,7 @@ public class EggController extends HttpServlet {
         String latitude=req.getParameter("latitude");
         String longitude=req.getParameter("longitude");
         resp.setCharacterEncoding("utf-8");
+        resp.setContentType("application/json");
         JSONObject res = CRUDUtils.queryEgg(id, name, color, type, latitude, longitude);
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject();
@@ -44,10 +45,12 @@ public class EggController extends HttpServlet {
         String content=req.getParameter("content");
         String expire_time=req.getParameter("expire_time");
         resp.setCharacterEncoding("utf-8");
+        resp.setContentType("application/json");
         JSONObject json = new JSONObject();
         if(name==null||color==null||type==null||latitude==null||longitude==null||content==null||expire_time==null){
             resp.setStatus(400);
             json.put("status",1);
+            json.put("result",new JSONObject());
         }
         else{
             JSONObject res = CRUDUtils.addEgg(name, color, type, latitude, longitude, content, expire_time);
@@ -73,10 +76,12 @@ public class EggController extends HttpServlet {
         String expire_time=req.getParameter("expire_time");
         String is_deleted=req.getParameter("is_deleted");
         resp.setCharacterEncoding("utf-8");
+        resp.setContentType("application/json");
         JSONObject json = new JSONObject();
         if(id==null&&name==null){
             resp.setStatus(400);
             json.put("status",1);
+            json.put("result",new JSONObject());
         }
         else{
             JSONObject res = CRUDUtils.updateEgg(id, name, color, type, latitude, longitude, content, expire_time, is_deleted);
@@ -94,10 +99,12 @@ public class EggController extends HttpServlet {
         String id=req.getParameter("id");
         String name=req.getParameter("name");
         resp.setCharacterEncoding("utf-8");
+        resp.setContentType("application/json");
         JSONObject json = new JSONObject();
         if(id==null&&name==null){
             resp.setStatus(400);
             json.put("status",1);
+            json.put("result",new JSONObject());
         }
         else{
             JSONObject res = CRUDUtils.delEgg(id, name);

@@ -25,6 +25,7 @@ public class FriendshipController extends HttpServlet {
         String userfrom_nickname=req.getParameter("userfrom_nickname");
         String userto_nickname=req.getParameter("userto_nickname");
         resp.setCharacterEncoding("utf-8");
+        resp.setContentType("application/json");
         JSONObject res = CRUDUtils.queryFriendship(id, userfrom_id, userto_id, userfrom_username, userto_username, userfrom_nickname, userto_nickname);
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject();
@@ -40,10 +41,12 @@ public class FriendshipController extends HttpServlet {
         String userfrom_id=req.getParameter("userfrom_id");
         String userto_id=req.getParameter("userto_id");
         resp.setCharacterEncoding("utf-8");
+        resp.setContentType("application/json");
         JSONObject json = new JSONObject();
         if(userfrom_id==null||userto_id==null){
             resp.setStatus(400);
             json.put("status",1);
+            json.put("result",new JSONObject());
         }
         else{
             JSONObject res = CRUDUtils.addFriendship(userfrom_id, userto_id);
@@ -63,10 +66,12 @@ public class FriendshipController extends HttpServlet {
         String userto_id=req.getParameter("userto_id");
         String is_deleted=req.getParameter("is_deleted");
         resp.setCharacterEncoding("utf-8");
+        resp.setContentType("application/json");
         JSONObject json = new JSONObject();
         if(id==null&&(userfrom_id==null||userto_id==null)){
             resp.setStatus(400);
             json.put("status",1);
+            json.put("result",new JSONObject());
         }
         else{
             JSONObject res = CRUDUtils.updateFriendship(id,userfrom_id,userto_id,is_deleted);
@@ -85,10 +90,12 @@ public class FriendshipController extends HttpServlet {
         String userfrom_id=req.getParameter("userfrom_id");
         String userto_id=req.getParameter("userto_id");
         resp.setCharacterEncoding("utf-8");
+        resp.setContentType("application/json");
         JSONObject json = new JSONObject();
         if(id==null&&userfrom_id==null&&userto_id==null){
             resp.setStatus(400);
             json.put("status",1);
+            json.put("result",new JSONObject());
         }
         else{
             JSONObject res = CRUDUtils.delFriendship(id,userfrom_id,userto_id);
