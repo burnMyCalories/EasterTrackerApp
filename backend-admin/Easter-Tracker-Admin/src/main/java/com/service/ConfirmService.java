@@ -1,11 +1,15 @@
 package com.service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.sun.mail.util.MailSSLSocketFactory;
 import com.util.VerifyUtils;
 import com.zhenzi.sms.ZhenziSmsClient;
 import lombok.SneakyThrows;
 
 
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,10 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @WebServlet(name = "confirm", urlPatterns = "/confirm")
 public class ConfirmService extends HttpServlet {
@@ -88,6 +89,68 @@ public class ConfirmService extends HttpServlet {
 //            }
 //            httpPost.releaseConnection();
 //            json.put("status",temp);
+            // 收件人电子邮箱
+            String to = email;
+
+            // 发件人电子邮箱
+            String from = "543777820@qq.com";
+
+            // 指定发送邮件的主机为 smtp.qq.com
+            String host = "smtp.qq.com";  //QQ 邮件服务器
+
+            // 获取系统属性
+            Properties properties = System.getProperties();
+
+            // 设置邮件服务器
+            properties.setProperty("mail.smtp.host", host);
+
+            properties.put("mail.smtp.auth", "true");
+            MailSSLSocketFactory sf = new MailSSLSocketFactory();
+            sf.setTrustAllHosts(true);
+            properties.put("mail.smtp.ssl.enable", "true");
+            properties.put("mail.smtp.ssl.socketFactory", sf);
+            // 获取默认session对象
+            Session session = Session.getDefaultInstance(properties,new Authenticator(){
+                public PasswordAuthentication getPasswordAuthentication()
+                {
+                    return new PasswordAuthentication("543777820@qq.com", "yujzducclsjwbdaj"); //发件人邮件用户名、密码
+                }
+            });
+
+            try{
+                // 创建默认的 MimeMessage 对象
+                MimeMessage message = new MimeMessage(session);
+
+                // Set From: 头部头字段
+                message.setFrom(new InternetAddress(from));
+
+                // Set To: 头部头字段
+                message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+
+                // Set Subject: 头部头字段
+                message.setSubject("Verification Email");
+
+                // 设置消息体
+                message.setText("Your verification code is "+code+". This will expire in 5 minutes.");
+
+                // 发送消息
+                Transport.send(message);
+                JSONObject temp = new JSONObject(true);
+                resp.setStatus(201);
+
+                temp.put("code",0);
+                temp.put("msg","Success");
+                json.put("status",temp);
+//                System.out.println("Sent message successfully....from runoob.com");
+            }catch (MessagingException mex) {
+                JSONObject temp = new JSONObject(true);
+                resp.setStatus(500);
+
+                temp.put("code",1);
+                temp.put("msg",mex.getMessage());
+                json.put("status",temp);
+            }
+
         }
         else{
             resp.setStatus(400);
