@@ -18,6 +18,7 @@ public class MessageController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        String uuname=req.getParameter("uuname");
         String id=req.getParameter("id");
         String friend_id=req.getParameter("friend_id");
         String userfrom_id=req.getParameter("userfrom_id");
@@ -37,12 +38,18 @@ public class MessageController extends HttpServlet {
             temp.put("code",1);
             temp.put("msg","No such element");
         }
+        else if(uuname==null){
+            resp.setStatus(400);
+            temp.put("code",1);
+            temp.put("msg","Invalid Parameters");
+            res = new JSONObject(true);
+        }
         else{
             resp.setStatus(200);
             temp.put("code",0);
             temp.put("msg","Success");
         }
-        LoginUtils.operate();
+        LoginUtils.operate(uuname);
         json.put("status",temp);
         json.put("result",res);
         writer.write(json.toString());
@@ -52,6 +59,7 @@ public class MessageController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        String uuname=req.getParameter("uuname");
         String friend_id=req.getParameter("friend_id");
         String type=req.getParameter("type");
         String content=req.getParameter("content");
@@ -59,7 +67,7 @@ public class MessageController extends HttpServlet {
         resp.setContentType("application/json");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
-        if(friend_id==null||type==null||content==null){
+        if(friend_id==null||type==null||content==null||uuname==null){
             resp.setStatus(400);
             temp.put("code",1);
             temp.put("msg","Invalid Parameters");
@@ -81,7 +89,7 @@ public class MessageController extends HttpServlet {
             json.put("status",temp);
             json.put("result",res);
         }
-        LoginUtils.operate();
+        LoginUtils.operate(uuname);
         PrintWriter writer = resp.getWriter();
         writer.write(json.toString());
         writer.close();
@@ -90,6 +98,7 @@ public class MessageController extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        String uuname=req.getParameter("uuname");
         String id=req.getParameter("id");
         String friend_id=req.getParameter("friend_id");
         String is_deleted=req.getParameter("is_deleted");
@@ -97,7 +106,7 @@ public class MessageController extends HttpServlet {
         resp.setContentType("application/json");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
-        if(id==null&&friend_id==null){
+        if((id==null&&friend_id==null)||uuname==null){
             resp.setStatus(400);
             temp.put("code",1);
             temp.put("msg","Invalid Parameters");
@@ -119,7 +128,7 @@ public class MessageController extends HttpServlet {
             json.put("status",temp);
             json.put("result",res);
         }
-        LoginUtils.operate();
+        LoginUtils.operate(uuname);
         PrintWriter writer = resp.getWriter();
         writer.write(json.toString());
         writer.close();
@@ -128,13 +137,14 @@ public class MessageController extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        String uuname=req.getParameter("uuname");
         String id=req.getParameter("id");
         String friend_id=req.getParameter("friend_id");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
-        if(id==null&&friend_id==null){
+        if((id==null&&friend_id==null)||uuname==null){
             resp.setStatus(400);
             temp.put("code",1);
             temp.put("msg","Invalid Parameters");
@@ -156,7 +166,7 @@ public class MessageController extends HttpServlet {
             json.put("status",temp);
             json.put("result",res);
         }
-        LoginUtils.operate();
+        LoginUtils.operate(uuname);
         PrintWriter writer = resp.getWriter();
         writer.write(json.toString());
         writer.close();

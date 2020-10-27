@@ -18,6 +18,7 @@ public class UserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        String uuname=req.getParameter("uuname");
         String id=req.getParameter("id");
         String username=req.getParameter("username");
         String password=req.getParameter("password");
@@ -35,11 +36,17 @@ public class UserController extends HttpServlet {
             temp.put("code",1);
             temp.put("msg","No such element");
         }
+        else if(uuname==null){
+            resp.setStatus(400);
+            temp.put("code",1);
+            temp.put("msg","Invalid Parameters");
+            res = new JSONObject(true);
+        }
         else{
             resp.setStatus(200);
             temp.put("code",0);
             temp.put("msg","Success");
-            LoginUtils.operate();
+            LoginUtils.operate(uuname);
         }
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject(true);
@@ -52,6 +59,7 @@ public class UserController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        String uuname=req.getParameter("uuname");
         String username=req.getParameter("username");
         String password=req.getParameter("password");
         String gender=req.getParameter("gender");
@@ -63,7 +71,7 @@ public class UserController extends HttpServlet {
         resp.setContentType("application/json");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
-        if(username==null||password==null||gender==null||nickname==null||contact==null||latitude==null||longitude==null){
+        if(username==null||password==null||gender==null||nickname==null||contact==null||latitude==null||longitude==null||uuname==null){
             resp.setStatus(400);
             temp.put("code",1);
             temp.put("msg","Invalid Parameters");
@@ -85,7 +93,7 @@ public class UserController extends HttpServlet {
             json.put("status",temp);
             json.put("result",res);
         }
-        LoginUtils.operate();
+        LoginUtils.operate(uuname);
         PrintWriter writer = resp.getWriter();
         writer.write(json.toString());
         writer.close();
@@ -94,6 +102,7 @@ public class UserController extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        String uuname=req.getParameter("uuname");
         String id=req.getParameter("id");
         String username=req.getParameter("username");
         String password=req.getParameter("password");
@@ -108,7 +117,7 @@ public class UserController extends HttpServlet {
         resp.setContentType("application/json");
         JSONObject temp = new JSONObject(true);
         JSONObject json = new JSONObject(true);
-        if(id==null&&username==null&&nickname==null){
+        if((id==null&&username==null&&nickname==null)||uuname==null){
             resp.setStatus(400);
             temp.put("code",1);
             temp.put("msg","Invalid Parameters");
@@ -130,7 +139,7 @@ public class UserController extends HttpServlet {
             json.put("status",temp);
             json.put("result",res);
         }
-        LoginUtils.operate();
+        LoginUtils.operate(uuname);
         PrintWriter writer = resp.getWriter();
         writer.write(json.toString());
         writer.close();
@@ -139,6 +148,7 @@ public class UserController extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        String uuname=req.getParameter("uuname");
         String id=req.getParameter("id");
         String username=req.getParameter("username");
         String nickname=req.getParameter("nickname");
@@ -146,7 +156,7 @@ public class UserController extends HttpServlet {
         resp.setContentType("application/json");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
-        if(id==null&&username==null&&nickname==null){
+        if((id==null&&username==null&&nickname==null)||uuname==null){
             resp.setStatus(400);
             temp.put("code",1);
             temp.put("msg","Invalid Parameters");
@@ -168,7 +178,7 @@ public class UserController extends HttpServlet {
             json.put("status",temp);
             json.put("result",res);
         }
-        LoginUtils.operate();
+        LoginUtils.operate(uuname);
         PrintWriter writer = resp.getWriter();
         writer.write(json.toString());
         writer.close();

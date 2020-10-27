@@ -34,7 +34,7 @@ public class LoginService extends HttpServlet {
             writer.write(json.toString());
             writer.close();
         }
-        else if(LoginUtils.isLogin()){
+        else if(LoginUtils.isLogin(username)){
             JSONObject json = new JSONObject(true);
             JSONObject temp = new JSONObject(true);
             resp.setStatus(403);
@@ -47,19 +47,36 @@ public class LoginService extends HttpServlet {
             writer.close();
         }
         else{
-            req.getRequestDispatcher("/user").include(req,resp);
-            if(LoginUtils.isLogin()){
-                JSONObject res = CRUDUtils.updateUser(null, username, null, null, null, null, null, null, "1", null);
+            JSONObject res = CRUDUtils.queryUser(null,username, password, null, null, null, null, null);
+            JSONObject temp = new JSONObject(true);
+            if((int)res.get("rows")==0){
+                resp.setStatus(401);
+                temp.put("code",1);
+                temp.put("msg","Incorrect username or password");
+            }
+            else{
+                res = CRUDUtils.updateUser(null, username, null, null, null, null, null, null, "1", null);
                 if((int)res.get("rows")==0) {
                     resp.setStatus(401);
+                    temp.put("code",1);
+                    temp.put("msg","Login Failed");
                 }
                 else{
                     resp.setStatus(200);
+                    temp.put("code",0);
+                    temp.put("msg","Success");
+                    LoginUtils.operate(username);
                 }
+
+
             }
-            else{
-                resp.setStatus(401);
-            }
+            PrintWriter writer = resp.getWriter();
+            JSONObject json = new JSONObject(true);
+            json.put("status",temp);
+            json.put("result",res);
+            writer.write(json.toString());
+            writer.close();
+
         }
     }
 }

@@ -18,6 +18,7 @@ public class EggController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        String uuname=req.getParameter("uuname");
         String id=req.getParameter("id");
         String name=req.getParameter("name");
         String color=req.getParameter("color");
@@ -35,12 +36,18 @@ public class EggController extends HttpServlet {
             temp.put("code",1);
             temp.put("msg","No such element");
         }
+        else if(uuname==null){
+            resp.setStatus(400);
+            temp.put("code",1);
+            temp.put("msg","Invalid Parameters");
+            res = new JSONObject(true);
+        }
         else{
             resp.setStatus(200);
             temp.put("code",0);
             temp.put("msg","Success");
         }
-        LoginUtils.operate();
+        LoginUtils.operate(uuname);
         json.put("status",temp);
         json.put("result",res);
         writer.write(json.toString());
@@ -50,6 +57,7 @@ public class EggController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        String uuname=req.getParameter("uuname");
         String name=req.getParameter("name");
         String color=req.getParameter("color");
         String type=req.getParameter("type");
@@ -61,7 +69,7 @@ public class EggController extends HttpServlet {
         resp.setContentType("application/json");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
-        if(name==null||color==null||type==null||latitude==null||longitude==null||content==null||expire_time==null){
+        if(name==null||color==null||type==null||latitude==null||longitude==null||content==null||expire_time==null||uuname==null){
             resp.setStatus(400);
             temp.put("code",1);
             temp.put("msg","Invalid Parameters");
@@ -83,7 +91,7 @@ public class EggController extends HttpServlet {
             json.put("status",temp);
             json.put("result",res);
         }
-        LoginUtils.operate();
+        LoginUtils.operate(uuname);
         PrintWriter writer = resp.getWriter();
         writer.write(json.toString());
         writer.close();
@@ -93,6 +101,7 @@ public class EggController extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        String uuname=req.getParameter("uuname");
         String id=req.getParameter("id");
         String name=req.getParameter("name");
         String color=req.getParameter("color");
@@ -106,7 +115,7 @@ public class EggController extends HttpServlet {
         resp.setContentType("application/json");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
-        if(id==null&&name==null){
+        if((id==null&&name==null)||uuname==null){
             resp.setStatus(400);
             temp.put("code",1);
             temp.put("msg","Invalid Parameters");
@@ -128,7 +137,7 @@ public class EggController extends HttpServlet {
             json.put("status",temp);
             json.put("result",res);
         }
-        LoginUtils.operate();
+        LoginUtils.operate(uuname);
         PrintWriter writer = resp.getWriter();
         writer.write(json.toString());
         writer.close();
@@ -137,13 +146,14 @@ public class EggController extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        String uuname=req.getParameter("uuname");
         String id=req.getParameter("id");
         String name=req.getParameter("name");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
-        if(id==null&&name==null){
+        if((id==null&&name==null)||uuname==null){
             resp.setStatus(400);
             temp.put("code",1);
             temp.put("msg","Invalid Parameters");
@@ -165,7 +175,7 @@ public class EggController extends HttpServlet {
             json.put("status",temp);
             json.put("result",res);
         }
-        LoginUtils.operate();
+        LoginUtils.operate(uuname);
         PrintWriter writer = resp.getWriter();
         writer.write(json.toString());
         writer.close();

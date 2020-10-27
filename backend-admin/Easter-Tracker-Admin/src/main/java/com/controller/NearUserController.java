@@ -18,6 +18,7 @@ public class NearUserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        String uuname=req.getParameter("uuname");
         String id=req.getParameter("id");
         String username=req.getParameter("username");
         String nickname=req.getParameter("nickname");
@@ -25,7 +26,14 @@ public class NearUserController extends HttpServlet {
         resp.setContentType("application/json");
         JSONObject json = new JSONObject(true);
         JSONObject tempjson = new JSONObject(true);
-        if(id!=null){
+        if(uuname==null){
+            resp.setStatus(400);
+            tempjson.put("code",1);
+            tempjson.put("msg","Invalid Parameters");
+            json.put("status",tempjson);
+            json.put("result",new JSONObject(true));
+        }
+        else if(id!=null){
             JSONObject res = CRUDUtils.queryNearUsers(id);
             if((int)res.get("rows")==0){
                 resp.setStatus(410);
@@ -65,7 +73,7 @@ public class NearUserController extends HttpServlet {
             json.put("status",tempjson);
             json.put("result",new JSONObject(true));
         }
-        LoginUtils.operate();
+        LoginUtils.operate(uuname);
         PrintWriter writer = resp.getWriter();
         writer.write(json.toString());
         writer.close();

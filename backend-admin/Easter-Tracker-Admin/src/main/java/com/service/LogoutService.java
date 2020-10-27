@@ -32,7 +32,7 @@ public class LogoutService extends HttpServlet {
             writer.write(json.toString());
             writer.close();
         }
-        else if(!LoginUtils.isLogin()){
+        else if(!LoginUtils.isLogin(username)){
             JSONObject json = new JSONObject(true);
             JSONObject temp = new JSONObject(true);
             resp.setStatus(403);
@@ -45,17 +45,35 @@ public class LogoutService extends HttpServlet {
             writer.close();
         }
         else{
-            req.getRequestDispatcher("/user").include(req,resp);
-            JSONObject res = CRUDUtils.updateUser(null, username, null, null, null, null, null, null, "0", null);
-            System.out.println(res);
-            if((int)res.get("rows")==0) {
-                resp.setStatus(401);
+            JSONObject res = CRUDUtils.queryUser(null,username, null, null, null, null, null, null);
+            JSONObject temp = new JSONObject(true);
+            if((int)res.get("rows")==0){
+                resp.setStatus(400);
+                temp.put("code",1);
+                temp.put("msg","Invalid Parameters");
             }
             else{
-                resp.setStatus(200);
-                LoginUtils.logout();
+                res = CRUDUtils.updateUser(null, username, null, null, null, null, null, null, "0", null);
+                if((int)res.get("rows")==0) {
+                    resp.setStatus(401);
+                    temp.put("code",1);
+                    temp.put("msg","Logout Failed");
+                }
+                else{
+                    resp.setStatus(200);
+                    temp.put("code",0);
+                    temp.put("msg","Success");
+                    LoginUtils.logout(username);
+                }
+
 
             }
+            PrintWriter writer = resp.getWriter();
+            JSONObject json = new JSONObject(true);
+            json.put("status",temp);
+            json.put("result",res);
+            writer.write(json.toString());
+            writer.close();
 
         }
     }
