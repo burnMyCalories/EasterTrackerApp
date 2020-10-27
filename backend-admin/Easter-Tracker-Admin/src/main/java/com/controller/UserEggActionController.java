@@ -2,6 +2,7 @@ package com.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.util.CRUDUtils;
+import com.util.LoginUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -29,7 +30,19 @@ public class UserEggActionController extends HttpServlet {
         JSONObject res = CRUDUtils.queryAction(id, user_id, egg_id, action, user_username, user_nickname, egg_name);
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject(true);
-        json.put("status",0);
+        JSONObject temp = new JSONObject(true);
+        if((int)res.get("rows")==0){
+            resp.setStatus(410);
+            temp.put("code",1);
+            temp.put("msg","No such element");
+        }
+        else{
+            resp.setStatus(200);
+            temp.put("code",0);
+            temp.put("msg","Success");
+        }
+        LoginUtils.operate();
+        json.put("status",temp);
         json.put("result",res);
         writer.write(json.toString());
         writer.close();
@@ -44,16 +57,30 @@ public class UserEggActionController extends HttpServlet {
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
         JSONObject json = new JSONObject(true);
+        JSONObject temp = new JSONObject(true);
         if(user_id==null||egg_id==null||action==null){
             resp.setStatus(400);
-            json.put("status",1);
+            temp.put("code",1);
+            temp.put("msg","Invalid Parameters");
+            json.put("status",temp);
             json.put("result",new JSONObject(true));
         }
         else{
             JSONObject res = CRUDUtils.addAction(user_id, egg_id, action);
-            json.put("status",0);
+            if((int)res.get("rows")==0){
+                resp.setStatus(410);
+                temp.put("code",1);
+                temp.put("msg","Not successful");
+            }
+            else{
+                resp.setStatus(201);
+                temp.put("code",0);
+                temp.put("msg","Success");
+            }
+            json.put("status",temp);
             json.put("result",res);
         }
+        LoginUtils.operate();
         PrintWriter writer = resp.getWriter();
         writer.write(json.toString());
         writer.close();
@@ -70,16 +97,30 @@ public class UserEggActionController extends HttpServlet {
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
         JSONObject json = new JSONObject(true);
+        JSONObject temp = new JSONObject(true);
         if(id==null&&(user_id==null||egg_id==null||action==null)){
             resp.setStatus(400);
-            json.put("status",1);
+            temp.put("code",1);
+            temp.put("msg","Invalid Parameters");
+            json.put("status",temp);
             json.put("result",new JSONObject(true));
         }
         else{
             JSONObject res = CRUDUtils.updateAction(id, user_id, egg_id, action, is_deleted);
-            json.put("status",0);
+            if((int)res.get("rows")==0){
+                resp.setStatus(410);
+                temp.put("code",1);
+                temp.put("msg","No such element");
+            }
+            else{
+                resp.setStatus(201);
+                temp.put("code",0);
+                temp.put("msg","Success");
+            }
+            json.put("status",temp);
             json.put("result",res);
         }
+        LoginUtils.operate();
         PrintWriter writer = resp.getWriter();
         writer.write(json.toString());
         writer.close();
@@ -95,16 +136,30 @@ public class UserEggActionController extends HttpServlet {
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
         JSONObject json = new JSONObject(true);
+        JSONObject temp = new JSONObject(true);
         if(id==null&&(user_id==null||egg_id==null||action==null)){
             resp.setStatus(400);
-            json.put("status",1);
+            temp.put("code",1);
+            temp.put("msg","Invalid Parameters");
+            json.put("status",temp);
             json.put("result",new JSONObject(true));
         }
         else{
             JSONObject res = CRUDUtils.delAction(id, user_id, egg_id, action);
-            json.put("status",0);
+            if((int)res.get("rows")==0){
+                resp.setStatus(410);
+                temp.put("code",1);
+                temp.put("msg","No such element");
+            }
+            else{
+                resp.setStatus(201);
+                temp.put("code",0);
+                temp.put("msg","Success");
+            }
+            json.put("status",temp);
             json.put("result",res);
         }
+        LoginUtils.operate();
         PrintWriter writer = resp.getWriter();
         writer.write(json.toString());
         writer.close();

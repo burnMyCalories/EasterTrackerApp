@@ -75,7 +75,7 @@ public class UserController extends HttpServlet {
             if((int)res.get("rows")==0){
                 resp.setStatus(410);
                 temp.put("code",1);
-                temp.put("msg","No such element");
+                temp.put("msg","Not successful");
             }
             else{
                 resp.setStatus(201);
