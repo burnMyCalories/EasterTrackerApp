@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "logout", urlPatterns = "/logout")
 public class LogoutService extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         String username=req.getParameter("username");
         resp.setCharacterEncoding("utf-8");

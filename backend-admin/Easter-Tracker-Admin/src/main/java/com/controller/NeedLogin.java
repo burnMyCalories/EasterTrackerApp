@@ -21,7 +21,7 @@ public class NeedLogin implements Filter {
         String uuname=((HttpServletRequest) request).getParameter("uuname");
         response.setCharacterEncoding("utf-8");
         response.setContentType("application/json");
-        if(path.contains("login")||path.contains("logout")||LoginUtils.isLogin(uuname)){
+        if(path.contains("login")||path.contains("logout")||path.contains("register")||LoginUtils.isLogin(uuname)){
             chain.doFilter(request, response);
         }
         else {
