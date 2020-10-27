@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Random;
 
 public class VerifyUtils {
-    private static Date generated_time;
+    private static Date expire_time;
     private static String verification_code;
     public static JSONObject generate(){
         StringBuffer sb = new StringBuffer();
@@ -25,12 +25,12 @@ public class VerifyUtils {
             }
         }
         verification_code=sb.toString();
-        generated_time=new Date();
+        expire_time=new Date(new Date().getTime()+1000*60*5);
         SimpleDateFormat sdf = new SimpleDateFormat();
         sdf.applyPattern("yyyy-MM-dd HH:mm:ss");
         JSONObject json = new JSONObject();
         json.put("code",verification_code);
-        json.put("time",sdf.format(generated_time));
+        json.put("expire",sdf.format(expire_time));
         return json;
     }
 }
