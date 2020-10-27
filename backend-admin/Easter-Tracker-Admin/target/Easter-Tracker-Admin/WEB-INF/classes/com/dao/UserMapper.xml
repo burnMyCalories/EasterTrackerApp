@@ -22,7 +22,11 @@
         </where>
     </delete>
     <update id="updateUser" parameterType="map">
-        update `User` set `username`=#{username},`password`=md5(#{password}),`gender`=#{gender},`nickname`=#{nickname},`contact`=#{contact},`latitude`=#{latitude},`longitude`=#{longitude},`is_online`=#{is_online},`update_time`=NOW(),`version`=`version`+1,`is_deleted`=#{is_deleted} where id=#{id};
+        update `User` set `username`=#{username},
+        <if test="password!=null">
+            `password`=md5(#{password}),
+        </if>
+        `gender`=#{gender},`nickname`=#{nickname},`contact`=#{contact},`latitude`=#{latitude},`longitude`=#{longitude},`is_online`=#{is_online},`update_time`=NOW(),`version`=`version`+1,`is_deleted`=#{is_deleted} where id=#{id};
     </update>
     <select id="queryUser" parameterType="map" resultType="User">
         select `id`,`username`,`password`,`gender`,`nickname`,`contact`,`latitude`,`longitude`,`is_online`,`is_deleted` from `User`

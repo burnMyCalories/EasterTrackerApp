@@ -54,9 +54,9 @@ public class CRUDUtils {
                     if(username==null){
                         username=json.getString("username");
                     }
-                    if(password==null){
-                        password=json.getString("password");
-                    }
+//                    if(password==null){
+//                        password=json.getString("password");
+//                    }
                     if(gender==null){
                         gender=json.getString("gender");
                     }
@@ -99,9 +99,9 @@ public class CRUDUtils {
                     if(id==null){
                         id=json.getString("id");
                     }
-                    if(password==null){
-                        password=json.getString("password");
-                    }
+//                    if(password==null){
+//                        password=json.getString("password");
+//                    }
                     if(gender==null){
                         gender=json.getString("gender");
                     }
