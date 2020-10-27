@@ -2,6 +2,7 @@ package com.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.util.CRUDUtils;
+import com.util.LoginUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,9 +24,20 @@ public class NearUserController extends HttpServlet {
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
         JSONObject json = new JSONObject(true);
+        JSONObject tempjson = new JSONObject(true);
         if(id!=null){
             JSONObject res = CRUDUtils.queryNearUsers(id);
-            json.put("status",0);
+            if((int)res.get("rows")==0){
+                resp.setStatus(410);
+                tempjson.put("code",1);
+                tempjson.put("msg","No such element");
+            }
+            else{
+                resp.setStatus(200);
+                tempjson.put("code",0);
+                tempjson.put("msg","Success");
+            }
+            json.put("status",tempjson);
             json.put("result",res);
         }
         else if(username!=null||nickname!=null){
@@ -33,14 +45,27 @@ public class NearUserController extends HttpServlet {
             JSONObject temp = temp_list.get(0);
             id = temp.getString("id");
             JSONObject res = CRUDUtils.queryNearUsers(id);
-            json.put("status",0);
+            if((int)res.get("rows")==0){
+                resp.setStatus(410);
+                tempjson.put("code",1);
+                tempjson.put("msg","No such element");
+            }
+            else{
+                resp.setStatus(200);
+                tempjson.put("code",0);
+                tempjson.put("msg","Success");
+            }
+            json.put("status",tempjson);
             json.put("result",res);
         }
         else{
             resp.setStatus(400);
-            json.put("status",1);
+            tempjson.put("code",1);
+            tempjson.put("msg","Invalid Parameters");
+            json.put("status",tempjson);
             json.put("result",new JSONObject(true));
         }
+        LoginUtils.operate();
         PrintWriter writer = resp.getWriter();
         writer.write(json.toString());
         writer.close();
