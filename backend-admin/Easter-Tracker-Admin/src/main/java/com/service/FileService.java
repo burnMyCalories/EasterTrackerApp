@@ -57,6 +57,7 @@ public class FileService extends HttpServlet {
             ArrayList<JSONObject> temp = new ArrayList<>();
             //4、使用ServletFileUpload解析器解析上传数据，解析结果返回的是一个List<FileItem>集合，每一个FileItem对应一个Form表单的输入项
             List<FileItem> list = upload.parseRequest(req);
+            boolean flag=false;
             for(FileItem item : list){
                 //如果fileitem中封装的是普通输入项的数据
                 if(item.isFormField()){
@@ -116,15 +117,19 @@ public class FileService extends HttpServlet {
                     status.put("code",0);
                     status.put("msg",message);
                     resp.setStatus(201);
+                    flag=true;
                 }
             }
-            json.put("data",temp);
+            if(!flag){
+                throw new Exception("no file");
+            }
+            json.put("result",temp);
         }catch (Exception e) {
             message= "Error: "+e.getMessage();
             resp.setStatus(400);
             status.put("code",1);
             status.put("msg",message);
-            json.put("data",new JSONObject(true));
+            json.put("result",new JSONObject(true));
         }
         finally {
             json.put("status",status);
@@ -166,6 +171,7 @@ public class FileService extends HttpServlet {
 
             fileInputStream.close();
             outputStream.close();
+            resp.setStatus(200);
         }
         catch (Exception e){
             resp.setStatus(500);
