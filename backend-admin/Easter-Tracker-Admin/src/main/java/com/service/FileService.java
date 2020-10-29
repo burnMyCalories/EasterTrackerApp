@@ -20,7 +20,7 @@ import java.util.List;
 
 @WebServlet(name = "file", urlPatterns = "/file")
 public class FileService extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+
     private static final String filestoragepath = "/WEB-INF/files";
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -32,11 +32,11 @@ public class FileService extends HttpServlet {
         JSONObject status = new JSONObject(true);
         //得到上传文件的保存目录，将上传的文件存放于WEB-INF目录下，不允许外界直接访问，保证上传文件的安全
         String savePath = this.getServletContext().getRealPath(filestoragepath);
-//        System.out.println(savePath);
+
         File file = new File(savePath);
         //判断上传文件的保存目录是否存在
         if (!file.exists() && !file.isDirectory()) {
-//            System.out.println(savePath+"Directory not exists, creating...");
+
             //创建目录
             file.mkdir();
         }
@@ -63,8 +63,7 @@ public class FileService extends HttpServlet {
                     String name = item.getFieldName();
                     //解决普通输入项的数据的中文乱码问题
                     String value = item.getString("UTF-8");
-                    //value = new String(value.getBytes("iso8859-1"),"UTF-8");
-//                    System.out.println(name + "=" + value);
+
                     JSONObject jsonObject = new JSONObject(true);
                     jsonObject.put("name",name);
                     jsonObject.put("value",value);
@@ -73,7 +72,7 @@ public class FileService extends HttpServlet {
                 }else{//如果fileitem中封装的是上传文件
                     //得到上传的文件名称，
                     String filename = item.getName();
-//                    System.out.println(filename);
+
                     if(filename==null || filename.trim().equals("")){
                         continue;
                     }
@@ -81,6 +80,11 @@ public class FileService extends HttpServlet {
                     //处理获取到的上传文件的文件名的路径部分，只保留文件名部分
 
                     filename = filename.substring(filename.lastIndexOf(File.separator)+1);
+                    File targetFile = new File(savePath + File.separator + filename);
+
+                    if(targetFile.exists()){
+                        throw new Exception(filename+" already exists");
+                    }
                     //获取item中的上传文件的输入流
                     InputStream in = item.getInputStream();
                     //创建一个文件输出流
@@ -100,6 +104,9 @@ public class FileService extends HttpServlet {
                     out.close();
                     //删除处理文件上传时生成的临时文件
                     item.delete();
+                    if(!targetFile.isFile()){
+                        throw new Exception(filename+" is not a file");
+                    }
                     JSONObject jsonObject = new JSONObject(true);
                     jsonObject.put("name",filename);
                     jsonObject.put("value","");
@@ -113,11 +120,11 @@ public class FileService extends HttpServlet {
             }
             json.put("data",temp);
         }catch (Exception e) {
-            message= "Failed: "+e.getMessage();
-//            e.printStackTrace();
+            message= "Error: "+e.getMessage();
             resp.setStatus(400);
             status.put("code",1);
             status.put("msg",message);
+            json.put("data",new JSONObject(true));
         }
         finally {
             json.put("status",status);
@@ -133,30 +140,37 @@ public class FileService extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
-//        resp.setContentType("text/html;charset=UTF-8");
         req.setCharacterEncoding("UTF-8");
-//        PrintWriter out = resp.getWriter();
-        ServletOutputStream outputStream = resp.getOutputStream();
+
         String filepath = req.getSession().getServletContext().getRealPath(filestoragepath);
         String filename = req.getParameter("filename");
-        resp.setContentType("APPLICATION/OCTET-STREAM");
-        resp.setHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
-//        System.out.println(filepath + File.separator+ filename);
-        FileInputStream fileInputStream = new FileInputStream(filepath + File.separator+ filename);
-
-//        int i = 0;
-//        while ((i = fileInputStream.read()) != -1) {
-//            out.write(i);
-//        }
-        byte[] buffer = new byte[5];
-        int len;
-        while((len = fileInputStream.read(buffer)) != -1){
-            outputStream.write(buffer,0,len);
+        if(filename==null){
+            resp.setStatus(400);
+            return;
         }
+        File targetFile = new File(filepath + File.separator+ filename);
+        if(!targetFile.exists()){
+            resp.setStatus(404);
+            return;
+        }
+        try{
+            resp.setContentType("APPLICATION/OCTET-STREAM");
+            resp.setHeader("Content-Disposition", "attachment; filename=\"" + filename + "\"");
+            ServletOutputStream outputStream = resp.getOutputStream();
+            FileInputStream fileInputStream = new FileInputStream(filepath + File.separator+ filename);
+            byte[] buffer = new byte[5];
+            int len;
+            while((len = fileInputStream.read(buffer)) != -1){
+                outputStream.write(buffer,0,len);
+            }
 
-        fileInputStream.close();
-//        out.close();
-        outputStream.close();
+            fileInputStream.close();
+            outputStream.close();
+        }
+        catch (Exception e){
+            resp.setStatus(500);
+
+        }
 
     }
 }
