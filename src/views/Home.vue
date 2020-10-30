@@ -1,26 +1,37 @@
 <template>
   <div class="home">
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <Map />
+    <router-view class="container"/>
+    <Map class="map" />
+    <Navbar class="navbar"/>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
-import Map from '@/views/Map.vue'
+import Map from '@/components/Map.vue'
+import Navbar from '@/components/Navbar.vue'
 
 export default {
   name: 'Home',
   components: {
-    Map
+    Map, Navbar
   }
 }
 </script>
 
-<style>
-.home {
+<style scoped>
+.home, .container {
   width: 100%;
   height: 100%;
+  overflow: hidden;
+}
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 </style>
