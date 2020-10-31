@@ -1,4 +1,5 @@
 *.iml
+*.war
 /.gradle
 /.idea
 /build
