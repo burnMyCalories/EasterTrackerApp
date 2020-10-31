@@ -14,8 +14,6 @@ import java.io.PrintWriter;
 public class NotLoggedInController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setCharacterEncoding("utf-8");
-        resp.setContentType("application/json");
         /* 允许跨域的主机地址 */
         resp.setHeader("Access-Control-Allow-Origin", "*");
         /* 允许跨域的请求方法GET, POST, HEAD 等 */
@@ -27,6 +25,9 @@ public class NotLoggedInController extends HttpServlet {
         /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
         resp.setHeader("Access-Control-Expose-Headers", "*");
+        resp.setCharacterEncoding("utf-8");
+        resp.setContentType("application/json");
+
         resp.setStatus(401);
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject(true);
