@@ -29,6 +29,16 @@ public class UserController extends HttpServlet {
         String longitude=req.getParameter("longitude");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
+        /* 允许跨域的主机地址 */
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        /* 允许跨域的请求方法GET, POST, HEAD 等 */
+        resp.setHeader("Access-Control-Allow-Methods", "*");
+        /* 重新预检验跨域的缓存时间 (s) */
+        resp.setHeader("Access-Control-Max-Age", "3600");
+        /* 允许跨域的请求头 */
+        resp.setHeader("Access-Control-Allow-Headers", "*");
+        /* 是否携带cookie */
+        resp.setHeader("Access-Control-Allow-Credentials", "true");
         JSONObject res = CRUDUtils.queryUser(id,username, password, gender, nickname, contact, latitude, longitude);
         JSONObject temp = new JSONObject(true);
         if((int)res.get("rows")==0){
@@ -69,6 +79,16 @@ public class UserController extends HttpServlet {
         String longitude=req.getParameter("longitude");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
+        /* 允许跨域的主机地址 */
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        /* 允许跨域的请求方法GET, POST, HEAD 等 */
+        resp.setHeader("Access-Control-Allow-Methods", "*");
+        /* 重新预检验跨域的缓存时间 (s) */
+        resp.setHeader("Access-Control-Max-Age", "3600");
+        /* 允许跨域的请求头 */
+        resp.setHeader("Access-Control-Allow-Headers", "*");
+        /* 是否携带cookie */
+        resp.setHeader("Access-Control-Allow-Credentials", "true");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
         if(username==null||password==null||gender==null||nickname==null||contact==null||latitude==null||longitude==null||uuname==null){
@@ -115,6 +135,16 @@ public class UserController extends HttpServlet {
         String is_deleted=req.getParameter("is_deleted");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
+        /* 允许跨域的主机地址 */
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        /* 允许跨域的请求方法GET, POST, HEAD 等 */
+        resp.setHeader("Access-Control-Allow-Methods", "*");
+        /* 重新预检验跨域的缓存时间 (s) */
+        resp.setHeader("Access-Control-Max-Age", "3600");
+        /* 允许跨域的请求头 */
+        resp.setHeader("Access-Control-Allow-Headers", "*");
+        /* 是否携带cookie */
+        resp.setHeader("Access-Control-Allow-Credentials", "true");
         JSONObject temp = new JSONObject(true);
         JSONObject json = new JSONObject(true);
         if((id==null&&username==null&&nickname==null)||uuname==null){
@@ -154,6 +184,16 @@ public class UserController extends HttpServlet {
         String nickname=req.getParameter("nickname");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
+        /* 允许跨域的主机地址 */
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        /* 允许跨域的请求方法GET, POST, HEAD 等 */
+        resp.setHeader("Access-Control-Allow-Methods", "*");
+        /* 重新预检验跨域的缓存时间 (s) */
+        resp.setHeader("Access-Control-Max-Age", "3600");
+        /* 允许跨域的请求头 */
+        resp.setHeader("Access-Control-Allow-Headers", "*");
+        /* 是否携带cookie */
+        resp.setHeader("Access-Control-Allow-Credentials", "true");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
         if((id==null&&username==null&&nickname==null)||uuname==null){

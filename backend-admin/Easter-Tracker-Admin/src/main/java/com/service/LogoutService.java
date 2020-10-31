@@ -20,6 +20,16 @@ public class LogoutService extends HttpServlet {
         String username=req.getParameter("username");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
+        /* 允许跨域的主机地址 */
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        /* 允许跨域的请求方法GET, POST, HEAD 等 */
+        resp.setHeader("Access-Control-Allow-Methods", "*");
+        /* 重新预检验跨域的缓存时间 (s) */
+        resp.setHeader("Access-Control-Max-Age", "3600");
+        /* 允许跨域的请求头 */
+        resp.setHeader("Access-Control-Allow-Headers", "*");
+        /* 是否携带cookie */
+        resp.setHeader("Access-Control-Allow-Credentials", "true");
         if(username==null){
             JSONObject json = new JSONObject(true);
             JSONObject temp = new JSONObject(true);

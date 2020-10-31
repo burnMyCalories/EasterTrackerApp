@@ -27,6 +27,16 @@ public class FileService extends HttpServlet {
         req.setCharacterEncoding("utf-8");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
+        /* 允许跨域的主机地址 */
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        /* 允许跨域的请求方法GET, POST, HEAD 等 */
+        resp.setHeader("Access-Control-Allow-Methods", "*");
+        /* 重新预检验跨域的缓存时间 (s) */
+        resp.setHeader("Access-Control-Max-Age", "3600");
+        /* 允许跨域的请求头 */
+        resp.setHeader("Access-Control-Allow-Headers", "*");
+        /* 是否携带cookie */
+        resp.setHeader("Access-Control-Allow-Credentials", "true");
         JSONObject json = new JSONObject(true);
 
         JSONObject status = new JSONObject(true);
@@ -146,7 +156,16 @@ public class FileService extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setCharacterEncoding("UTF-8");
         req.setCharacterEncoding("UTF-8");
-
+        /* 允许跨域的主机地址 */
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        /* 允许跨域的请求方法GET, POST, HEAD 等 */
+        resp.setHeader("Access-Control-Allow-Methods", "*");
+        /* 重新预检验跨域的缓存时间 (s) */
+        resp.setHeader("Access-Control-Max-Age", "3600");
+        /* 允许跨域的请求头 */
+        resp.setHeader("Access-Control-Allow-Headers", "*");
+        /* 是否携带cookie */
+        resp.setHeader("Access-Control-Allow-Credentials", "true");
         String filepath = req.getSession().getServletContext().getRealPath(filestoragepath);
         String filename = req.getParameter("filename");
         if(filename==null){

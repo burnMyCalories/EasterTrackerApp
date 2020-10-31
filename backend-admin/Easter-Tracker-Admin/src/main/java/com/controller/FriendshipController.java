@@ -28,6 +28,16 @@ public class FriendshipController extends HttpServlet {
         String userto_nickname=req.getParameter("userto_nickname");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
+        /* 允许跨域的主机地址 */
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        /* 允许跨域的请求方法GET, POST, HEAD 等 */
+        resp.setHeader("Access-Control-Allow-Methods", "*");
+        /* 重新预检验跨域的缓存时间 (s) */
+        resp.setHeader("Access-Control-Max-Age", "3600");
+        /* 允许跨域的请求头 */
+        resp.setHeader("Access-Control-Allow-Headers", "*");
+        /* 是否携带cookie */
+        resp.setHeader("Access-Control-Allow-Credentials", "true");
         JSONObject res = CRUDUtils.queryFriendship(id, userfrom_id, userto_id, userfrom_username, userto_username, userfrom_nickname, userto_nickname);
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject(true);
@@ -63,6 +73,16 @@ public class FriendshipController extends HttpServlet {
         String userto_id=req.getParameter("userto_id");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
+        /* 允许跨域的主机地址 */
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        /* 允许跨域的请求方法GET, POST, HEAD 等 */
+        resp.setHeader("Access-Control-Allow-Methods", "*");
+        /* 重新预检验跨域的缓存时间 (s) */
+        resp.setHeader("Access-Control-Max-Age", "3600");
+        /* 允许跨域的请求头 */
+        resp.setHeader("Access-Control-Allow-Headers", "*");
+        /* 是否携带cookie */
+        resp.setHeader("Access-Control-Allow-Credentials", "true");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
         if(userfrom_id==null||userto_id==null||uuname==null){
@@ -103,6 +123,16 @@ public class FriendshipController extends HttpServlet {
         String is_deleted=req.getParameter("is_deleted");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
+        /* 允许跨域的主机地址 */
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        /* 允许跨域的请求方法GET, POST, HEAD 等 */
+        resp.setHeader("Access-Control-Allow-Methods", "*");
+        /* 重新预检验跨域的缓存时间 (s) */
+        resp.setHeader("Access-Control-Max-Age", "3600");
+        /* 允许跨域的请求头 */
+        resp.setHeader("Access-Control-Allow-Headers", "*");
+        /* 是否携带cookie */
+        resp.setHeader("Access-Control-Allow-Credentials", "true");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
         if((id==null&&(userfrom_id==null||userto_id==null))||uuname==null){
@@ -142,6 +172,16 @@ public class FriendshipController extends HttpServlet {
         String userto_id=req.getParameter("userto_id");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
+        /* 允许跨域的主机地址 */
+        resp.setHeader("Access-Control-Allow-Origin", "*");
+        /* 允许跨域的请求方法GET, POST, HEAD 等 */
+        resp.setHeader("Access-Control-Allow-Methods", "*");
+        /* 重新预检验跨域的缓存时间 (s) */
+        resp.setHeader("Access-Control-Max-Age", "3600");
+        /* 允许跨域的请求头 */
+        resp.setHeader("Access-Control-Allow-Headers", "*");
+        /* 是否携带cookie */
+        resp.setHeader("Access-Control-Allow-Credentials", "true");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
         if((id==null&&userfrom_id==null&&userto_id==null)||uuname==null){
