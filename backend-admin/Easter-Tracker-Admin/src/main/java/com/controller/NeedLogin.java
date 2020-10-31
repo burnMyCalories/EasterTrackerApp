@@ -18,10 +18,6 @@ public class NeedLogin implements Filter {
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         request.setCharacterEncoding("utf-8");
-        String path = ((HttpServletRequest) request).getRequestURI();
-        String uuname=((HttpServletRequest) request).getParameter("uuname");
-        response.setCharacterEncoding("utf-8");
-        response.setContentType("application/json");
         /* 允许跨域的主机地址 */
         ((HttpServletResponse)response).setHeader("Access-Control-Allow-Origin", "*");
         /* 允许跨域的请求方法GET, POST, HEAD 等 */
@@ -33,6 +29,11 @@ public class NeedLogin implements Filter {
         /* 是否携带cookie */
         ((HttpServletResponse)response).setHeader("Access-Control-Allow-Credentials", "true");
         ((HttpServletResponse)response).setHeader("Access-Control-Expose-Headers", "*");
+
+        String path = ((HttpServletRequest) request).getRequestURI();
+        String uuname=((HttpServletRequest) request).getParameter("uuname");
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("application/json");
 
 //        /* 允许跨域的主机地址 */
 //        response.setHeader("Access-Control-Allow-Origin", "*");
