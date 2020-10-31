@@ -48,10 +48,7 @@ The database format should be configured as below:
     | update_time   | datetime |      |                      |
     | version       | int(50)  |      |                      |
     | is_deleted    | int(1)   |      |                      |
-    |               |          |      |                      |
-    |               |          |      |                      |
-    |               |          |      |                      |
-    |               |          |      |                      |
+
 
 -   Message
 
@@ -65,9 +62,7 @@ The database format should be configured as below:
     | version       | int(50)      |      |                      |
     | is_deleted    | int(1)       |      |                      |
     | type          | int(4)       |      |                      |
-    |               |              |      |                      |
-    |               |              |      |                      |
-    |               |              |      |                      |
+
 
 -   Egg
 
@@ -99,9 +94,7 @@ The database format should be configured as below:
     | update_time   | datetime |      |                      |
     | version       | int(50)  |      |                      |
     | is_deleted    | int(1)   |      |                      |
-    |               |          |      |                      |
-    |               |          |      |                      |
-    |               |          |      |                      |
+
 
 You should create database and table using the sql below:
 
