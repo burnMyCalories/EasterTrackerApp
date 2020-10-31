@@ -1,4 +1,5 @@
 <template>
+  <font-awesome-icon icon="user-secret" />
   <router-view/>
 </template>
 

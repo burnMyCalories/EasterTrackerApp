@@ -1,5 +1,12 @@
 <template>
   <div id="welcome" class="my-container">
+    <div class="alert alert-danger tip-box" role="alert" v-if="alertmsg">
+      Error! {{ alertmsg }}
+    </div>
+    <div class="alert alert-info tip-box" role="alert" v-if="logging">
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      Please wait for a moment...
+    </div>
     <h1 class="title">Welcome</h1>
     <div id="form-containter">
       <form class="loginForm" action="">
@@ -30,22 +37,49 @@ export default {
   data () {
     return {
       username: '',
-      password: ''
+      password: '',
+      alertmsg: null,
+      logging: false,
+      timeoutID: null
     }
   },
   methods: {
     login: function () {
-      console.log(`${this.username} log in with password ${this.password}`)
-      if (this.username === 'admin' && this.password === '12345') {
-        this.$router.push('/home')
-      } else {
-        alert('Error')
+      const _this = this
+      if (this.logging) {
+        return
       }
-      // this.$router.push('/home')
+      this.logging = true
+      this.axios.put('/login', null, {
+        params: { username: this.username, password: this.password }
+      })
+        .then((res) => {
+          const user = res.data.result.data[0]
+          _this.$store.commit('login', user)
+          localStorage.setItem('currentUser', JSON.stringify(user))
+          _this.$router.push('/home')
+        })
+        .catch((err) => {
+          _this.alertmsg = err.response.data.status.msg
+          clearTimeout(_this.timeoutID)
+          _this.timeoutID = setTimeout(() => {
+            _this.alertmsg = null
+            _this.timeoutID = null
+          }, 5000)
+        })
+        .finally(() => {
+          _this.logging = false
+        })
     }
+
   }
 }
 </script>
 
 <style>
+.tip-box {
+  position: absolute;
+  width: calc(100% - 4rem);
+  transition: 0.2s;
+}
 </style>
