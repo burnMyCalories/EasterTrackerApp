@@ -33,6 +33,7 @@ public class NearEggController extends HttpServlet {
         resp.setHeader("Access-Control-Allow-Headers", "*");
         /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
+        resp.setHeader("Access-Control-Expose-Headers", "*");
         JSONObject json = new JSONObject(true);
         JSONObject tempjson = new JSONObject(true);
         if(uuname==null){

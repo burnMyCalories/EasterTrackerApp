@@ -38,6 +38,7 @@ public class FriendshipController extends HttpServlet {
         resp.setHeader("Access-Control-Allow-Headers", "*");
         /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
+        resp.setHeader("Access-Control-Expose-Headers", "*");
         JSONObject res = CRUDUtils.queryFriendship(id, userfrom_id, userto_id, userfrom_username, userto_username, userfrom_nickname, userto_nickname);
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject(true);
@@ -83,6 +84,7 @@ public class FriendshipController extends HttpServlet {
         resp.setHeader("Access-Control-Allow-Headers", "*");
         /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
+        resp.setHeader("Access-Control-Expose-Headers", "*");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
         if(userfrom_id==null||userto_id==null||uuname==null){
@@ -133,6 +135,7 @@ public class FriendshipController extends HttpServlet {
         resp.setHeader("Access-Control-Allow-Headers", "*");
         /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
+        resp.setHeader("Access-Control-Expose-Headers", "*");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
         if((id==null&&(userfrom_id==null||userto_id==null))||uuname==null){
@@ -182,6 +185,7 @@ public class FriendshipController extends HttpServlet {
         resp.setHeader("Access-Control-Allow-Headers", "*");
         /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
+        resp.setHeader("Access-Control-Expose-Headers", "*");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
         if((id==null&&userfrom_id==null&&userto_id==null)||uuname==null){

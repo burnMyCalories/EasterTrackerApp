@@ -26,6 +26,7 @@ public class NotLoggedInController extends HttpServlet {
         resp.setHeader("Access-Control-Allow-Headers", "*");
         /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
+        resp.setHeader("Access-Control-Expose-Headers", "*");
         resp.setStatus(401);
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject(true);

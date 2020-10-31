@@ -36,6 +36,7 @@ public class RegisterService extends HttpServlet {
         resp.setHeader("Access-Control-Allow-Headers", "*");
         /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
+        resp.setHeader("Access-Control-Expose-Headers", "*");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
         if(username==null||password==null||gender==null||nickname==null||contact==null||latitude==null||longitude==null){

@@ -39,6 +39,7 @@ public class ConfirmService extends HttpServlet {
         resp.setHeader("Access-Control-Allow-Headers", "*");
         /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
+        resp.setHeader("Access-Control-Expose-Headers", "*");
         JSONObject json = VerifyUtils.generate();
         String code = json.getString("code");
         if(mobile!=null){
