@@ -93,9 +93,9 @@ public class FileService extends HttpServlet {
                     filename = filename.substring(filename.lastIndexOf(File.separator)+1);
                     File targetFile = new File(savePath + File.separator + filename);
 
-                    if(targetFile.exists()){
-                        throw new Exception(filename+" already exists");
-                    }
+//                    if(targetFile.exists()){
+//                        throw new Exception(filename+" already exists");
+//                    }
                     //获取item中的上传文件的输入流
                     InputStream in = item.getInputStream();
                     //创建一个文件输出流
