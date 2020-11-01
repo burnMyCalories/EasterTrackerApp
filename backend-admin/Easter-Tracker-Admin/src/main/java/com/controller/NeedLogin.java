@@ -46,7 +46,8 @@ public class NeedLogin implements Filter {
 //        /* 是否携带cookie */
 //        response.setHeader("Access-Control-Allow-Credentials", "true");
 //        System.out.println(path);
-        if(path.contains("jsp")||path.contains("login")||path.contains("logout")||path.contains("register")||path.contains("confirm")||path.contains("file")||LoginUtils.isLogin(uuname)){
+//        System.out.println(path);
+        if(path.contains(".")||path.contains("login")||path.contains("logout")||path.contains("register")||path.contains("confirm")||path.contains("file")||LoginUtils.isLogin(uuname)){
             chain.doFilter(request, response);
         }
         else {
