@@ -4,6 +4,6 @@
 /build
 /app
 /captures
-/target
+target/
 .externalNativeBuild
 .cxx
