@@ -3,7 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.UserEggActionMapper">
-    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+<!--    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>-->
+    <cache type="com.util.RedisCacheUtils"/>
     <insert id="addAction" parameterType="map">
         insert into `UserEggAction`(`id`,`user_id`,`egg_id`,`action`) values (#{id},#{user_id},#{egg_id},#{action});
     </insert>

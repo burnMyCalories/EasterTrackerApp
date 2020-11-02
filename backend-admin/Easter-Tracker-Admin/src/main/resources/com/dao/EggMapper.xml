@@ -3,7 +3,8 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dao.EggMapper">
-    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+<!--    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>-->
+    <cache type="com.util.RedisCacheUtils"/>
     <insert id="addEgg" parameterType="map">
         insert into `Egg`(`id`,`name`,`color`,`type`,`latitude`,`longitude`,`content`,`expire_time`) values (#{id},#{name},#{color},#{type},#{latitude},#{longitude},#{content},#{expire_time});
     </insert>
