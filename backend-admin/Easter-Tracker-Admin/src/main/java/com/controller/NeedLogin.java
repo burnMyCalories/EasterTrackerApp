@@ -47,7 +47,7 @@ public class NeedLogin implements Filter {
 //        response.setHeader("Access-Control-Allow-Credentials", "true");
 //        System.out.println(path);
 //        System.out.println(path);
-        if(path.contains(".")||path.contains("login")||path.contains("logout")||path.contains("register")||path.contains("confirm")||path.contains("file")||LoginUtils.isLogin(uuname)){
+        if(path.contains(".")||path.contains("login")||path.contains("logout")||path.contains("register")||path.contains("confirm")||path.contains("file")||path.contains("timezone")||LoginUtils.isLogin(uuname)){
             chain.doFilter(request, response);
         }
         else {

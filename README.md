@@ -2636,7 +2636,28 @@ Actions -> "put" or  "get"
         400：Invalid Parameters
         500：Download Failed
         ```
+    
+4.  Get Server Time Zone
 
+    url:`/timezone`
+
+    Method: GET
+
+    Parameter: N/A
+
+    Result:
+
+    ```json
+    {
+        "status": {
+            "code": 0,
+            "msg": "Success"
+        },
+        "result": {
+            "timezone": "UTC+0000"
+        }
+    }
+    ```
 
 ## Demo
 
