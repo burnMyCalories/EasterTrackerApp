@@ -3,11 +3,16 @@ This is the backend code for EasterTracker App.
 
 ## Preparation
 
-Before running the project, please ensure you have these packages installed.
+Before running the project, please ensure you have these softwares installed.
 
 1.  Java version: 1.8+
 2.  Tomcat version: 8.5+
 3.  MySQL version: 5.7
+4.  Redis version: 5.0+
+
+After successfully installed these softwares, make sure you start the services by command `systemctl start`.
+
+Alternatively, you can use command `systemctl enable` to make sure these services start automatically after reboot.
 
 ## Installation
 
