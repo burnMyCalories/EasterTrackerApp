@@ -2636,7 +2636,25 @@ Actions -> "put" or  "get"
         400：Invalid Parameters
         500：Download Failed
         ```
-    
+        
+    -   Show Redource Files
+
+        url: `/fileres`
+
+        Method：GET
+
+        Parameter：`filename`
+
+        Result：a file
+
+        Status Code：
+
+        ```
+        200：Success
+        404：File not found
+        400：Invalid Parameters
+        ```
+
 4.  Get Server Time Zone
 
     url:`/timezone`
