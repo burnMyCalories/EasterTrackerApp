@@ -4,7 +4,7 @@
     <div class="tool">
       <button>My Eggs</button>
       <button>Nearby Eggs</button>
-      <button>Refresh Map</button>
+      <button @click="refresh()">Refresh Map</button>
       <button @click="hideEggWindow = !hideEggWindow">Hide An Egg</button>
     </div>
     <HideEgg class="egg-box" v-if="hideEggWindow"/>
@@ -43,11 +43,12 @@ export default {
       window.initMap = function () {
         // JS API is loaded and available
         console.log('map loaded')
-        let map = new google.maps.Map(document.getElementById('map'), {
+        window.myMap = new google.maps.Map(document.getElementById('map'), {
           center: { lat: -34.397, lng: 150.644 },
           zoom: 15,
           disableDefaultUI: true
         })
+        let map = window.myMap
         navigator.geolocation.getCurrentPosition(function(position) {
           console.log(position.coords.latitude, position.coords.longitude);
           map.setCenter({lat: position.coords.latitude, lng: position.coords.longitude})
@@ -58,6 +59,9 @@ export default {
       document.head.appendChild(script)
       this.$store.commit('loadMap')
       /* eslint-disable */
+    },
+    refresh () {
+      this.$store.dispatch('getMyEggs')
     }
   }
 }

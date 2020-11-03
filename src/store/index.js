@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-// import axios from 'axios'
+import axios from 'axios'
 
 export default createStore({
   state: {
@@ -14,13 +14,16 @@ export default createStore({
     userPortrait: null,
     GPSWatchID: null,
     myLatitude: null,
-    myLongitude: null
+    myLongitude: null,
+    myEggs: null
   },
   mutations: {
     login (state, data) {
+      console.log('login', data)
       this.commit('updateProfile', data)
       this.dispatch('getMyLocation')
       this.dispatch('watchMyLocation')
+      this.dispatch('getMyEggs', data)
     },
     updateProfile (state, data) {
       state.currentUser = state.currentUser ? Object.assign(state.currentUser, data) : data
@@ -53,6 +56,21 @@ export default createStore({
       state.myLatitude = pos.coords.latitude
       state.myLongitude = pos.coords.longitude
       console.log('Position updated')
+    },
+    updateMyEggs (state, eggs) {
+      state.myEggs.length = 0
+      for (let egg of eggs) {
+        state.myEggs.push(egg)
+      }
+      let map = window.myMap
+      let google = window.google
+      console.log(state.myEggs, eggs, map, google)
+      for (let i = 0; i < eggs.length; i++) {
+        const marker = new google.maps.Marker({
+          position: { lat: eggs[i].latitude, lng: eggs[i].longitude },
+          map: map
+        })
+      }
     }
   },
   actions: {
@@ -77,11 +95,28 @@ export default createStore({
     },
     getMyLocation (state) {
       const _this = this
+      const options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+      }
       console.log('Getting my location')
       navigator.geolocation.getCurrentPosition(function (position) {
         console.log('GET', position.coords.latitude, position.coords.longitude)
         _this.commit('updateLocation', position)
-      })
+      }, null, options)
+    },
+    getMyEggs (state, data) {
+      const _this = this
+      if (!(data || state.currentUser)) {
+        data = JSON.parse(localStorage.getItem('currentUser'))
+      }
+      axios.get(`/egg?uuname=${data.username}`)
+        .then(res => {
+          console.log('eggs', res)
+          const myEggs = res.data.result.data
+          _this.commit('updateMyEggs', myEggs)
+        })
     }
   },
   modules: {

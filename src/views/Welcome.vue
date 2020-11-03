@@ -13,8 +13,8 @@
           <input type="password" class="form-control" id="ipt_login_pwd" v-model="password" autocomplete="current-password">
         </div>
       </form>
-      <button @click="login()" class="btn btn-primary btn-lg btn-block">Login</button>
-        <div class="btn-grp">
+      <div class="btn-grp">
+        <button @click="login()" class="btn btn-primary btn-lg btn-block">Login</button>
         <hr>
         <button class="btn btn-secondary btn-lg btn-block" @click="register()">Register</button>
       </div>

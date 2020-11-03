@@ -1,8 +1,8 @@
 <template>
   <div class="navbar">
-    <router-link to="/home/messages"><button class="btn btn-link">Message</button></router-link>
+    <router-link to="/home/messages"><button class="btn btn-link">Circle</button></router-link>
     <router-link to="/home"><button class="btn btn-link">Map</button></router-link>
-    <router-link to="/home/myProfile"><button class="btn btn-link">Profile</button></router-link>
+    <router-link to="/home/myProfile"><button class="btn btn-link">Setting</button></router-link>
   </div>
 </template>
 

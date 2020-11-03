@@ -1,8 +1,8 @@
 <template>
   <div id="myProfile" class="my-container" v-if="user">
-    <div class="setting">
+    <!-- <div class="setting">
       <button class="icon-btn"><i class="fas fa-cog"></i></button>
-    </div>
+    </div> -->
     <div class="info-box">
       <div class="potrait">
         <img class="img img-thumbnail rounded-circle" src="../assets/portraits/portrait1.jpg" alt="">
@@ -16,7 +16,7 @@
       <div class="nickname">{{ user.nickname }}</div>
     </div>
     <hr>
-    <div class="menu">
+    <!-- <div class="menu">
       <div class="btn-grp">
         <button class="btn btn-light">
           <i class="fas fa-egg"></i> My Eggs <span class="badge badge-light">{{ user.set_count }}</span>
@@ -29,8 +29,12 @@
       <button class="btn btn-light btn-block mt-2">
         <i class="fas fa-user-friends"></i> My Friends {{}}
       </button>
-    </div>
-    <button @click="logout" class="btn btn-light">Log out</button>
+    </div> -->
+    <button @click="logout" class="btn btn-outline-primary btn-block">Add Friend</button>
+    <button @click="logout" class="btn btn-outline-primary btn-block">Change Profile</button>
+    <button @click="logout" class="btn btn-outline-primary btn-block">Change Password</button>
+    <button @click="logout" class="btn btn-outline-primary btn-block">About</button>
+    <button @click="logout" class="btn btn-link btn-block mt-5">Log Out</button>
   </div>
 </template>
 
