@@ -1,13 +1,29 @@
 <template>
   <div class="map">
     <div id="map"></div>
+    <div class="tool">
+      <button>My Eggs</button>
+      <button>Nearby Eggs</button>
+      <button>Refresh Map</button>
+      <button @click="hideEggWindow = !hideEggWindow">Hide An Egg</button>
+    </div>
+    <HideEgg class="egg-box" v-if="hideEggWindow"/>
   </div>
 </template>
 
 <script>
+import HideEgg from '@/components/HideEgg.vue'
 export default {
   setup () {
     return {}
+  },
+  components: {
+    HideEgg
+  },
+  data () {
+    return {
+      hideEggWindow: false
+    }
   },
   mounted () {
     if (this.$store.state.mapLoaded === false) {
@@ -51,5 +67,13 @@ export default {
   .map, #map{
     width: 100%;
     height: 100%;
+  }
+  .tool {
+    position: absolute;
+    top: 0;
+  }
+  .egg-box{
+    position: absolute;
+    top: 3rem;
   }
 </style>

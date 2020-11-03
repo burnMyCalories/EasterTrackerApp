@@ -1,7 +1,6 @@
 *{
     padding: 0;
     margin: 0;
-    touch-action: none;
 }
 html, body, #app {
     width: 100%;
@@ -9,4 +8,12 @@ html, body, #app {
 }
 li {
     list-style: none;
+}
+small.tips {
+    display: block;
+    color: #999;
+}
+small.tips.tips-inline {
+    display: inline;
+    margin-left: 1rem;
 }

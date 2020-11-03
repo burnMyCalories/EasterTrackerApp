@@ -23,6 +23,9 @@ export default {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  z-index: 500;
+  position: absolute;
+  top: 0;
 }
 .navbar {
   position: fixed;
@@ -33,5 +36,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 1000;
 }
 </style>

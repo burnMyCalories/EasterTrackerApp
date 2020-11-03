@@ -12,6 +12,11 @@ const routes = [
     component: () => import('../views/Register.vue')
   },
   {
+    path: '/addProfile',
+    name: 'AddProfile',
+    component: () => import('../views/AddProfile.vue')
+  },
+  {
     path: '/home',
     name: 'Home',
     component: () => import('../views/Home.vue'),
@@ -25,6 +30,11 @@ const routes = [
         path: 'messages',
         name: 'Messages',
         component: () => import('../views/Messages.vue')
+      },
+      {
+        path: 'hideEgg',
+        name: 'hideEgg',
+        component: () => import('../components/HideEgg.vue')
       }
     ]
   }
