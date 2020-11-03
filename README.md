@@ -2658,6 +2658,126 @@ Actions -> "put" or  "get"
         }
     }
     ```
+    
+5.  Forget Password
+
+    url:`/forget`
+
+    Method: GET
+
+    Parameter:
+
+    ```
+    username
+    contact
+    ```
+
+    Result:
+
+    ```json
+    status：{
+    	code：
+    	msg：
+    }
+    result：{
+    	name：
+    	value：
+    	type：
+    }
+    ```
+
+    Example:
+
+     `GET http://localhost:8080/test/forget?username=test2&contact=13801111100`
+
+    ```json
+    {
+        "status": {
+            "code": 0,
+            "msg": "Success"
+        },
+        "result": {
+            "data": [
+                {
+                    "id": 687005410,
+                    "username": "test2",
+                    "gender": "M",
+                    "nickname": "abcdefg",
+                    "contact": "13801111100",
+                    "is_online": 1,
+                    "latitude": 14.0,
+                    "longitude": 66.0,
+                    "set_count": 1,
+                    "get_count": 1,
+                    "is_deleted": 0
+                }
+            ],
+            "rows": 1
+        }
+    }
+    ```
+
+    Method: PUT
+
+    Parameter:
+
+    ```
+    username
+    password
+    ```
+
+    Result:
+
+    ```json
+    status：{
+    	code：
+    	msg：
+    }
+    result：{
+    	name：
+    	value：
+    	type：
+    }
+    ```
+
+    Example:
+
+    `PUT http://localhost:8080/test/forget?username=test2&password=666666`
+
+    ```json
+    {
+        "status": {
+            "code": 0,
+            "msg": "Success"
+        },
+        "result": {
+            "data": [
+                {
+                    "id": 687005410,
+                    "username": "test2",
+                    "gender": "M",
+                    "nickname": "abcdefg",
+                    "contact": "13801111100",
+                    "is_online": 1,
+                    "latitude": 14.0,
+                    "longitude": 66.0,
+                    "set_count": 1,
+                    "get_count": 1,
+                    "is_deleted": 0
+                }
+            ],
+            "rows": 1
+        }
+    }
+    ```
+
+    Status Code:
+
+    ```
+    400：Invalid Parameters
+    410：No such data
+    200：Success
+    ```
 
 ## Demo
 
