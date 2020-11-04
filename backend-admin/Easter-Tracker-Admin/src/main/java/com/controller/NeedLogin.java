@@ -42,7 +42,7 @@ public class NeedLogin implements Filter {
         String path = ((HttpServletRequest) request).getRequestURI();
         String uuname=((HttpServletRequest) request).getParameter("uuname");
         response.setCharacterEncoding("utf-8");
-        response.setContentType("application/json");
+//        response.setContentType("application/json");
 
 //        /* 允许跨域的主机地址 */
 //        response.setHeader("Access-Control-Allow-Origin", "*");
