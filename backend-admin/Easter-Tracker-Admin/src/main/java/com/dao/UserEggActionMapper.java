@@ -20,4 +20,5 @@ public interface UserEggActionMapper {
     int delAction(Map<String,Object> map);
     int updateAction(Map<String,Object> map);
     List<UserEggAction> queryAction(Map<String,Object> map);
+    List<UserEggAction> querySpecialAction(Map<String,Object> map);
 }

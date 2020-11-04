@@ -72,6 +72,20 @@
             </if>
         </where>
     </select>
+    <select id="querySpecialAction" parameterType="map" resultMap="actionQueryMap">
+        select `id`,`user_id`,`egg_id`,`action`,`update_time`,`is_deleted` from `UserEggAction`
+        <where>
+            <if test="username!=null">
+                and user_id not in
+                (
+                select `id` from `User` where `username`=#{username}
+                )
+            </if>
+            <if test="1==1">
+                and `action`=1
+            </if>
+        </where>
+    </select>
     <resultMap id="actionQueryMap" type="UserEggAction">
         <association property="user" column="user_id" javaType="User" select="getUserInfo"/>
         <association property="egg" column="egg_id" javaType="Egg" select="getEggInfo"/>
