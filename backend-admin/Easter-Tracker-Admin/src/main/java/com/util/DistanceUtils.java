@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2020.  EasterTracker App
+ * Group: Burn My Calories
+ * Author: Binbin Tang , Jia Zhu , Quan Zhou , Weilun Chen , Xinnan Shen , and Zongdong Liu
+ * Project 2 for COMP90018, 2020 S2
+ * Time: 2020/10/22 23:24.
+ * Usage: The Utility Code for calculating distance
+ */
 package com.util;
 
 public class DistanceUtils {
@@ -7,14 +15,7 @@ public class DistanceUtils {
         return d * Math.PI / 180.0;
     }
 
-    /**
-     * 通过经纬度获取距离(单位：米)
-     * @param lat1
-     * @param lng1
-     * @param lat2
-     * @param lng2
-     * @return
-     */
+
     public static double getDistance(double lat1, double lng1, double lat2,
                                      double lng2) {
         double radLat1 = rad(lat1);

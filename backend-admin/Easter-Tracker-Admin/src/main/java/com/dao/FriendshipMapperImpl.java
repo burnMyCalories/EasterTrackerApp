@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2020.  EasterTracker App
+ * Group: Burn My Calories
+ * Author: Binbin Tang , Jia Zhu , Quan Zhou , Weilun Chen , Xinnan Shen , and Zongdong Liu
+ * Project 2 for COMP90018, 2020 S2
+ * Time: 2020/10/22 23:24.
+ * Usage: store sqlsession to be used when CRUD on friendship
+ */
+
 package com.dao;
 
 import com.model.Friendship;
