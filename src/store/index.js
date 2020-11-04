@@ -15,7 +15,7 @@ export default createStore({
     GPSWatchID: null,
     myLatitude: null,
     myLongitude: null,
-    myEggs: null
+    myEggs: []
   },
   mutations: {
     login (state, data) {
@@ -56,10 +56,14 @@ export default createStore({
       state.myLatitude = pos.coords.latitude
       state.myLongitude = pos.coords.longitude
       console.log('Position updated')
+      if (window.myLocationMarker) {
+        window.myLocationMarker.setPosition({ lat: pos.coords.latitude, lng: pos.coords.longitude })
+      }
     },
     updateMyEggs (state, eggs) {
+      /* eslint-disable */
       state.myEggs.length = 0
-      for (let egg of eggs) {
+      for (const egg of eggs) {
         state.myEggs.push(egg)
       }
       let map = window.myMap
@@ -71,6 +75,7 @@ export default createStore({
           map: map
         })
       }
+      /* eslint-disable */
     }
   },
   actions: {
