@@ -25,7 +25,7 @@ public class CRUDUtils {
         map.put("longitude",longitude);
         int res = mapper.addUser(map);
         JSONObject json = new JSONObject(true);
-        json.put("data",queryUser(String.valueOf(i),username,password,gender,nickname,contact,latitude,longitude).get("data"));
+        json.put("data",queryUser(String.valueOf(i),username,null,null,null,null,null,null).get("data"));
         json.put("rows",res);
         return json;
     }
@@ -138,7 +138,7 @@ public class CRUDUtils {
         }
         int res = mapper.updateUser(map);
         JSONObject json = new JSONObject(true);
-        json.put("data",queryUser(id,username,password,gender,nickname,contact,latitude,longitude).get("data"));
+        json.put("data",queryUser(id,username,null,null,null,null,null,null).get("data"));
         json.put("rows",res);
         return json;
     }
@@ -381,7 +381,7 @@ public class CRUDUtils {
         map.put("expire_time",expire_time);
         int res = mapper.addEgg(map);
         JSONObject json = new JSONObject(true);
-        json.put("data",queryEgg(String.valueOf(i),name,color,type,latitude,longitude).get("data"));
+        json.put("data",queryEgg(String.valueOf(i),name,null,null,null,null).get("data"));
         json.put("rows",res);
         return json;
     }
@@ -485,7 +485,7 @@ public class CRUDUtils {
         }
         int res = mapper.updateEgg(map);
         JSONObject json = new JSONObject(true);
-        json.put("data",queryEgg(id,name,color,type,latitude,longitude).get("data"));
+        json.put("data",queryEgg(id,name,null,null,null,null).get("data"));
         json.put("rows",res);
         return json;
     }
