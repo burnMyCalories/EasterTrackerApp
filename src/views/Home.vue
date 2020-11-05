@@ -14,6 +14,16 @@ export default {
   name: 'Home',
   components: {
     Map, Navbar
+  },
+  data () {
+    return {
+      firedEgg: ''
+    }
+  },
+  mounted () {
+    console.log(this.$refs)
+  },
+  methods: {
   }
 }
 </script>

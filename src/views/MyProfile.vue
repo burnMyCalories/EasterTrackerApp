@@ -5,7 +5,7 @@
     </div> -->
     <div class="info-box">
       <div class="potrait">
-        <img class="img img-thumbnail rounded-circle" src="../assets/portraits/portrait1.jpg" alt="">
+        <img class="img img-thumbnail rounded-circle" :src="imgsrc" alt="" id="myPortraitImg">
         <span class="gender" :class="user.gender">
           <i class="fas fa-mars fa-lg" v-if="user.gender === 'M'"></i>
           <i class="fas fa-venus fa-lg" v-else-if="user.gender === 'F'"></i>
@@ -31,7 +31,7 @@
       </button>
     </div> -->
     <button @click="logout" class="btn btn-outline-primary btn-block">Add Friend</button>
-    <button @click="logout" class="btn btn-outline-primary btn-block">Change Profile</button>
+    <button @click="editProfile()" class="btn btn-outline-primary btn-block">Edit Profile</button>
     <button @click="logout" class="btn btn-outline-primary btn-block">Change Password</button>
     <button @click="logout" class="btn btn-outline-primary btn-block">About</button>
     <button @click="logout" class="btn btn-link btn-block mt-5">Log Out</button>
@@ -42,14 +42,21 @@
 export default {
   data () {
     return {
-      user: null
+      user: null,
+      imgsrc: require('../assets/portraits/default-portrait.svg')
     }
   },
   setup () {
     return {}
   },
   mounted () {
+    const _this = this
     this.user = this.$store.state.currentUser
+    this.axios.get(`/files/${this.user.id}_portrait.jpg`).then(res => {
+      _this.imgsrc = `${process.env.VUE_APP_HOST}/files/${this.user.id}_portrait.jpg`
+    }).catch(err => {
+      console.log(err)
+    })
   },
   methods: {
     logout () {
@@ -62,6 +69,14 @@ export default {
       this.$router.push('/')
     },
     loadProfile () {
+    },
+    img () {
+      console.log('dsf')
+      this.imgsrc = require('../assets/portraits/default-portrait.svg')
+    },
+    editProfile () {
+      this.$store.commit('editProfile')
+      this.$router.push('/addProfile')
     }
   }
 }
@@ -72,9 +87,13 @@ export default {
   display: flex;
   justify-content: center;
   position: relative;
+  width: 9rem;
+  height: 9rem;
+  margin: 0 auto;
 }
 .potrait .img {
   width: 9rem;
+  object-fit: cover;
 }
 .nickname {
   text-align: center;

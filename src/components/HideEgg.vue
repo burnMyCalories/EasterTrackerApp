@@ -36,7 +36,9 @@
               </div>
               <div class="form-group" v-if="chooseType > 1">
                 <label for="ipt_add_content">Content</label>
-                <input type="file" class="form-control" id="ipt_add_content">
+                <input type="file" class="form-control" id="ipt_add_content" @change="upload($event)" accept="image/jpg" v-if="chooseType===3">
+                <input type="file" class="form-control" id="ipt_add_content" @change="upload($event)" accept="audio/mp3" v-if="chooseType===2">
+                <input type="file" class="form-control" id="ipt_add_content" @change="upload($event)" accept="video/mp4" v-if="chooseType===4">
               </div>
             </form>
           </div>
@@ -51,6 +53,7 @@
 </template>
 
 <script>
+const contentURL = `${process.env.VUE_APP_HOST}/files/`
 export default {
   setup () {
     return {}
@@ -70,7 +73,9 @@ export default {
       eggname: '',
       user: null,
       expire: null,
-      tomorrow: ''
+      tomorrow: '',
+      fileIsUploaded: false,
+      filename: ''
     }
   },
   beforeMount () {
@@ -88,6 +93,19 @@ export default {
           type: 'warning'
         })
         return false
+      } else if (this.eggname === '' || this.fileIsUploaded === false) {
+        if (this.eggname === '') {
+          this.$store.commit('updateAlert', {
+            msg: 'Please fill in egg\'s name before uploading the file!',
+            type: 'warning'
+          })
+        } else if (this.fileIsUploaded === false) {
+          this.$store.commit('updateAlert', {
+            msg: 'Please upload the file!',
+            type: 'warning'
+          })
+        }
+        return false
       }
       return true
     },
@@ -98,7 +116,7 @@ export default {
       }
       console.log('submit')
 
-      const content = this.chooseType === 1 ? this.description : null
+      const content = this.chooseType === 1 ? this.description : (contentURL + this.filename)
       const params = {
         uuname: this.user.username,
         name: this.eggname,
@@ -111,6 +129,12 @@ export default {
       }
 
       console.log(params)
+
+      _this.$store.commit('updateAlert', {
+        msg: 'Hiding your egg 🐣...',
+        sync: true
+      })
+
       this.axios.post('/egg', null, {
         params: params
       }).then(res => {
@@ -125,13 +149,80 @@ export default {
           params: params1
         }).then(res => {
           console.log(res)
+          _this.$store.commit('updateAlert', {
+            msg: 'You successfully hide an egg 🤫...',
+            type: 'success'
+          })
+          _this.close()
         })
       }).catch(err => {
         console.log(err)
+        if (err.response.status === 500) {
+          _this.$store.commit('updateAlert', {
+            msg: 'Oops! Somebody used the same name with your egg, please change a new one.',
+            type: 'warning'
+          })
+        }
+      }).finally(() => {
       })
     },
     close () {
       this.$parent.hideEggWindow = false
+    },
+    upload (e) {
+      const _this = this
+      if (this.verifyInput === false) {
+        return
+      }
+      console.log('welcome')
+
+      const file = e.target.files[0]
+
+      const format = file.name.split('.').pop()
+      const filename = `${this.eggname}_content.${format}`
+      this.filename = filename
+
+      console.log(filename)
+
+      const fileReader = new FileReader()
+      fileReader.onload = () => {
+        document.getElementById('ipt_add_content').src = fileReader.result
+      }
+      fileReader.readAsDataURL(file)
+
+      const formData = new FormData()
+      formData.append('file', file, filename)
+
+      this.$store.commit('updateAlert', {
+        msg: 'Uploading file, please wait...',
+        type: 'primary',
+        sync: true
+      })
+      this.axios.post('/file', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }).then(res => {
+        _this.$store.commit('updateAlert', {
+          msg: 'Your file uploaded successfully!',
+          type: 'success',
+          sync: false
+        })
+        _this.fileIsUploaded = true
+      }).catch(err => {
+        let msg = ''
+        const code = err.response.status
+        if (code === 401) {
+          msg = 'Please check your file!'
+        } else if (code === 500) {
+          msg = 'Please try again later!'
+        }
+        _this.$store.commit('updateAlert', {
+          msg: msg,
+          type: 'danger',
+          sync: false
+        })
+      })
     }
   }
 }

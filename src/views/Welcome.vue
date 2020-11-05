@@ -62,10 +62,6 @@ export default {
             msg: `Welcome ${user.nickname ? user.nickname : user.username}!`,
             type: 'success'
           })
-          // _this.axios.get('/file', null, {
-          //   params: { filename: `${user.id}_portrait.jpg` }
-          // })
-          _this.$store.dispatch('loadPortrait', user)
           _this.$router.push('/home')
         })
         .catch((err) => {

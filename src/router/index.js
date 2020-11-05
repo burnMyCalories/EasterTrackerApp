@@ -27,9 +27,9 @@ const routes = [
         component: () => import('../views/MyProfile.vue')
       },
       {
-        path: 'messages',
-        name: 'Messages',
-        component: () => import('../views/Messages.vue')
+        path: 'circle',
+        name: 'Circle',
+        component: () => import('../views/Circle.vue')
       },
       {
         path: 'hideEgg',

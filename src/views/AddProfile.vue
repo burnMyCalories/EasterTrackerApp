@@ -1,25 +1,35 @@
 <template>
   <div class="my-container" id="addProfile">
 
-    <h1 class="title">Nearly done!</h1>
+    <h1 class="title" v-if="!isEditProfile">Nearly done!</h1>
+    <h1 class="title" v-else>Edit Your Profile</h1>
 
     <form action="">
       <div class="form-group">
         <div class="img-box mb-3">
-          <img id="img_add_portrait" class="img img-thumbnail rounded-circle" src="../assets/portraits/default-portrait.svg" alt="">
+          <img id="img_add_portrait" class="img img-thumbnail rounded-circle" :src="imgsrc" alt="">
         </div>
         <input type="file" id="ipt_add_portrait" @change="uploadPortrait($event)" accept="image/jpg">
-        <label for="ipt_add_portrait" class="form-control">Select Photo</label>
+        <label for="ipt_add_portrait" class="form-control">
+          <span v-if="!isEditProfile">Select Photo</span>
+          <span v-else>Change Your Portrait</span>
+        </label>
       </div>
 
       <div class="form-group">
-        <label for="ipt_add_nickname">Choose a nice nick name</label>
+        <label for="ipt_add_nickname">
+          <span v-if="!isEditProfile">Choose a nice nick name</span>
+          <span v-else>Change your nick name</span>
+        </label>
         <small class="tips">More than 32 characters will be hard to remember :-)</small>
         <input type="text" class="form-control" id="ipt_add_nickname" name="nickname" autocomplete="off" v-model="nickname" maxlength="32">
       </div>
 
       <div class="form-group gender-radios">
-        <label for="genderRadios">You are ...</label>
+        <label for="genderRadios">
+          <span v-if="!isEditProfile">You are ...</span>
+          <span v-else>Gender</span>
+        </label>
         <div class="radio-group">
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="genderRadios" id="ra_add_male" value="M" v-model="gender">
@@ -43,10 +53,16 @@
       </div>
 
       <div class="form-group mt-5">
-        <button type="button" class="btn btn-primary btn-block" @click="updatePorfile()">Go! Go! Go!!!</button>
+        <button type="button" class="btn btn-primary btn-block" @click="updatePorfile()">
+          <span v-if="!isEditProfile">Go! Go! Go!!!</span>
+          <span v-else>Save Changes</span>
+        </button>
       </div>
       <div class="form-group">
-        <button type="button" class="btn btn-link btn-block" @click="skip()">Skip for now</button>
+        <button type="button" class="btn btn-link btn-block" @click="skip()">
+          <span v-if="!isEditProfile">Skip for now</span>
+          <span v-else>Cancel</span>
+        </button>
       </div>
     </form>
   </div>
@@ -61,12 +77,30 @@ export default {
     return {
       nickname: '',
       gender: '',
-      userdata: null
+      userdata: null,
+      imgsrc: require('../assets/portraits/default-portrait.svg')
+    }
+  },
+  computed: {
+    isEditProfile () {
+      return this.$store.state.isEditProfile
     }
   },
   beforeMount () {
     this.userdata = this.$store.state.currentUser
     console.log(this.userdata)
+  },
+  mounted () {
+    if (this.isEditProfile) {
+      const _this = this
+      this.nickname = this.userdata.nickname
+      this.gender = this.userdata.gender
+      this.axios.get(`/files/${this.userdata.id}_portrait.jpg`).then(res => {
+        _this.imgsrc = `${process.env.VUE_APP_HOST}/files/${this.userdata.id}_portrait.jpg`
+      }).catch(err => {
+        console.log(err)
+      })
+    }
   },
   methods: {
     uploadPortrait (e) {
@@ -140,7 +174,11 @@ export default {
       this.skip()
     },
     skip () {
-      this.$router.push('/home')
+      if (!this.isEditProfile) {
+        this.$router.push('/home')
+      } else {
+        this.$router.push('/home/myProfile')
+      }
     }
   }
 }

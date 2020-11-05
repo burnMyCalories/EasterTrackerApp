@@ -142,9 +142,9 @@ export default {
       return true
     },
     register () {
-      // if (this.verifyAll() === false) {
-      //   return
-      // }
+      if (this.verifyAll() === false) {
+        return
+      }
       const _this = this
       this.$store.commit('updateAlert', { msg: 'Registering, please for a moment...', type: 'primary', sync: true })
       this.axios.post('/register', null, {

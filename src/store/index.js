@@ -15,7 +15,10 @@ export default createStore({
     GPSWatchID: null,
     myLatitude: null,
     myLongitude: null,
-    myEggs: []
+    myEggs: [],
+    othersEggs: [],
+    firedEgg: null,
+    isEditProfile: false
   },
   mutations: {
     login (state, data) {
@@ -35,6 +38,7 @@ export default createStore({
     logout (state) {
       state.currentUser = null
       state.mapLoaded = false
+      state.isEditProfile = false
     },
     resetAlert (state) {
       state.alert.msg = ''
@@ -47,46 +51,47 @@ export default createStore({
       state.alert.msg = alert.msg || ''
       state.alert.type = alert.type || 'info'
       state.alert.sync = alert.sync || false
+      state.alert.time = alert.time || 5000
       state.alertTimer && clearTimeout(state.alertTimer)
       state.alertTimer = setTimeout(() => {
         _this.commit('resetAlert')
-      }, 5000)
+      }, state.alert.sync ? 10000 : state.alert.time)
     },
     updateLocation (state, pos) {
       state.myLatitude = pos.coords.latitude
       state.myLongitude = pos.coords.longitude
-      console.log('Position updated')
+      console.log(pos, 'Position updated', state.myLatitude, state.myLongitude)
       if (window.myLocationMarker) {
         window.myLocationMarker.setPosition({ lat: pos.coords.latitude, lng: pos.coords.longitude })
       }
     },
     updateMyEggs (state, eggs) {
-      /* eslint-disable */
-      state.myEggs.length = 0
-      for (const egg of eggs) {
-        state.myEggs.push(egg)
-      }
-      let map = window.myMap
-      let google = window.google
-      console.log(state.myEggs, eggs, map, google)
-      for (let i = 0; i < eggs.length; i++) {
-        const marker = new google.maps.Marker({
-          position: { lat: eggs[i].latitude, lng: eggs[i].longitude },
-          map: map
-        })
-      }
-      /* eslint-disable */
+      state.myEggs = eggs
+      console.log('My eggs updated', state.myEggs, eggs)
+    },
+    updateOthers (state, others) {
+      state.othersEggs = others
+      console.log('Others updated', state.othersEggs, others)
+    },
+    updateFiredEgg (state, egg) {
+      console.log('Update  fired egg', egg)
+      state.firedEgg = egg
+      console.log(state.firedEgg, egg)
+    },
+    resetFiredEgg (state) {
+      state.firedEgg = null
+    },
+    editProfile (state) {
+      state.isEditProfile = true
+    },
+    addProfile (state) {
+      state.isEditProfile = false
+    },
+    findAnEgg (state) {
+      state.firedEgg.eggNotChecked = true
     }
   },
   actions: {
-    loadPortrait (state, data) {
-      console.log('loadportrait')
-      // console.log(data)
-      // axios.get('/file', null, { params: { filename: `${data.id}_portrait.jpg` } })
-      //   .then(res => {
-      //     console.log(res)
-      //   })
-    },
     watchMyLocation (state) {
       console.log('Watching my location')
       const _this = this
@@ -112,6 +117,7 @@ export default createStore({
       }, null, options)
     },
     getMyEggs (state, data) {
+      console.log('get me eggs')
       const _this = this
       if (!(data || state.currentUser)) {
         data = JSON.parse(localStorage.getItem('currentUser'))
@@ -121,6 +127,58 @@ export default createStore({
           console.log('eggs', res)
           const myEggs = res.data.result.data
           _this.commit('updateMyEggs', myEggs)
+        })
+    },
+    getOthersEggs (state, data) {
+      console.log('get others eggs')
+      const _this = this
+      if (!(data || state.currentUser)) {
+        data = JSON.parse(localStorage.getItem('currentUser'))
+      }
+      axios.get(`/othersegg?uuname=${data.username}`)
+        .then(res => {
+          const actions = res.data.result.data
+          const othersList = []
+          for (const action of actions) {
+            action.egg.user = action.user
+            action.egg.action_id = action.id
+            action.egg.action = action.action
+            action.egg.action_time = action.update_time
+            othersList.push(action.egg)
+          }
+          _this.commit('updateOthers', othersList)
+        })
+    },
+    checkFiredEgg (state, egg) {
+      const _this = this
+      const cu = JSON.parse(localStorage.getItem('currentUser'))
+      console.log(egg, cu)
+      console.log(egg.user, state.currentUser)
+      egg.eggIsMine = egg.user.username === cu.username
+      egg.eggExpire = new Date() > new Date(egg.expire_time)
+
+      const myname = cu.username
+      const myid = cu.id
+      const eggid = egg.id
+      const eggname = egg.name
+      const action = 2
+      if (egg.eggIsMine) {
+        egg.eggNotChecked = false
+        _this.commit('updateFiredEgg', egg)
+        return
+      }
+      this.commit('updateAlert', {
+        msg: 'Checking this egg...',
+        sync: true
+      })
+      axios.get(`/action?uuname=${myname}&user_id=${myid}&egg_id=${eggid}&egg_name=${eggname}&action=${action}`)
+        .then(_res => {
+          egg.eggNotChecked = false
+        }).catch(_err => {
+          egg.eggNotChecked = true
+        }).finally(() => {
+          _this.commit('updateFiredEgg', egg)
+          _this.commit('resetAlert')
         })
     }
   },
