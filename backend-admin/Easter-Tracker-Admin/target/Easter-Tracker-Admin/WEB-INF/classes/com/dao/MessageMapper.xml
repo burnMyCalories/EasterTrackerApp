@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2020.  EasterTracker App
+  ~ Group: Burn My Calories
+  ~ Author: Binbin Tang , Jia Zhu , Quan Zhou , Weilun Chen , Xinnan Shen , and Zongdong Liu
+  ~ Project 2 for COMP90018, 2020 S2
+  ~ Time: 2020/10/22 23:24.
+  ~ Usage: implementations of operations on message
+  -->
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.MessageMapper">
+<!--    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>-->
+    <cache type="com.util.RedisCacheUtils"/>
+    <insert id="addMessage" parameterType="map">
+        insert into `Message`(`id`,`friend_id`,`type`,`content`) values (#{id},#{friend_id},#{type},#{content});
+    </insert>
+    <delete id="delMessage" parameterType="map">
+        delete from `Message`
+        <where>
+            <if test="id!=null">
+                id=#{id}
+            </if>
+            <if test="friend_id!=null">
+                and friend_id=#{friend_id}
+            </if>
+        </where>
+    </delete>
+    <update id="updateMessage" parameterType="map">
+        update `Message` set `update_time`=NOW(),`version`=`version`+1,`is_deleted`=#{is_deleted} where id=#{id};
+    </update>
+    <select id="queryMessage" parameterType="map" resultMap="messageQueryMap">
+        select `id`,`friend_id`,`type`,`content`,`is_deleted` from `Message`
+        <where>
+            <if test="id!=null">
+                id=#{id}
+            </if>
+            <if test="friend_id!=null">
+                and friend_id=#{friend_id}
+            </if>
+            <if test="userfrom_id!=null">
+                and friend_id in
+                (
+                    select `id` from `Friendship` where `userfrom_id`=#{userfrom_id}
+                )
+            </if>
+            <if test="userto_id!=null">
+                and friend_id in
+                (
+                    select `id` from `Friendship` where `userto_id`=#{userto_id}
+                )
+            </if>
+            <if test="userfrom_username!=null">
+                and friend_id in
+                (
+                    select `id` from `Friendship` where userfrom_id in
+                    (
+                        select `id` from `User` where `username`=#{userfrom_username}
+                    )
+                )
+            </if>
+            <if test="userto_username!=null">
+                and friend_id in
+                (
+                    select `id` from `Friendship` where userto_id in
+                    (
+                        select `id` from `User` where `username`=#{userto_username}
+                    )
+                )
+            </if>
+            <if test="userfrom_nickname!=null">
+                and friend_id in
+                (
+                    select `id` from `Friendship` where userfrom_id in
+                    (
+                        select `id` from `User` where `nickname`=#{userfrom_nickname}
+                    )
+                )
+            </if>
+            <if test="userto_nickname!=null">
+                and friend_id in
+                (
+                    select `id` from `Friendship` where userto_id in
+                    (
+                        select `id` from `User` where `nickname`=#{userto_nickname}
+                    )
+                )
+            </if>
+        </where>
+    </select>
+    <resultMap id="messageQueryMap" type="Message">
+        <association property="friend" column="friend_id" javaType="Friendship" select="getFriendInfo"/>
+    </resultMap>
+    <select id="getFriendInfo" resultMap="FriendshipQueryMap">
+        select `id`,`userfrom_id`,`userto_id`,`is_deleted` from `Friendship` where id=#{id};
+    </select>
+    <resultMap id="FriendshipQueryMap" type="Friendship">
+        <association property="userfrom" column="userfrom_id" javaType="User" select="getUserInfo"/>
+        <association property="userto" column="userto_id" javaType="User" select="getUserInfo"/>
+    </resultMap>
+    <select id="getUserInfo" resultType="User">
+        select `id`,`username`,`gender`,`nickname`,`contact`,`latitude`,`longitude`,`is_online`,`is_deleted` from `User` where `id`=#{id};
+    </select>
+</mapper>
