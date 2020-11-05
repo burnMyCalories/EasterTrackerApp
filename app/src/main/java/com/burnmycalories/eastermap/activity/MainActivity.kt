@@ -1,7 +1,10 @@
 /*
-* Author: Xinnan Shen
-* Date: 18-10-2020
-* Usage: Main Activity of Application
+* Copyright (c) 2020.  EasterTracker App
+* Group: Burn My Calories
+* Author: Binbin Tang , Jia Zhu , Quan Zhou , Weilun Chen , Xinnan Shen , and Zongdong Liu
+* Project 2 for COMP90018, 2020 S2
+* Time: 2020/10/22 23:24.
+* Usage: implementations of operations on egg
 */
 
 package com.burnmycalories.eastermap.activity

@@ -11,62 +11,14 @@
   <component name="ChangeListManager">
     <list default="true" id="814a2666-3dab-414d-acc9-bcae1a573fb4" name="Default Changelist" comment="">
       <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/app.23389786.css" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/chunk-34573cba.b5e5b9d5.css" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/chunk-36d9b829.13783f5c.css" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/chunk-a78f11fc.8ea1887b.css" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/chunk-baf4dea6.5344998a.css" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/index.html" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/index.html" afterDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/app.2cb99e62.js" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/app.2cb99e62.js.map" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-215a129a.8b0a8b80.js" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-215a129a.8b0a8b80.js.map" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-276ff4c8.9ec9596a.js" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-276ff4c8.9ec9596a.js.map" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-34573cba.ddab4929.js" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-34573cba.ddab4929.js.map" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-36d9b829.1146a89d.js" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-36d9b829.1146a89d.js.map" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-7a97058d.f39c0c1b.js" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-7a97058d.f39c0c1b.js.map" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-a78f11fc.0047140f.js" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-a78f11fc.0047140f.js.map" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-baf4dea6.d02e648c.js" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-baf4dea6.d02e648c.js.map" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-vendors.164eda52.js" beforeDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-vendors.164eda52.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/css/app.23389786.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/css/chunk-34573cba.b5e5b9d5.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/css/chunk-36d9b829.13783f5c.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/css/chunk-a78f11fc.8ea1887b.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/css/chunk-baf4dea6.5344998a.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/app.2cb99e62.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/app.2cb99e62.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-215a129a.8b0a8b80.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-215a129a.8b0a8b80.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-276ff4c8.9ec9596a.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-276ff4c8.9ec9596a.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-34573cba.ddab4929.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-34573cba.ddab4929.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-36d9b829.1146a89d.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-36d9b829.1146a89d.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-7a97058d.f39c0c1b.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-7a97058d.f39c0c1b.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-a78f11fc.0047140f.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-a78f11fc.0047140f.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-baf4dea6.d02e648c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-baf4dea6.d02e648c.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-vendors.164eda52.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-vendors.164eda52.js.map" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="ceedaa0e" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3a_API_30" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -314,9 +266,9 @@
       <screen x="0" y="28" width="1366" height="740" />
     </state>
     <state x="100" y="128" width="1166" height="540" key="com.android.tools.idea.avdmanager.AvdListDialog/0.28.1366.740@0.28.1366.740" timestamp="1604562104460" />
-    <state x="158" y="83" width="1208" height="630" key="find.popup" timestamp="1603028653598">
+    <state x="158" y="83" width="1208" height="630" key="find.popup" timestamp="1604581262766">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state x="158" y="83" width="1208" height="630" key="find.popup/0.28.1366.740@0.28.1366.740" timestamp="1603028653598" />
+    <state x="158" y="83" width="1208" height="630" key="find.popup/0.28.1366.740@0.28.1366.740" timestamp="1604581262766" />
   </component>
 </project>
