@@ -5,15 +5,15 @@
 
       <div class="top">
         <div class="form-group">
-          <label for="sectionRadios1" name="sectionRadios" class="btn btn-outline-primary" @click="updateMyEggs()">
+          <label for="sectionRadios1" name="sectionRadios" class="btn btn-outline-primary" :class="{active: choosenSection === 1}" @click="updateMyEggs()">
             <img class="icon" src="../../static/icons/myEgg.png" alt=""> My Eggs</label>
-          <label for="sectionRadios2" name="sectionRadios" class="btn btn-outline-primary" @click="updateFound()">
+          <label for="sectionRadios2" name="sectionRadios" class="btn btn-outline-primary" :class="{active: choosenSection === 2}" @click="updateFound()">
             <img class="icon" src="../../static/icons/foundEggs.png" alt=""> Found Eggs</label>
         </div>
         <div class="form-group">
-          <label for="sectionRadios3" name="sectionRadios" class="btn btn-outline-primary" @click="updateMyFriends()">
+          <label for="sectionRadios3" name="sectionRadios" class="btn btn-outline-primary" :class="{active: choosenSection === 3}" @click="updateMyFriends()">
             <img class="icon" src="../../static/icons/friend.png" alt=""> My Friends</label>
-          <label for="sectionRadios4" name="sectionRadios" class="btn btn-outline-primary" @click="updateFriendsEggs()">
+          <label for="sectionRadios4" name="sectionRadios" class="btn btn-outline-primary" :class="{active: choosenSection === 4}" @click="updateFriendsEggs()">
             <img class="icon" src="../../static/icons/otherEggs.png" alt=""> Friends' Eggs</label>
         </div>
         <div class="hidden">
@@ -30,8 +30,8 @@
           <ul>
             <li v-for="egg in eggList" :key="egg.id">
               <div class="left">
-                <div class="img-box img img-thumbnail rounded-circle">
-                  <img :src="imgURL + 'egg'+ egg.type +'.png'" alt="">
+                <div class="img-box">
+                  <img class="img img-thumbnail rounded-circle" :src="imgURL + 'egg'+ egg.type +'.png'" alt="">
                 </div>
                 <div class="text"><span class="egg-name">{{ egg.name }}</span><small class="tips">{{typeDict[egg.type]}} Egg</small></div>
               </div>
@@ -46,7 +46,27 @@
 
         <div class="info-list" v-if="choosenSection === 3">
           <ul>
-            <li v-for="f in myFriends" :key="f.id">{{f.nickname || f.username}}</li>
+            <li v-for="f in myFriends" :key="f.id">
+              <div class="left">
+                <div class="img-box">
+                  <img class="img img-thumbnail rounded-circle" :src="porURL + f.id + '_portrait.jpg'" @error="imgNotFound($event)" alt="">
+                </div>
+                <div class="text">
+                  <span class="egg-name">
+                    {{f.nickname || f.username}}
+                    <span class="gender">
+                      <i v-if="f.gender==='M'" class="fas fa-mars"></i>
+                      <i v-else-if="f.gender==='F'" class="fas fa-venus"></i>
+                      <i v-else class="fas fa-question"></i>
+                    </span>
+                  </span>
+                  <small class="tips">Hide {{f.set_count}} | Found {{f.get_count}}</small>
+                </div>
+              </div>
+              <div class="tools">
+                <button><i class="fas fa-trash-alt"></i></button>
+              </div>
+            </li>
           </ul>
         </div>
 
@@ -84,7 +104,9 @@ export default {
       loading: false,
       otherEggs: [],
       eggList: [],
-      imgURL: `${process.env.VUE_APP_STATIC}/icon/`
+      imgURL: `${process.env.VUE_APP_STATIC}/icon/`,
+      porURL: `${process.env.VUE_APP_HOST}/files/`,
+      defaultPortrait: require('../assets/portraits/default-portrait.svg')
     }
   },
   mounted () {
@@ -106,6 +128,11 @@ export default {
         this.eggList.push(action.egg)
       }
       console.log(this.eggList)
+    },
+    imgNotFound (event) {
+      const img = event.srcElement
+      img.src = this.defaultPortrait
+      img.onerror = null
     },
     updateActionEgg (type) {
       // type1 hide; type2 seek
@@ -184,6 +211,19 @@ export default {
 </script>
 
 <style scoped>
+.gender i {
+  margin-left: 0.3rem;
+}
+i.fa-mars {
+  color: #0086d6;
+}
+i.fa-venus {
+  color: #E91E63;
+}
+i.fa-question {
+  color: #6D6D6D;
+  font-size: 0.8rem;
+}
 .sections {
   height: 100%;
   display: flex;
@@ -270,7 +310,9 @@ export default {
   white-space: nowrap;
 }
 .info-list li .left img {
-  width: 2.5rem;
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
 }
 .info-list li .left .img-box {
   width: 3.5rem;
