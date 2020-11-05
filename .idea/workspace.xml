@@ -10,16 +10,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="814a2666-3dab-414d-acc9-bcae1a573fb4" name="Default Changelist" comment="">
-      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/release/app-release.apk" afterDir="false" />
-      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/release/output-metadata.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/release/app-release.apk" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/release/output-metadata.json" afterDir="false" />
       <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/app.23389786.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/chunk-34573cba.b5e5b9d5.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/chunk-36d9b829.13783f5c.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/chunk-a78f11fc.8ea1887b.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/chunk-baf4dea6.5344998a.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/index.html" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/index.html" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/app.2cb99e62.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/app.2cb99e62.js.map" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-215a129a.8b0a8b80.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-215a129a.8b0a8b80.js.map" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-276ff4c8.9ec9596a.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-276ff4c8.9ec9596a.js.map" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-34573cba.ddab4929.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-34573cba.ddab4929.js.map" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-36d9b829.1146a89d.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-36d9b829.1146a89d.js.map" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-7a97058d.f39c0c1b.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-7a97058d.f39c0c1b.js.map" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-a78f11fc.0047140f.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-a78f11fc.0047140f.js.map" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-baf4dea6.d02e648c.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-baf4dea6.d02e648c.js.map" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-vendors.164eda52.js" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-vendors.164eda52.js.map" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/css/app.23389786.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/css/chunk-34573cba.b5e5b9d5.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/css/chunk-36d9b829.13783f5c.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/css/chunk-a78f11fc.8ea1887b.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/css/chunk-baf4dea6.5344998a.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/app.2cb99e62.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/app.2cb99e62.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-215a129a.8b0a8b80.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-215a129a.8b0a8b80.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-276ff4c8.9ec9596a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-276ff4c8.9ec9596a.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-34573cba.ddab4929.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-34573cba.ddab4929.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-36d9b829.1146a89d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-36d9b829.1146a89d.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-7a97058d.f39c0c1b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-7a97058d.f39c0c1b.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-a78f11fc.0047140f.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-a78f11fc.0047140f.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-baf4dea6.d02e648c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-baf4dea6.d02e648c.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-vendors.164eda52.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/js/chunk-vendors.164eda52.js.map" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,22 +290,22 @@
       <screen x="0" y="28" width="1366" height="740" />
     </state>
     <state x="266" y="156" width="824" height="480" key="AndroidCreateResourceDirectoryDialog/0.28.1366.740@0.28.1366.740" timestamp="1604561613573" />
-    <state width="1312" height="198" key="GridCell.Tab.0.bottom" timestamp="1604573622217">
+    <state width="1312" height="198" key="GridCell.Tab.0.bottom" timestamp="1604578617888">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="198" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1604573622217" />
-    <state width="1312" height="198" key="GridCell.Tab.0.center" timestamp="1604573622217">
+    <state width="1312" height="198" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1604578617888" />
+    <state width="1312" height="198" key="GridCell.Tab.0.center" timestamp="1604578617887">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="198" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1604573622217" />
-    <state width="1312" height="198" key="GridCell.Tab.0.left" timestamp="1604573622216">
+    <state width="1312" height="198" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1604578617887" />
+    <state width="1312" height="198" key="GridCell.Tab.0.left" timestamp="1604578617887">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="198" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1604573622216" />
-    <state width="1312" height="198" key="GridCell.Tab.0.right" timestamp="1604573622217">
+    <state width="1312" height="198" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1604578617887" />
+    <state width="1312" height="198" key="GridCell.Tab.0.right" timestamp="1604578617888">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="198" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1604573622217" />
+    <state width="1312" height="198" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1604578617888" />
     <state x="164" y="33" key="SettingsEditor" timestamp="1603016506639">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
