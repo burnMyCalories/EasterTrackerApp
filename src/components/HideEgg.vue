@@ -44,7 +44,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-link" data-dismiss="modal" @click="close()">Close</button>
-            <button type="button" class="btn btn-link" @click="submit()" :disabled="chooseType===null">Save</button>
+            <button type="button" class="btn btn-link" @click="submit()" :disabled="chooseType===null||loading">Save</button>
           </div>
         </div>
       </div>
@@ -75,7 +75,8 @@ export default {
       expire: null,
       tomorrow: '',
       fileIsUploaded: false,
-      filename: ''
+      filename: '',
+      loading: false
     }
   },
   beforeMount () {
@@ -93,7 +94,7 @@ export default {
           type: 'warning'
         })
         return false
-      } else if (this.eggname === '' || this.fileIsUploaded === false) {
+      } else if (this.chooseType !== 1 && (this.eggname === '' || this.fileIsUploaded === false)) {
         if (this.eggname === '') {
           this.$store.commit('updateAlert', {
             msg: 'Please fill in egg\'s name before uploading the file!',
@@ -134,7 +135,7 @@ export default {
         msg: 'Hiding your egg 🐣...',
         sync: true
       })
-
+      this.loading = true
       this.axios.post('/egg', null, {
         params: params
       }).then(res => {
@@ -164,6 +165,7 @@ export default {
           })
         }
       }).finally(() => {
+        _this.loading = false
       })
     },
     close () {
@@ -198,6 +200,7 @@ export default {
         type: 'primary',
         sync: true
       })
+      this.loading = true
       this.axios.post('/file', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -222,6 +225,8 @@ export default {
           type: 'danger',
           sync: false
         })
+      }).finally(() => {
+        _this.loading = false
       })
     }
   }

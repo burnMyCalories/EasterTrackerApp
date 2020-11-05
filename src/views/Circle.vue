@@ -240,8 +240,10 @@ export default {
   padding: 1rem;
 }
 .info-list {
-  margin-bottom: 3rem;
   width: 100%;
+}
+.info-list ul {
+  margin-bottom: 3rem;
 }
 .info-list li {
   display: flex;
@@ -264,7 +266,7 @@ export default {
   justify-content: center;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 8rem;
+  width: 7rem;
   white-space: nowrap;
 }
 .info-list li .left img {
