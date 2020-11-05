@@ -46,4 +46,10 @@ public class UserEggActionMapperImpl implements UserEggActionMapper {
         UserEggActionMapper mapper = sqlSession.getMapper(UserEggActionMapper.class);
         return mapper.queryAction(map);
     }
+
+    @Override
+    public List<UserEggAction> querySpecialAction(Map<String, Object> map) {
+        UserEggActionMapper mapper = sqlSession.getMapper(UserEggActionMapper.class);
+        return mapper.querySpecialAction(map);
+    }
 }

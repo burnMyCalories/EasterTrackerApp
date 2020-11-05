@@ -30,7 +30,7 @@ import java.util.List;
 @WebServlet(name = "file", urlPatterns = "/file")
 public class FileService extends HttpServlet {
 
-    protected static final String filestoragepath = "/WEB-INF/files";
+    protected static final String filestoragepath = "/files";
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");

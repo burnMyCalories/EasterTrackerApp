@@ -627,6 +627,29 @@ public class CRUDUtils {
         json.put("rows",res);
         return json;
     }
+    public static JSONObject querySpecialAction(String uname){
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
+        UserEggActionMapper mapper = context.getBean("userEggActionMapper", UserEggActionMapper.class);
+        Map<String, Object> map = new HashMap<>();
+//        map.put("id",id);
+//        map.put("user_id",user_id);
+//        map.put("egg_id",egg_id);
+//        map.put("action",action);
+//        map.put("user_username",user_username);
+//        map.put("user_nickname",user_nickname);
+//        map.put("egg_name",egg_name);
+        map.put("username",uname);
+        List<UserEggAction> userEggActions = mapper.querySpecialAction(map);
+        List<JSONObject> list = new ArrayList<>();
+        for (UserEggAction userEggAction : userEggActions) {
+            JSONObject json = userEggAction.toJSON();
+            list.add(json);
+        }
+        JSONObject json = new JSONObject(true);
+        json.put("data",list);
+        json.put("rows",list.size());
+        return json;
+    }
     public static JSONObject queryAction(String id,String user_id,String egg_id,String action,String user_username,String user_nickname,String egg_name){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         UserEggActionMapper mapper = context.getBean("userEggActionMapper", UserEggActionMapper.class);
