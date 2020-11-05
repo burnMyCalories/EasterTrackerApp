@@ -17,7 +17,13 @@
         android:roundIcon="@drawable/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/BurnMyCalories.EasterMap.Theme"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:usesCleartextTraffic="true"
         tools:ignore="AllowBackup">
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
         <activity android:name="com.burnmycalories.eastermap.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

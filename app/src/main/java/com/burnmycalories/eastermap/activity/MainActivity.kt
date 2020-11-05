@@ -7,16 +7,17 @@
 package com.burnmycalories.eastermap.activity
 
 import android.Manifest
+import android.annotation.TargetApi
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.util.AttributeSet
 import android.view.View
-import android.webkit.GeolocationPermissions
-import android.webkit.WebChromeClient
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -27,7 +28,9 @@ class MainActivity : AppCompatActivity()
 {
 
 
-    val url = "file:////android_asset/homeMap.html"
+    val url = "file:////android_asset/index.html"
+    private var uploadMessage: ValueCallback<Uri>? = null
+    private var uploadMessageAboveL: ValueCallback<Array<Uri>>? = null
     lateinit var webView:WebView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,12 +48,46 @@ class MainActivity : AppCompatActivity()
         webView.settings.domStorageEnabled = true
         webView.settings.useWideViewPort = true
         webView.settings.builtInZoomControls = true
+        webView.settings.setGeolocationDatabasePath(applicationContext.filesDir.toString() )
         webView.webChromeClient = object : WebChromeClient() {
             override fun onGeolocationPermissionsShowPrompt(origin: String, callback: GeolocationPermissions.Callback) {
                 callback.invoke(origin, true, false)
                 super.onGeolocationPermissionsShowPrompt(origin, callback)
             }
+            // For Android < 3.0
+            fun openFileChooser(valueCallback: ValueCallback<Uri>) {
+                uploadMessage = valueCallback
+                openImageChooserActivity()
+            }
+
+            // For Android  >= 3.0
+            fun openFileChooser(valueCallback: ValueCallback<Uri>, acceptType: String) {
+                uploadMessage = valueCallback
+                openImageChooserActivity()
+            }
+
+            //For Android  >= 4.1
+            fun openFileChooser(
+                    valueCallback: ValueCallback<Uri>,
+                    acceptType: String,
+                    capture: String
+            ) {
+                uploadMessage = valueCallback
+                openImageChooserActivity()
+            }
+
+            // For Android >= 5.0
+            override fun onShowFileChooser(
+                    webView: WebView,
+                    filePathCallback: ValueCallback<Array<Uri>>,
+                    fileChooserParams: WebChromeClient.FileChooserParams
+            ): Boolean {
+                uploadMessageAboveL = filePathCallback
+                openImageChooserActivity()
+                return true
+            }
         }
+
 
         if (Build.VERSION.SDK_INT >= 23) {
             val checkPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
@@ -122,7 +159,52 @@ class MainActivity : AppCompatActivity()
 
 
 
+    private fun openImageChooserActivity() {
+        val i = Intent(Intent.ACTION_GET_CONTENT)
+        i.addCategory(Intent.CATEGORY_OPENABLE)
+        i.type = "image/*"
+        startActivityForResult(Intent.createChooser(i, "Image Chooser"), FILE_CHOOSER_RESULT_CODE)
+    }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == FILE_CHOOSER_RESULT_CODE) {
+            if (null == uploadMessage && null == uploadMessageAboveL) return
+            val result = if (data == null || resultCode != Activity.RESULT_OK) null else data.data
+            if (uploadMessageAboveL != null) {
+                onActivityResultAboveL(requestCode, resultCode, data)
+            } else if (uploadMessage != null) {
+                uploadMessage!!.onReceiveValue(result)
+                uploadMessage = null
+            }
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private fun onActivityResultAboveL(requestCode: Int, resultCode: Int, intent: Intent?) {
+        if (requestCode != FILE_CHOOSER_RESULT_CODE || uploadMessageAboveL == null)
+            return
+        var results: Array<Uri>? = null
+        if (resultCode == Activity.RESULT_OK) {
+            if (intent != null) {
+                val dataString = intent.dataString
+                val clipData = intent.clipData
+                if (clipData != null) {
+                    results = Array(clipData.itemCount){
+                        i -> clipData.getItemAt(i).uri
+                    }
+                }
+                if (dataString != null)
+                    results = arrayOf(Uri.parse(dataString))
+            }
+        }
+        uploadMessageAboveL!!.onReceiveValue(results)
+        uploadMessageAboveL = null
+    }
+
+    companion object {
+        private val FILE_CHOOSER_RESULT_CODE = 10000
+    }
 
 
 

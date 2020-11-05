@@ -10,21 +10,153 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="814a2666-3dab-414d-acc9-bcae1a573fb4" name="Default Changelist" comment="">
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/app.23389786.css" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/chunk-215a129a.92647ec0.css" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/chunk-276ff4c8.29d5f9c2.css" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/chunk-34573cba.b5e5b9d5.css" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/chunk-36d9b829.13783f5c.css" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/chunk-7a97058d.2c481de6.css" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/chunk-a78f11fc.8ea1887b.css" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/css/chunk-baf4dea6.5344998a.css" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/favicon.ico" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/circle.43fa547f.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/default-portrait.32fdb4f1.svg" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/egg1.8212cfcc.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/egg2.eca6b611.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/egg3.90f585f6.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/egg4.eee4e0c9.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/friend.56832ad6.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/icons/android-chrome-192x192.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/icons/android-chrome-512x512.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/icons/android-chrome-maskable-192x192.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/icons/android-chrome-maskable-512x512.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/icons/apple-touch-icon-120x120.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/icons/apple-touch-icon-152x152.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/icons/apple-touch-icon-180x180.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/icons/apple-touch-icon-60x60.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/icons/apple-touch-icon-76x76.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/icons/apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/icons/favicon-16x16.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/icons/favicon-32x32.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/icons/msapplication-icon-144x144.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/icons/mstile-150x150.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/icons/safari-pinned-tab.svg" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/location.d1247a47.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/map.6c42155c.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/myEgg.2b0e6732.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/refresh.808c4dfe.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/img/setting.3bdbc1e9.png" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/index.html" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/app.2cb99e62.js" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/app.2cb99e62.js.map" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-215a129a.8b0a8b80.js" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-215a129a.8b0a8b80.js.map" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-276ff4c8.9ec9596a.js" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-276ff4c8.9ec9596a.js.map" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-34573cba.ddab4929.js" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-34573cba.ddab4929.js.map" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-36d9b829.1146a89d.js" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-36d9b829.1146a89d.js.map" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-7a97058d.f39c0c1b.js" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-7a97058d.f39c0c1b.js.map" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-a78f11fc.0047140f.js" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-a78f11fc.0047140f.js.map" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-baf4dea6.d02e648c.js" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-baf4dea6.d02e648c.js.map" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-vendors.164eda52.js" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/js/chunk-vendors.164eda52.js.map" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/robots.txt" afterDir="false" />
+      <change afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/res/xml/network_security_config.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/css/app.23389786.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/css/chunk-215a129a.92647ec0.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/css/chunk-276ff4c8.29d5f9c2.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/css/chunk-34573cba.b5e5b9d5.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/css/chunk-36d9b829.13783f5c.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/css/chunk-7a97058d.2c481de6.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/css/chunk-a78f11fc.8ea1887b.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/css/chunk-baf4dea6.5344998a.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/circle.43fa547f.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/default-portrait.32fdb4f1.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/egg1.8212cfcc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/egg2.eca6b611.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/egg3.90f585f6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/egg4.eee4e0c9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/friend.56832ad6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/icons/android-chrome-192x192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/icons/android-chrome-512x512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/icons/android-chrome-maskable-192x192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/icons/android-chrome-maskable-512x512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/icons/apple-touch-icon-120x120.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/icons/apple-touch-icon-152x152.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/icons/apple-touch-icon-180x180.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/icons/apple-touch-icon-60x60.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/icons/apple-touch-icon-76x76.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/icons/apple-touch-icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/icons/favicon-16x16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/icons/favicon-32x32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/icons/msapplication-icon-144x144.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/icons/mstile-150x150.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/icons/safari-pinned-tab.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/location.d1247a47.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/map.6c42155c.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/myEgg.2b0e6732.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/refresh.808c4dfe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/img/setting.3bdbc1e9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/app.2cb99e62.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/app.2cb99e62.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/chunk-215a129a.8b0a8b80.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/chunk-215a129a.8b0a8b80.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/chunk-276ff4c8.9ec9596a.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/chunk-276ff4c8.9ec9596a.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/chunk-34573cba.ddab4929.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/chunk-34573cba.ddab4929.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/chunk-36d9b829.1146a89d.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/chunk-36d9b829.1146a89d.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/chunk-7a97058d.f39c0c1b.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/chunk-7a97058d.f39c0c1b.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/chunk-a78f11fc.0047140f.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/chunk-a78f11fc.0047140f.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/chunk-baf4dea6.d02e648c.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/chunk-baf4dea6.d02e648c.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/chunk-vendors.164eda52.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/js/chunk-vendors.164eda52.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/assets/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/xml/network_security_config.xml" afterDir="false" />
       <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/build.gradle" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/build.gradle" afterDir="false" />
-      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/build.gradle" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/build.gradle" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/homeMap.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/images/map/POS彩蛋猫.svg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/images/map/egg-1.svg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/images/map/egg-2.svg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/images/map/egg-3.svg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/styles/common.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/styles/map.css" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/assets/test.html" beforeDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/homeMap.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/images/map/POS彩蛋猫.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/images/map/egg-1.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/images/map/egg-2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/images/map/egg-3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/styles/common.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/styles/map.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/assets/test.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3a_API_30" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="ceedaa0e" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -72,6 +204,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Object" />
+        <option value="resourceFile" />
       </list>
     </option>
   </component>
@@ -233,30 +366,34 @@
       <screen x="0" y="28" width="1366" height="740" />
     </state>
     <state x="416" y="144" width="524" height="503" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.28.1366.740@0.28.1366.740" timestamp="1603014253194" />
-    <state width="1312" height="272" key="GridCell.Tab.0.bottom" timestamp="1603028683963">
+    <state x="266" y="156" width="824" height="480" key="AndroidCreateResourceDirectoryDialog" timestamp="1604561613573">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="272" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1603028683963" />
-    <state width="1312" height="272" key="GridCell.Tab.0.center" timestamp="1603028683963">
+    <state x="266" y="156" width="824" height="480" key="AndroidCreateResourceDirectoryDialog/0.28.1366.740@0.28.1366.740" timestamp="1604561613573" />
+    <state width="1312" height="202" key="GridCell.Tab.0.bottom" timestamp="1604564716543">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="272" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1603028683963" />
-    <state width="1312" height="272" key="GridCell.Tab.0.left" timestamp="1603028683962">
+    <state width="1312" height="202" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1604564716543" />
+    <state width="1312" height="202" key="GridCell.Tab.0.center" timestamp="1604564716543">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="272" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1603028683962" />
-    <state width="1312" height="272" key="GridCell.Tab.0.right" timestamp="1603028683963">
+    <state width="1312" height="202" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1604564716543" />
+    <state width="1312" height="202" key="GridCell.Tab.0.left" timestamp="1604564716542">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="272" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1603028683963" />
+    <state width="1312" height="202" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1604564716542" />
+    <state width="1312" height="202" key="GridCell.Tab.0.right" timestamp="1604564716543">
+      <screen x="0" y="28" width="1366" height="740" />
+    </state>
+    <state width="1312" height="202" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1604564716543" />
     <state x="164" y="33" key="SettingsEditor" timestamp="1603016506639">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
     <state x="164" y="33" key="SettingsEditor/0.28.1366.740@0.28.1366.740" timestamp="1603016506639" />
-    <state x="100" y="128" width="1166" height="540" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1602985131168">
+    <state x="100" y="128" width="1166" height="540" key="com.android.tools.idea.avdmanager.AvdListDialog" timestamp="1604562104460">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state x="100" y="128" width="1166" height="540" key="com.android.tools.idea.avdmanager.AvdListDialog/0.28.1366.740@0.28.1366.740" timestamp="1602985131168" />
+    <state x="100" y="128" width="1166" height="540" key="com.android.tools.idea.avdmanager.AvdListDialog/0.28.1366.740@0.28.1366.740" timestamp="1604562104460" />
     <state x="158" y="83" width="1208" height="630" key="find.popup" timestamp="1603028653598">
       <screen x="0" y="28" width="1366" height="740" />
     </state>

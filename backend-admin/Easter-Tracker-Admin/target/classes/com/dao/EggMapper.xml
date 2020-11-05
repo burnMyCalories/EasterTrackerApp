@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2020.  EasterTracker App
+  ~ Group: Burn My Calories
+  ~ Author: Binbin Tang , Jia Zhu , Quan Zhou , Weilun Chen , Xinnan Shen , and Zongdong Liu
+  ~ Project 2 for COMP90018, 2020 S2
+  ~ Time: 2020/10/22 23:24.
+  ~ Usage: implementations of operations on egg
+  -->
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dao.EggMapper">
+<!--    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>-->
+    <cache type="com.util.RedisCacheUtils"/>
+    <insert id="addEgg" parameterType="map">
+        insert into `Egg`(`id`,`name`,`color`,`type`,`latitude`,`longitude`,`content`,`expire_time`) values (#{id},#{name},#{color},#{type},#{latitude},#{longitude},#{content},#{expire_time});
+    </insert>
+    <delete id="delEgg" parameterType="map">
+        delete from `Egg`
+        <where>
+            <if test="id!=null">
+                `id`=#{id}
+            </if>
+            <if test="name!=null">
+                and `name`=#{name}
+            </if>
+        </where>
+    </delete>
+    <update id="updateEgg" parameterType="map">
+        update `Egg` set `name`=#{name},`color`=#{color},`type`=#{type},`latitude`=#{latitude},`longitude`=#{longitude},`content`=#{content},`expire_time`=#{expire_time},`update_time`=NOW(),`version`=`version`+1,`is_deleted`=#{is_deleted} where id=#{id};
+    </update>
+    <select id="queryEgg" parameterType="map" resultType="Egg">
+        select `id`,`name`,`color`,`type`,`latitude`,`longitude`,`content`,`expire_time`,`is_deleted` from `Egg`
+        <where>
+            <if test="id!=null">
+                `id`=#{id}
+            </if>
+            <if test="name!=null">
+                and `name`=#{name}
+            </if>
+            <if test="color!=null">
+                and `color`=#{color}
+            </if>
+            <if test="type!=null">
+                and `type`=#{type}
+            </if>
+            <if test="latitude!=null">
+                and latitude=#{latitude}
+            </if>
+            <if test="longitude!=null">
+                and longitude=#{longitude}
+            </if>
+
+        </where>
+    </select>
+</mapper>
