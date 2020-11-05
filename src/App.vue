@@ -26,6 +26,9 @@ export default {
   margin-top: 1rem;
   margin-bottom: 3rem;
 }
+.my-container .title.lg {
+  margin-top: 3rem;
+}
 .icon-btn {
   border: none;
   background: transparent;

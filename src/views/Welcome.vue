@@ -1,6 +1,6 @@
 <template>
   <div id="welcome" class="my-container">
-    <h1 class="title">Welcome</h1>
+    <h1 class="title lg">Welcome</h1>
     <div id="form-containter">
       <form class="loginForm" action="">
         <div class="form-group">

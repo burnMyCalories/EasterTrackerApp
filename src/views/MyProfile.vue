@@ -33,8 +33,9 @@
     <button @click="logout" class="btn btn-outline-primary btn-block">Add Friend</button>
     <button @click="editProfile()" class="btn btn-outline-primary btn-block">Edit Profile</button>
     <button @click="logout" class="btn btn-outline-primary btn-block">Change Password</button>
-    <button @click="logout" class="btn btn-outline-primary btn-block">About</button>
+    <button @click="showAbout()" class="btn btn-outline-primary btn-block">About</button>
     <button @click="logout" class="btn btn-link btn-block mt-5">Log Out</button>
+
   </div>
 </template>
 
@@ -77,6 +78,9 @@ export default {
     editProfile () {
       this.$store.commit('editProfile')
       this.$router.push('/addProfile')
+    },
+    showAbout () {
+      this.$store.commit('showAbout', true)
     }
   }
 }

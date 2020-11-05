@@ -26,16 +26,15 @@
             <button class="btn btn-light" @click="close()">Ignore it</button>
           </div>
           <div class="modal-body" v-if="eggIsMine || (!eggIsMine && !eggExpire && !eggNotChecked)">
-            <div class="form-group">
-              <img class="img img-thumbnail rounded-circle egg-img" :src="imgsrc" alt="">
-              <i class="fas fa-plus"></i>
-              <img class="img img-thumbnail rounded-circle egg-img" src="../../static/egg&shell/egg/egg2.png" alt="">
-              <i class="fas fa-equals"></i>
+            <div class="form-group egg-info">
               <span>
-                <span>{{firedEgg.user.nickname || firedEgg.user.username}}'s</span>
-                <span><small>{{eggTypeStr[firedEgg.type]}} Egg</small></span>
+                <h4>{{firedEgg.user.nickname || firedEgg.user.username}}'s</h4>
+                <span class="egg-type">{{eggTypeStr[firedEgg.type]}} Egg</span>
               </span>
-              <i class="fas fa-exclamation"></i>
+              <div class="img-group">
+                <img class="img img-thumbnail rounded-circle egg-img" :src="porURL + firedEgg.user.id + '_portrait.jpg'" @error="imgNotFound($event)" alt="">
+                <img class="img img-thumbnail rounded-circle egg-img" :src="eggURL + firedEgg.type+'.png'" alt="">
+              </div>
             </div>
             <div class="form-group">
               <label for="">Egg Title</label>
@@ -48,9 +47,11 @@
             <div class="form-group">
               <label for="">Content</label>
               <textarea class="form-control" disabled :value="firedEgg.content" v-if="firedEgg.type===1"></textarea>
-              <audio class="form-control" controls :src="firedEgg.content" v-if="firedEgg.type===2"></audio>
-              <video class="form-control" controls :src="firedEgg.content" v-if="firedEgg.type===4"></video>
-              <img :src="firedEgg.content" alt="" v-if="firedEgg.type===3">
+              <div class="media-box" v-if="firedEgg.type !== 1">
+                <audio controls :src="firedEgg.content" v-if="firedEgg.type===2"></audio>
+                <video controls :src="firedEgg.content" v-if="firedEgg.type===4"></video>
+                <img :src="firedEgg.content" alt="" v-if="firedEgg.type===3">
+              </div>
             </div>
           </div>
 
@@ -69,20 +70,11 @@ export default {
     return {}
   },
   mounted () {
-    const _this = this
     this.show = this.$store.state.firedEgg !== null
     this.myName = this.$store.state.currentUser.username
 
     if (this.firedEgg) {
-      // this.eggIsMine = this.myName === this.firedEgg.user.username
       this.eggExpire = new Date() > new Date(this.firedEgg.expire_time)
-
-      console.log('TEST')
-      this.axios.get(`/files/${this.firedEgg.user.id}_portrait.jpg`).then(res => {
-        _this.imgsrc = `${process.env.VUE_APP_HOST}/files/${this.firedEgg.user.id}_portrait.jpg`
-      }).catch(err => {
-        console.log(err)
-      })
     }
   },
   computed: {
@@ -132,10 +124,17 @@ export default {
         3: 'Image',
         4: 'Video'
       },
-      imgsrc: require('../assets/portraits/default-portrait.svg')
+      defaultPortrait: require('../assets/portraits/default-portrait.svg'),
+      eggURL: `${process.env.VUE_APP_STATIC}/icon/egg`,
+      porURL: `${process.env.VUE_APP_HOST}/files/`
     }
   },
   methods: {
+    imgNotFound (event) {
+      const img = event.srcElement
+      img.src = this.defaultPortrait
+      img.onerror = null
+    },
     close () {
       this.$store.commit('resetFiredEgg')
     },
@@ -186,5 +185,38 @@ export default {
     width: 4rem;
     height: 4rem;
     object-fit: contain;
+    box-shadow: 1px 1px 3px #b5b5b5;
+  }
+  .egg-img:first-child {
+    position: relative;
+    left: 1.5rem;
+  }
+  .form-group.egg-info {
+    display: flex;
+    justify-content: space-between;
+  }
+  .egg-info .egg-type {
+    color: #999999;
+  }
+  .media-box {
+    width: 100%;
+    min-height: 3rem;
+    max-height: 12rem;
+    display: flex;
+    justify-content: center;
+    border: 0.1rem solid #ccc;
+    border-radius: 0.3rem;
+  }
+  .media-box img {
+    object-fit: contain;
+  }
+  .media-box video {
+    width: 100%;
+  }
+  .media-box audio {
+    width: 100%;
+    background: #f0f3f4;
+    border-radius: 0.3rem;
+    /* border: 0.1rem solid #ccc; */
   }
 </style>

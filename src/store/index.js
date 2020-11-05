@@ -18,7 +18,8 @@ export default createStore({
     myEggs: [],
     othersEggs: [],
     firedEgg: null,
-    isEditProfile: false
+    isEditProfile: false,
+    showAbout: false
   },
   mutations: {
     login (state, data) {
@@ -89,6 +90,9 @@ export default createStore({
     },
     findAnEgg (state) {
       state.firedEgg.eggNotChecked = true
+    },
+    showAbout (state, show) {
+      state.showAbout = show
     }
   },
   actions: {

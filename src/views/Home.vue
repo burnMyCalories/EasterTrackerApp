@@ -3,21 +3,28 @@
     <router-view class="container"/>
     <Map class="map" />
     <Navbar class="navbar"/>
+    <About class="my-container about" v-if="showAbout"/>
   </div>
 </template>
 
 <script>
 import Map from '@/components/Map.vue'
 import Navbar from '@/components/Navbar.vue'
+import About from '@/views/About.vue'
 
 export default {
   name: 'Home',
   components: {
-    Map, Navbar
+    Map, Navbar, About
   },
   data () {
     return {
       firedEgg: ''
+    }
+  },
+  computed: {
+    showAbout () {
+      return this.$store.state.showAbout
     }
   },
   mounted () {
@@ -47,5 +54,10 @@ export default {
   align-items: center;
   justify-content: space-between;
   z-index: 1000;
+}
+.about.my-container {
+  background: hsla(0, 0%, 100%, .75);
+  backdrop-filter: blur(5px);
+  z-index: 1001;
 }
 </style>

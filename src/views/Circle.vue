@@ -253,7 +253,7 @@ export default {
   height: 5rem;
   padding: 0.7rem;
   margin-bottom: 0.7rem;
-  border-radius: 0.2rem;
+  border-radius: 0.3rem;
 }
 .info-list li .left {
   display: flex;
