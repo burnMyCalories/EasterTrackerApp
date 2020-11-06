@@ -75,13 +75,15 @@ export default {
       /* eslint-disable */
       // Create the script tag, set the appropriate attributes
       const _this = this
-      // if (!window.google) {
-      var script = document.createElement('script')
-      const url = `https://maps.googleapis.com/maps/api/js?key=${process.env.VUE_APP_GOOGLE_MAP_KEY}&libraries=geometry&callback=initMap`
-      // console.log(process.env, url)
-      script.src = url
-      script.defer = true
-      // }
+      const googleIsLoaded = document.getElementById('google_map_is') !== null
+      if (!googleIsLoaded) {
+        var script = document.createElement('script')
+        script.id = 'google_map_js'
+        const url = `https://maps.googleapis.com/maps/api/js?key=${process.env.VUE_APP_GOOGLE_MAP_KEY}&libraries=geometry&callback=initMap`
+        // console.log(process.env, url)
+        script.src = url
+        script.defer = true
+      }
 
       
 
@@ -112,7 +114,9 @@ export default {
       }
 
       // Append the 'script' element to 'head'
-      document.head.appendChild(script)
+      if (!googleIsLoaded && script) {
+        document.head.appendChild(script)
+      }
       this.$store.commit('loadMap')
       /* eslint-disable */
     },

@@ -38,7 +38,7 @@
               <div class="tools">
                 <button @click="detailEgg(egg)" v-if="choosenSection !== 3"><i class="fas fa-info"></i></button>
                 <button @click="showEgg(egg)"><i class="fas fa-map-marker-alt"></i></button>
-                <button @click="deleteEgg(egg)" v-if="choosenSection === 1"><i class="fas fa-trash-alt"></i></button>
+                <!-- <button @click="deleteEgg(egg)" v-if="choosenSection === 1"><i class="fas fa-trash-alt"></i></button> -->
               </div>
             </li>
           </ul>

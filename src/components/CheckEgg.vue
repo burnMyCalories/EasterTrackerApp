@@ -56,6 +56,14 @@
           </div>
 
           <div class="modal-footer" v-if="!eggNotChecked">
+            <div class="delete" v-if="eggIsMine">
+              <button type="button" class="btn btn-link" v-if="!confirmDelete" @click="confirmDelete = true"><i class="fas fa-trash-alt"></i></button>
+              <span class="delete-confirm" v-if="confirmDelete">
+                Confirm Delete?
+                <button class="btn btn-outline-danger btn-sm ml-1" @click="deleteEgg()" :disabled="isDeleting">Delete</button>
+                <button class="btn btn-outline-primary btn-sm ml-1" @click="confirmDelete = false" :disabled="isDeleting">Cancel</button>
+              </span>
+            </div>
             <button type="button" class="btn btn-link" data-dismiss="modal" @click="close()">OK</button>
           </div>
         </div>
@@ -126,7 +134,9 @@ export default {
       },
       defaultPortrait: require('../assets/portraits/default-portrait.svg'),
       eggURL: `${process.env.VUE_APP_STATIC}/icon/egg`,
-      porURL: `${process.env.VUE_APP_HOST}/files/`
+      porURL: `${process.env.VUE_APP_HOST}/files/`,
+      confirmDelete: false,
+      isDeleting: false
     }
   },
   methods: {
@@ -137,6 +147,7 @@ export default {
     },
     close () {
       this.$store.commit('resetFiredEgg')
+      this.confirmDelete = false
     },
     check () {
       const _this = this
@@ -164,6 +175,37 @@ export default {
         })
       }).catch(err => {
         console.log(err)
+      })
+    },
+    deleteEgg () {
+      console.log('delete')
+      const _this = this
+      this.isDeleting = true
+      const egg = this.firedEgg
+      const query = `/action?action=1&egg_id=${egg.id}&user_id=${egg.user.id}&uuname=${egg.user.username}`
+      this.$store.commit('updateAlert', {
+        msg: 'Deleting your egg...',
+        type: 'primary',
+        sync: true
+      })
+      this.axios.delete(query).then(res => {
+        console.log(res)
+        this.axios.delete(`/egg?uuname=${egg.user.username}&id=${egg.id}&name=${egg.name}`)
+          .then(res => {
+            console.log(res)
+            this.$store.commit('updateAlert', {
+              msg: 'Your egg successfully deleted!',
+              type: 'success'
+            })
+            _this.close()
+          })
+      }).catch(_err => {
+        _this.$store.commit('updateAlert', {
+          msg: 'Deleting Error!',
+          type: 'danger'
+        })
+      }).finally(() => {
+        _this.isDeleting = false
       })
     }
   }
@@ -218,5 +260,11 @@ export default {
     background: #f0f3f4;
     border-radius: 0.3rem;
     /* border: 0.1rem solid #ccc; */
+  }
+  .modal-footer .delete {
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    align-items: center;
   }
 </style>
