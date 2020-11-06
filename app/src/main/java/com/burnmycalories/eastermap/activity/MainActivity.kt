@@ -1,12 +1,3 @@
-<<<<<<< Updated upstream
-/*
-* Author: Xinnan Shen
-* Date: 18-10-2020
-* Usage: Main Activity of Application
-*/
-
-=======
->>>>>>> Stashed changes
 package com.burnmycalories.eastermap.activity
 
 import android.Manifest
@@ -20,6 +11,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
+import android.view.KeyEvent
 import android.view.View
 import android.view.WindowManager
 import android.webkit.*
@@ -236,10 +228,7 @@ class MainActivity : AppCompatActivity() {
                 startWebView(webView)
             }
         }
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 }
 
     fun startWebView(wview: WebView) {
@@ -463,9 +452,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-<<<<<<< Updated upstream
 
-=======
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
 
         return if (keyCode == KeyEvent.KEYCODE_BACK && webView.canGoBack()) {
@@ -477,6 +464,6 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
->>>>>>> Stashed changes
+
 
 }
