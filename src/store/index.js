@@ -217,7 +217,6 @@ export default createStore({
             _this.commit('resetAlert')
           })
       }
-
     }
   },
   modules: {
