@@ -10,6 +10,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.app.Activity
+import android.content.ClipData
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
@@ -19,10 +20,10 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.webkit.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.ContextCompat
 import com.burnmycalories.eastermap.R
 import java.io.File
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     var ASWP_ONLYCAM = false // incase you want only camera files to upload
     private var asw_pcam_message: String? = null
     private var asw_vcam_message: kotlin.String? = null
-    private val asw_file_message: ValueCallback<Uri>? = null
+    private var asw_file_message: ValueCallback<Uri>? = null
     private var asw_file_path: ValueCallback<Array<Uri>>? = null
     private val asw_file_req = 1
 
@@ -53,6 +54,8 @@ class MainActivity : AppCompatActivity() {
     private var uploadMessage: ValueCallback<Uri>? = null
     private var uploadMessageAboveL: ValueCallback<Array<Uri>>? = null
     lateinit var webView: WebView
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main);
@@ -92,7 +95,7 @@ class MainActivity : AppCompatActivity() {
                     filePathCallback: ValueCallback<Array<Uri>>,
                     fileChooserParams: WebChromeClient.FileChooserParams): Boolean {
                 return if (check_permission(2) && check_permission(3)) {
-//                    if (ASWP_FUPLOAD) {
+                    if (ASWP_FUPLOAD) {
                         asw_file_path = filePathCallback
                         var takePictureIntent: Intent? = null
                         var takeVideoIntent: Intent? = null
@@ -112,8 +115,8 @@ class MainActivity : AppCompatActivity() {
                                             includeVideo = true
                                             break@paramCheck
                                         }
-                                        "image/*" -> includePhoto = true
-                                        "video/*" -> includeVideo = true
+                                        "image/jpg" -> includePhoto = true
+                                        "video/mp4" -> includeVideo = true
                                     }
                                 }
                             }
@@ -123,7 +126,8 @@ class MainActivity : AppCompatActivity() {
                                 includePhoto = true
                                 includeVideo = true
                             }
-                            includeVideo = true
+
+//                            includePhoto = true
                             if (includePhoto) {
                                 takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                                 if (takePictureIntent.resolveActivity(this@MainActivity.packageManager) != null) {
@@ -142,6 +146,7 @@ class MainActivity : AppCompatActivity() {
                                     }
                                 }
                             }
+
                             if (includeVideo) {
                                 takeVideoIntent = Intent(MediaStore.ACTION_VIDEO_CAPTURE)
                                 if (takeVideoIntent.resolveActivity(this@MainActivity.packageManager) != null) {
@@ -181,18 +186,17 @@ class MainActivity : AppCompatActivity() {
 
                         val chooserIntent = Intent(Intent.ACTION_CHOOSER)
                         chooserIntent.putExtra(Intent.EXTRA_INTENT, contentSelectionIntent)
-                        chooserIntent.putExtra(Intent.EXTRA_TITLE, "File choser")
+                        chooserIntent.putExtra(Intent.EXTRA_TITLE, "File Chooser")
                         chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intentArray)
                         startActivityForResult(chooserIntent, asw_file_req)
-//                    }
-                    true
+                    }
+                true
                 } else {
                     get_file()
-                    false
+                false
                 }
             }
         }
-
 
 
         if (Build.VERSION.SDK_INT >= 23) {
@@ -231,8 +235,11 @@ class MainActivity : AppCompatActivity() {
 //        return super.onCreateView(name, context, attrs)
 //    }
 
-    override fun onRequestPermissionsResult(requestCode: Int,
-                                            permissions: Array<String>, grantResults: IntArray) {
+
+    override fun onRequestPermissionsResult(
+            requestCode: Int,
+            permissions: Array<String>,
+            grantResults: IntArray) {
         when (requestCode) {
             1 -> {
 
@@ -244,11 +251,7 @@ class MainActivity : AppCompatActivity() {
                     startWebView(webView)
 
                 } else {
-                    // Explain to the user that the feature is unavailable because
-                    // the features requires a permission that the user has denied.
-                    // At the same time, respect the user's decision. Don't link to
-                    // system settings in an effort to convince the user to change
-                    // their decision.
+
                     System.exit(0)
                 }
                 return
@@ -261,6 +264,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
 
 
 
@@ -279,7 +284,7 @@ class MainActivity : AppCompatActivity() {
     private fun openImageChooserActivity() {
         val i = Intent(Intent.ACTION_GET_CONTENT)
         i.addCategory(Intent.CATEGORY_OPENABLE)
-        i.type = "image/*"
+        i.type = "image/jpg"
         startActivityForResult(Intent.createChooser(i, "Image Chooser"), FILE_CHOOSER_RESULT_CODE)
     }
 
@@ -298,7 +303,7 @@ class MainActivity : AppCompatActivity() {
         @SuppressLint("SimpleDateFormat") val file_name = SimpleDateFormat("yyyy_mm_ss").format(Date())
         val new_name = "file_" + file_name + "_"
         val sd_directory = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        return File.createTempFile(new_name, ".3gp", sd_directory)
+        return File.createTempFile(new_name, ".mp4", sd_directory)
     }
 
 
@@ -320,7 +325,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 //--------------------------------------------------------------------------------------------------
-
+/*
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == FILE_CHOOSER_RESULT_CODE) {
@@ -334,6 +339,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private fun onActivityResultAboveL(requestCode: Int, resultCode: Int, intent: Intent?) {
@@ -357,8 +363,71 @@ class MainActivity : AppCompatActivity() {
         uploadMessageAboveL = null
     }
 
+
+ */
+
+
     companion object {
         private val FILE_CHOOSER_RESULT_CODE = 10000
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
+        super.onActivityResult(requestCode, resultCode, intent)
+        if (Build.VERSION.SDK_INT >= 21) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+//            window.statusBarColor = resources.getColor(R.color.colorPrimary)
+            var results: Array<Uri>? = null
+            if (resultCode == RESULT_CANCELED) {
+                if (requestCode == asw_file_req) {
+                    // If the file request was cancelled (i.e. user exited camera),
+                    // we must still send a null value in order to ensure that future attempts
+                    // to pick files will still work.
+                    asw_file_path!!.onReceiveValue(null)
+                    return
+                }
+            }
+            if (resultCode == RESULT_OK) {
+                if (requestCode == asw_file_req) {
+                    if (null == asw_file_path) {
+                        return
+                    }
+                    var clipData: ClipData?
+                    var stringData: String?
+                    try {
+                        clipData = intent!!.clipData
+                        stringData = intent.dataString
+                    } catch (e: Exception) {
+                        clipData = null
+                        stringData = null
+                    }
+                    if (clipData == null && stringData == null && (asw_pcam_message != null || asw_vcam_message != null)) {
+                        results = arrayOf(Uri.parse(if (asw_pcam_message != null) asw_pcam_message else asw_vcam_message))
+                    } else {
+                        if (null != clipData) { // checking if multiple files selected or not
+                            results = Array(clipData.itemCount) { i ->
+                                clipData.getItemAt(i).uri
+                            }
+                            // checking if multiple files selected or not
+                            for (i in 0 until clipData.itemCount) {
+                                results[i] = clipData.getItemAt(i).uri
+                            }
+                        } else {
+                            results = arrayOf(Uri.parse(stringData))
+                        }
+                    }
+                }
+            }
+            asw_file_path!!.onReceiveValue(results)
+            asw_file_path = null
+        } else {
+            if (requestCode == asw_file_req) {
+                if (null == asw_file_message) return
+                val result = if (intent == null || resultCode != RESULT_OK) null else intent.data
+                asw_file_message!!.onReceiveValue(result)
+                asw_file_message = null
+            }
+        }
+    }
+
 
 }
