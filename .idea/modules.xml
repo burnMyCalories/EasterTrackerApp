@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< Updated upstream
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/EGG.EasterTrackerApp.iml" filepath="$PROJECT_DIR$/.idea/modules/EGG.EasterTrackerApp.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/EasterTrackerApp.iml" filepath="$PROJECT_DIR$/.idea/modules/EasterTrackerApp.iml" />
+>>>>>>> Stashed changes
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/EasterTrackerApp.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/EasterTrackerApp.app.iml" />
     </modules>
   </component>
