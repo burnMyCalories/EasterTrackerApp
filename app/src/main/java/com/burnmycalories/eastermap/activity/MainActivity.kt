@@ -1,12 +1,16 @@
 /*
-* Author: Xinnan Shen
-* Date: 18-10-2020
-* Usage: Main Activity of Application
+* Copyright (c) 2020.  EasterTracker App
+* Group: Burn My Calories
+* Author: Binbin Tang , Jia Zhu , Quan Zhou , Weilun Chen , Xinnan Shen , and Zongdong Liu
+* Project 2 for COMP90018, 2020 S2
+* Time: 2020/10/22 23:24.
+* Usage: implementations of operations on egg
 */
 
 package com.burnmycalories.eastermap.activity
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.app.Activity
 import android.content.Context
@@ -24,19 +28,21 @@ import androidx.core.content.ContextCompat
 import com.burnmycalories.eastermap.R
 
 
+
 class MainActivity : AppCompatActivity()
 {
+
 
 
     val url = "file:////android_asset/index.html"
     private var uploadMessage: ValueCallback<Uri>? = null
     private var uploadMessageAboveL: ValueCallback<Array<Uri>>? = null
     lateinit var webView:WebView
+    @SuppressLint("JavascriptInterface")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main);
-        val wview: WebView
-        wview = findViewById<View>(R.id.webView) as WebView
+        val wview: WebView = findViewById<View>(R.id.webView) as WebView
         webView=wview
         webView.settings.javaScriptEnabled = true
         webView.settings.javaScriptCanOpenWindowsAutomatically = true
@@ -49,6 +55,8 @@ class MainActivity : AppCompatActivity()
         webView.settings.useWideViewPort = true
         webView.settings.builtInZoomControls = true
         webView.settings.setGeolocationDatabasePath(applicationContext.filesDir.toString() )
+        webView.settings.setPluginState(WebSettings.PluginState.ON);
+        webView.settings.mediaPlaybackRequiresUserGesture = false
         webView.webChromeClient = object : WebChromeClient() {
             override fun onGeolocationPermissionsShowPrompt(origin: String, callback: GeolocationPermissions.Callback) {
                 callback.invoke(origin, true, false)
@@ -91,18 +99,17 @@ class MainActivity : AppCompatActivity()
 
 
         if (Build.VERSION.SDK_INT >= 23) {
-//            val checkPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED||ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED||ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-                println("Need geolocation")
-//                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION), 1)
-//                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 1)
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO), 1)
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED||ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED||ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                println("Need permission")
+                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE), 1)
             } else {
                 println("Success")
                 startWebView(webView)
             }
         }
-
+        else{
+            startWebView(webView)
+        }
 
     }
 
@@ -112,15 +119,11 @@ class MainActivity : AppCompatActivity()
             override fun onPageFinished(view: WebView, url: String) {
                 super.onPageFinished(view, url)
                 println("Test")
-//                wview.post {
-//                    wview.loadUrl("javascript:initialize()")
-//                }
+
             }
         })
 
-//        wview.post {
-//            wview.loadUrl("javascript:clickJS2()")
-//        }
+
     }
 
     override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
@@ -207,6 +210,8 @@ class MainActivity : AppCompatActivity()
     companion object {
         private val FILE_CHOOSER_RESULT_CODE = 10000
     }
+
+
 
 
 
