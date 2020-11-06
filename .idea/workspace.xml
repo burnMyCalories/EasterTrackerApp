@@ -9,7 +9,14 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="814a2666-3dab-414d-acc9-bcae1a573fb4" name="Default Changelist" comment="" />
+    <list default="true" id="814a2666-3dab-414d-acc9-bcae1a573fb4" name="Default Changelist" comment="">
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" beforeDir="false" afterPath="$USER_HOME$/OneDrive/mster-cs/COMP90018-Mobile/assignments/2/EasterTrackerApp/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/burnmycalories/eastermap/activity/MainActivity.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -240,22 +247,22 @@
       <screen x="0" y="28" width="1366" height="740" />
     </state>
     <state x="266" y="156" width="824" height="480" key="AndroidCreateResourceDirectoryDialog/0.28.1366.740@0.28.1366.740" timestamp="1604561613573" />
-    <state width="1312" height="222" key="GridCell.Tab.0.bottom" timestamp="1604646276759">
+    <state width="1312" height="225" key="GridCell.Tab.0.bottom" timestamp="1604649568727">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="222" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1604646276759" />
-    <state width="1312" height="222" key="GridCell.Tab.0.center" timestamp="1604646276758">
+    <state width="1312" height="225" key="GridCell.Tab.0.bottom/0.28.1366.740@0.28.1366.740" timestamp="1604649568727" />
+    <state width="1312" height="225" key="GridCell.Tab.0.center" timestamp="1604649568727">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="222" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1604646276758" />
-    <state width="1312" height="222" key="GridCell.Tab.0.left" timestamp="1604646276758">
+    <state width="1312" height="225" key="GridCell.Tab.0.center/0.28.1366.740@0.28.1366.740" timestamp="1604649568727" />
+    <state width="1312" height="225" key="GridCell.Tab.0.left" timestamp="1604649568726">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="222" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1604646276758" />
-    <state width="1312" height="222" key="GridCell.Tab.0.right" timestamp="1604646276758">
+    <state width="1312" height="225" key="GridCell.Tab.0.left/0.28.1366.740@0.28.1366.740" timestamp="1604649568726" />
+    <state width="1312" height="225" key="GridCell.Tab.0.right" timestamp="1604649568727">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
-    <state width="1312" height="222" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1604646276758" />
+    <state width="1312" height="225" key="GridCell.Tab.0.right/0.28.1366.740@0.28.1366.740" timestamp="1604649568727" />
     <state x="164" y="33" key="SettingsEditor" timestamp="1603016506639">
       <screen x="0" y="28" width="1366" height="740" />
     </state>
