@@ -20,13 +20,22 @@ export default {
   backdrop-filter: blur(5px);
   padding: 0 2rem;
 }
+.navbar a {
+  text-decoration: none !important;
+}
+.navbar a.router-link-exact-active .btn{
+  font-weight: bold;
+  color: #007bff;
+}
 .btn:focus,
 .btn:active:focus,
 .btn.active:focus,
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: none；
+  outline: none;
+  box-shadow: none;
+  text-decoration: none !important;
 }
 .navbar button:focus, .navbar button:active, .navbar a:active, .navbar a:focus {
   outline: none !important;
@@ -37,6 +46,8 @@ export default {
   flex-direction: column;
   align-items: center;
   font-size: 0.9rem;
+  text-decoration: none !important;
+  color: #9e9e9e;
 }
 .navbar button .icon {
   width: 2rem;

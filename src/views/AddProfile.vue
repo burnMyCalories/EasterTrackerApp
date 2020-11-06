@@ -155,6 +155,11 @@ export default {
       const user = this.userdata
       const gender = this.gender
       const nickname = this.nickname
+      this.$store.commit('updateAlert', {
+        msg: 'Uploading your profile...',
+        type: 'primary',
+        sync: true
+      })
       if (gender && nickname) {
         this.axios.put('/user', null, {
           params: {
@@ -166,12 +171,20 @@ export default {
         }).then(res => {
           console.log(res)
           const user = res.data.result.data[0]
+          this.$store.commit('updateAlert', {
+            msg: 'Your profile uploaded successfully!',
+            type: 'success'
+          })
           _this.$store.commit('updateProfile', user)
+          this.skip()
         }).catch(err => {
           console.log(err)
+          this.$store.commit('updateAlert', {
+            msg: 'Oops! Something bad happend, please tra again.',
+            type: 'danger'
+          })
         })
       }
-      this.skip()
     },
     skip () {
       if (!this.isEditProfile) {

@@ -6,6 +6,7 @@ import store from './store'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 import './styles/common.css'
+import '@/styles/font.scss'
 
 axios.defaults.baseURL = process.env.VUE_APP_HOST
 const app = createApp(App)

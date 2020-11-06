@@ -54,7 +54,7 @@ export default {
     return {
       hideEggWindow: false,
       showMyEgg: true,
-      showOthers: false,
+      showOthers: true,
       myMarkers: [],
       otherMarkers: [],
       username: '',

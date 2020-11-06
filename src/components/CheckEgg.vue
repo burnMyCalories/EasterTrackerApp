@@ -251,6 +251,7 @@ export default {
   }
   .media-box img {
     object-fit: contain;
+    width: 100%;
   }
   .media-box video {
     width: 100%;

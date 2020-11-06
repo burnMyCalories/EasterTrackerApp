@@ -30,11 +30,11 @@
         <i class="fas fa-user-friends"></i> My Friends {{}}
       </button>
     </div> -->
-    <button @click="logout" class="btn btn-outline-primary btn-block">Add Friend</button>
-    <button @click="editProfile()" class="btn btn-outline-primary btn-block">Edit Profile</button>
-    <button @click="logout" class="btn btn-outline-primary btn-block">Change Password</button>
-    <button @click="showAbout()" class="btn btn-outline-primary btn-block">About</button>
-    <button @click="logout" class="btn btn-link btn-block mt-5">Log Out</button>
+    <button @click="logout" class="btn btn-light btn-block">Add Friend</button>
+    <button @click="editProfile()" class="btn btn-light btn-block">Edit Profile</button>
+    <button @click="logout" class="btn btn-light btn-block">Change Password</button>
+    <button @click="showAbout()" class="btn btn-light btn-block">About</button>
+    <button @click="logout" class="btn btn-light btn-block mt-5">Log Out</button>
 
   </div>
 </template>

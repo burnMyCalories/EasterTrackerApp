@@ -236,6 +236,7 @@ export default {
 <style scoped>
 .egg-window textarea {
   resize: none;
+  height: 7rem;
 }
 .egg-window .modal {
   display: flex;

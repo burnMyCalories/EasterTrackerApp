@@ -5,15 +5,15 @@
 
       <div class="top">
         <div class="form-group">
-          <label for="sectionRadios1" name="sectionRadios" class="btn btn-outline-primary" :class="{active: choosenSection === 1}" @click="updateMyEggs()">
+          <label for="sectionRadios1" name="sectionRadios" class="btn btn-light" :class="{active: choosenSection === 1}" @click="updateMyEggs()">
             <img class="icon" src="../../static/icons/myEgg.png" alt=""> My Eggs</label>
-          <label for="sectionRadios2" name="sectionRadios" class="btn btn-outline-primary" :class="{active: choosenSection === 2}" @click="updateFound()">
+          <label for="sectionRadios2" name="sectionRadios" class="btn btn-light" :class="{active: choosenSection === 2}" @click="updateFound()">
             <img class="icon" src="../../static/icons/foundEggs.png" alt=""> Found Eggs</label>
         </div>
         <div class="form-group">
-          <label for="sectionRadios3" name="sectionRadios" class="btn btn-outline-primary" :class="{active: choosenSection === 3}" @click="updateMyFriends()">
+          <label for="sectionRadios3" name="sectionRadios" class="btn btn-light" :class="{active: choosenSection === 3}" @click="updateMyFriends()">
             <img class="icon" src="../../static/icons/friend.png" alt=""> My Friends</label>
-          <label for="sectionRadios4" name="sectionRadios" class="btn btn-outline-primary" :class="{active: choosenSection === 4}" @click="updateFriendsEggs()">
+          <label for="sectionRadios4" name="sectionRadios" class="btn btn-light" :class="{active: choosenSection === 4}" @click="updateFriendsEggs()">
             <img class="icon" src="../../static/icons/otherEggs.png" alt=""> Friends' Eggs</label>
         </div>
         <div class="hidden">
@@ -239,31 +239,49 @@ i.fa-question {
   overflow: auto;
 }
 .sections .down .loading {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 4rem;
-    background: #50505038;
-    border-radius: 0.3rem;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 4rem;
+  background: #ababab38;
+  border-radius: 0.3rem;
+  backdrop-filter: blur(2px);
+  transition: .2s;
 }
 .sections .down .loading .loading-wrap {
   display: flex;
   align-items: center;
+  background: #ffffffba;
+  padding: .6rem 1rem;
+  border-radius: 1rem;
 }
 .sections .form-group {
   display: flex;
   justify-content: space-between;
+}
+.sections .top .form-group {
+  margin-bottom: .5rem;
 }
 .sections label {
   width: 48%;
   height: 3rem;
   display: flex;
   align-items: center;
+  font-size: 0.9rem;
+}
+.sections .top label {
+  margin-bottom: 0;
+  color: #9e9e9e;
+}
+.sections .top label.active {
+  color: #007bff;
+  border-color: transparent;
+  background-color: #e8f4fd;
 }
 .hidden {
   display: none;
@@ -289,11 +307,12 @@ i.fa-question {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 0.05rem solid #ccc;
+  /* border: 0.05rem solid #ccc; */
   height: 5rem;
   padding: 0.7rem;
   margin-bottom: 0.7rem;
   border-radius: 0.3rem;
+  background: #f8f8f8;
 }
 .info-list li .left {
   display: flex;
@@ -304,10 +323,12 @@ i.fa-question {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: 7rem;
-  white-space: nowrap;
+}
+.info-list li .left .text > span{
+    width: 10rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .info-list li .left img {
   object-fit: contain;
@@ -325,9 +346,10 @@ i.fa-question {
 .info-list li .tools button {
   width: 2rem;
   height: 2rem;
-  border: 0.2rem solid #ccc;
+  border: none;
   border-radius: 50%;
-  color: #666;
+  color: #8c8c8c;
   margin-left: 0.5rem;
+  background: #e8e8e8;
 }
 </style>
