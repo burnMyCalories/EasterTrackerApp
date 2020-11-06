@@ -118,7 +118,7 @@ class MainActivity : AppCompatActivity()
         wview.setWebViewClient(object : WebViewClient() {
             override fun onPageFinished(view: WebView, url: String) {
                 super.onPageFinished(view, url)
-                println("Test")
+                println("Webview Loaded")
 
             }
         })
