@@ -1,35 +1,18 @@
 <template>
   <div id="myProfile" class="my-container" v-if="user">
-    <!-- <div class="setting">
-      <button class="icon-btn"><i class="fas fa-cog"></i></button>
-    </div> -->
     <div class="info-box">
       <div class="potrait">
-        <img class="img img-thumbnail rounded-circle" :src="imgsrc" alt="" id="myPortraitImg">
+        <img class="img img-thumbnail rounded-circle" :src="porURL + user.id + '_portrait.jpg'" alt="" id="myPortraitImg" @error="loadDefaultPortrait($event)">
         <span class="gender" :class="user.gender">
           <i class="fas fa-mars fa-lg" v-if="user.gender === 'M'"></i>
           <i class="fas fa-venus fa-lg" v-else-if="user.gender === 'F'"></i>
           <i class="fas fa-question fa-lg" v-else></i>
         </span>
       </div>
-      <!-- <font-awesome-icon icon="user-secret" /> -->
       <div class="nickname">{{ user.nickname }}</div>
+      <div class="text-center"><small class="tips">Hide {{ user.set_count }} | Found {{ user.get_count }}</small></div>
     </div>
     <hr>
-    <!-- <div class="menu">
-      <div class="btn-grp">
-        <button class="btn btn-light">
-          <i class="fas fa-egg"></i> My Eggs <span class="badge badge-light">{{ user.set_count }}</span>
-        </button>
-        <span style="width:0.2rem;"></span>
-        <button class="btn btn-light">
-          <i class="fas fa-search"></i> Found <span class="badge badge-light">{{ user.get_count }}</span>
-        </button>
-      </div>
-      <button class="btn btn-light btn-block mt-2">
-        <i class="fas fa-user-friends"></i> My Friends {{}}
-      </button>
-    </div> -->
     <button @click="logout" class="btn btn-light btn-block">Add Friend</button>
     <button @click="editProfile()" class="btn btn-light btn-block">Edit Profile</button>
     <button @click="logout" class="btn btn-light btn-block">Change Password</button>
@@ -44,22 +27,22 @@ export default {
   data () {
     return {
       user: null,
-      imgsrc: require('../assets/portraits/default-portrait.svg')
+      defaultPortrait: require('../assets/portraits/default-portrait.svg'),
+      porURL: `${process.env.VUE_APP_HOST}/files/`
     }
   },
   setup () {
     return {}
   },
   mounted () {
-    const _this = this
     this.user = this.$store.state.currentUser
-    this.axios.get(`/files/${this.user.id}_portrait.jpg`).then(res => {
-      _this.imgsrc = `${process.env.VUE_APP_HOST}/files/${this.user.id}_portrait.jpg`
-    }).catch(err => {
-      console.log(err)
-    })
   },
   methods: {
+    loadDefaultPortrait (event) {
+      const img = event.srcElement
+      img.src = this.defaultPortrait
+      img.onerror = null
+    },
     logout () {
       this.axios.put('/logout', null, {
         params: {
@@ -68,12 +51,6 @@ export default {
       })
       this.$store.commit('logout')
       this.$router.push('/')
-    },
-    loadProfile () {
-    },
-    img () {
-      console.log('dsf')
-      this.imgsrc = require('../assets/portraits/default-portrait.svg')
     },
     editProfile () {
       this.$store.commit('editProfile')

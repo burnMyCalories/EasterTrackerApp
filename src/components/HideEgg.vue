@@ -14,7 +14,7 @@
               <div class="form-group">
                 <label>Choose an Egg First</label>
                 <div class="egg-group">
-                  <label :for="'eggRadio' + egg.type" class="egg-btn" v-for="egg in eggs" :key="egg.type" :class="{ active: egg.type === chooseType}">
+                  <label :for="'eggRadio' + egg.type" class="egg-btn" v-for="egg in eggs" :key="egg.type" :class="{ active: egg.type === chooseType}" @click="resetFile()">
                     <img :src="egg.url" alt="">
                     <span>{{ egg.name }}</span>
                     <input type="radio" name="eggRadioGroup" :id="'eggRadio' + egg.type" :value="egg.type" v-model="chooseType">
@@ -35,16 +35,30 @@
                 <textarea class="form-control" id="ipt_add_description" v-model="description" placeholder="Something you wanna share"></textarea>
               </div>
               <div class="form-group" v-if="chooseType > 1">
-                <label for="ipt_add_content">Content</label>
-                <input type="file" class="form-control" id="ipt_add_content" @change="upload($event)" accept="image/jpg" v-if="chooseType===3">
-                <input type="file" class="form-control" id="ipt_add_content" @change="upload($event)" accept="audio/mp3" v-if="chooseType===2">
-                <input type="file" class="form-control" id="ipt_add_content" @change="upload($event)" accept="video/mp4" v-if="chooseType===4">
+                <label for="ipt_add_content">Upload & Preview</label>
+                <div class="media-box form-control">
+                  <label for="ipt_add_content" v-if="!fileLoaded">
+                    <span v-if="chooseType === 3">Select or Capture a Photo</span>
+                    <span v-if="chooseType === 2">Select or Record an Audio</span>
+                    <span v-if="chooseType === 4">Select or Capture a Video</span>
+                  </label>
+
+                  <div class="preview" v-if="fileLoaded">
+                    <img id="previewMedia" src="" alt="" v-if="chooseType === 3">
+                    <audio id="previewMedia" controls src="" v-if="chooseType === 2"></audio>
+                    <video id="previewMedia" controls src="" v-if="chooseType === 4"></video>
+                  </div>
+                </div>
+
+                <input type="file" class="form-control" id="ipt_add_content" @change="preview($event)" accept="image/jpg" v-if="chooseType===3">
+                <input type="file" class="form-control" id="ipt_add_content" @change="preview($event)" accept="audio/mp3" v-if="chooseType===2">
+                <input type="file" class="form-control" id="ipt_add_content" @change="preview($event)" accept="video/mp4" v-if="chooseType===4">
               </div>
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-link" data-dismiss="modal" @click="close()">Close</button>
-            <button type="button" class="btn btn-link" @click="submit()" :disabled="chooseType===null||loading">Save</button>
+            <button type="button" class="btn btn-link" @click="submit()" :disabled="invalidSave">Save</button>
           </div>
         </div>
       </div>
@@ -74,9 +88,14 @@ export default {
       user: null,
       expire: null,
       tomorrow: '',
-      fileIsUploaded: false,
       filename: '',
-      loading: false
+      loading: false,
+      fileLoaded: false
+    }
+  },
+  computed: {
+    invalidSave () {
+      return !this.chooseType || this.loading
     }
   },
   beforeMount () {
@@ -87,34 +106,32 @@ export default {
     this.tomorrow = new Date(tomorrow).toISOString().substring(0, 10)
   },
   methods: {
+    resetFile () {
+      this.fileLoaded = false
+      document.getElementById('ipt_add_content') && (document.getElementById('ipt_add_content').value = '')
+    },
     verifyInput () {
+      if (this.eggname === '') {
+        this.$store.commit('updateAlert', {
+          msg: 'It seems you forgot to name the egg! 😱',
+          type: 'warning'
+        })
+        return false
+      }
+
       if (this.chooseType === 1 && this.description === '') {
         this.$store.commit('updateAlert', {
           msg: 'Please enter the description!',
           type: 'warning'
         })
         return false
-      } else if (this.chooseType !== 1 && (this.eggname === '' || this.fileIsUploaded === false)) {
-        if (this.eggname === '') {
-          this.$store.commit('updateAlert', {
-            msg: 'Please fill in egg\'s name before uploading the file!',
-            type: 'warning'
-          })
-        } else if (this.fileIsUploaded === false) {
-          this.$store.commit('updateAlert', {
-            msg: 'Please upload the file!',
-            type: 'warning'
-          })
-        }
-        return false
       }
+
       return true
     },
-    submit () {
+    save () {
       const _this = this
-      if (this.verifyInput() === false) {
-        return
-      }
+
       console.log('submit')
 
       const content = this.chooseType === 1 ? this.description : (contentURL + this.filename)
@@ -171,26 +188,32 @@ export default {
     close () {
       this.$parent.hideEggWindow = false
     },
-    upload (e) {
+    preview (e) {
+      this.fileLoaded = true
+      const file = e.target.files[0]
+
+      const fileReader = new FileReader()
+      fileReader.onload = () => {
+        document.getElementById('previewMedia').src = fileReader.result
+      }
+      fileReader.readAsDataURL(file)
+    },
+    submit () {
       const _this = this
-      if (this.verifyInput === false) {
+      const inputDOM = document.getElementById('ipt_add_content')
+      if (this.verifyInput() === false && inputDOM) {
         return
       }
-      console.log('welcome')
 
-      const file = e.target.files[0]
+      const file = inputDOM.files[0]
+
+      console.log('upload', inputDOM.files)
 
       const format = file.name.split('.').pop()
       const filename = `${this.eggname}_content.${format}`
       this.filename = filename
 
       console.log(filename)
-
-      const fileReader = new FileReader()
-      fileReader.onload = () => {
-        document.getElementById('ipt_add_content').src = fileReader.result
-      }
-      fileReader.readAsDataURL(file)
 
       const formData = new FormData()
       formData.append('file', file, filename)
@@ -211,7 +234,7 @@ export default {
           type: 'success',
           sync: false
         })
-        _this.fileIsUploaded = true
+        _this.save()
       }).catch(err => {
         let msg = ''
         const code = err.response.status
@@ -226,7 +249,6 @@ export default {
           sync: false
         })
       }).finally(() => {
-        _this.loading = false
       })
     }
   }
@@ -234,6 +256,46 @@ export default {
 </script>
 
 <style scoped>
+.media-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7rem;
+}
+.media-box label {
+  margin: 0;
+  position: relative;
+  z-index: 500;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.media-box::after {
+  content: 'PREVIEW';
+  position: absolute;
+  font-size: 4rem;
+  color: #e0e0e02e;
+  z-index: 490;
+}
+.media-box .preview {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 520;
+}
+.media-box .preview > * {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.media-box .preview > audio {
+  height: auto;
+}
+#ipt_add_content {
+  display: none;
+}
 .egg-window textarea {
   resize: none;
   height: 7rem;

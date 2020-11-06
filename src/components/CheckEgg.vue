@@ -12,7 +12,7 @@
             </button>
           </div>
 
-          <div class="modal-body" v-if="(eggExpire || eggFaraway) && !eggIsMine">
+          <div class="modal-body" v-if="(eggExpire || eggFaraway) && !eggIsMine && eggNotChecked">
             <h4>Sorry... 😭 </h4>
             <p v-if="eggExpire">This egg is expired... You should come a little earlier...😔</p>
             <p v-if="eggFaraway">This egg is toooooo far away from your position. Try to get closer! 💪</p>
@@ -215,6 +215,7 @@ export default {
 <style scoped>
   .egg-window textarea {
     resize: none;
+    height: 7rem;
   }
   .egg-window .modal {
     display: flex;

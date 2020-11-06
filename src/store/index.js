@@ -89,10 +89,20 @@ export default createStore({
       state.isEditProfile = false
     },
     findAnEgg (state) {
-      state.firedEgg.eggNotChecked = true
+      state.firedEgg.eggNotChecked = false
+      state.currentUser.get_count++
+      this.commit('updateProfile', state.currentUser)
     },
     showAbout (state, show) {
       state.showAbout = show
+    },
+    hideAnEgg (state) {
+      state.currentUser.set_count++
+      this.commit('updateProfile', state.currentUser)
+    },
+    deleteAnEgg (state) {
+      state.currentUser.set_count--
+      this.commit('updateProfile', state.currentUser)
     }
   },
   actions: {
@@ -155,35 +165,59 @@ export default createStore({
     },
     checkFiredEgg (state, egg) {
       const _this = this
+
+      this.commit('updateAlert', {
+        msg: 'Checking this egg...',
+        sync: true
+      })
+
       const cu = JSON.parse(localStorage.getItem('currentUser'))
       console.log(egg, cu)
       console.log(egg.user, state.currentUser)
-      egg.eggIsMine = egg.user.username === cu.username
+
+      if (egg.unknownCreater) {
+        egg.eggIsMine = false
+      } else {
+        egg.eggIsMine = egg.user.username === cu.username
+      }
+
       egg.eggExpire = new Date() > new Date(egg.expire_time)
 
-      const myname = cu.username
-      const myid = cu.id
-      const eggid = egg.id
-      const eggname = egg.name
-      const action = 2
       if (egg.eggIsMine) {
         egg.eggNotChecked = false
         _this.commit('updateFiredEgg', egg)
         return
       }
-      this.commit('updateAlert', {
-        msg: 'Checking this egg...',
-        sync: true
-      })
-      axios.get(`/action?uuname=${myname}&user_id=${myid}&egg_id=${eggid}&egg_name=${eggname}&action=${action}`)
-        .then(_res => {
-          egg.eggNotChecked = false
-        }).catch(_err => {
-          egg.eggNotChecked = true
-        }).finally(() => {
-          _this.commit('updateFiredEgg', egg)
-          _this.commit('resetAlert')
-        })
+
+      const myname = cu.username
+      const eggid = egg.id
+      const eggname = egg.name
+
+      if (egg.unknownCreater) {
+        // 别人的蛋 我发现过了（来自Found列表） 但不知道是谁埋的 => 查询谁埋的
+        egg.eggNotChecked = false
+        axios.get(`/action?uuname=${myname}&egg_id=${eggid}&egg_name=${eggname}&action=1`)
+          .then(res => {
+            egg.user = res.data.result.data[0].user
+          }).catch(_err => {
+          }).finally(() => {
+            _this.commit('updateFiredEgg', egg)
+            _this.commit('resetAlert')
+          })
+      } else {
+        // 别人的蛋 我不知道发没发现过（来自地图和Friends'列表）=> 查询是否发现
+        const myid = cu.id
+        axios.get(`/action?uuname=${myname}&user_id=${myid}&egg_id=${eggid}&egg_name=${eggname}&action=2`)
+          .then(_res => {
+            egg.eggNotChecked = false
+          }).catch(_err => {
+            egg.eggNotChecked = true
+          }).finally(() => {
+            _this.commit('updateFiredEgg', egg)
+            _this.commit('resetAlert')
+          })
+      }
+
     }
   },
   modules: {

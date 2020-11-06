@@ -185,6 +185,9 @@ export default {
         })
     },
     detailEgg (egg) {
+      if (this.choosenSection === 2) {
+        egg.unknownCreater = true
+      }
       this.$store.dispatch('checkFiredEgg', egg)
       window.myMap.panTo({ lat: egg.latitude, lng: egg.longitude })
       this.$router.push('/home')
