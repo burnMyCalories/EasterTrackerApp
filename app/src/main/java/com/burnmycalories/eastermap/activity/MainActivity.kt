@@ -44,13 +44,12 @@ class MainActivity : AppCompatActivity() {
     var ASWP_FUPLOAD = true // upload file from webview
     var ASWP_CAMUPLOAD = true // enable upload from camera for photos
     var ASWP_ONLYCAM = false // incase you want only camera files to upload
+    private var asw_acam_message: String? = null
     private var asw_pcam_message: String? = null
-    private var asw_vcam_message: kotlin.String? = null
+    private var asw_vcam_message: String? = null
     private var asw_file_message: ValueCallback<Uri>? = null
     private var asw_file_path: ValueCallback<Array<Uri>>? = null
     private val asw_file_req = 1
-
-    private val loc_perm = 1
     private val file_perm = 2
     var ASWV_F_TYPE = "*/*"
     var ASWP_MULFILE = true // upload multiple files in webview
@@ -64,10 +63,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-
-        val wview: WebView = findViewById<View>(R.id.webView) as WebView
+        setContentView(R.layout.activity_main);
+        val wview: WebView
+        wview = findViewById<View>(R.id.webView) as WebView
         webView = wview
         webView.settings.javaScriptEnabled = true
         webView.settings.javaScriptCanOpenWindowsAutomatically = true
@@ -95,9 +93,11 @@ class MainActivity : AppCompatActivity() {
                 return if (check_permission(2) && check_permission(3)) {
                     if (ASWP_FUPLOAD) {
                         asw_file_path = filePathCallback
+                        var takeAudioIntent: Intent? = null
                         var takePictureIntent: Intent? = null
                         var takeVideoIntent: Intent? = null
                         if (ASWP_CAMUPLOAD) {
+                            var includeAudio = false
                             var includeVideo = false
                             var includePhoto = false
 
@@ -109,10 +109,12 @@ class MainActivity : AppCompatActivity() {
                                 for (acceptType in splitTypes) {
                                     when (acceptType) {
                                         "*/*" -> {
+                                            includeAudio = true
                                             includePhoto = true
                                             includeVideo = true
                                             break@paramCheck
                                         }
+                                        "audio/mp3" -> includeAudio = true
                                         "image/jpg" -> includePhoto = true
                                         "video/mp4" -> includeVideo = true
                                     }
@@ -121,10 +123,30 @@ class MainActivity : AppCompatActivity() {
 
                             // If no `accept` parameter was specified, allow both photo and video.
                             if (fileChooserParams.acceptTypes.size == 0) {
+                                includeAudio = true
                                 includePhoto = true
                                 includeVideo = true
                             }
 
+
+                            if (includeAudio){
+                                takeAudioIntent = Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION)
+                                if (takeAudioIntent.resolveActivity(this@MainActivity.packageManager) != null){
+                                    var audioFile :File? = null
+                                    try{
+                                        audioFile = create_audio()
+                                        takeAudioIntent.putExtra("AudioPath", asw_acam_message)
+                                    } catch (ex: IOException) {
+                                        Log.e(TAG, "Audio file creation failed", ex)
+                                    }
+                                    if (audioFile != null){
+                                        asw_acam_message = "file:" + audioFile.absolutePath
+                                        takeAudioIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(audioFile))
+                                    } else {
+                                        takeAudioIntent = null
+                                    }
+                                }
+                            }
 
                             if (includePhoto) {
                                 takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
@@ -151,6 +173,7 @@ class MainActivity : AppCompatActivity() {
                                     var videoFile: File? = null
                                     try {
                                         videoFile = create_video()
+                                        takeVideoIntent.putExtra("VideoPath", asw_vcam_message)
                                     } catch (ex: IOException) {
                                         Log.e(TAG, "Video file creation failed", ex)
                                     }
@@ -172,9 +195,11 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                         val intentArray: Array<Intent?>
-                        if (takePictureIntent != null && takeVideoIntent != null) {
-                            intentArray = arrayOf<Intent?>(takePictureIntent, takeVideoIntent)
-                        } else if (takePictureIntent != null) {
+                        if (takeAudioIntent != null && takePictureIntent != null && takeVideoIntent != null) {
+                            intentArray = arrayOf<Intent?>(takeAudioIntent, takePictureIntent, takeVideoIntent)
+                        }else if (takeAudioIntent != null) {
+                            intentArray = arrayOf<Intent?>(takeAudioIntent)
+                        }else if (takePictureIntent != null) {
                             intentArray = arrayOf<Intent?>(takePictureIntent)
                         } else if (takeVideoIntent != null) {
                             intentArray = arrayOf<Intent?>(takeVideoIntent)
@@ -188,40 +213,34 @@ class MainActivity : AppCompatActivity() {
                         chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intentArray)
                         startActivityForResult(chooserIntent, asw_file_req)
                     }
-                true
+                    true
                 } else {
                     get_file()
-                false
+                    false
                 }
             }
-
         }
 
+        if (Build.VERSION.SDK_INT >= 21) {
 
-        if (Build.VERSION.SDK_INT >= 23) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH)!= PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED ) {
+                Log.i(TAG,"Need permission")
 
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!=PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)!=PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH)!=PackageManager.PERMISSION_GRANTED ) {
-                println("Need permission")
-
-                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.BLUETOOTH), 1)
+                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO, Manifest.permission.BLUETOOTH, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE), 1)
             } else {
-                println("Success")
+                Log.i(TAG,"Permission Success")
                 startWebView(webView)
             }
         }
-        else{
-            startWebView(webView)
-        }
 
-}
+    }
 
     fun startWebView(wview: WebView) {
         wview.loadUrl(url)
         wview.setWebViewClient(object : WebViewClient() {
             override fun onPageFinished(view: WebView, url: String) {
                 super.onPageFinished(view, url)
-                println("Webview Loaded")
-
+                Log.i(TAG,"MainPage Loaded")
             }
         })
 
@@ -262,9 +281,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
-
-
+    //--------------------------------------------------------------------------------------------------
     fun check_permission(permission: Int): Boolean {
         when (permission) {
 
@@ -274,13 +291,22 @@ class MainActivity : AppCompatActivity() {
         }
         return false
     }
-
-
+/*
     private fun openImageChooserActivity() {
         val i = Intent(Intent.ACTION_GET_CONTENT)
         i.addCategory(Intent.CATEGORY_OPENABLE)
         i.type = "image/jpg"
         startActivityForResult(Intent.createChooser(i, "Image Chooser"), FILE_CHOOSER_RESULT_CODE)
+    }
+
+ */
+
+    @Throws(IOException::class)
+    private fun create_audio(): File? {
+        @SuppressLint("SimpleDateFormat") val file_name = SimpleDateFormat("yyyy_mm_ss").format(Date())
+        val new_name = "file_" + file_name + "_"
+        val sd_directory = getExternalFilesDir(Environment.DIRECTORY_ALARMS)
+        return File.createTempFile(new_name, ".mp3", sd_directory)
     }
 
     //Creating image file for upload
@@ -319,11 +345,52 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
-
-    companion object {
-        private val FILE_CHOOSER_RESULT_CODE = 10000
+//--------------------------------------------------------------------------------------------------
+/*
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == FILE_CHOOSER_RESULT_CODE) {
+            if (null == uploadMessage && null == uploadMessageAboveL) return
+            val result = if (data == null || resultCode != Activity.RESULT_OK) null else data.data
+            if (uploadMessageAboveL != null) {
+                onActivityResultAboveL(requestCode, resultCode, data)
+            } else if (uploadMessage != null) {
+                uploadMessage!!.onReceiveValue(result)
+                uploadMessage = null
+            }
+        }
     }
+
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    private fun onActivityResultAboveL(requestCode: Int, resultCode: Int, intent: Intent?) {
+        if (requestCode != FILE_CHOOSER_RESULT_CODE || uploadMessageAboveL == null)
+            return
+        var results: Array<Uri>? = null
+        if (resultCode == Activity.RESULT_OK) {
+            if (intent != null) {
+                val dataString = intent.dataString
+                val clipData = intent.clipData
+                if (clipData != null) {
+                    results = Array(clipData.itemCount) { i ->
+                        clipData.getItemAt(i).uri
+                    }
+                }
+                if (dataString != null)
+                    results = arrayOf(Uri.parse(dataString))
+            }
+        }
+        uploadMessageAboveL!!.onReceiveValue(results)
+        uploadMessageAboveL = null
+    }
+
+
+ */
+
+//
+//    companion object {
+//        private val FILE_CHOOSER_RESULT_CODE = 10000
+//    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
         super.onActivityResult(requestCode, resultCode, intent)
@@ -354,8 +421,8 @@ class MainActivity : AppCompatActivity() {
                         clipData = null
                         stringData = null
                     }
-                    if (clipData == null && stringData == null && (asw_pcam_message != null || asw_vcam_message != null)) {
-                        results = arrayOf(Uri.parse(if (asw_pcam_message != null) asw_pcam_message else asw_vcam_message))
+                    if (clipData == null && stringData == null && (asw_acam_message != null ||asw_pcam_message != null || asw_vcam_message != null)) {
+                        results = arrayOf(Uri.parse(if (asw_pcam_message != null) asw_pcam_message else if (asw_vcam_message !=null) asw_vcam_message else asw_acam_message))
                     } else {
                         if (null != clipData) { // checking if multiple files selected or not
                             results = Array(clipData.itemCount) { i ->
@@ -383,7 +450,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
 
         return if (keyCode == KeyEvent.KEYCODE_BACK && webView.canGoBack()) {
@@ -397,6 +463,5 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
-
 }
+
