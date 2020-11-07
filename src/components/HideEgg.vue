@@ -284,14 +284,15 @@ export default {
   height: 100%;
   position: relative;
   z-index: 520;
+  display: flex;
+  align-items: center;
 }
 .media-box .preview > * {
   width: 100%;
-  height: 100%;
   object-fit: contain;
 }
-.media-box .preview > audio {
-  height: auto;
+.media-box .preview > img, .media-box .preview > video {
+  height: 100%;
 }
 #ipt_add_content {
   display: none;
