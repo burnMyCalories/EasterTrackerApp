@@ -38,20 +38,15 @@ public class ConfirmService extends HttpServlet {
         String mobile=req.getParameter("mobile");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        /* 允许跨域的主机地址 */
         resp.setHeader("Access-Control-Allow-Origin", "*");
-        /* 允许跨域的请求方法GET, POST, HEAD 等 */
         resp.setHeader("Access-Control-Allow-Methods", "*");
-        /* 重新预检验跨域的缓存时间 (s) */
         resp.setHeader("Access-Control-Max-Age", "3600");
-        /* 允许跨域的请求头 */
         resp.setHeader("Access-Control-Allow-Headers", "*");
-        /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
         resp.setHeader("Access-Control-Expose-Headers", "*");
         JSONObject json = VerifyUtils.generate();
         String code = json.getString("code");
-        if(mobile!=null){
+        if(mobile!=null){//send sms
             ZhenziSmsClient client = new ZhenziSmsClient("https://sms_developer.zhenzikj.com", "101531", "a60b64c8-da54-4ae7-a148-7b7c33887498");
             Map<String, Object> map = new HashMap<>();
             map.put("number", mobile);
@@ -69,67 +64,17 @@ public class ConfirmService extends HttpServlet {
                 resp.setStatus(500);
             }
         }
-        else if(email!=null){
-//            String url = "http://api.sendcloud.net/apiv2/mail/send";
-//            String apiUser = "sxn2012_test_1u6AtM";
-//            String apiKey = "SOMZQu4Typ8YhXtcsjJ5023lVCAUexfe.sendcloud.org";
-//            String rcpt_to = email;
-//            String subject = "[EasterTracker] Verification Code";
-//            String html = "Your verification code is "+code+". This will expire in 5 minutes.";
-//            HttpPost httpPost = new HttpPost(url);
-//            CloseableHttpClient httpClient = HttpClients.createDefault();
-//            List<NameValuePair> params = new ArrayList<>();
-//            params.add(new BasicNameValuePair("apiUser", apiUser));
-//            params.add(new BasicNameValuePair("apiKey", apiKey));
-//            params.add(new BasicNameValuePair("to", rcpt_to));
-//            params.add(new BasicNameValuePair("from", "sendcloud@sendcloud.org"));
-//            params.add(new BasicNameValuePair("fromName", "SendCloud"));
-//            params.add(new BasicNameValuePair("subject", subject));
-//            params.add(new BasicNameValuePair("html", html));
-//
-//            httpPost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
-//
-//            HttpResponse response = httpClient.execute(httpPost);
-//
-//            JSONObject temp = new JSONObject(true);
-//            if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-//
-//                resp.setStatus(201);
-//
-//                temp.put("code",0);
-//                temp.put("msg",response.getStatusLine().getReasonPhrase());
-//
-//            } else {
-//
-//                resp.setStatus(500);
-//
-//                temp.put("code",1);
-//                temp.put("msg",response.getStatusLine().getReasonPhrase());
-//
-//            }
-//            httpPost.releaseConnection();
-//            json.put("status",temp);
-            // 收件人电子邮箱
+        else if(email!=null){//send email
             String to = email;
-
-            // 发件人电子邮箱
             String from = "543777820@qq.com";
-
-            // 指定发送邮件的主机为 smtp.qq.com
-            String host = "smtp.qq.com";  //QQ 邮件服务器
-
-            // 获取系统属性
+            String host = "smtp.qq.com";
             Properties properties = System.getProperties();
-
-            // 设置邮件服务器
             properties.setProperty("mail.smtp.host", host);
-
             properties.put("mail.smtp.auth", "true");
             MailSSLSocketFactory sf = new MailSSLSocketFactory();
             sf.setTrustAllHosts(true);
             properties.put("mail.smtp.ssl.enable", "true");
             properties.put("mail.smtp.ssl.socketFactory", sf);
-            // 获取默认session对象
             Session session = Session.getDefaultInstance(properties,new Authenticator(){
                 public PasswordAuthentication getPasswordAuthentication()
                 {
@@ -138,34 +83,21 @@ public class ConfirmService extends HttpServlet {
             });
 
             try{
-                // 创建默认的 MimeMessage 对象
                 MimeMessage message = new MimeMessage(session);
-
-                // Set From: 头部头字段
                 message.setFrom(new InternetAddress(from));
-
-                // Set To: 头部头字段
                 message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-
-                // Set Subject: 头部头字段
                 message.setSubject("Verification Email");
-
-                // 设置消息体
                 message.setText("Your verification code is "+code+". This will expire in 5 minutes.");
-
-                // 发送消息
                 Transport.send(message);
                 JSONObject temp = new JSONObject(true);
                 resp.setStatus(201);
-
                 temp.put("code",0);
                 temp.put("msg","Success");
                 json.put("status",temp);
-//                System.out.println("Sent message successfully....from runoob.com");
+
             }catch (MessagingException mex) {
                 JSONObject temp = new JSONObject(true);
                 resp.setStatus(500);
-
                 temp.put("code",1);
                 temp.put("msg",mex.getMessage());
                 json.put("status",temp);

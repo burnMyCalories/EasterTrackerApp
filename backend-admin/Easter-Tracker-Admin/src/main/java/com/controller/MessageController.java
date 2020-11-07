@@ -27,6 +27,7 @@ public class MessageController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        //get parameters
         String uuname=req.getParameter("uuname");
         String id=req.getParameter("id");
         String friend_id=req.getParameter("friend_id");
@@ -38,18 +39,16 @@ public class MessageController extends HttpServlet {
         String userto_nickname=req.getParameter("userto_nickname");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        /* 允许跨域的主机地址 */
+        //set headers
         resp.setHeader("Access-Control-Allow-Origin", "*");
-        /* 允许跨域的请求方法GET, POST, HEAD 等 */
         resp.setHeader("Access-Control-Allow-Methods", "*");
-        /* 重新预检验跨域的缓存时间 (s) */
         resp.setHeader("Access-Control-Max-Age", "3600");
-        /* 允许跨域的请求头 */
         resp.setHeader("Access-Control-Allow-Headers", "*");
-        /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
         resp.setHeader("Access-Control-Expose-Headers", "*");
+        //conduct operation
         JSONObject res = CRUDUtils.queryMessage(id, friend_id, userfrom_id, userto_id, userfrom_username, userto_username, userfrom_nickname, userto_nickname);
+        //get results
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
@@ -79,21 +78,18 @@ public class MessageController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        //get parameters
         String uuname=req.getParameter("uuname");
         String friend_id=req.getParameter("friend_id");
         String type=req.getParameter("type");
         String content=req.getParameter("content");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        /* 允许跨域的主机地址 */
+        //set headers
         resp.setHeader("Access-Control-Allow-Origin", "*");
-        /* 允许跨域的请求方法GET, POST, HEAD 等 */
         resp.setHeader("Access-Control-Allow-Methods", "*");
-        /* 重新预检验跨域的缓存时间 (s) */
         resp.setHeader("Access-Control-Max-Age", "3600");
-        /* 允许跨域的请求头 */
         resp.setHeader("Access-Control-Allow-Headers", "*");
-        /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
         resp.setHeader("Access-Control-Expose-Headers", "*");
         JSONObject json = new JSONObject(true);
@@ -106,7 +102,9 @@ public class MessageController extends HttpServlet {
             json.put("result",new JSONObject(true));
         }
         else{
+            //conduct operation
             JSONObject res = CRUDUtils.addMessage(friend_id, type, content);
+            //get results
             if((int)res.get("rows")==0){
                 resp.setStatus(410);
                 temp.put("code",1);
@@ -129,21 +127,18 @@ public class MessageController extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        //get parameters
         String uuname=req.getParameter("uuname");
         String id=req.getParameter("id");
         String friend_id=req.getParameter("friend_id");
         String is_deleted=req.getParameter("is_deleted");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        /* 允许跨域的主机地址 */
+        //set headers
         resp.setHeader("Access-Control-Allow-Origin", "*");
-        /* 允许跨域的请求方法GET, POST, HEAD 等 */
         resp.setHeader("Access-Control-Allow-Methods", "*");
-        /* 重新预检验跨域的缓存时间 (s) */
         resp.setHeader("Access-Control-Max-Age", "3600");
-        /* 允许跨域的请求头 */
         resp.setHeader("Access-Control-Allow-Headers", "*");
-        /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
         resp.setHeader("Access-Control-Expose-Headers", "*");
         JSONObject json = new JSONObject(true);
@@ -156,7 +151,9 @@ public class MessageController extends HttpServlet {
             json.put("result",new JSONObject(true));
         }
         else{
+            //conduct operation
             JSONObject res = CRUDUtils.updateMessage(id, friend_id, is_deleted);
+            //get results
             if((int)res.get("rows")==0){
                 resp.setStatus(410);
                 temp.put("code",1);
@@ -179,20 +176,17 @@ public class MessageController extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        //get parameters
         String uuname=req.getParameter("uuname");
         String id=req.getParameter("id");
         String friend_id=req.getParameter("friend_id");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        /* 允许跨域的主机地址 */
+        //set headers
         resp.setHeader("Access-Control-Allow-Origin", "*");
-        /* 允许跨域的请求方法GET, POST, HEAD 等 */
         resp.setHeader("Access-Control-Allow-Methods", "*");
-        /* 重新预检验跨域的缓存时间 (s) */
         resp.setHeader("Access-Control-Max-Age", "3600");
-        /* 允许跨域的请求头 */
         resp.setHeader("Access-Control-Allow-Headers", "*");
-        /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
         resp.setHeader("Access-Control-Expose-Headers", "*");
         JSONObject json = new JSONObject(true);
@@ -205,7 +199,9 @@ public class MessageController extends HttpServlet {
             json.put("result",new JSONObject(true));
         }
         else{
+            //conduct operation
             JSONObject res = CRUDUtils.delMessage(id, friend_id);
+            //get results
             if((int)res.get("rows")==0){
                 resp.setStatus(410);
                 temp.put("code",1);

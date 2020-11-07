@@ -27,24 +27,12 @@ public class NotMineEggService extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
         String uuname=req.getParameter("uuname");
-//        String id=req.getParameter("id");
-//        String user_id=req.getParameter("user_id");
-//        String egg_id=req.getParameter("egg_id");
-//        String action=req.getParameter("action");
-//        String user_username=req.getParameter("user_username");
-//        String user_nickname=req.getParameter("user_nickname");
-//        String egg_name=req.getParameter("egg_name");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        /* 允许跨域的主机地址 */
         resp.setHeader("Access-Control-Allow-Origin", "*");
-        /* 允许跨域的请求方法GET, POST, HEAD 等 */
         resp.setHeader("Access-Control-Allow-Methods", "*");
-        /* 重新预检验跨域的缓存时间 (s) */
         resp.setHeader("Access-Control-Max-Age", "3600");
-        /* 允许跨域的请求头 */
         resp.setHeader("Access-Control-Allow-Headers", "*");
-        /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
         JSONObject res = CRUDUtils.querySpecialAction(uuname);
         PrintWriter writer = resp.getWriter();

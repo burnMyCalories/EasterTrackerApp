@@ -25,20 +25,7 @@ public class LoginUtils {
             last_login_time=map.get(username);
         }
         return ((current-last_login_time)/(double)1000/(double)60)<=10;
-//        if(username==null){
-//            return false;
-//        }
-//        else{
-//            JSONObject res = CRUDUtils.queryUser(null, username, null, null, null, null, null, null);
-//            if((int)res.get("rows")!=1){
-//                return false;
-//            }
-//            else{
-//                List<JSONObject> data = (List<JSONObject>) res.get("data");
-//                JSONObject temp = data.get(0);
-//                return (int)temp.get("is_online")==1;
-//            }
-//        }
+
 
     }
     public static void operate(String username){

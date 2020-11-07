@@ -13,26 +13,6 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-<!--  <context-param>-->
-<!--    <param-name>url</param-name>-->
-<!--    <param-value>jdbc:mysql//localhost:3306/aaa</param-value>-->
-<!--  </context-param>-->
-<!--  <servlet>-->
-<!--    <servlet-name>hello</servlet-name>-->
-<!--    <servlet-class>com.controller.LoginController</servlet-class>-->
-<!--  </servlet>-->
-<!--  <servlet-mapping>-->
-<!--    <servlet-name>hello</servlet-name>-->
-<!--    <url-pattern>/hello</url-pattern>-->
-<!--  </servlet-mapping>-->
-<!--  <servlet>-->
-<!--    <servlet-name>error</servlet-name>-->
-<!--    <servlet-class>com.controller.AddUserController</servlet-class>-->
-<!--  </servlet>-->
-<!--  <servlet-mapping>-->
-<!--    <servlet-name>error</servlet-name>-->
-<!--    <url-pattern>/error</url-pattern>-->
-<!--  </servlet-mapping>-->
   <filter>
     <filter-name>CORS</filter-name>
     <filter-class>com.thetransactioncompany.cors.CORSFilter</filter-class>

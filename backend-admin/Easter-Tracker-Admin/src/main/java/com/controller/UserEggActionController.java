@@ -27,6 +27,7 @@ public class UserEggActionController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        //get parameters
         String uuname=req.getParameter("uuname");
         String id=req.getParameter("id");
         String user_id=req.getParameter("user_id");
@@ -37,17 +38,15 @@ public class UserEggActionController extends HttpServlet {
         String egg_name=req.getParameter("egg_name");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        /* 允许跨域的主机地址 */
+        //set headers
         resp.setHeader("Access-Control-Allow-Origin", "*");
-        /* 允许跨域的请求方法GET, POST, HEAD 等 */
         resp.setHeader("Access-Control-Allow-Methods", "*");
-        /* 重新预检验跨域的缓存时间 (s) */
         resp.setHeader("Access-Control-Max-Age", "3600");
-        /* 允许跨域的请求头 */
         resp.setHeader("Access-Control-Allow-Headers", "*");
-        /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
+        //conduct operation
         JSONObject res = CRUDUtils.queryAction(id, user_id, egg_id, action, user_username, user_nickname, egg_name);
+        //get results
         PrintWriter writer = resp.getWriter();
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
@@ -77,21 +76,18 @@ public class UserEggActionController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        //get parameters
         String uuname=req.getParameter("uuname");
         String user_id=req.getParameter("user_id");
         String egg_id=req.getParameter("egg_id");
         String action=req.getParameter("action");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        /* 允许跨域的主机地址 */
+        //set headers
         resp.setHeader("Access-Control-Allow-Origin", "*");
-        /* 允许跨域的请求方法GET, POST, HEAD 等 */
         resp.setHeader("Access-Control-Allow-Methods", "*");
-        /* 重新预检验跨域的缓存时间 (s) */
         resp.setHeader("Access-Control-Max-Age", "3600");
-        /* 允许跨域的请求头 */
         resp.setHeader("Access-Control-Allow-Headers", "*");
-        /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
@@ -103,7 +99,9 @@ public class UserEggActionController extends HttpServlet {
             json.put("result",new JSONObject(true));
         }
         else{
+            //conduct operation
             JSONObject res = CRUDUtils.addAction(user_id, egg_id, action);
+            //get results
             if((int)res.get("rows")==0){
                 resp.setStatus(410);
                 temp.put("code",1);
@@ -126,6 +124,7 @@ public class UserEggActionController extends HttpServlet {
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        //get parameters
         String uuname=req.getParameter("uuname");
         String id=req.getParameter("id");
         String user_id=req.getParameter("user_id");
@@ -134,15 +133,11 @@ public class UserEggActionController extends HttpServlet {
         String is_deleted=req.getParameter("is_deleted");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        /* 允许跨域的主机地址 */
+        //set headers
         resp.setHeader("Access-Control-Allow-Origin", "*");
-        /* 允许跨域的请求方法GET, POST, HEAD 等 */
         resp.setHeader("Access-Control-Allow-Methods", "*");
-        /* 重新预检验跨域的缓存时间 (s) */
         resp.setHeader("Access-Control-Max-Age", "3600");
-        /* 允许跨域的请求头 */
         resp.setHeader("Access-Control-Allow-Headers", "*");
-        /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
         JSONObject json = new JSONObject(true);
         JSONObject temp = new JSONObject(true);
@@ -154,7 +149,9 @@ public class UserEggActionController extends HttpServlet {
             json.put("result",new JSONObject(true));
         }
         else{
+            //conduct operation
             JSONObject res = CRUDUtils.updateAction(id, user_id, egg_id, action, is_deleted);
+            //get results
             if((int)res.get("rows")==0){
                 resp.setStatus(410);
                 temp.put("code",1);
@@ -177,6 +174,7 @@ public class UserEggActionController extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
+        //get parameters
         String uuname=req.getParameter("uuname");
         String id=req.getParameter("id");
         String user_id=req.getParameter("user_id");
@@ -184,15 +182,11 @@ public class UserEggActionController extends HttpServlet {
         String action=req.getParameter("action");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        /* 允许跨域的主机地址 */
+        //set headers
         resp.setHeader("Access-Control-Allow-Origin", "*");
-        /* 允许跨域的请求方法GET, POST, HEAD 等 */
         resp.setHeader("Access-Control-Allow-Methods", "*");
-        /* 重新预检验跨域的缓存时间 (s) */
         resp.setHeader("Access-Control-Max-Age", "3600");
-        /* 允许跨域的请求头 */
         resp.setHeader("Access-Control-Allow-Headers", "*");
-        /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
         resp.setHeader("Access-Control-Expose-Headers", "*");
         JSONObject json = new JSONObject(true);
@@ -205,7 +199,9 @@ public class UserEggActionController extends HttpServlet {
             json.put("result",new JSONObject(true));
         }
         else{
+            //conduct operation
             JSONObject res = CRUDUtils.delAction(id, user_id, egg_id, action);
+            //get results
             if((int)res.get("rows")==0){
                 resp.setStatus(410);
                 temp.put("code",1);

@@ -34,15 +34,10 @@ public class ResourceService extends HttpServlet {
             resp.setStatus(404);
             return;
         }
-        /* 允许跨域的主机地址 */
         resp.setHeader("Access-Control-Allow-Origin", "*");
-        /* 允许跨域的请求方法GET, POST, HEAD 等 */
         resp.setHeader("Access-Control-Allow-Methods", "*");
-        /* 重新预检验跨域的缓存时间 (s) */
         resp.setHeader("Access-Control-Max-Age", "3600");
-        /* 允许跨域的请求头 */
         resp.setHeader("Access-Control-Allow-Headers", "*");
-        /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
         resp.setHeader("Access-Control-Expose-Headers", "*");
         FileInputStream fis = new FileInputStream(filepath + File.separator+ filename) ;
@@ -64,27 +59,7 @@ public class ResourceService extends HttpServlet {
         else if(filename.endsWith("ico")){
             resp.setContentType("image/x-icon");
         }
-//        else if(filename.endsWith("tif")||filename.endsWith("tiff")){
-//            resp.setContentType("image/tiff");
-//        }
-//        else if(filename.endsWith("wbmp")){
-//            resp.setContentType("image/vnd.wap.wbmp");
-//        }
-//        else if(filename.endsWith("avi")){
-//            resp.setContentType("video/avi");
-//        }
-//        else if(filename.endsWith("mp4")){
-//            resp.setContentType("video/mpeg4");
-//        }
-//        else if(filename.endsWith("wmv")){
-//            resp.setContentType("video/x-ms-wmv");
-//        }
-//        else if(filename.endsWith("wav")){
-//            resp.setContentType("audio/wav");
-//        }
-//        else if(filename.endsWith("wma")){
-//            resp.setContentType("audio/x-ms-wma");
-//        }
+
         else{
             resp.setStatus(410);
             return;

@@ -23,7 +23,7 @@ import java.io.PrintWriter;
 import java.util.List;
 
 @WebServlet(name = "nearuser", urlPatterns = "/nearuser")
-public class NearUserController extends HttpServlet {
+public class NearUserController extends HttpServlet {//get near users
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
@@ -33,15 +33,10 @@ public class NearUserController extends HttpServlet {
         String nickname=req.getParameter("nickname");
         resp.setCharacterEncoding("utf-8");
         resp.setContentType("application/json");
-        /* 允许跨域的主机地址 */
         resp.setHeader("Access-Control-Allow-Origin", "*");
-        /* 允许跨域的请求方法GET, POST, HEAD 等 */
         resp.setHeader("Access-Control-Allow-Methods", "*");
-        /* 重新预检验跨域的缓存时间 (s) */
         resp.setHeader("Access-Control-Max-Age", "3600");
-        /* 允许跨域的请求头 */
         resp.setHeader("Access-Control-Allow-Headers", "*");
-        /* 是否携带cookie */
         resp.setHeader("Access-Control-Allow-Credentials", "true");
         resp.setHeader("Access-Control-Expose-Headers", "*");
         JSONObject json = new JSONObject(true);
