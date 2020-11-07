@@ -8,6 +8,7 @@
   ~ Usage: define external path
   -->
 <resources>
+    <!--define the external path where we store our downloaded files-->
     <paths>
         <external-path name="external-path" path="" />
     </paths>

@@ -20,14 +20,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:defaultNavHost="true" />
-
+        <!--use linear layout-->
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/bottom_app_bar_content_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
+            <!--define webview-->
             <WebView
                 android:id="@+id/webView"
                 android:layout_width="fill_parent"

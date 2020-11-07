@@ -18,8 +18,8 @@ android {
         applicationId "com.burnmycalories.eastermap"
         minSdkVersion 21
         targetSdkVersion 27
-        versionCode 2
-        versionName "2.2"
+        versionCode 3
+        versionName "3.0.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     dataBinding {
