@@ -59,7 +59,7 @@
             <div class="delete" v-if="eggIsMine">
               <button type="button" class="btn btn-link" v-if="!confirmDelete" @click="confirmDelete = true"><i class="fas fa-trash-alt"></i></button>
               <span class="delete-confirm" v-if="confirmDelete">
-                Confirm Delete?
+                Confirm?
                 <button class="btn btn-outline-danger btn-sm ml-1" @click="deleteEgg()" :disabled="isDeleting">Delete</button>
                 <button class="btn btn-outline-primary btn-sm ml-1" @click="confirmDelete = false" :disabled="isDeleting">Cancel</button>
               </span>

@@ -233,7 +233,7 @@ i.fa-question {
   flex-direction: column;
 }
 .top .icon {
-  width: 1.7rem;
+  width: 1.5rem;
   margin-right: 0.3rem;
 }
 .sections .down {
@@ -271,7 +271,7 @@ i.fa-question {
   margin-bottom: .5rem;
 }
 .sections label {
-  width: 48%;
+  width: 49%;
   height: 3rem;
   display: flex;
   align-items: center;
