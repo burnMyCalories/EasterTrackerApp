@@ -4,7 +4,7 @@
 * Author: Binbin Tang , Jia Zhu , Quan Zhou , Weilun Chen , Xinnan Shen , and Zongdong Liu
 * Project 2 for COMP90018, 2020 S2
 * Time: 2020/10/22 23:24.
-* Usage: implementations of operations on egg
+* Usage: Binding
 */
 
 package com.burnmycalories.eastermap.util
