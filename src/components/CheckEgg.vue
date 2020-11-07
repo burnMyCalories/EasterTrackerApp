@@ -244,7 +244,7 @@ export default {
   .media-box {
     width: 100%;
     min-height: 3rem;
-    max-height: 12rem;
+    max-height: 11rem;
     display: flex;
     justify-content: center;
     border: 0.1rem solid #ccc;

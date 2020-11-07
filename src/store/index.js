@@ -75,9 +75,8 @@ export default createStore({
       console.log('Others updated', state.othersEggs, others)
     },
     updateFiredEgg (state, egg) {
-      console.log('Update  fired egg', egg)
       state.firedEgg = egg
-      console.log(state.firedEgg, egg)
+      console.log('Update fired egg', state.firedEgg, egg)
     },
     resetFiredEgg (state) {
       state.firedEgg = null
@@ -165,7 +164,7 @@ export default createStore({
     },
     checkFiredEgg (state, egg) {
       const _this = this
-
+      this.commit('resetFiredEgg')
       this.commit('updateAlert', {
         msg: 'Checking this egg...',
         sync: true
@@ -186,6 +185,7 @@ export default createStore({
       if (egg.eggIsMine) {
         egg.eggNotChecked = false
         _this.commit('updateFiredEgg', egg)
+        _this.commit('resetAlert')
         return
       }
 

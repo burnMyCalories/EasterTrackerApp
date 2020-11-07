@@ -204,7 +204,7 @@ export default {
   justify-content: space-between;
 }
 .gender-radios .radio-group .form-check-inline {
-  width: 30%;
+  width: 32%;
   margin: 0;
   display: flex;
   border: 1px solid #ccc;

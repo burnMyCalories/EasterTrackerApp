@@ -18,3 +18,7 @@ small.tips.tips-inline {
     display: inline;
     margin-left: 1rem;
 }
+a:hover, .btn-link:hover {
+    text-decoration: none;
+    box-shadow: none;
+}

@@ -310,7 +310,6 @@ i.fa-question {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* border: 0.05rem solid #ccc; */
   height: 5rem;
   padding: 0.7rem;
   margin-bottom: 0.7rem;
@@ -319,6 +318,7 @@ i.fa-question {
 }
 .info-list li .left {
   display: flex;
+  flex: 1;
 }
 
 .info-list li .left .text {
@@ -326,9 +326,10 @@ i.fa-question {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 0;
+  flex: 1;
 }
 .info-list li .left .text > span{
-    width: 10rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -345,6 +346,10 @@ i.fa-question {
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  flex-shrink: 0;
+}
+.info-list li .tools {
+  flex-shrink: 0;
 }
 .info-list li .tools button {
   width: 2rem;

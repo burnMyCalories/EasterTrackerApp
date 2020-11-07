@@ -100,10 +100,10 @@ export default {
   },
   beforeMount () {
     this.user = this.$store.state.currentUser
-    console.log(this.user)
     const today = new Date()
     const tomorrow = today.setDate(today.getDate() + 1)
     this.tomorrow = new Date(tomorrow).toISOString().substring(0, 10)
+    this.$store.commit('resetFiredEgg')
   },
   methods: {
     resetFile () {
@@ -132,7 +132,7 @@ export default {
     save () {
       const _this = this
 
-      console.log('submit')
+      console.log('save')
 
       const content = this.chooseType === 1 ? this.description : (contentURL + this.filename)
       const params = {
@@ -172,6 +172,7 @@ export default {
             type: 'success'
           })
           _this.close()
+          _this.loading = false
         })
       }).catch(err => {
         console.log(err)
@@ -181,8 +182,8 @@ export default {
             type: 'warning'
           })
         }
-      }).finally(() => {
         _this.loading = false
+      }).finally(() => {
       })
     },
     close () {
@@ -202,6 +203,10 @@ export default {
       const _this = this
       const inputDOM = document.getElementById('ipt_add_content')
       if (this.verifyInput() === false && inputDOM) {
+        return
+      }
+      if (this.verifyInput() && this.chooseType === 1) {
+        this.save()
         return
       }
 
