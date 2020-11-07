@@ -200,9 +200,9 @@ class MainActivity : AppCompatActivity() {
                 false
                 }
             }
-
         }
 
+        if (Build.VERSION.SDK_INT >= 21) {
 
         if (Build.VERSION.SDK_INT >= 23) {
 
@@ -270,6 +270,9 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+//--------------------------------------------------------------------------------------------------
+    fun check_permission(permission: Int): Boolean {
+        when (permission) {
 
 
 
@@ -433,6 +436,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+        return if (keyCode == KeyEvent.KEYCODE_BACK && webView.canGoBack()) {
+            webView.goBack()
+            true
+        }
+        else{
+            super.onKeyDown(keyCode, event)
+        }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
 
