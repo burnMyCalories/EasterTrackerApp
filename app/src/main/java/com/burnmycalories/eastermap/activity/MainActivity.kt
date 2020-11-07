@@ -55,17 +55,15 @@ class MainActivity : AppCompatActivity() {
     var ASWP_MULFILE = true // upload multiple files in webview
 
 
-    val url = "file:////android_asset/index.html"
-    private var uploadMessage: ValueCallback<Uri>? = null
-    private var uploadMessageAboveL: ValueCallback<Array<Uri>>? = null
-    lateinit var webView: WebView
+    val url = "file:////android_asset/index.html" //webview index page
+    lateinit var webView: WebView // global webview
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main);
-        val wview: WebView
-        wview = findViewById<View>(R.id.webView) as WebView
+        setContentView(R.layout.activity_main) //set view format of main activity
+        //define webview
+        val wview: WebView = findViewById<View>(R.id.webView) as WebView
         webView = wview
         webView.settings.javaScriptEnabled = true
         webView.settings.javaScriptCanOpenWindowsAutomatically = true
@@ -79,13 +77,17 @@ class MainActivity : AppCompatActivity() {
         webView.settings.builtInZoomControls = true
         webView.settings.setGeolocationDatabasePath(applicationContext.filesDir.toString())
         webView.webChromeClient = object : WebChromeClient() {
+            //make sure to use location of mobile phone
             override fun onGeolocationPermissionsShowPrompt(origin: String, callback: GeolocationPermissions.Callback) {
                 callback.invoke(origin, true, false)
                 super.onGeolocationPermissionsShowPrompt(origin, callback)
             }
 
 
-
+            //override filechooser function
+            //when an image is needed, ask for file or camera
+            //when an audio is needed, ask for file or recorder
+            //when a video is needed, ask for file or vidicon
             override fun onShowFileChooser(
                     webView: WebView,
                     filePathCallback: ValueCallback<Array<Uri>>,
@@ -108,14 +110,18 @@ class MainActivity : AppCompatActivity() {
                                 val splitTypes = acceptTypes.split(", ?+").toTypedArray()
                                 for (acceptType in splitTypes) {
                                     when (acceptType) {
+                                        //every file is accepted
                                         "*/*" -> {
                                             includeAudio = true
                                             includePhoto = true
                                             includeVideo = true
                                             break@paramCheck
                                         }
+                                        //audio only
                                         "audio/mp3" -> includeAudio = true
+                                        //image only
                                         "image/jpg" -> includePhoto = true
+                                        //video only
                                         "video/mp4" -> includeVideo = true
                                     }
                                 }
@@ -128,7 +134,7 @@ class MainActivity : AppCompatActivity() {
                                 includeVideo = true
                             }
 
-
+                            //audio is accepted
                             if (includeAudio){
                                 takeAudioIntent = Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION)
                                 if (takeAudioIntent.resolveActivity(this@MainActivity.packageManager) != null){
@@ -148,6 +154,8 @@ class MainActivity : AppCompatActivity() {
                                 }
                             }
 
+
+                            //image is accepted
                             if (includePhoto) {
                                 takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                                 if (takePictureIntent.resolveActivity(this@MainActivity.packageManager) != null) {
@@ -167,6 +175,7 @@ class MainActivity : AppCompatActivity() {
                                 }
                             }
 
+                            //video is included
                             if (includeVideo) {
                                 takeVideoIntent = Intent(MediaStore.ACTION_VIDEO_CAPTURE)
                                 if (takeVideoIntent.resolveActivity(this@MainActivity.packageManager) != null) {
@@ -221,20 +230,26 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        //ask user for permission
         if (Build.VERSION.SDK_INT >= 21) {
-
+            //if user has not grant permissions
             if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, android.Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.BLUETOOTH)!= PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)!= PackageManager.PERMISSION_GRANTED ) {
+                //requires permission
                 Log.i(TAG,"Need permission")
 
                 ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO, Manifest.permission.BLUETOOTH, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE), 1)
-            } else {
+            } else {//permission already granted
                 Log.i(TAG,"Permission Success")
-                startWebView(webView)
+                startWebView(webView)//start webview
             }
+        }
+        else{//no need ask for permission
+            startWebView(webView)
         }
 
     }
 
+    //start the main page of webview
     fun startWebView(wview: WebView) {
         wview.loadUrl(url)
         wview.setWebViewClient(object : WebViewClient() {
@@ -250,38 +265,39 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
+    //dealing with the result of requesting permission from user
     override fun onRequestPermissionsResult(
             requestCode: Int,
             permissions: Array<String>,
             grantResults: IntArray) {
         when (requestCode) {
+            //filter by the code with which the app requests permission from user
             1 -> {
 
                 // If request is cancelled, the result arrays are empty.
                 if ((grantResults.isNotEmpty() &&
                                 grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-                    // Permission is granted. Continue the action or workflow
-                    // in your app.
+                    // Permission is granted.
+                    // Start Webview
                     startWebView(webView)
 
                 } else {
-
+                    // Permission Denied
+                    // Quit Process
                     System.exit(0)
                 }
                 return
             }
 
-            // Add other 'when' lines to check for other
-            // permissions this app might request.
+            // no other requests
             else -> {
-                // Ignore all other requests.
+
             }
         }
     }
 
 
-    //--------------------------------------------------------------------------------------------------
+    //check for required permissions when browsing files
     fun check_permission(permission: Int): Boolean {
         when (permission) {
 
@@ -291,16 +307,8 @@ class MainActivity : AppCompatActivity() {
         }
         return false
     }
-/*
-    private fun openImageChooserActivity() {
-        val i = Intent(Intent.ACTION_GET_CONTENT)
-        i.addCategory(Intent.CATEGORY_OPENABLE)
-        i.type = "image/jpg"
-        startActivityForResult(Intent.createChooser(i, "Image Chooser"), FILE_CHOOSER_RESULT_CODE)
-    }
 
- */
-
+    //create required audio for upload
     @Throws(IOException::class)
     private fun create_audio(): File? {
         @SuppressLint("SimpleDateFormat") val file_name = SimpleDateFormat("yyyy_mm_ss").format(Date())
@@ -327,7 +335,7 @@ class MainActivity : AppCompatActivity() {
         return File.createTempFile(new_name, ".mp4", sd_directory)
     }
 
-
+    //get files
     fun get_file() {
         val perms = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
 
@@ -345,64 +353,19 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-//--------------------------------------------------------------------------------------------------
-/*
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == FILE_CHOOSER_RESULT_CODE) {
-            if (null == uploadMessage && null == uploadMessageAboveL) return
-            val result = if (data == null || resultCode != Activity.RESULT_OK) null else data.data
-            if (uploadMessageAboveL != null) {
-                onActivityResultAboveL(requestCode, resultCode, data)
-            } else if (uploadMessage != null) {
-                uploadMessage!!.onReceiveValue(result)
-                uploadMessage = null
-            }
-        }
-    }
 
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private fun onActivityResultAboveL(requestCode: Int, resultCode: Int, intent: Intent?) {
-        if (requestCode != FILE_CHOOSER_RESULT_CODE || uploadMessageAboveL == null)
-            return
-        var results: Array<Uri>? = null
-        if (resultCode == Activity.RESULT_OK) {
-            if (intent != null) {
-                val dataString = intent.dataString
-                val clipData = intent.clipData
-                if (clipData != null) {
-                    results = Array(clipData.itemCount) { i ->
-                        clipData.getItemAt(i).uri
-                    }
-                }
-                if (dataString != null)
-                    results = arrayOf(Uri.parse(dataString))
-            }
-        }
-        uploadMessageAboveL!!.onReceiveValue(results)
-        uploadMessageAboveL = null
-    }
 
-
- */
-
-//
-//    companion object {
-//        private val FILE_CHOOSER_RESULT_CODE = 10000
-//    }
-
+    //get the result of activities (mainly for browsing files)
     override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?) {
         super.onActivityResult(requestCode, resultCode, intent)
         if (Build.VERSION.SDK_INT >= 21) {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-//            window.statusBarColor = resources.getColor(R.color.colorPrimary)
+
             var results: Array<Uri>? = null
             if (resultCode == RESULT_CANCELED) {
                 if (requestCode == asw_file_req) {
-                    // If the file request was cancelled (i.e. user exited camera),
-                    // we must still send a null value in order to ensure that future attempts
-                    // to pick files will still work.
+                    //the action is cancelled
                     asw_file_path!!.onReceiveValue(null)
                     return
                 }
@@ -450,13 +413,17 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+    //if the system key of default system is pressed, override actions
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
 
+        //mainly override back key, to avoid quitting the app
         return if (keyCode == KeyEvent.KEYCODE_BACK && webView.canGoBack()) {
             webView.goBack()
             true
         }
         else{
+            //if not the key, perform normal actions
             super.onKeyDown(keyCode, event)
         }
 

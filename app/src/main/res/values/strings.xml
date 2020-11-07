@@ -8,7 +8,7 @@
   ~ Usage: define app name
   -->
 <resources>
-
+    <!--name of app-->
     <string name="app_name">EasterTracker Map</string>
 
 </resources>

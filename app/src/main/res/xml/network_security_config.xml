@@ -8,5 +8,6 @@
   ~ Usage: let http work properly
   -->
 <network-security-config>
+    <!--config networks to enable traditional http-->
     <base-config cleartextTrafficPermitted="true" />
 </network-security-config>
