@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2020.  Easter Egg Mapp App
+ * Group: Burn My Calories
+ * Author: Binbin Tang , Jia Zhu , Quan Zhou , Weilun Chen , Xinnan Shen , and Zongdong Liu
+ * Project 2 for COMP90018, 2020 S2
+ * Time: Nov. 2020
+ * Usage: The Navigition Bar Component of this App
+ */
+
 <template>
   <div class="navbar">
     <router-link to="/home/circle"><button class="btn btn-link"><img class="icon" src="../../static/icons/circle.png" alt="">Circle</button></router-link>

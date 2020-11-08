@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2020.  Easter Egg Mapp App
+ * Group: Burn My Calories
+ * Author: Binbin Tang , Jia Zhu , Quan Zhou , Weilun Chen , Xinnan Shen , and Zongdong Liu
+ * Project 2 for COMP90018, 2020 S2
+ * Time: Nov. 2020
+ * Usage: The Register Page, show up when register a new user
+ */
 <template>
   <div id="register" class="my-container">
     <h1 class="title">Register</h1>
@@ -17,21 +25,7 @@
         <small class="tips">Two inputed password should be the same</small>
         <input type="password" class="form-control" id="ipt_reg_cpwd" name="cpwd" autocomplete="new-password" v-model="cpassword" @blur="verifyCPwd()">
       </div>
-      <!-- <div class="form-group">
-        <label for="">Contact Infomation</label>
-        <small class="d-block text-black-50">Contact information is only used for password retrieval</small>
-        <div class="d-flex justify-content-between">
-          <div class="form-check form-check form-control">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="email">
-            <label class="form-check-label" for="inlineRadio1">Email</label>
-          </div>
-          <div style="width:1rem;"></div>
-          <div class="form-check form-check form-control">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="phone">
-            <label class="form-check-label" for="inlineRadio1">Phone</label>
-          </div>
-        </div>
-      </div> -->
+
       <div class="form-group">
         <label for="ipt_reg_email" v-if="contactIsEmail">Email</label>
         <small class="tips">Your email will only be used for password retrieval</small>
