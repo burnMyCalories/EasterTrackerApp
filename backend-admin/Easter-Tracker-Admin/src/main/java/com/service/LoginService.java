@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet(name = "login", urlPatterns = "/login")
-public class LoginService extends HttpServlet {
+public class LoginService extends HttpServlet {//user login
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");

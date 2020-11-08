@@ -23,7 +23,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 @WebServlet(name = "timezone", urlPatterns = "/timezone")
-public class TimeZoneService extends HttpServlet {
+public class TimeZoneService extends HttpServlet {//get server's timezone
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");

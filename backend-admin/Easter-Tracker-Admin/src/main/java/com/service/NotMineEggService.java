@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet(name = "othersegg", urlPatterns = "/othersegg")
-public class NotMineEggService extends HttpServlet {
+public class NotMineEggService extends HttpServlet {//get others' eggs
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");

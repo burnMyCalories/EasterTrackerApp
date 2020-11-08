@@ -19,7 +19,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 @WebServlet(name = "resource", urlPatterns = "/fileres")
-public class ResourceService extends HttpServlet {
+public class ResourceService extends HttpServlet {//show resource files (eg. image) in browser
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");

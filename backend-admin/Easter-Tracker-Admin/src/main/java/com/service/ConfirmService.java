@@ -32,7 +32,7 @@ import java.util.*;
 public class ConfirmService extends HttpServlet {
     @SneakyThrows
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {//verify mobile or email
         req.setCharacterEncoding("utf-8");
         String email=req.getParameter("email");
         String mobile=req.getParameter("mobile");

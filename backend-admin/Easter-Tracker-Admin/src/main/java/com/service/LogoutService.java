@@ -22,7 +22,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 @WebServlet(name = "logout", urlPatterns = "/logout")
-public class LogoutService extends HttpServlet {
+public class LogoutService extends HttpServlet {//user logout
     @Override
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("utf-8");
