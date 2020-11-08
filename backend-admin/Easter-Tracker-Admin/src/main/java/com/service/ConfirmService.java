@@ -47,7 +47,7 @@ public class ConfirmService extends HttpServlet {
         JSONObject json = VerifyUtils.generate();
         String code = json.getString("code");
         if(mobile!=null){//send sms
-            ZhenziSmsClient client = new ZhenziSmsClient("https://sms_developer.zhenzikj.com", "101531", "a60b64c8-da54-4ae7-a148-7b7c33887498");
+            ZhenziSmsClient client = new ZhenziSmsClient("*******", "********", "************");
             Map<String, Object> map = new HashMap<>();
             map.put("number", mobile);
             map.put("templateId", "2071");
@@ -66,8 +66,8 @@ public class ConfirmService extends HttpServlet {
         }
         else if(email!=null){//send email
             String to = email;
-            String from = "543777820@qq.com";
-            String host = "smtp.qq.com";
+            String from = "************";
+            String host = "***********";
             Properties properties = System.getProperties();
             properties.setProperty("mail.smtp.host", host);
             properties.put("mail.smtp.auth", "true");
@@ -78,7 +78,7 @@ public class ConfirmService extends HttpServlet {
             Session session = Session.getDefaultInstance(properties,new Authenticator(){
                 public PasswordAuthentication getPasswordAuthentication()
                 {
-                    return new PasswordAuthentication("543777820@qq.com", "yujzducclsjwbdaj"); //发件人邮件用户名、密码
+                    return new PasswordAuthentication("***************", "*************");
                 }
             });
 
