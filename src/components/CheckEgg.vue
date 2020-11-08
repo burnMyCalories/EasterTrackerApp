@@ -24,7 +24,7 @@
           <div class="modal-body" v-if="(eggExpire || eggFaraway) && !eggIsMine && eggNotChecked">
             <h4>Sorry... 😭 </h4>
             <p v-if="eggExpire">This egg is expired... You should come a little earlier...😔</p>
-            <p v-if="eggFaraway">This egg is toooooo far away from your position. Try to get closer! 💪</p>
+            <p v-else-if="eggFaraway">This egg is toooooo far away from your position. Try to get closer! 💪</p>
             <button class="btn btn-primary" @click="close()">Fine</button>
           </div>
 
@@ -110,8 +110,8 @@ export default {
       }
       return date[0]
     },
-    isMyEgg () {
-      return this.firedEgg.user.username === this.myName
+    eggExpire () {
+      return this.$store.state.firedEgg.eggExpire
     },
     mypos () {
       return new window.google.maps.LatLng({ lat: this.$store.state.myLatitude, lng: this.$store.state.myLongitude })
@@ -131,7 +131,6 @@ export default {
   },
   data () {
     return {
-      eggExpire: false,
       eggType: 1,
       show: false,
       myName: '',

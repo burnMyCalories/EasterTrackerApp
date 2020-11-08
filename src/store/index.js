@@ -203,7 +203,7 @@ export default createStore({
       const eggname = egg.name
 
       if (egg.unknownCreater) {
-        // 别人的蛋 我发现过了（来自Found列表） 但不知道是谁埋的 => 查询谁埋的
+        // Other'e eggs which I found（from Found list） unknown creater => find who created it
         egg.eggNotChecked = false
         axios.get(`/action?uuname=${myname}&egg_id=${eggid}&egg_name=${eggname}&action=1`)
           .then(res => {
@@ -214,7 +214,7 @@ export default createStore({
             _this.commit('resetAlert')
           })
       } else {
-        // 别人的蛋 我不知道发没发现过（来自地图和Friends'列表）=> 查询是否发现
+        // Other's eggs, don't know if I have found it（from Map and Friends' list）=> query if I have found this
         const myid = cu.id
         axios.get(`/action?uuname=${myname}&user_id=${myid}&egg_id=${eggid}&egg_name=${eggname}&action=2`)
           .then(_res => {
