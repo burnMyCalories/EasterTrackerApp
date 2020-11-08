@@ -14,7 +14,7 @@ import com.alibaba.fastjson.JSONObject;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Random;
-
+//generate verify code and expire date
 public class VerifyUtils {
     private static Date expire_time;
     private static String verification_code;

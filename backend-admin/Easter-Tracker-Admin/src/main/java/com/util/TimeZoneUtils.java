@@ -12,7 +12,7 @@ package com.util;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
 import java.util.Date;
-
+//get server's timezone
 public class TimeZoneUtils {
     public static String getTimeZone(){
         return DateFormatUtils.format(new Date(), "z")+DateFormatUtils.format(new Date(), "Z");

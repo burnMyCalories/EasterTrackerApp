@@ -15,7 +15,7 @@ public class DistanceUtils {
         return d * Math.PI / 180.0;
     }
 
-
+    //calculate distance between two points
     public static double getDistance(double lat1, double lng1, double lat2,
                                      double lng2) {
         double radLat1 = rad(lat1);

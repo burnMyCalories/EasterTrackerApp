@@ -18,6 +18,7 @@ import java.util.Map;
 public class LoginUtils {
     private static long last_login_time = 0L;
     private static Map<String,Long> map = new HashMap<>();
+    //check whether user has logged in
     public static boolean isLogin(String username){
         long current = System.currentTimeMillis();
         long last_login_time = 0L;
@@ -28,6 +29,8 @@ public class LoginUtils {
 
 
     }
+    //update user operations
+    //if no operations during 10 minutes, log out automatically
     public static void operate(String username){
         if(username!=null){
             map.put(username,System.currentTimeMillis());

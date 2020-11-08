@@ -18,6 +18,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.util.*;
 
 public class CRUDUtils {
+    //CRUD on user
     public static JSONObject addUser(String username,String password,String gender,String nickname,String contact,String latitude,String longitude){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         UserMapper mapper = context.getBean("userMapper", UserMapper.class);
@@ -201,6 +202,7 @@ public class CRUDUtils {
         json.put("rows",list.size());
         return json;
     }
+    //CRUD on friendship
     public static JSONObject addFriendship(String userfrom_id,String userto_id){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         FriendshipMapper mapper = context.getBean("friendshipMapper", FriendshipMapper.class);
@@ -286,6 +288,7 @@ public class CRUDUtils {
         json.put("rows",res);
         return json;
     }
+    //CRUD on message
     public static JSONObject addMessage(String friend_id,String type,String content){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         MessageMapper mapper = context.getBean("messageMapper", MessageMapper.class);
@@ -374,6 +377,7 @@ public class CRUDUtils {
         json.put("rows",list.size());
         return json;
     }
+    //CRUD on eggs
     public static JSONObject addEgg(String name,String color,String type,String latitude,String longitude,String content,String expire_time){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         EggMapper mapper = context.getBean("eggMapper", EggMapper.class);
@@ -543,6 +547,7 @@ public class CRUDUtils {
         json.put("rows",list.size());
         return json;
     }
+    //CRUD on actions
     public static JSONObject addAction(String user_id,String egg_id,String action){
         ApplicationContext context = new ClassPathXmlApplicationContext("spring-dao.xml");
         UserEggActionMapper mapper = context.getBean("userEggActionMapper", UserEggActionMapper.class);
