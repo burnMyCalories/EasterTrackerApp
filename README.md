@@ -18,13 +18,12 @@ This is a geographic location-based social application. Friends can bury each ot
 
 ### FrontEnd Technology
 
-
 - Vue: Front-end framework
 - Vuex: Global state management
 - Vue-Router: Front-end routing management
-- Axios AJAX(Asynchronous JavaScript And XML):
+- Axios: AJAX communication component
 - Google Maps JavaScript: API for map rendering and geographic information processing
-- BootStrap & AwesomeFont: Basic UI
+- BootStrap & AwesomeFont: Basic UI frame and icons
 
 ### BackEnd Technology
 
