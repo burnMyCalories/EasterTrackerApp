@@ -41,9 +41,6 @@ This is a geographic location-based social application. Friends can bury each ot
 
 - **static**: Static files for the program
 
-## Instructions for use
-
-
 
 ## Project setup
 ```
