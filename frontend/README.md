@@ -8,9 +8,9 @@ This is a geographic location-based social application. Friends can bury each ot
 - Vue: Front-end framework
 - Vuex: Global state management
 - Vue-Router: Front-end routing management
-- Axios AJAX(Asynchronous JavaScript And XML):
+- Axios: AJAX communication
 - Google Maps JavaScript: API for map rendering and geographic information processing
-- BootStrap & AwesomeFont: Basic UI
+- BootStrap & AwesomeFont: Basic UI frame and icons
 
 ## Directory
 
