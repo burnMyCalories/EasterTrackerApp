@@ -2800,8 +2800,3 @@ Actions -> "put" or  "get"
 ## Demo
 
 The demo website can be accessed here: http://104.168.190.12:8080/EasterTracker/
-
-## CopyRight
-
-Copyright © 2020, Team: `Burn My Calories`, release under [Apache-2.0 License](https://github.com/burnMyCalories/EasterEggMap-Backend/blob/main/LICENSE).
-
