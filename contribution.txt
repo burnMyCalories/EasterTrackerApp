@@ -1,8 +1,8 @@
 Team member and Contributions:
 
-1: Binbin Tang -- [Contributions]
-2: Jia Zhu -- [Contributions]
-3: Quan Zhou -- [Contributions] 
-4: Weilun Chen -- [Contributions]
-5: Xinnan Shen -- backend part coding
-6: Zongdong Liu -- [Contributions]
+1: Binbin Tang -- UI\UX Design
+2: Jia Zhu -- UI\UX Design
+3: Quan Zhou -- Front-end Development
+4: Weilun Chen -- Mobile Development
+5: Xinnan Shen -- Back-end Development
+6: Zongdong Liu -- Testing & Presentation
