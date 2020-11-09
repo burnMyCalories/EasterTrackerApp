@@ -3,6 +3,6 @@ Team member and Contributions:
 1: Binbin Tang -- UI\UX Design
 2: Jia Zhu -- UI\UX Design
 3: Quan Zhou -- Front-end Development
-4: Weilun Chen -- Mobile Development
+4: Weilun Chen -- Kotlin Native Development
 5: Xinnan Shen -- Back-end Development
 6: Zongdong Liu -- Testing & Presentation
