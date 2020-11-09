@@ -275,16 +275,20 @@ class MainActivity : AppCompatActivity() {
             1 -> {
 
                 // If request is cancelled, the result arrays are empty.
-                if ((grantResults.isNotEmpty() &&
-                                grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                if (grantResults.isNotEmpty()) {
+                    for (result in grantResults) {
+                        if (result!=PackageManager.PERMISSION_GRANTED){
+                            // Permission Denied
+                            permission_denied()
+                        }
+                    }
                     // Permission is granted.
                     // Start Webview
                     startWebView(webView)
 
                 } else {
                     // Permission Denied
-                    // Quit Process
-                    System.exit(0)
+                    permission_denied()
                 }
                 return
             }
@@ -296,6 +300,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    fun permission_denied(){
+        System.exit(0)
+    }
 
     //check for required permissions when browsing files
     fun check_permission(permission: Int): Boolean {
